@@ -1,0 +1,130 @@
+\documentclass[a4paper,parskip=half,11pt,ngerman]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{scrpage2}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage{csquotes}
+\hypersetup{pdfinfo={Title={Algebraische Geometrie II}, Author={Johannes Loher}}}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\swapnumbers
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{satz}[thm]{Satz}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{kor}[thm]{Korollar}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{bsp}[thm]{Beispiel}
+\newtheorem{bem}[thm]{Bemerkung}
+\newtheorem{warn}[thm]{Warnung}
+\newtheorem*{bem*}{Bemerkung}
+\newtheorem*{bsp*}{Beispiel}
+
+\newcommand{\N}{\mathbb {N}}
+\newcommand{\Z}{\mathbb {Z}}
+\newcommand{\Q}{\mathbb {Q}}
+\newcommand{\R}{\mathbb {R}}
+\newcommand{\C}{\mathbb {C}}
+\newcommand{\K}{\mathbb {K}}
+\newcommand{\A}{\mathbb {A}}
+\newcommand{\F}{\mathbb {F}}
+
+\newcommand{\Vect}{\operatorname{Vect}}
+\newcommand{\Set}{\operatorname{Set}}
+\newcommand{\Mod}{\operatorname{Mod}}
+\newcommand{\Grp}{\operatorname{Grp}}
+\newcommand{\Top}{\operatorname{Top}}
+\newcommand{\Ab}{\operatorname{Ab}}
+\newcommand{\Nat}{\operatorname{Nat}}
+\newcommand{\Op}{\operatorname{Op}}
+\newcommand{\PMod}{\operatorname{PMod}}
+\newcommand{\Sh}{\operatorname{Sh}}
+\newcommand{\PSh}{\operatorname{PSh}}
+
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\laplace}{\Delta}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\covariant}[1][dt]{\frac{\nabla}{#1}}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\codom}{\operatorname{codom}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\EW}{\operatorname{E}}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Quot}{\operatorname{Quot}}
+\newcommand{\Pot}{\mathcal{P}}
+\newcommand{\Mat}{\operatorname{M}}
+\newcommand{\Hess}{\operatorname{Hess}}
+
+\newcommand{\Tgroup}{\operatorname{T}}
+\newcommand{\Ogroup}{\operatorname{O}}
+\newcommand{\SOgroup}{\operatorname{SO}}
+\newcommand{\Ggroup}{\operatorname{G}}
+\newcommand{\SGgroup}{\operatorname{SG}}
+\newcommand{\Agroup}{\operatorname{A}}
+\newcommand{\SAgroup}{\operatorname{SA}}
+\newcommand{\GLgroup}{\operatorname{GL}}
+\newcommand{\SLgroup}{\operatorname{SL}}
+
+
+\newcommand{\abs}[1]{\left \lvert #1 \right \rvert}
+\newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\Mipo}{\operatorname{Mipo}}
+\newcommand{\ord}{\operatorname{ord}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\dcup}{\mathbin{\dot{\cup}}}
+
+% matrices will take an optional argument for format (like arrays)
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}
+}
+\makeatother
+
+\newenvironment{smallpmatrix}{\left( \begin{smallmatrix}}{\end{smallmatrix} \right)}
+\newenvironment{smallbmatrix}{\left[ \begin{smallmatrix}}{\end{smallmatrix} \right]}
+\newenvironment{smallBmatrix}{\left\lbrace \begin{smallmatrix}}{\end{smallmatrix} \right\rbrace}
+\newenvironment{smallvmatrix}{\left\vert \begin{smallmatrix}}{\end{smallmatrix} \right\vert}
+\newenvironment{smallVmatrix}{\left\Vert \begin{smallmatrix}}{\end{smallmatrix} \right\Vert}
+
+% provide commands to create verical lines, that take up no space
+\newcommand{\lvline}[1]{\multicolumn{1}{|c}{#1}}
+\newcommand{\rvline}[1]{\multicolumn{1}{c|}{#1}}
+
+\begin{document}
+\author{Johannes Loher}
+\title{Algebraische Geometrie II}
+\subtitle{Inoffizielles Vorlesungsskript zur Vorlesung Algebraische Geometrie II von Prof. Walter Gubler im Sommersemester 2014 an der Universität Regensburg}
+\date{\today}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\newpage
+
+\input{chapter_1}
+
+\end{document}
