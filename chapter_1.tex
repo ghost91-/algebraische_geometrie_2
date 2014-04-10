@@ -123,13 +123,13 @@ $X$ sei ein topologischer Raum.
 \begin{defn}
 	Sei $\mathcal{F}$ eine Prägarbe auf $X$, dann verallgemeinern wir die obige Konstruktion. Sei $x \in X$. Wir betrachten die Menge $\{(U,s)\mid s \in \mathcal{F}(U),\; U \text{ offene Umgebung von } x\}$. Wir definieren auf diser Menge eine Relation auf folgende Weise: Es gelte	$(U,s) \sim (V,t)$ genau dann, wenn es eine offene Umgebung $W\subseteq U \cap V$ von $x$ mit $\rho_{UW}(s) = \rho_{VW}(t)$ gibt. Man zeigt leicht, dass dies eine Äquivalenzrelation ist. Der \textbf{Halm} $\mathcal{F}_x$ ist definiert als der Raum der Äquivalenzklassen bezüglich dieser Äquivalenzrelation. Dies ist eine abelsche Gruppe:
 	\[
-		[(U_1,s_1)] + [(U_2,s_2)] = [(U_1 \cap U_2, \rho_{U_1U_1\cap U_2}(s_1) + \rho_{U_2U_1\cap U_2}(s_2).
+		[(U_1,s_1)] + [(U_2,s_2)] = [(U_1 \cap U_2, \rho_{U_1U_1\cap U_2}(s_1) + \rho_{U_2U_1\cap U_2}(s_2)].
 	\]
 	Wir schreiben auch $s_x$ anstatt von $[(U,s)] \in \mathcal{F}_x$.
 \end{defn}
 
 \begin{defn}
-	Ein \textbf{Homomorhismus} $\varphi: \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U:\mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
+	Ein \textbf{Homomorphismus} $\varphi: \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U:\mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
 	\begin{center}
 		\begin{tikzcd}
 			\mathcal{F}(U) \arrow{r}{\varphi_U} \arrow{d}[swap]{\rho_{UV}} & \mathcal{G}(U)\arrow{d}{\rho_{UV}}\\
@@ -148,5 +148,5 @@ $X$ sei ein topologischer Raum.
 	\begin{proof}
 		Dies ist eine einfache Übung.
 	\end{proof}
-	Beachte, dass diese Aussage nicht für Prögarben gilt.
+	Beachte, dass diese Aussage nicht für Prägarben gilt.
 \end{prop}
