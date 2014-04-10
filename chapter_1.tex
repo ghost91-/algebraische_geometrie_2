@@ -72,7 +72,7 @@ $X$ sei ein topologischer Raum.
 
 \begin{bsp}
 \label{bsp:1.7}
-	Seien $X,S$ topologische Räume und $\pi:S\to X$ eine Abbildung mit folgenden Eigenschaften:
+	Seien $X,S$ topologische Räume und $\pi\colon S\to X$ eine Abbildung mit folgenden Eigenschaften:
 	\begin{enumerate}[a)]
 		\setcounter{enumi}{8}
 		\item $\pi$ ist surjektiv und ein lokaler Homöomorphismus.
@@ -81,11 +81,11 @@ $X$ sei ein topologischer Raum.
 	\end{enumerate}
 	Die Abbildung $\pi$ heißt \textbf{Projektion} und $\pi^{-1}(x)$ heißt \textbf{Faser} von $x$.
 	\begin{itemize}
-		\item Sei $U \subseteq X$ offen. Eine stetige Funktion $f:U \to S$ heißt \textbf{Schnitt}, wenn $\pi \circ f = \id_U$, das heißt für alle $x \in U$ gilt $f(x) \in \pi^{-1}(x)$.
+		\item Sei $U \subseteq X$ offen. Eine stetige Funktion $f\colon U \to S$ heißt \textbf{Schnitt}, wenn $\pi \circ f = \id_U$, das heißt für alle $x \in U$ gilt $f(x) \in \pi^{-1}(x)$.
 		\item Es gibt einen kanonischen globalen Schnitt $X \to S, \; x \mapsto 0_x \in f^{-1}(x)$, den wir \textbf{Nullschnitt} nennen.
 		\item Mit $\Gamma(U,S)$ bezeichnen wir den Raum der Schnitte von $S$ über $U$, wir setzen also
 		\[
-			\Gamma(U,S) \coloneqq \{d\colon U\to S \mid f \text{ stetig},\; \pi\circ f = \id_U\}.
+			\Gamma(U,S) \coloneqq \{f\colon U\to S \mid f \text{ stetig},\; \pi\circ f = \id_U\}.
 		\]
 	\end{itemize}
 	\textbf{Behauptung:} Die Abbildung $U \mapsto \Gamma(U,S)$ zusammen mit der Restriktion $\rho_{UV}(f) \coloneqq f\vert_V$ ist eine Garbe.
@@ -103,7 +103,7 @@ $X$ sei ein topologischer Raum.
 \end{bsp*}
 
 \begin{bem}
-	Das Beispiel~\ref{bsp:1.7} erklärt die abstrakten Begriffe aus Definition~\ref{defn:1.1}. Wir werden sehen, dass jede Garbe durch einen topologischen Raum $S$ und eine Abbildung $\pi:S \to X$ wie in Beispiel~\ref{bsp:1.7} dargestellt werden kann.
+	Das Beispiel~\ref{bsp:1.7} erklärt die abstrakten Begriffe aus Definition~\ref{defn:1.1}. Wir werden sehen, dass jede Garbe durch einen topologischen Raum $S$ und eine Abbildung $\pi\colon S \to X$ wie in Beispiel~\ref{bsp:1.7} dargestellt werden kann.
 \end{bem}
 
 \begin{bsp}
