@@ -8,12 +8,12 @@ $X$ sei ein topologischer Raum.
 	Eine \textbf{Prägarbe} $\mathcal{F}$ (von abelschen Gruppen) auf $X$ besteht aus folgenden Daten:
 	\begin{enumerate}[a)]
 		\item Für alle $U$ offen in $X$ sein $\mathcal{F}(U)$ eine abelsche Gruppe.
-		\item Für alle $V \subseteq U$ offen in $X$ sei $\rho_{UV}:\mathcal{F}(U)\to\mathcal{F}(V)$ ein Homomorphismus.
+		\item Für alle $V \subseteq U$ offen in $X$ sei $\rho_{UV}\colon\mathcal{F}(U)\to\mathcal{F}(V)$ ein Homomorphismus.
 		\item Es sei $\mathcal{F}(\emptyset) = 0$.
 		\item Für alle $U$ offen in $X$ sei $\rho_{UU} = \id_{\mathcal{F}(U)}$.
 		\item Für alle $W \subseteq V \subseteq U$ offen in $X$ sei $\rho_{UW} = \rho_{VW} \circ \rho_{UV}$.
 	\end{enumerate}
-	Die Elemente von $\mathcal{F}(U)$ heißen \textbf{Schnitte} von $\mathcal{F}$ über $U$. Der Homomorphismus $\rho_{UV}:\mathcal{F}(U)\to\mathcal{F}(V)$ heißt \textbf{Restriktionsabbildung} von $U$ auf die offene Teilmenge $V$ von $U$
+	Die Elemente von $\mathcal{F}(U)$ heißen \textbf{Schnitte} von $\mathcal{F}$ über $U$. Der Homomorphismus $\rho_{UV}\colon\mathcal{F}(U)\to\mathcal{F}(V)$ heißt \textbf{Restriktionsabbildung} von $U$ auf die offene Teilmenge $V$ von $U$
 \end{defn}
 
 \begin{bem}
@@ -45,11 +45,11 @@ $X$ sei ein topologischer Raum.
 \label{bsp:1.5}
 	Sei $x$ ein topologischer Raum. Für $U$ offen in $X$ sei
 	\[
-		\mathcal{F}(U)\coloneqq \{f:U\to \R \mid f \text{ ist Funktion}\}.
+		\mathcal{F}(U)\coloneqq \{f\colon U\to \R \mid f \text{ ist Funktion}\}.
 	\]
 	Dies ist eine Garbe (abelscher Gruppen und sogar $\R$-Algebren) und die Restirktionsabbildungen sind gegeben durch:
 	\[
-		\rho_{UV}:\mathcal{F}(U) \to \mathcal{F}(V),\; f \mapsto f\vert_V
+		\rho_{UV}\colon\mathcal{F}(U) \to \mathcal{F}(V),\; f \mapsto f\vert_V
 	\]
 	Die Menge der stetigen Funktionen $C(U)$ liefert eine \textbf{Untergarbe} $\mathcal{F}'$ von $\mathcal{F}$ ($\mathcal{F}'(U)\coloneqq C(U)$), das heißt $\mathcal{F}'$ ist auch eine Garbe, es gilt $\mathcal{F}'(U)\subseteq \mathcal{F}(U)$ für alle $U$ offen und für die Restriktionen ist folgendes Diagramm kommutativ:
 	\begin{center}
@@ -85,7 +85,7 @@ $X$ sei ein topologischer Raum.
 		\item Es gibt einen kanonischen globalen Schnitt $X \to S, \; x \mapsto 0_x \in f^{-1}(x)$, den wir \textbf{Nullschnitt} nennen.
 		\item Mit $\Gamma(U,S)$ bezeichnen wir den Raum der Schnitte von $S$ über $U$, wir setzen also
 		\[
-			\Gamma(U,S) \coloneqq \{d:U\to S \mid f \text{ stetig},\; \pi\circ f = \id_U\}.
+			\Gamma(U,S) \coloneqq \{d\colon U\to S \mid f \text{ stetig},\; \pi\circ f = \id_U\}.
 		\]
 	\end{itemize}
 	\textbf{Behauptung:} Die Abbildung $U \mapsto \Gamma(U,S)$ zusammen mit der Restriktion $\rho_{UV}(f) \coloneqq f\vert_V$ ist eine Garbe.
@@ -119,7 +119,7 @@ $X$ sei ein topologischer Raum.
 \end{defn}
 
 \begin{defn}
-	Ein \textbf{Homomorphismus} $\varphi: \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U:\mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
+	Ein \textbf{Homomorphismus} $\varphi \colon \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U \colon \mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
 	\begin{center}
 		\begin{tikzcd}
 			\mathcal{F}(U) \arrow{r}{\varphi_U} \arrow{d}[swap]{\rho_{UV}} & \mathcal{G}(U)\arrow{d}{\rho_{UV}}\\
@@ -128,13 +128,13 @@ $X$ sei ein topologischer Raum.
 	\end{center}
 	für alle $V \subseteq U$ offen in $X$ kommutiert.
 
-	Wir können Homomorphismen $\varphi:\mathcal{F}\to \mathcal{G}$ und $\psi:\mathcal{G} \to \mathcal{H}$ von (Prä-)Garben zu einem Homomorphismus $\psi\circ \varphi:\mathcal{F} \to \mathcal{H}$ verknüpfen. Damit können wir auch Isomorphismen von (Prä-)Garben definieren.
+	Wir können Homomorphismen $\varphi \colon \mathcal{F}\to \mathcal{G}$ und $\psi \colon \mathcal{G} \to \mathcal{H}$ von (Prä-)Garben zu einem Homomorphismus $\psi\circ \varphi \colon \mathcal{F} \to \mathcal{H}$ verknüpfen. Damit können wir auch Isomorphismen von (Prä-)Garben definieren.
 
 	Die (Prä-)Garben bilden eine Kategorie.
 \end{defn}
 
 \begin{prop}
-	Sei $\varphi: \mathcal{F} \to \mathcal{G}$ ein Homomorphismus von Garben auf $X$. Dann ist $\varphi$ genau dann ein Isomorphismus von Garben, wenn $\varphi_x:\mathcal{F}_x \to \mathcal{G}_x,\; s_x \mapsto \varphi_x(s_x) \coloneqq [(U,\varphi\vert_U(s))]$ für alle $x \in X$ ein Isomorphismus abelscher Gruppen ist.
+	Sei $\varphi \colon \mathcal{F} \to \mathcal{G}$ ein Homomorphismus von Garben auf $X$. Dann ist $\varphi$ genau dann ein Isomorphismus von Garben, wenn $\varphi_x \colon \mathcal{F}_x \to \mathcal{G}_x,\; s_x \mapsto \varphi_x(s_x) \coloneqq [(U,\varphi\vert_U(s))]$ für alle $x \in X$ ein Isomorphismus abelscher Gruppen ist.
 	\begin{proof}
 		Dies ist eine einfache Übung.
 	\end{proof}
