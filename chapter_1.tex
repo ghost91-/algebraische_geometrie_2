@@ -57,11 +57,15 @@ $X$ sei ein topologischer Raum.
 
 \begin{bsp}
 \label{bsp:1.5}
-	Sei $x$ ein topologischer Raum. Für $U$ offen in $X$ sei $\mathcal{F}(U)\coloneqq \{f:U\to \R \mid f \text{ ist Funktion}\}$. Dies ist eine Garbe (abelscher Gruppen und sogar $\R$-Algebren) und die Restirktionsabbildungen sind gegeben durch:
+	Sei $x$ ein topologischer Raum. Für $U$ offen in $X$ sei
+	\[
+		\mathcal{F}(U)\coloneqq \{f:U\to \R \mid f \text{ ist Funktion}\}.
+	\]
+	Dies ist eine Garbe (abelscher Gruppen und sogar $\R$-Algebren) und die Restirktionsabbildungen sind gegeben durch:
 	\[
 		\rho_{UV}:\mathcal{F}(U) \to \mathcal{F}(V),\; f \mapsto f\vert_V
 	\]
-	Die Menge der stetigen Funtkionen $C(U)$ liefert eine \textbf{Untergarbe} $\mathcal{F}'$ von $\mathcal{F}$ ($\mathcal{F}'(U)\coloneqq C(U)$), das heißt $\mathcal{F}'$ ist auch eine Garbe, es gilt $\mathcal{F}'(U)\subseteq \mathcal{F}(U)$ für alle $U$ offen und für die Restriktionen ist folgendes Diagramm kommutativ:
+	Die Menge der stetigen Funktionen $C(U)$ liefert eine \textbf{Untergarbe} $\mathcal{F}'$ von $\mathcal{F}$ ($\mathcal{F}'(U)\coloneqq C(U)$), das heißt $\mathcal{F}'$ ist auch eine Garbe, es gilt $\mathcal{F}'(U)\subseteq \mathcal{F}(U)$ für alle $U$ offen und für die Restriktionen ist folgendes Diagramm kommutativ:
 	\begin{center}
 		\begin{tikzcd}
 			\mathcal{F}'(U) \arrow[hook]{r} \arrow{d}[swap]{\rho_{UV}} & \mathcal{F}(U)\arrow{d}{\rho_{UV}}\\
@@ -74,7 +78,7 @@ $X$ sei ein topologischer Raum.
 \begin{bsp}
 	Sein $A$ eine fixierte abelsche Gruppe. Die zugehörige \textbf{konstante Prägarbe} $\mathcal{F}$ ist definiert durch:
 	\begin{itemize}
-		\item Es Sei $\mathcal{F}(U) \coloneqq \left\lbrace \begin{array}{c c}A & \text{falls } U \neq \emptyset\\0& \text{falls } U = \emptyset\end{array}\right.$.
+		\item Es sei $\mathcal{F}(U) \coloneqq \left\lbrace \begin{array}{c c}A & \text{falls } U \neq \emptyset\\0& \text{falls } U = \emptyset\end{array}\right.$.
 		\item Es sei $\rho_{UV} \coloneqq \left\lbrace \begin{array}{c c}\id_A & \text{falls } V \neq \emptyset\\0& \text{falls } V = \emptyset\end{array}\right.$.
 	\end{itemize}
 	Falls $X$ nicht zusammenhängend und $A \neq 0$ ist, dann ist $\mathcal{F}$ keine Garbe. Sei zum Beispiel $X=\{p,q\}$ mit der diskreten Topologie. Seien außerdem $U=\{p,q\}$, $V_1=\{p\}$, $V_2=\{q\}$. Dann gilt $\mathcal{F}(U)=\mathcal{F}(V_1)=\mathcal{F}(V_2) = A$ und $\mathcal{F}(\emptyset)=0$. Seien nun $s_1 \neq 0 \in \mathcal{F}(V_1)$ und $s_2 = 0 \in \mathcal{F}(V_2)$. Wäre $\mathcal{F}$ eine Garbe, dann gäbe es ein $s \in \mathcal{F}(U) = A$ mit $\rho_{UV_i}(s) = s_i$. Dies ist aber offenbar nicht der Fall.
@@ -108,9 +112,9 @@ $X$ sei ein topologischer Raum.
 	Weil $\pi$ ein lokaler Homöomorphismus ist, muss jeder Schnitt eine offene Abbildung sein (das heißt das Bild einer offenen Teilmenge ist offen). Falls zwei Schnitte in $x \in X$ übereinstimmen, dann stimmen sie auch auf einer Umgebung von $x$ überein.
 \end{bem}
 
-\begin{bsp}
+\begin{bsp*}
 	Die Abbildung $\R \to \{z\in \C \mid \abs{z} = 1\},\; t \mapsto e^{2 \pi i t}$ ist eine Abbildung wie in Beispiel~\ref{bsp:1.7}.
-\end{bsp}
+\end{bsp*}
 
 \begin{bem}
 	Das Beispiel~\ref{bsp:1.7} erklärt die abstrakten Begriffe aus Definition~\ref{defn:1.1}. Wir werden sehen, dass jede Garbe durch einen topologischen Raum $S$ und eine Abbildung $\pi:S \to X$ wie in Beispiel~\ref{bsp:1.7} dargestellt werden kann.
@@ -121,7 +125,7 @@ $X$ sei ein topologischer Raum.
 \end{bsp}
 
 \begin{defn}
-	Sei $\mathcal{F}$ eine Prägarbe auf $X$, dann verallgemeinern wir die obige Konstruktion. Sei $x \in X$. Wir betrachten die Menge $\{(U,s)\mid s \in \mathcal{F}(U),\; U \text{ offene Umgebung von } x\}$. Wir definieren auf diser Menge eine Relation auf folgende Weise: Es gelte	$(U,s) \sim (V,t)$ genau dann, wenn es eine offene Umgebung $W\subseteq U \cap V$ von $x$ mit $\rho_{UW}(s) = \rho_{VW}(t)$ gibt. Man zeigt leicht, dass dies eine Äquivalenzrelation ist. Der \textbf{Halm} $\mathcal{F}_x$ ist definiert als der Raum der Äquivalenzklassen bezüglich dieser Äquivalenzrelation. Dies ist eine abelsche Gruppe:
+	Sei $\mathcal{F}$ eine Prägarbe auf $X$, dann verallgemeinern wir die obige Konstruktion. Sei $x \in X$. Wir betrachten die Menge $\{(U,s)\mid s \in \mathcal{F}(U),\; U \text{ offene Umgebung von } x\}$. Wir definieren auf dieser Menge eine Relation auf folgende Weise: Es gelte	$(U,s) \sim (V,t)$ genau dann, wenn es eine offene Umgebung $W\subseteq U \cap V$ von $x$ mit $\rho_{UW}(s) = \rho_{VW}(t)$ gibt. Man zeigt leicht, dass dies eine Äquivalenzrelation ist. Der \textbf{Halm} $\mathcal{F}_x$ ist definiert als der Raum der Äquivalenzklassen bezüglich dieser Äquivalenzrelation. Dies ist eine abelsche Gruppe:
 	\[
 		[(U_1,s_1)] + [(U_2,s_2)] = [(U_1 \cap U_2, \rho_{U_1U_1\cap U_2}(s_1) + \rho_{U_2U_1\cap U_2}(s_2)].
 	\]
