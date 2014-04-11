@@ -64,8 +64,8 @@ $X$ sei ein topologischer Raum.
 \begin{bsp}
 	Sein $A$ eine fixierte abelsche Gruppe. Die zugehörige \textbf{konstante Prägarbe} $\mathcal{F}$ ist definiert durch:
 	\begin{itemize}
-		\item Es sei $\mathcal{F}(U) \coloneqq \left\lbrace \begin{array}{c c}A & \text{falls } U \neq \emptyset\\0& \text{falls } U = \emptyset\end{array}\right.$.
-		\item Es sei $\rho_{UV} \coloneqq \left\lbrace \begin{array}{c c}\id_A & \text{falls } V \neq \emptyset\\0& \text{falls } V = \emptyset\end{array}\right.$.
+		\item Es sei $\mathcal{F}(U) \coloneqq \begin{cases}A & \text{falls } U \neq \emptyset\\0& \text{falls } U = \emptyset\end{cases}$.
+		\item Es sei $\rho_{UV} \coloneqq \begin{cases}\id_A & \text{falls } V \neq \emptyset\\0& \text{falls } V = \emptyset\end{cases}$.
 	\end{itemize}
 	Falls $X$ nicht zusammenhängend und $A \neq 0$ ist, dann ist $\mathcal{F}$ keine Garbe. Sei zum Beispiel $X=\{p,q\}$ mit der diskreten Topologie. Seien außerdem $U=\{p,q\}$, $V_1=\{p\}$, $V_2=\{q\}$. Dann gilt $\mathcal{F}(U)=\mathcal{F}(V_1)=\mathcal{F}(V_2) = A$ und $\mathcal{F}(\emptyset)=0$. Seien nun $s_1 \neq 0 \in \mathcal{F}(V_1)$ und $s_2 = 0 \in \mathcal{F}(V_2)$. Wäre $\mathcal{F}$ eine Garbe, dann gäbe es ein $s \in \mathcal{F}(U) = A$ mit $\rho_{UV_i}(s) = s_i$. Dies ist aber offenbar nicht der Fall.
 \end{bsp}
