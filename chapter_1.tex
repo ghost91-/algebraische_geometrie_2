@@ -1,4 +1,5 @@
 \chapter{Garben}
+\label{chap:1}
 Garben sind abstrakte Verallgemeinerungen von Funktionenräumen. Sie sind fundamental für das Studium von Mannigfaltigkeiten und Schemata.
 
 $X$ sei ein topologischer Raum.
@@ -21,6 +22,7 @@ $X$ sei ein topologischer Raum.
 \end{bem}
 
 \begin{defn}
+\label{defn:1.3}
 	Eine Prägarbe $\mathcal{F}$ auf $X$ heißt \textbf{Garbe}, falls zusätzlich für jede offene Menge $U$ in $X$ und jede offene Überdeckung $U=\bigcup_{i \in I}V_i$ von $U$ folgendes gilt:
 	\begin{enumerate}[a)]
 		\setcounter{enumi}{5}
@@ -118,6 +120,8 @@ $X$ sei ein topologischer Raum.
 	Wir schreiben auch $s_x$ anstatt von $[(U,s)] \in \mathcal{F}_x$.
 \end{defn}
 
+\stepcounter{thm}
+
 \begin{defn}
 	Ein \textbf{Homomorphismus} $\varphi \colon \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U \colon \mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
 	\begin{center}
@@ -140,3 +144,81 @@ $X$ sei ein topologischer Raum.
 	\end{proof}
 	Beachte, dass diese Aussage nicht für Prägarben gilt.
 \end{prop}
+
+\begin{bem}
+\label{bem:1.15}
+	Wir zeigen nun, dass es zu einer gegebene Prägarbe $\mathcal{F}$ auf dem topologischen Raum $X$ eine kanonische Überlagerung $\pi\colon S \to X$ wie in Beispiel~\ref{bsp:1.7} gibt.
+
+	Wir definieren
+	\[
+		S\coloneqq \bigdcup_{x\in X} \mathcal{F}_x.
+	\]
+	Weiter sei $\pi$ gegeben durch
+	\[
+		\pi\colon S \to X,\; s_x\in \mathcal{F}_x \mapsto x.
+	\]
+	Für jedes $U$ offen in $X$ und jedes $s \in \mathcal{F}(U)$ definieren wir
+	\[
+		\overline{s}\colon U \to S,\; x \mapsto s_x = [(U,s)] \in \mathcal{F}_x \subseteq S.
+	\]
+	Die Topologie von $S$ ist durch die Basis
+	\[
+		B \coloneqq \{\overline{s}(U) \mid U \text{ offen in } X, s \in \mathcal{F}(U)\}
+	\]
+	gegeben. Es ist leicht zu sehen, dass $B$ tatsächlich die Basis einer Topologie auf $S$ ist. Wir überzeugen uns ebenfalls leicht, dass $\pi\colon S \to X$ die Voraussetzungen aus Beispiel~\ref{bsp:1.7} erfüllt, das heißt $\pi$ ist eine topologische Überlagerung und die Fasern sind abelsche Gruppen mit gewissen Stetigkeitseigenschaften. Es gilt
+	\[
+		\overline{s} \in \Gamma(U,S) \coloneqq \{\gamma\colon U \to S \mid \gamma \text{ stetig},\; \pi \circ \gamma = \id_U\}.
+	\]
+\end{bem}
+
+\begin{defn}
+	Wir bezeichnen die Garbe $U \mapsto \Gamma(U,S)$ mit $\mathcal{F}^+$. Sie heißt zu $\mathcal{F}$ \textbf{assozierte Garbe}. Wir haben einen kanonischen Homomorphismus
+	\[
+		\Theta\colon \mathcal{F} \to \mathcal{F}^+,\; \underbrace{s}_{\in \mathcal{F}(U)} \mapsto \underbrace{\in\overline{s}}_{\mathcal{F}^+(U)=\Gamma(U,S)}.
+	\]
+	In Übung~1.2 wird gezeigt, dass $\Theta$ einen Isomorphismus $\Theta_x \colon \mathcal{F}_x \overset{\sim}{\to} \mathcal{F}^+_x$ der Halme induziert.
+\end{defn}
+
+\begin{prop}
+\label{prop:1.17}
+	Falls $\varphi \colon \mathcal{F} \to \mathcal{G}$ ein Homomorphismus von Prägarben ist, dann gibt es genau einen Homomorphismus $\varphi^+\colon\mathcal{F}^+\to \mathcal{G}^+$ von Garben gibt, für den das Diagramm
+	\begin{center}
+		\begin{tikzcd}
+			\mathcal{F} \arrow{r}{\varphi} \arrow{d}{\Theta} & \mathcal{G} \arrow{d}{\Theta}\\
+			\mathcal{F}^+ \arrow{r}{\varphi^+} & \mathcal{G}^+
+		\end{tikzcd}
+	\end{center}
+	kommutiert.
+	\begin{proof}[Beweisskizze]
+		Sei $\pi\colon S \to X$ (beziehungsweise $\pi\colon T \to X$) die topologische Überlagerung, die zu $\mathcal{F}$ (beziehungsweise $\mathcal{G}$) gehört wie in Bem~\ref{bem:1.15}. Wir zeigen zuerst, dass es genau eine stetige Abbildung $\psi \colon S \to T$ mit $\psi \circ \overline{s} = \overline{\varphi(s)}$ für alle $U$ offen in $X$ und alle $s \in \mathcal{F}(U)$ gibt, für die das Diagramm
+		\begin{center}
+			\begin{tikzcd}
+				S \arrow{rr}{\psi} \arrow{rd}{\pi} & & T \arrow{dl}{\pi}\\
+				& X
+			\end{tikzcd}
+		\end{center}
+		kommutiert.
+
+		Für $s_x = [(U,s)] \in \mathcal{F}_x \subseteq S$ definieren wir $\psi(s_x) \coloneqq [(U,\varphi_U(s))] \in \mathcal{G}_x$. Dies ist wohldefiniert und erfüllt das Gewünschte. Die Eindeutigkeit ist durch die Konstruktion klar.
+
+		Dann definieren wir $\varphi^+\colon\mathcal{F}^+\to\mathcal{G}^+$ durch
+		\[
+			\varphi_U^+\colon \mathcal{F}^+(U) = \Gamma(U,S) \to \mathcal{G}^+(U) = \Gamma(U,T),\; \gamma \mapsto \psi \circ \gamma.
+		\]
+		Damit erhalten wir einen Garbenhomomorphismus mit der gewünschten Eigenschaft. Die Eindeutigkeit von $\varphi^+$ folgt aus der Tatsache, dass $\mathcal{F}_x \cong \mathcal{F}^+_x$ und $\mathcal{G}_x \cong \mathcal{G}^+_x$ gilt. Also muss $\varphi^+$ auf den Halmen durch $\varphi$ eindeutig bestimmt sein. Weil $\mathcal{F}^+$ und $\mathcal{G}^+$ Garben sind, folgt sofort aus den Garbeneigenschaften f) und g), dass damit auch $\varphi^+$ durch $\varphi$ eindeutig bestimmt ist.
+	\end{proof}
+\end{prop}
+
+\begin{kor}[Universelle Eigenschaft von $\mathcal{F}^+$]
+	Sei $\mathcal{F}$ eine Prägarbe auf $X$. Für jede Garbe $\mathcal{G}$ auf $X$ und jeden Homomorphismus $\varphi\colon \mathcal{F} \to \mathcal{G}$ gibt es genau einen Homomorphismus $\varphi_+\colon \mathcal{F}^+ \to \mathcal{G}$, für den das Diagramm
+	\begin{center}
+		\begin{tikzcd}
+			\mathcal{F} \arrow{r}{\varphi} \arrow{d} & \mathcal{G}\\
+			\mathcal{F}^+ \arrow{ur}{\varphi_+}
+		\end{tikzcd}
+	\end{center}
+	kommutiert.
+	\begin{proof}
+		Dies ist ein Spezialfall von Proposition~\ref{prop:1.17}, denn für eine Garbe $\mathcal{G}$ gilt $\mathcal{G} \overset{\overset{\Theta}{\sim}}{\to}\mathcal{G}^+$.
+	\end{proof}
+\end{kor}

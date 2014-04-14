@@ -1,0 +1,115 @@
+\chapter{Lokal geringte Räume}
+
+Mit dem Konzept der lokal geringten Räume kann man die Mannigfaltigkeiten aus der Analysis und Differentialgeometrie, die algebraische Varietäten aus der algebraischen Geometrie I und die Schemata aus der algebraischen Geometrie II zusammenfassen.
+
+\begin{bem}
+	Im Folgenden soll, wenn nichts anderes gesagt wird, Folgendes gelten:
+	\begin{itemize}
+	 	\item Alle Ringe sind kommutativ mit Eins.
+	 	\item Ringhomomorphismen bilden die Eins auf die Eins ab.
+	 \end{itemize}
+\end{bem}
+
+\begin{bem*}
+	Ein Ring $R$ heißt \textbf{lokal}, wenn es in $R$ genau ein Maximalideal $\mathfrak{m}$ gibt.
+\end{bem*}
+
+\begin{prop}
+\label{prop:2.2}
+	Sei $R$ ein Ring. $R$ ist genau dann ein lokaler Ring, wenn es ein Ideal $I \neq R$ mit $R\setminus I = R^\times$ gibt.
+	\begin{proof}
+		Dies ist eine einfache Eigenschaft aus der kommutativen Algebra.
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+	Ein Homomorphismus $\varphi\colon R_1 \to R_2$ von Ringen heißt \textbf{lokal}, wenn
+	\[
+		\varphi^{-1}(\mathfrak{m}_2) = \mathfrak{m}_1,
+	\]
+	wobei $\mathfrak{m}_i$ das Maximalideal von $R_i$ ist.
+\end{defn}
+
+\begin{bsp*}
+	Der Homomorphismus $\Z_{\langle p \rangle} \hookrightarrow \Q$ ist kein lokaler Homomorphismus, da
+	\[
+		\varphi^{-1}(\{0\}) = \{0\} \subsetneq p\Z_{\langle p \rangle}
+	\]
+	gilt.
+\end{bsp*}
+
+\begin{bsp}
+\label{bsp:2.4}
+	Sei $\mathcal{F}$ die Garbe der stetigen reellwertigen Funktionen auf dem topologischen Raum $X$, das heißt $\mathcal{F}(U) \coloneqq \mathcal{C}(U)$ für alle $U$ offen in $X$ (siehe Beispiel~\ref{bsp:1.5}). Dann ist der Halm $\mathcal{F}_x$ in jedem $x \in X$ ein lokaler Ring.
+	\begin{proof}
+		Nach Beispiel~\ref{bsp:1.5} ist $\mathcal{F}_x$ ein Ring und sogar eine $\R$-Algebra. Die Menge
+		\[
+			\mathfrak{m}_x\coloneqq \{ [(U,f)] \in \mathcal{F}_x \mid U \text{ offene Umgebung von } x,\; f \in \mathcal{C}(U), \; f(x) = 0 \}
+		\]
+		ist ein Ideal in $\mathcal{F}_x$. Es gilt
+		\begin{align*}
+			\mathcal{F}_x \setminus \mathfrak{m}_x = \{ &[(U,f)] \in \mathcal{F}_x \mid f(x) \neq 0\} = \{[(U,f)] \in \mathcal{F}_x \mid\\
+			&f \text{ invertierbar als stetige Funktion in einer Umgebung von } x \} = \mathcal{F}_x^*.
+		\end{align*}
+		Aus Proposition~\ref{prop:2.2} folgt, dass $\mathcal{F}_x$ ein lokaler Ring ist.
+	\end{proof}
+\end{bsp}
+
+Wir benötigen einen wichtigen Begriff aus der Garbentheorie:
+
+\begin{defn}
+\label{defn:2.5}
+	Sei $f\colon X \to Y$ eine stetige Abbildung topologischer Räume und sei $\mathcal{F}$ eine Garbe auf $X$. Die \textbf{direkt Bildgarbe} $f_*\mathcal{F}$ ist definiert durch
+	\[
+		(f_*\mathcal{F})(U) \coloneqq \mathcal{F}(f^{-1}(U))
+	\]
+	für alle $U$ offen in $Y$. Weiter seien die Restriktionsabbildungen von $f_*\mathcal{F}$ gegeben durch 
+	\[
+		\rho_{UV}^{f_*\mathcal{F}} = \rho_{f^{-1}(U)f^{-1}(V)}^{\mathcal{F}}.
+	\]
+\end{defn}
+
+\begin{prop}
+\label{prop:2.6}
+	$f_*\mathcal{F}$ wie in Definition~\ref{defn:2.5} ist eine Garbe.
+	\begin{proof}
+		Es ist klar, dass $f_*\mathcal{F}$ eine Prägarbe ist. Sei $U$ offen in $Y$ und $U = \bigcup_{i\in I}V_i$ eine offene Überdeckung von $U$. Sei weiter $s \in (f_*\mathcal{F})(U)$ mit $\rho_{UV_i}^{f_*\mathcal{F}}(s) = 0$ für alle $i \in I$. Es gilt $f^{-1}(U) = \bigcup_{i\in I} f^{-1}(V_i)$. Nach Definition gilt weiter $s \in \mathcal{F}(f^{-1}(U))$ und
+		\[
+			0 = \rho_{UV_i}^{f_*\mathcal{F}}(s) = \rho_{f^{-1}(U)f^{-1}(V_i)}^{\mathcal{F}}(s)
+		\]
+		und damit folgt mit f) angewendet auf $\mathcal{F}$ schon $s=0 \in \mathcal{F}(f^{-1}(U)) = f_*\mathcal{F}(U)$. Also gilt f) auch für $f_*\mathcal{F}$. Analog beweist man, dass auch g) für $f_*\mathcal{F}$ gilt.
+	\end{proof}
+\end{prop}
+
+Im Folgenden betrachten wir Garben von Ringen. Alles aus Kaptiel~\ref{chap:1} und auch Proposition~\ref{prop:2.6} gelten auch für diese Garben.
+
+\begin{defn}
+\label{defn:2.7}
+	\begin{itemize}
+		\item Ein geringter Raum $(X, \mathcal{O}_X)$ besteht aus einem topologischen Raum $X$ und einer Garbe von Ringen $\mathcal{O}_X$ auf $X$.
+		\item Ein Morphismus von einem geringten Raum $(X, \mathcal{O}_X)$ in eine geringten Raum $(Y, \mathcal{O}_Y)$ ist ein Paar $(f, f^{\#})$, wobei $f\colon X \to Y$ eine stetige Abbildung und $f^{\#}\colon \mathcal{O}_Y \to f_*\mathcal{O}_X$ ein Homomorphismus von Garben ist.
+	\end{itemize}
+\end{defn}
+
+\begin{bsp}
+	Seien $\mathcal{O}_X$ (beziehungsweise $\mathcal{O}_Y$) die Garbe der stetigen rellwertigen Funktionen auf $X$ (beziehungsweise $Y$). Wir haben in Beispiel~\ref{bsp:2.4} gesehen, dass die eine Garbe von Ringen ist. Dann induziert jede stetige Abbildung $f\colon X \to Y$ einen kanonischen Morphismus $(f,f^{\#})$ von geringten Räumen durch
+	\[
+		f^{\#}_U\colon \mathcal{O}_Y \to f_*\mathcal{O}_X = \mathcal{O}_X(f^{-1}(U)),\; g \mapsto g \circ f.
+	\]
+\end{bsp}
+
+\begin{bem}
+\label{bem:2.9}
+	Sei $(f,f^{\#})$ ein Mirphismus von geringten Räumen wie in Definition~\ref{defn:2.7}. Sei $x \in X$ und $y \coloneqq f(x)\in Y$. Dann haben wir einen kanonischen Homomorphismus
+	\[
+		f_x^{\#}\colon \mathcal{O}_{Y,y} \to \mathcal{O}_{Y,y},\; [(U,g)] \mapsto [(f^{-1}(U),f^{\#}(g))]
+	\]
+	von Ringen.
+\end{bem}
+
+\begin{defn}
+	\begin{itemize}
+		\item Ein \textbf{lokal geringter Raum} ist ein geringter Raum $(X,\mathcal{O}_X)$, bei dem die Halme $\mathcal{O}_{X,x}$ lokale Ringe sind.
+		\item Ein Morphismus von lokal geringten Räumen ist ein Morphismus von geringten Räumen, für den die Homomorphismen $f_x^{\#}$ aus Bemerkung~\ref{bem:2.9} für alle $x \in X$ lokal sind.
+	\end{itemize}
+\end{defn}

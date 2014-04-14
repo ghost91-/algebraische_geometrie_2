@@ -1,4 +1,4 @@
-\documentclass[a4paper,parskip=half,11pt,ngerman]{scrbook}
+\documentclass[a4paper,parskip=half,11pt,ngerman,oneside]{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -94,6 +94,7 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{Re}}
 \newcommand{\dcup}{\mathbin{\dot{\cup}}}
+\newcommand{\bigdcup}{\mathbin{\dot{\bigcup}}}
 
 % matrices will take an optional argument for format (like arrays)
 \makeatletter
@@ -128,5 +129,6 @@
 \input{chapter_0}
 \mainmatter
 \input{chapter_1}
+\input{chapter_2}
 
 \end{document}
