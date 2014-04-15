@@ -49,7 +49,7 @@ Mit dem Konzept der lokal geringten Räume kann man die Mannigfaltigkeiten aus d
 		ist ein Ideal in $\mathcal{F}_x$. Es gilt
 		\begin{align*}
 			\mathcal{F}_x \setminus \mathfrak{m}_x = \{ &[(U,f)] \in \mathcal{F}_x \mid f(x) \neq 0\} = \{[(U,f)] \in \mathcal{F}_x \mid\\
-			&f \text{ invertierbar als stetige Funktion in einer Umgebung von } x \} = \mathcal{F}_x^*.
+			&f \text{ invertierbar als stetige Funktion in einer Umgebung von } x \} = \mathcal{F}_x^\times.
 		\end{align*}
 		Aus Proposition~\ref{prop:2.2} folgt, dass $\mathcal{F}_x$ ein lokaler Ring ist.
 	\end{proof}
@@ -94,15 +94,15 @@ Im Folgenden betrachten wir Garben von Ringen. Alles aus Kaptiel~\ref{chap:1} un
 \begin{bsp}
 	Seien $\mathcal{O}_X$ (beziehungsweise $\mathcal{O}_Y$) die Garbe der stetigen rellwertigen Funktionen auf $X$ (beziehungsweise $Y$). Wir haben in Beispiel~\ref{bsp:2.4} gesehen, dass die eine Garbe von Ringen ist. Dann induziert jede stetige Abbildung $f\colon X \to Y$ einen kanonischen Morphismus $(f,f^{\#})$ von geringten Räumen durch
 	\[
-		f^{\#}_U\colon \mathcal{O}_Y \to f_*\mathcal{O}_X = \mathcal{O}_X(f^{-1}(U)),\; g \mapsto g \circ f.
+		f^{\#}_U\colon \mathcal{O}_Y(U) \to (f_*\mathcal{O}_X)(U) = \mathcal{O}_X(f^{-1}(U)),\; g \mapsto g \circ f.
 	\]
 \end{bsp}
 
 \begin{bem}
 \label{bem:2.9}
-	Sei $(f,f^{\#})$ ein Mirphismus von geringten Räumen wie in Definition~\ref{defn:2.7}. Sei $x \in X$ und $y \coloneqq f(x)\in Y$. Dann haben wir einen kanonischen Homomorphismus
+	Sei $(f,f^{\#})$ ein Morphismus von geringten Räumen wie in Definition~\ref{defn:2.7}. Sei $x \in X$ und $y \coloneqq f(x)\in Y$. Dann haben wir einen kanonischen Homomorphismus
 	\[
-		f_x^{\#}\colon \mathcal{O}_{Y,y} \to \mathcal{O}_{Y,y},\; [(U,g)] \mapsto [(f^{-1}(U),f^{\#}(g))]
+		f_x^{\#}\colon \mathcal{O}_{Y,y} \to \mathcal{O}_{X,x},\; [(U,g)] \mapsto [(f^{-1}(U),f^{\#}(g))]
 	\]
 	von Ringen.
 \end{bem}
