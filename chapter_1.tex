@@ -174,9 +174,9 @@ $X$ sei ein topologischer Raum.
 \begin{defn}
 	Wir bezeichnen die Garbe $U \mapsto \Gamma(U,S)$ mit $\mathcal{F}^+$. Sie heißt zu $\mathcal{F}$ \textbf{assozierte Garbe}. Wir haben einen kanonischen Homomorphismus
 	\[
-		\Theta\colon \mathcal{F} \to \mathcal{F}^+,\; \underbrace{s}_{\in \mathcal{F}(U)} \mapsto \underbrace{\in\overline{s}}_{\mathcal{F}^+(U)=\Gamma(U,S)}.
+		\theta\colon \mathcal{F} \to \mathcal{F}^+,\; \underbrace{s}_{\in \mathcal{F}(U)} \mapsto \underbrace{\overline{s}}_{\in \mathcal{F}^+(U)=\Gamma(U,S)}.
 	\]
-	In Übung~1.2 wird gezeigt, dass $\Theta$ einen Isomorphismus $\Theta_x \colon \mathcal{F}_x \overset{\sim}{\to} \mathcal{F}^+_x$ der Halme induziert.
+	In Übung~1.2 wird gezeigt, dass $\theta$ einen Isomorphismus $\theta_x \colon \mathcal{F}_x \overset{\sim}{\to} \mathcal{F}^+_x$ der Halme induziert.
 \end{defn}
 
 \begin{prop}
@@ -184,8 +184,8 @@ $X$ sei ein topologischer Raum.
 	Falls $\varphi \colon \mathcal{F} \to \mathcal{G}$ ein Homomorphismus von Prägarben ist, dann gibt es genau einen Homomorphismus $\varphi^+\colon\mathcal{F}^+\to \mathcal{G}^+$ von Garben, für den das Diagramm
 	\begin{center}
 		\begin{tikzcd}
-			\mathcal{F} \arrow{r}{\varphi} \arrow{d}{\Theta} & \mathcal{G} \arrow{d}{\Theta}\\
-			\mathcal{F}^+ \arrow{r}{\varphi^+} & \mathcal{G}^+
+			\mathcal{F} \arrow{r}{\varphi} \arrow{d}[swap]{\theta} & \mathcal{G} \arrow{d}{\theta}\\
+			\mathcal{F}^+ \arrow{r}[swap]{\varphi^+} & \mathcal{G}^+
 		\end{tikzcd}
 	\end{center}
 	kommutiert.
@@ -193,7 +193,7 @@ $X$ sei ein topologischer Raum.
 		Sei $\pi\colon S \to X$ (beziehungsweise $\pi\colon T \to X$) die topologische Überlagerung, die zu $\mathcal{F}$ (beziehungsweise $\mathcal{G}$) gehört wie in Bem~\ref{bem:1.15}. Wir zeigen zuerst, dass es genau eine stetige Abbildung $\psi \colon S \to T$ mit $\psi \circ \overline{s} = \overline{\varphi(s)}$ für alle $U$ offen in $X$ und alle $s \in \mathcal{F}(U)$ gibt, für die das Diagramm
 		\begin{center}
 			\begin{tikzcd}
-				S \arrow{rr}{\psi} \arrow{rd}{\pi} & & T \arrow{dl}{\pi}\\
+				S \arrow{rr}{\psi} \arrow{rd}[swap]{\pi} & & T \arrow{dl}{\pi}\\
 				& X
 			\end{tikzcd}
 		\end{center}
@@ -213,12 +213,12 @@ $X$ sei ein topologischer Raum.
 	Sei $\mathcal{F}$ eine Prägarbe auf $X$. Für jede Garbe $\mathcal{G}$ auf $X$ und jeden Homomorphismus $\varphi\colon \mathcal{F} \to \mathcal{G}$ gibt es genau einen Homomorphismus $\varphi_+\colon \mathcal{F}^+ \to \mathcal{G}$, für den das Diagramm
 	\begin{center}
 		\begin{tikzcd}
-			\mathcal{F} \arrow{r}{\varphi} \arrow{d} & \mathcal{G}\\
-			\mathcal{F}^+ \arrow{ur}{\varphi_+}
+			\mathcal{F} \arrow{r}{\varphi} \arrow{d}[swap]{\theta} & \mathcal{G}\\
+			\mathcal{F}^+ \arrow{ur}[swap]{\varphi_+}
 		\end{tikzcd}
 	\end{center}
 	kommutiert.
 	\begin{proof}
-		Dies ist ein Spezialfall von Proposition~\ref{prop:1.17}, denn für eine Garbe $\mathcal{G}$ gilt $\mathcal{G} \overset{\overset{\Theta}{\sim}}{\to}\mathcal{G}^+$.
+		Dies ist ein Spezialfall von Proposition~\ref{prop:1.17}, denn für eine Garbe $\mathcal{G}$ gilt $\mathcal{G} \overset{\overset{\theta}{\sim}}{\to}\mathcal{G}^+$.
 	\end{proof}
 \end{kor}
