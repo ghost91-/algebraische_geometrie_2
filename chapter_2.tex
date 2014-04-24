@@ -113,3 +113,46 @@ Im Folgenden betrachten wir Garben von Ringen. Alles aus Kaptiel~\ref{chap:1} un
 		\item Ein \textbf{Morphismus von lokal geringten Räumen} ist ein Morphismus von geringten Räumen, für den die Homomorphismen $f_x^{\#}$ aus Bemerkung~\ref{bem:2.9} für alle $x \in X$ lokal sind.
 	\end{itemize}
 \end{defn}
+
+\begin{bsp}[Fortsetzung von Beispiel 8]
+	$(X,\mathcal{O}_X)$ ist ein lokal geringter Raum (siehe Beispiel~\ref{bsp:2.4}). Weiter ist $(f,f^{\#})$ ein Morphismus lokal geringter Räume.
+	\begin{proof}
+		Sei $x \in X$, $y = f(x)$ und $f^{\#}\colon \mathcal{O}_{Y,y} \to \mathcal{O}_{X,x},\;[(U,g)]\mapsto [(f^{-1}U,g\circ f)]$.\\
+		\textbf{Zu zeigen:} $(f^{\#}_x)^{-1}(\mathfrak{m}_x) = \mathfrak{m}_y$.\\
+		\enquote{$\subseteq$}: Das Bild eines ivertierbaren Elementes ist wieder invertierbar, also gilt
+		\[
+			f^{\#}_x(\mathcal{O}_{Y,y}\setminus \mathfrak{m}_y) \subseteq \mathcal{O}_{X,x}\setminus \mathfrak{m}_y
+		\]
+		und damit
+		\[
+			(f_x^{\#})^{-1}(\mathfrak{m}_x) \subseteq \mathfrak{m}_y
+		\]
+		(dies gilt für alle Morphismen von geringten Räumen).\\
+		\enquote{$\supseteq$}: Sei $[(U,g)]\in \mathfrak{m}_y$, das heißt $g$ ist eine stetige Funktion auf $U$ mit $g(y)=0$. Es folgt
+		\[
+			g \circ f \in \mathcal{O}_X(f^{-1}U) \text{ und } (g \circ f)(x)=0
+		\]
+		und damit
+		\[
+			f_x^{\#}([(U,g)]) = [(f^{-1}U,g\circ f)] \in \mathfrak{m}_x.
+		\]
+	\end{proof}
+\end{bsp}
+
+\begin{bem}
+	Wenn man Morphismen definiert, sollte man sie verknüpfen können (das heißt, man erhält eine Kategorie): Seien $(f,f^{\#})\colon (X,\mathcal{O}_X) \to (Y,\mathcal{O}_Y)$ und $(g,g^{\#})\colon (y,\mathcal{O}_Y) \to (Z,\mathcal{O}_Z)$ Morphismen von geringten Räumen. Dann ist
+	\[
+		(g,g^{\#}) \circ (f,f^{\#}) \coloneqq (g\circ f,(g\circ f)^{\#})
+	\]
+	mit
+	\[
+		(g\circ f)^{\#}_U \coloneqq f^{\#}_{g^{-1}U} \circ g^{\#}
+	\]
+	ein Morphismus von geringten Räumen. Falls $(f,f^{\#})$ und $(g,g^{\#})$ Morphismen von lokal geringten Räumen sind, dann ist auch $(g,g^{\#}) \circ (f,f^{\#})$ ein Morphismus von lokal geringten Räumen.
+	\begin{proof}
+		Sei $x \in X$, $y = f(x)$ und $z = g(y)$. Dann gilt
+		\[
+			((g\circ f)^{\#}_x)^{-1}(\mathfrak{m}_x) = (f^{\#}_x \circ g^{\#}_y)^{-1}(\mathfrak{m}_x) \overset{f^{\#}_x \text{ lokal}}{=} (g^{\#}_y)^{-1}(\mathfrak{m}_y) \overset{g^{\#}_y \text{ lokal}}{=} \mathfrak{m}_z.
+		\]
+	\end{proof}
+\end{bem}
