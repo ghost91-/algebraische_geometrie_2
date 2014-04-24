@@ -1,0 +1,93 @@
+\chapter{Modulgarben auf geringten Räumen}
+
+\begin{defn}
+	Sei $(X,\mathcal{O}_X)$ ein geringter Raum. Eine \textbf{Garbe von} $\mathcal{O}_X$\textbf{-Moduln} (oder einfach ein $\mathcal{O}_X$\textbf{-Modul}) ist eine Garbe $\mathcal{F}$ von abelschen Gruppen auf $X$, die Folgendes erfüllt:
+	\begin{enumerate}[i)]
+		\item Für $U \subseteq X$ offen ist $\mathcal{F}(U)$ ein $\mathcal{O}_X(U)$-Modul.
+		\item Für offene $U \subseteq V \subseteq X$ ist die Restriktionsabbildung
+		\[
+			\rho_{VU}^{\mathcal{F}}\colon \mathcal{F}(V) \to \mathcal{F}(U)
+		\]
+		verträglich mit der Modulstruktur bezüglich
+		\[
+			\rho_{VU}\colon \mathcal{O}_X(V) \to \mathcal{O}_X(U),
+		\]
+		das heißt es gilt
+		\[
+			\rho_{VU}^\mathcal{F}(\lambda \cdot \alpha) = \rho_{VU}(\lambda) \cdot \rho_{VU}^\mathcal{F}(\alpha)
+		\]
+		für alle $\alpha \in \mathcal{F}(V)$ und $\lambda \in \mathcal{O}_X(V)$.
+	\end{enumerate}
+	Ein \textbf{Morphismus von} $\mathcal{O}_X$\textbf{-Moduln} (oder $\mathcal{O}_X$\textbf{-linearer Morphismus}) ist ein Garbenmorphismus $\mathcal{F}\to \mathcal{G}$, wobei $\mathcal{F}(U) \to \mathcal{G}(U)$ für alle $U$ offen in $X$ ein $\mathcal{O}_X(U)$-Modulhomomorphismus ist. Wir bezeichnen die Kategorie  der $\mathcal{O}_X$-Moduln mit $(\mathcal{O}_X\text{-}\Mod)$ und setzen
+	\[
+		\Hom_{\mathcal{O}_X}(\mathcal{F},\mathcal{G}) \coloneqq \Hom_{(\mathcal{O}_X\text{-}\Mod)}(\mathcal{F},\mathcal{G}).
+	\]
+\end{defn}
+
+\begin{bem}
+	Sei $(X, \mathcal{O}_X)$ ein geringter Raum.
+	\begin{enumerate}[i)]
+		\item Sei $\varphi\colon \mathcal{F} \to \mathcal{G}$ ein $\mathcal{O}_X$-Modulmorphismus. In Aufgabe~1.4 wurden für den zugehörigen Garbenmorphismus die Garben $\ker(\varphi)$ und $\im(\varphi)$ auf $X$ definiert. Diese sind auf kanonische Weise $\mathcal{O}_X$-Moduln.
+		\item Ist $\mathcal{F}'$ eine Untergrabe von $\mathcal{O}_X$-Moduln des $\mathcal{O}_X$-Moduls $\mathcal{F}$, so ist die Quotientengarbe $\mathcal{F}/\mathcal{F}'$ (nach Garbifizierung) ebenfalls ein $\mathcal{O}_X$-Modul.
+		\item Das direkte Produkt, die direkte Summe (hier wird garbifiziert) und der direkte Limes von $\mathcal{O}_X$-Moduln haben wieder die Struktur eins $\mathcal{O}_X$-Moduls.
+		\item Eine Sequenz
+		\[
+			\cdots \to \mathcal{F}_{i+1} \overset{\varphi_{i+1}}{\to} \mathcal{F}_i \overset{\varphi_{i}}{\to} \mathcal{F}_{i-1} \to \cdots
+		\]
+		von $\mathcal{O}_X$-Moduln heißt \textbf{exakt}, wenn die zugehörige Sequenz von Garben exakt ist, das heißt für alle $i \in \Z$ gilt
+		\[
+			\im(\varphi_{i+1}) =  \ker(\varphi_i).
+		\]
+		\item Sei $\mathcal{F}$ ein $\mathcal{O}_X$-Modul und $U \subseteq X$ offen. Dann ist $\mathcal{F}\vert_U$ ein $\mathcal{O}_X\vert_U$-Modul. Seien $\mathcal{F}$ und $\mathcal{G}$ zwei Garben abelscher Gruppen auf $X$. In Aufgabe~2.2 wurde gezeigt, dass die Prägarbe
+		\[
+			U \mapsto \Hom_{\Sh(X)}(\mathcal{F}\vert_U,\mathcal{G}\vert_U)
+		\]
+		bereits eine Garbe $\underline{\Hom}(\mathcal{F},\mathcal{G})$ ist. Sind $\mathcal{F}$ und $\mathcal{G}$ $\mathcal{O}_X$-Moduln, so wird durch
+		\[
+			U \mapsto \Hom_{\mathcal{O}_X\vert_U}(\mathcal{F}\vert_U,\mathcal{G}\vert_U)
+		\]
+		eine Untergarbe $\underline{\Hom}_{\mathcal{O}_X}(\mathcal{F},\mathcal{G})$ von $\underline{\Hom}(\mathcal{F},\mathcal{G})$ definiert, welche die Struktur eines $\mathcal{O}_X$-Moduls trägt.
+		\item Ist $(X, \mathcal{O}_X)$ lokal geringt, $\mathcal{F}$ ein $\mathcal{O}_X$-Modul und $p\in X$, so ist der Halm $\mathcal{F}_p$ ein $\mathcal{O}_{X,p}$-Modul. Sei
+		\[
+			\kappa \coloneqq \mathcal{O}_{X,p}/\mathfrak{m}_p
+		\]
+		der \textbf{Restklassenkörper} von $p$. Dann heißt der $\kappa(p)$-Vektorraum
+		\[
+			\mathcal{F}(p) \coloneqq \mathcal{F}_p \otimes_{\mathcal{O}_{X,p}} \kappa(p)
+		\]
+		die \textbf{Faser von} $\mathcal{F}$ \textbf{in} $p$.
+	\end{enumerate}
+\end{bem}
+
+\begin{defn}
+	Sei $(X, \mathcal{O}_X)$ ein lokal geringter Raum.
+	\begin{enumerate}[i)]
+		\item Ein $\mathcal{O}_X$-Modul $\mathcal{F}$ heißt \textbf{frei}, falls $\mathcal{F} \cong \bigoplus_{i\in I}\mathcal{O}_X$ gilt.
+		\item Ein $\mathcal{O}_X$-Modul $\mathcal{F}$ heißt \textbf{lokal frei}, falls es eine offene Überdeckung $(U_i)_{i\in I}$ von $X$ gibt, für die jeder $\mathcal{O}_X\vert_{U_i}$-Modul $\mathcal{F}\vert_{U_i}$ frei ist. In diesem Fall definiert die lokal-konstante Funktion
+		\[
+			X \to \N \cup \{\infty\}, \; p \mapsto \rg_p(\mathcal{F}) \coloneqq \dim_{\kappa(p)}(\mathcal{F}(p))
+		\]
+		den \text{Rang} des lokal freien $\mathcal{O}_X$-Moduls $\mathcal{F}$. Falls $p \in U_i$ und $\mathcal{F}\vert_{U_i} \cong \bigoplus_{j\in J} \mathcal{O}_X\vert_{U_i}$ für ein $i \in I$, dann ist $\rg_p(\mathcal{F}) = \abs{J}$.
+		Ist $\rg_p(\mathcal{F})< \infty$ für alle $p \in X$, so ist $\mathcal{F}$ \textbf{von endlichem Rang}. Ist $r = \rg_p(\mathcal{F})$ konstant für alle $p \in X$, so heißt $\mathcal{F}$ \textbf{lokal frei vom Rang} $r$. Ist $X$ zusammenhängend, so hat ein lokal freier $\mathcal{O}_X$-Modul $\mathcal{F}$ einen wohldefinierten Rang $\rg_{\mathcal{O}_X}(\mathcal{F}) \in \N \cup \{\infty\}$.
+		\item Ein lokal freier $\mathcal{O}_X$-Modul von Rang $1$ heißt \textbf{invertierbare Garbe}.
+	\end{enumerate}
+\end{defn}
+
+\begin{defn}
+	Sei $f\colon X \to Y$ eine stetige Abbildung topologischer Räume. Für eine Garbe $\mathcal{G}$ auf $Y$ betrachten wir die Prägarbe
+	\[
+		U \mapsto  \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \mathllap{\mathcal{G}} = \frac{\{(V,s)\mid V \supseteq f(U),\; V \subseteq Y \text{ offen},\;s\in\mathcal{G}(V)\}}{(V,s)\sim(V',s') \Leftrightarrow \exists \;W \supseteq f(U),\; W \subseteq V \cap V' \text{ offen mit } s\vert_W = s'\vert_W}.
+	\]
+	Die \textbf{inverse Bildgarbe} $f^{-1}\mathcal{G}$ auf $X$ ist die dazu assozieierte Garbe. Die Konstruktion definiert einen kontravarianten Funktor
+	\[
+		f^{-1}\colon \Sh(Y) \to \Sh(X),\; \mathcal{F} \mapsto f^{-1}\mathcal{F}. 
+	\]
+\end{defn}
+
+\begin{prop}
+	Sei $f\colon X \to Y$ stetig. Dann existiert für jede Garbe $\mathcal{F}$ auf $X$ und jede Garbe $\mathcal{G}$ auf $Y$ eine Bijektion
+	\[
+		\Hom_{\Sh(X)}(f^{-1}\mathcal{G},F) \overset{\cong}{\to} \Hom_{\Sh(Y)}(\mathcal{G},f_*\mathcal{F}),
+	\]
+	welche natürlich in $\mathcal{F}$ und $\mathcal{G}$ ist. Man sagt $f^{-1}$ ist \textbf{linksadjungiert} zu $f_*$ und $f_*$ ist \textbf{rechtsadjungiert} zu $f^{-1}$
+\end{prop}
