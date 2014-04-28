@@ -140,13 +140,13 @@ Im Folgenden betrachten wir Garben von Ringen. Alles aus Kaptiel~\ref{chap:1} un
 \end{bsp}
 
 \begin{bem}
-	Wenn man Morphismen definiert, sollte man sie verknüpfen können (das heißt, man erhält eine Kategorie): Seien $(f,f^{\#})\colon (X,\mathcal{O}_X) \to (Y,\mathcal{O}_Y)$ und $(g,g^{\#})\colon (y,\mathcal{O}_Y) \to (Z,\mathcal{O}_Z)$ Morphismen von geringten Räumen. Dann ist
+	Wenn man Morphismen definiert, sollte man sie verknüpfen können (das heißt, man erhält eine Kategorie): Seien $(f,f^{\#})\colon (X,\mathcal{O}_X) \to (Y,\mathcal{O}_Y)$ und $(g,g^{\#})\colon (Y,\mathcal{O}_Y) \to (Z,\mathcal{O}_Z)$ Morphismen von geringten Räumen. Dann ist
 	\[
 		(g,g^{\#}) \circ (f,f^{\#}) \coloneqq (g\circ f,(g\circ f)^{\#})
 	\]
 	mit
 	\[
-		(g\circ f)^{\#}_U \coloneqq f^{\#}_{g^{-1}U} \circ g^{\#}
+		(g\circ f)^{\#}_U \coloneqq f^{\#}_{g^{-1}U} \circ g^{\#}_U
 	\]
 	ein Morphismus von geringten Räumen. Falls $(f,f^{\#})$ und $(g,g^{\#})$ Morphismen von lokal geringten Räumen sind, dann ist auch $(g,g^{\#}) \circ (f,f^{\#})$ ein Morphismus von lokal geringten Räumen.
 	\begin{proof}

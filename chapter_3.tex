@@ -76,7 +76,7 @@
 \begin{defn}
 	Sei $f\colon X \to Y$ eine stetige Abbildung topologischer Räume. Für eine Garbe $\mathcal{G}$ auf $Y$ betrachten wir die Prägarbe
 	\[
-		U \mapsto  \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \mathllap{\mathcal{G}} = \frac{\{(V,s)\mid V \supseteq f(U),\; V \subseteq Y \text{ offen},\;s\in\mathcal{G}(V)\}}{(V,s)\sim(V',s') \Leftrightarrow \exists \;W \supseteq f(U),\; W \subseteq V \cap V' \text{ offen mit } s\vert_W = s'\vert_W}.
+		U \mapsto \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \quad\mathllap{\mathcal{G}(V)} = \frac{\{(V,s)\mid V \supseteq f(U),\; V \subseteq Y \text{ offen},\;s\in\mathcal{G}(V)\}}{(V,s)\sim(V',s') \Leftrightarrow \exists \;W \supseteq f(U),\; W \subseteq V \cap V' \text{ offen mit } s\vert_W = s'\vert_W}.
 	\]
 	Die \textbf{inverse Bildgarbe} $f^{-1}\mathcal{G}$ auf $X$ ist die dazu assozieierte Garbe. Die Konstruktion definiert einen kontravarianten Funktor
 	\[
@@ -85,9 +85,82 @@
 \end{defn}
 
 \begin{prop}
+\label{prop:3.5}
 	Sei $f\colon X \to Y$ stetig. Dann existiert für jede Garbe $\mathcal{F}$ auf $X$ und jede Garbe $\mathcal{G}$ auf $Y$ eine Bijektion
 	\[
 		\Hom_{\Sh(X)}(f^{-1}\mathcal{G},F) \overset{\cong}{\to} \Hom_{\Sh(Y)}(\mathcal{G},f_*\mathcal{F}),
 	\]
 	welche natürlich in $\mathcal{F}$ und $\mathcal{G}$ ist. Man sagt $f^{-1}$ ist \textbf{linksadjungiert} zu $f_*$ und $f_*$ ist \textbf{rechtsadjungiert} zu $f^{-1}$
 \end{prop}
+
+\begin{kons}
+	\begin{enumerate}[i)]
+		\item Sei $(X,\mco_X)$ ein geringter Raum und seien $\mcf$ und $\mcg$ zwei $\mco_X$-Moduln auf $X$. Dann definiert
+		\[
+			U \mapsto \mcf(U)\otimes_{\mco_X(U)}\mcg(U)
+		\]
+		eine Prägarbe auf $X$. Sei $\mcf\otimes_{\mco_X} \mcg$ die dazu assoziierte Garbe. Man sieht sofort, dass das \textbf{Tensorprodukt} $\mcf\otimes_{\mco_X} \mcg$ ein $\mco_X$-Modul ist.
+		\item Sei $f\colon(X,\mco_X)\to(Y,\mco_Y)$ ein Morphismus geringter Räume und sei $\mcf$ ein $\mco_X$-Modul auf $X$. Wir haben in \ref{defn:2.5} die direkte Bildgarbe $f_*\mcf$ definiert. Offenbar ist $f_*\mcf$ ein $f_*\mco_X$-Modul
+		\begin{proof}
+			Sei $V$ offen in $Y$, dann gilt $f_*\mcf(V) = \mcf(f^{-1}V)$ und dies ist ein $f_*\mco_X(V) = \mco_X(f^{-1}V)$-Modul.
+		\end{proof}
+		Nach der Definition von Morphismen geringter Räume gibt es einen Homomorphismus $f^{\#}\colon \mco_Y \to f_*\mco_X$ von Ringgarben. Durch Verknüpfung sehen wir, dass die direkte Bildgarbe ein $\mco_Y$-Modul auf $Y$ ist. Beachte, dass $f_*$ ein kovarianter Funktor ist.
+		\item Sei $f\colon (X,\mco_X) \to (Y,\mco_Y)$ ein Morphimus geringter Räume und $\mcg$ ein $\mco_Y$-Modul. Wir betrachten den geringten Raum $(X, f^{-1}\mco_Y)$, wobei die inverse Bildgarbe durch die zur Prägarbe
+		\[
+			U \mapsto \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \qquad\mathllap{\mco_Y(V)}
+		\]
+		assoziierte Garbe definiert ist. Beachte, dass $f^{-1}\mco_Y$ eine Ringgarbe ist. Analog sei $f^{-1}\mcg$ die zur Prägrabe
+		\[
+			U \mapsto \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \quad\mathllap{\mathcal{G}(V)}
+		\]
+		assoziierte Garbe. Dann erhalten wir $f^{-1}\mcg$ als $f^{-1}\mco_Y$-Modul. Wieder haben wir einen Homomorphismus $f^{\#}\colon \mco_Y \to f_*\mco_X$ von Ringgarben. Mit Hilfe der Adjunktion aus Proposition\ref{prop:3.5} erhalten wir einen Homomorphismus $f^{-1}\colon \mco_Y \to \mco_X$ von Ringgarben. Wir definieren das \textbf{inverse Bild} der Modulgarbe $\mcg$ als
+		\[
+			f^*\mcg \coloneqq f^{-1}\mcg \otimes_{f^{-1}\mco_Y}\mco_X.
+		\]
+		Indem wir von rechts mit $\mco_X$ multiplizieren, erhalten wir tatsächlich einen $\mco_X$-Modul.
+		\begin{proof}
+			Aus der Modultheorie ist folgendes bekannt: Ist $M$ ein $A$-Modul und $\varphi\colon A \to B$ ein Ringhomomorphismus, dann wird $B$ durch
+			\[
+				a \cdot m \coloneqq \varphi(a) \cdot m
+			\]
+			zu einem $A$-Modul. Auf dem $A$-Modul $M\otimes_A B$ definieren wir eine $B$-Modulstruktur durch
+			\[
+				b\cdot(m\otimes a) \coloneqq m\otimes (a\cdot b).
+			\]
+			Dies machen wir genauso für Garben auf jeder offenen Menge
+		\end{proof}
+		Man beachtem dass $f^*$ ein kovarianter Funktor ist.
+	\end{enumerate}
+\end{kons}
+
+\begin{lem}
+	\begin{enumerate}[i)]
+		\item Seien $(X,\mco_X)$ ein geringter Raum, $p\in X$ und $\mcf,\mcg$ $\mco_X$-Moduln. Dann gilt
+		\[
+			(\mcf\otimes_{\mco_X}\mcg)_p = \mcf_p \otimes_{\mco_{X,p}} \mcg_p.
+		\]
+		\item Sei $f \colon (X, \mco_X) \to (Y, \mco_Y)$ ein Morphismus geringter Räume, $p \in X$ und $\mcg$ ein $\mco_Y$-Modul. Dann gilt
+		\[
+			(f^{-1}\mcg)_p = \mcg_{f(p)}
+		\]
+		und
+		\[
+			(f^*\mcg)_p = \mcg_{f(p)}\otimes_{\mco_{Y,f(p)}}\mco_{X,p},
+		\]
+		wobei $\mco_{Y,f(p)}\to \mco_{X,p}$ der Homomorphismus der Halme $f^{\#}_p$ aus Bemerkung\ref{bem:2.9} ist.
+		\begin{proof}
+			Dies wird in den Übungen 3.2 und 3.3 gezeigt.
+		\end{proof}
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}
+	Sei $f\colon (X,\mco_X) \to (Y,\mco_Y)$ wie oben. Dann ist der Funktor $f^*$ linksdadjungiert zum Funktor $f_*$, das heißt für alle $\mco_X$-Moduln $\mcf$ und alle $\mco_Y$-Moduln $\mcg$ gilt
+	\[
+		\Hom_{\mco_X}(f^*\mcg,\mcf) \cong \Hom_{\mco_G}(\mcg,f_*\mcf)
+	\]
+	natürlich in $\mcf$ und $\mcg$.
+	\begin{proof}[Beweisskizze]
+		Dies beruht auf der Adjunktion aus \ref{prop:3.5} und dem Tensorieren mit $\mco_X$.
+	\end{proof}
+\end{lem}

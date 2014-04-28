@@ -1,0 +1,131 @@
+\chapter{Affine Schemata}
+
+Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A)$ der Primideale, das in natürlicher Weise eine Topologie besitzt. Durch Lokalisierung von $A$ erhalten wir eine Garbe $\mco_{\Spec(A)}$ auf $\Spec(A)$ und damit einen lokal gringten Raum $(\Spec(A),\mco_{\Spec(A)})$. Im folgenden Kapitel~5 werden dies die Bausteine für Schemata sein. Affine Schemata sind ähnlich wie affine Varietäten aus der Algebraischen Geometrie I, mit dem Unterschied, dass Primideale statt Maximalideale als Punkte und beliebige Ringe zugelassen werden.
+
+\begin{defn}
+	Für $M\subseteq A$ sei $V(M)\coloneqq\{\mfp \in \Spec(A) \mid \supseteq M \}$. Dies entspricht der Nullstellenmenge aus der Algebraischen Gerometrie I.
+\end{defn}
+
+\begin{lem}
+\label{lem:4.2}
+	\begin{enumerate}[i)]
+		\item Sei $\mfa\coloneqq \langle M \rangle$ das von $M\subseteq A$ erzeugte Ideal. Dann gilt $V(\mfa) = V(M)$.
+		\item Es gilt $V(\{0\}) = \Spec(A)$ und $V(A) = \emptyset$.
+		\item Für Ideale $\mfa,\mfb$ von $A$ gilt $V(\mfa) \cup V(\mfb) = V(\mfa \cdot \mfb)$.
+		\item Für eine Familie $(\mfa_i)_{i\in I}$ von Idealen in $A$ gilt $\bigcap_{i\in I}V(\mfa_i) = V\left(\sum_{i \in I} \mfa_i\right)$.
+	\end{enumerate}
+	\begin{proof}
+		i) und ii) sind trivial.
+		\begin{enumerate}[i)]
+		\setcounter{enumi}{2}
+		\item Es gilt
+		\[
+			\mfa \cdot \mfb = \langle \{a \cdot b \mid a \in \mfa,\; b \in \mfb\} \rangle .
+		\]
+		\enquote{$\subseteq$}: Sei $\mfp \in V(\mfa)$. Dann gilt $\mfa \subseteq \mfp$ und damit $\mfa \cdot \mfb \subseteq \mfa \subseteq \mfp$, also $\mfp \in V(\mfa \cdot \mfb)$.
+
+		\enquote{$\supseteq$}: Sei $\mfp \in V(\mfa \cdot \mfp)$. Dann gilt $\mfa \cdot \mfb \subseteq \mfp$. Falls $\mfb \subseteq \mfp$ ist, dann gilt $\mfp \in V(\mfb)$ und wir sind fertig. Sei also ohne Beschränkung der Allgemeinheit $\mfb \not\subseteq \mfp$. Dann gibt es ein $b \in \mfb \setminus \mfp$. Für jedes $a \in \mfa$ gilt dann $a \cdot b \in \mfa \cdot \mfb \subseteq \mfp$. Da $\mfp$ prim ist, gilt also schon $a \in \mfp$ und damit $\mfa \subseteq \mfp$, also $\mfp \in V(\mfa)$.
+		\item Dies ist einfach nachzurechnen.
+		\end{enumerate}
+	\end{proof}
+\end{lem}
+
+\begin{defn}[Zariski-Topologie auf $\Spec(A)$]
+	Wir definieren eine Teilmenge von $\Spec(A)$ als abgeschlossen, wenn sie die Form $V(\mfa)$ für ein Ideal $\mfa$ von $A$ hat. Eine Teilmenge $U$ von $\Spec(A)$ heißt dann offen, wenn $\Spec(A)\setminus U$ abgeschlossen ist. Nach Lemma~\ref{lem:4.2} definiert dies eine Topologie auf $\Spec(A)$, die wir \textbf{Zariski-Topologie} nennen.
+\end{defn}
+
+\begin{prop}
+\label{prop:4.4}
+	Für $Y\subseteq \Spec(A)$ definieren wir das Verschwindungsideal $I(Y) \coloneqq \bigcap_{\mfp \in Y} \mfp$.
+	\begin{enumerate}[i)]
+		\item Für ein Ideal $\mfa$ von $A$ gilt $I(V(\mfa)) = \sqrt{\mfa}$.
+		\item Für $Y \subseteq \Spec(A)$ gilt $\sqrt{I(Y)}=I(Y)$ und $\overline{Y} = V(I(Y))$.
+		\item Die Abbildungen
+		\begin{center}
+			\begin{tikzcd}
+				\{\text{abgeschlossene Teilmengen in } \Spec(A)\} \arrow[shift left=1.1ex]{r}{I} & \{\text{Ideale }\mfp \text{ in } A \text{ mit } \sqrt{\mfa} = \mfa\} \arrow[shift left=1.1ex]{l}{V}
+			\end{tikzcd}
+		\end{center}
+		sind bijektiv, zueinander invers und inklusionsumkehrend.
+		\item $Y \subseteq \Spec(A)$ ist genau dann irreduzibel, wenn $I(Y)$ ein Primideal ist.
+		\item Die Korrespondenz aus iii) induziert eine Bijektion
+		\begin{center}
+			\begin{tikzcd}
+				\{\text{irreduzible abgeschlossene Teilmengen in } \Spec(A)\} \arrow[shift left=1.1ex]{r}{I} & \Spec(A) \arrow[shift left=1.1ex]{l}{V}
+			\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+	\begin{proof}
+		Wir benutzen
+		\[
+			I(V(\mfa)) = \bigcap_{\mfp \in V(\mfa)}\mfp = \bigcap_{\substack{\mfp \supseteq \mfa\\\mfp \in \Spec(A)}}\mfp = \sqrt{\mfa}.
+		\]
+		Dann folgen die Behauptungen analog wie bei affinen Varietäten.
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+	Sei $X$ ein topologischer Raum.
+	\begin{enumerate}[i)]
+		\item Ein Punkt $p \in X$ heißt \textbf{abgeschlossen}, wenn $\{p\}$ abgeschlossen ist.
+		\item Ein Punkt $p \in X$ heißt \textbf{generischer Punkt}, wenn $\overline{\{p\}} = X$ gilt.
+		\item Ein Punkt $q \in X$ heißt \textbf{Spezialisierung} von $p \in X$, wenn $q \in \overline{\{p\}}$ ist.
+	\end{enumerate}
+\end{defn}
+
+\begin{lem}
+	Sei $X$ ein topologischer Raum.
+	\begin{enumerate}[i)]
+		\item Ist $X$ hausdorffsch, so ist jeder Punkt abgeschlossen.
+		\item Existiert ein generischer Punkt in $X$, dann ist $X$ irreduzibel.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Dies ist einfach zu zeigen.
+			\item Sei $p$ ein generischer Punkt von $X$ und $X = X_1 \cup X_2$, wobei $X_1$ und $X_2$ abgeschlossen sind. Wir müssen zeigen, dass $X_1=X$ oder $X_2=X$ gilt. Es gilt $p \in X_i$ für ein $i \in \{1,2\}$ und damit
+			\[
+				X = \overline{\{p\}} \subseteq X_i.
+			\]
+		\end{enumerate}
+	\end{proof}
+\end{lem}
+
+\begin{prop}
+	Sei $X = \Spec(A)$.
+	\begin{enumerate}[i)]
+		\item Für $\mfp \in X$ gilt $V(\mfp) = \overline{\{\mfp\}}$. Für $\mfp, \mfq \in X$ gilt insbesondere $\mfp \subseteq \mfq$ genau dann, wenn $\mfq \in \overline{\{\mfp\}}$ gilt.
+		\item Unter der Korrespondenz aus Proposition~\ref{prop:4.4} iii) entsprechen die abgeschlossenen Punkte von $\Spec(A)$ genau den Maximalideal von $A$.
+		\item Für $Y \subseteq X$ irreduzibel und abgeschlossen gilt $Y = \overline{\{\mfp\}}$ für $\mfp = I(Y)$. Damit ist $\mfp$ der nach i) eindeutig bestimmte generische Punkt von $Y$.
+		\item Ist $A$ ein noetherscher Ring, so ist $X$ ein noetherscher topologischer Raum.
+		\item Sei $A$ ein noetherscher Ring. Dann entsprechen die irreduziblen Komponenten von $\Spec(A)$ unter der Korrespondenz aus Proposition~\ref{prop:4.4} iii) genau den minimalen Primidealen von $A$.
+		\item In einem noetherschen Ring existieren nur endliche viele minimale Primideale.
+	\end{enumerate}
+	\begin{proof}
+		Dies wird in Übung~4.1 gezeigt.
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+	Für $f \in A$ sei $V(f) \coloneqq V(\langle f \rangle)$ und $D(f)\coloneqq A \setminus V(f)$.
+	\begin{enumerate}[i)]
+		\item Für eine Familie $(f_i)_{i\in I}$ in $A$ und $g \in A$ gilt:
+		\[
+			D(g) \subseteq \bigcup_{i\in I}D(f_i) \Leftrightarrow g \in \sqrt{\langle \{f_i \mid i \in I\}\rangle}
+		\]
+		\item Die Mengen $(D(f))_{f\in A}$ bilden eine Basis der Zariski-Topologie.
+		\item Versehen wir $D(f)$ mit der induzierten Topologie, so ist $D(f)$ quasikompakt. Insbesondere ist $\Spec(A)=D(1)$ quasikompakt.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Es gilt:
+			\begin{align*}
+				&D(g) \subseteq \bigcup_{i\in I} D(f_i)\\
+				\Leftrightarrow \quad & V(g) \supseteq \bigcap_{i \in I} V(f_i) = V(\langle\{f_i\mid i \in I\}\rangle)\\
+				\Leftrightarrow \quad & \sqrt{\langle g \rangle} \subseteq \sqrt{\langle\{f_i\mid i \in I\}\rangle}\\
+				\Leftrightarrow \quad & g \in \sqrt{\langle\{f_i\mid i \in I\}\rangle}
+			\end{align*}
+			\item Sei $\mfa$ ein Ideal und $\mfp \in U \coloneqq \Spec(A) \setminus V(\mfa)$. Zu zeigen ist, dass es ein $f \in A$ mit $\mfp \in D(f) \subseteq U$ gibt (Basiseigenschaft). Wegen $\mfp \notin V(\mfa)$ gibt es ein $f \in \mfa \setminus \mfp$ und man sieht leicht, dass dieses $f$ das Gewünschte liefert.
+			\item Dies folgt leicht aus i).
+		\end{enumerate}
+	\end{proof}
+\end{prop}
