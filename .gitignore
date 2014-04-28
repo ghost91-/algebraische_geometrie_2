@@ -1,0 +1,15 @@
+# Compiled tex files
+*.log
+*.aux
+*.out
+*.toc
+*.pdf.mk
+*.pdf_FAILED
+*.synctex.gz
+*.dvi
+*.fdb_latexmk
+*.ps
+
+# Mac OS X files
+.DS_Store
+._*
