@@ -13,3 +13,7 @@
 # Mac OS X files
 .DS_Store
 ._*
+
+# misc
+Makefile
+.*.swp
