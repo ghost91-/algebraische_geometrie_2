@@ -1,4 +1,5 @@
 %!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0
 
 \chapter{Modulgarben auf geringten Räumen}
 
@@ -20,9 +21,10 @@
 		\]
 		für alle $\alpha \in \mathcal{F}(V)$ und $\lambda \in \mathcal{O}_X(V)$.
 	\end{enumerate}
-	Ein \textbf{Morphismus von} $\mathcal{O}_X$\textbf{-Moduln} (oder $\mathcal{O}_X$\textbf{-linearer Morphismus}) ist ein Garbenmorphismus $\mathcal{F}\to \mathcal{G}$, wobei $\mathcal{F}(U) \to \mathcal{G}(U)$ für alle $U$ offen in $X$ ein $\mathcal{O}_X(U)$-Modulhomomorphismus ist. Wir bezeichnen die Kategorie  der $\mathcal{O}_X$-Moduln mit $(\mathcal{O}_X\text{-}\Mod)$ und setzen
+	Ein \textbf{Morphismus von} $\mathcal{O}_X$\textbf{-Moduln} (oder $\mathcal{O}_X$\textbf{-linearer Morphismus}) ist ein Garbenmorphismus $\mathcal{F}\to \mathcal{G}$, wobei $\mathcal{F}(U) \to \mathcal{G}(U)$ für alle $U$ offen in $X$ ein $\mathcal{O}_X(U)$-Modulhomomorphismus ist. Wir bezeichnen die Kategorie  der $\mathcal{O}_X$-Moduln mit $(\mathcal{O}_X\text{-}{\Mod})$ und setzen
 	\[
-		\Hom_{\mathcal{O}_X}(\mathcal{F},\mathcal{G}) \coloneqq \Hom_{(\mathcal{O}_X\text{-}\Mod)}(\mathcal{F},\mathcal{G}).
+		\Hom_{\mathcal{O}_X}(\mathcal{F},\mathcal{G}) \coloneqq
+                \Hom_{(\mathcal{O}_X\text{-}{\Mod})}(\mathcal{F},\mathcal{G}).
 	\]
 \end{defn}
 
@@ -31,10 +33,10 @@
 	\begin{enumerate}[i)]
 		\item Sei $\varphi\colon \mathcal{F} \to \mathcal{G}$ ein $\mathcal{O}_X$-Modulmorphismus. In Aufgabe~1.4 wurden für den zugehörigen Garbenmorphismus die Garben $\ker(\varphi)$ und $\im(\varphi)$ auf $X$ definiert. Diese sind auf kanonische Weise $\mathcal{O}_X$-Moduln.
 		\item Ist $\mathcal{F}'$ eine Untergrabe von $\mathcal{O}_X$-Moduln des $\mathcal{O}_X$-Moduls $\mathcal{F}$, so ist die Quotientengarbe $\mathcal{F}/\mathcal{F}'$ (nach Garbifizierung) ebenfalls ein $\mathcal{O}_X$-Modul.
-		\item Das direkte Produkt, die direkte Summe (hier wird garbifiziert) und der direkte Limes von $\mathcal{O}_X$-Moduln haben wieder die Struktur eins $\mathcal{O}_X$-Moduls.
+		\item Das direkte Produkt, die direkte Summe (hier wird garbifiziert) und der direkte Limes von $\mathcal{O}_X$-Moduln haben wieder die Struktur eines $\mathcal{O}_X$-Moduls.
 		\item Eine Sequenz
 		\[
-			\cdots \to \mathcal{F}_{i+1} \overset{\varphi_{i+1}}{\to} \mathcal{F}_i \overset{\varphi_{i}}{\to} \mathcal{F}_{i-1} \to \cdots
+			\cdots \to \mathcal{F}_{i+1} \overset{\varphi_{i+1}}{\longto} \mathcal{F}_i \overset{\varphi_{i}}{\longto} \mathcal{F}_{i-1} \to \cdots
 		\]
 		von $\mathcal{O}_X$-Moduln heißt \textbf{exakt}, wenn die zugehörige Sequenz von Garben exakt ist, das heißt für alle $i \in \Z$ gilt
 		\[
@@ -44,14 +46,14 @@
 		\[
 			U \mapsto \Hom_{\Sh(X)}(\mathcal{F}\vert_U,\mathcal{G}\vert_U)
 		\]
-		bereits eine Garbe $\underline{\Hom}(\mathcal{F},\mathcal{G})$ ist. Sind $\mathcal{F}$ und $\mathcal{G}$ $\mathcal{O}_X$-Moduln, so wird durch
+		bereits eine Garbe $\underline{\Hom}(\mathcal{F},\mathcal{G})$ ist. Sind $\mathcal{F}$ und $\mathcal{G}$ zwei $\mathcal{O}_X$-Moduln, so wird durch
 		\[
 			U \mapsto \Hom_{\mathcal{O}_X\vert_U}(\mathcal{F}\vert_U,\mathcal{G}\vert_U)
 		\]
-		eine Untergarbe $\underline{\Hom}_{\mathcal{O}_X}(\mathcal{F},\mathcal{G})$ von $\underline{\Hom}(\mathcal{F},\mathcal{G})$ definiert, welche die Struktur eines $\mathcal{O}_X$-Moduls trägt.
+		eine Untergarbe $\underline{\Hom}_{\mathcal{O}_X}(\mathcal{F},\mathcal{G})$ von $\underline{\Hom}(\mathcal{F},\mathcal{G})$ definiert, welche ebenfalls die Struktur eines $\mathcal{O}_X$-Moduls trägt.
 		\item Ist $(X, \mathcal{O}_X)$ lokal geringt, $\mathcal{F}$ ein $\mathcal{O}_X$-Modul und $p\in X$, so ist der Halm $\mathcal{F}_p$ ein $\mathcal{O}_{X,p}$-Modul. Sei
 		\[
-			\kappa \coloneqq \mathcal{O}_{X,p}/\mathfrak{m}_p
+			\kappa(p) \coloneqq \mathcal{O}_{X,p}/\mathfrak{m}_p
 		\]
 		der \textbf{Restklassenkörper} von $p$. Dann heißt der $\kappa(p)$-Vektorraum
 		\[
@@ -88,21 +90,21 @@
 
 \begin{prop}
 \label{prop:3.5}
-	Sei $f\colon X \to Y$ stetig. Dann existiert für jede Garbe $\mathcal{F}$ auf $X$ und jede Garbe $\mathcal{G}$ auf $Y$ eine Bijektion
+	Sei $f\colon X \to Y$ stetig. Dann existiert für jede Garbe $\mathcal{F}$ auf $X$ und jede Garbe~$\mathcal{G}$ auf $Y$ eine Bijektion
 	\[
-		\Hom_{\Sh(X)}(f^{-1}\mathcal{G},F) \overset{\cong}{\to} \Hom_{\Sh(Y)}(\mathcal{G},f_*\mathcal{F}),
+            \Hom_{\Sh(X)}(f^{-1}\mathcal{G},\mathcal{F}) \overset{\cong}{\longto} \Hom_{\Sh(Y)}(\mathcal{G},f_*\mathcal{F}),
 	\]
 	welche natürlich in $\mathcal{F}$ und $\mathcal{G}$ ist. Man sagt $f^{-1}$ ist \textbf{linksadjungiert} zu $f_*$ und $f_*$ ist \textbf{rechtsadjungiert} zu $f^{-1}$
 \end{prop}
 
 \begin{kons}
 	\begin{enumerate}[i)]
-		\item Sei $(X,\mco_X)$ ein geringter Raum und seien $\mcf$ und $\mcg$ zwei $\mco_X$-Moduln auf $X$. Dann definiert
+		\item Sei $(X,\mco_X)$ ein geringter Raum und seien $\mcf$ und $\mcg$ zwei $\mco_X$-Moduln auf~$X$. Dann definiert
 		\[
 			U \mapsto \mcf(U)\otimes_{\mco_X(U)}\mcg(U)
 		\]
 		eine Prägarbe auf $X$. Sei $\mcf\otimes_{\mco_X} \mcg$ die dazu assoziierte Garbe. Man sieht sofort, dass das \textbf{Tensorprodukt} $\mcf\otimes_{\mco_X} \mcg$ ein $\mco_X$-Modul ist.
-		\item Sei $f\colon(X,\mco_X)\to(Y,\mco_Y)$ ein Morphismus geringter Räume und sei $\mcf$ ein $\mco_X$-Modul auf $X$. Wir haben in \ref{defn:2.5} die direkte Bildgarbe $f_*\mcf$ definiert. Offenbar ist $f_*\mcf$ ein $f_*\mco_X$-Modul
+		\item Sei $f\colon(X,\mco_X)\to(Y,\mco_Y)$ ein Morphismus geringter Räume und sei $\mcf$ ein $\mco_X$-Modul auf~$X$. Wir haben in \ref{defn:2.5} die direkte Bildgarbe $f_*\mcf$ definiert. Offenbar ist $f_*\mcf$ ein $f_*\mco_X$-Modul.
 		\begin{proof}
 			Sei $V$ offen in $Y$, dann gilt $f_*\mcf(V) = \mcf(f^{-1}V)$ und dies ist ein $f_*\mco_X(V) = \mco_X(f^{-1}V)$-Modul.
 		\end{proof}
@@ -115,12 +117,12 @@
 		\[
 			U \mapsto \varinjlim_{\substack{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \quad\mathllap{\mathcal{G}(V)}
 		\]
-		assoziierte Garbe. Dann erhalten wir $f^{-1}\mcg$ als $f^{-1}\mco_Y$-Modul. Wieder haben wir einen Homomorphismus $f^{\#}\colon \mco_Y \to f_*\mco_X$ von Ringgarben. Mit Hilfe der Adjunktion aus Proposition\ref{prop:3.5} erhalten wir einen Homomorphismus $f^{-1}\colon \mco_Y \to \mco_X$ von Ringgarben. Wir definieren das \textbf{inverse Bild} der Modulgarbe $\mcg$ als
+		assoziierte Garbe. Dann erhalten wir $f^{-1}\mcg$ als $f^{-1}\mco_Y$-Modul. Wieder haben wir einen Homomorphismus $f^{\#}\colon \mco_Y \to f_*\mco_X$ von Ringgarben. Mit Hilfe der Adjunktion aus Proposition~\ref{prop:3.5} erhalten wir einen Homomorphismus $f^{-1}\mco_Y \to \mco_X$ von Ringgarben. Wir definieren das \textbf{inverse Bild} der Modulgarbe $\mcg$ als
 		\[
 			f^*\mcg \coloneqq f^{-1}\mcg \otimes_{f^{-1}\mco_Y}\mco_X.
 		\]
-		Indem wir von rechts mit $\mco_X$ multiplizieren, erhalten wir tatsächlich einen $\mco_X$-Modul.
-		\begin{proof}
+		Indem wir von rechts mit $\mco_X$ tensorieren, erhalten wir tatsächlich einen $\mco_X$-Modul.
+                \begin{proof}[Beweisskizze]
 			Aus der Modultheorie ist folgendes bekannt: Ist $M$ ein $A$-Modul und $\varphi\colon A \to B$ ein Ringhomomorphismus, dann wird $B$ durch
 			\[
 				a \cdot m \coloneqq \varphi(a) \cdot m
@@ -137,7 +139,7 @@
 
 \begin{lem}
 	\begin{enumerate}[i)]
-		\item Seien $(X,\mco_X)$ ein geringter Raum, $p\in X$ und $\mcf,\mcg$ $\mco_X$-Moduln. Dann gilt
+		\item Seien $(X,\mco_X)$ ein geringter Raum, $p\in X$ und $\mcf,\mcg$ zwei $\mco_X$-Moduln. Dann gilt
 		\[
 			(\mcf\otimes_{\mco_X}\mcg)_p = \mcf_p \otimes_{\mco_{X,p}} \mcg_p.
 		\]
@@ -149,7 +151,7 @@
 		\[
 			(f^*\mcg)_p = \mcg_{f(p)}\otimes_{\mco_{Y,f(p)}}\mco_{X,p},
 		\]
-		wobei $\mco_{Y,f(p)}\to \mco_{X,p}$ der Homomorphismus der Halme $f^{\#}_p$ aus Bemerkung\ref{bem:2.9} ist.
+		wobei $\mco_{Y,f(p)}\to \mco_{X,p}$ der Homomorphismus der Halme $f^{\#}_p$ aus Bemerkung~\ref{bem:2.9} ist.
 		\begin{proof}
 			Dies wird in den Übungen 3.2 und 3.3 gezeigt.
 		\end{proof}
@@ -157,12 +159,12 @@
 \end{lem}
 
 \begin{lem}
-	Sei $f\colon (X,\mco_X) \to (Y,\mco_Y)$ wie oben. Dann ist der Funktor $f^*$ linksdadjungiert zum Funktor $f_*$, das heißt für alle $\mco_X$-Moduln $\mcf$ und alle $\mco_Y$-Moduln $\mcg$ gilt
+	Sei $f\colon (X,\mco_X) \to (Y,\mco_Y)$ ein Morphismus geringter Räume. Dann ist der Funktor $f^*$ linksdadjungiert zum Funktor $f_*$, das heißt für alle $\mco_X$-Moduln $\mcf$ und alle $\mco_Y$-Moduln~$\mcg$ gilt
 	\[
-		\Hom_{\mco_X}(f^*\mcg,\mcf) \cong \Hom_{\mco_G}(\mcg,f_*\mcf)
+		\Hom_{\mco_X}(f^*\mcg,\mcf) \cong \Hom_{\mco_Y}(\mcg,f_*\mcf)
 	\]
 	natürlich in $\mcf$ und $\mcg$.
 	\begin{proof}[Beweisskizze]
-		Dies beruht auf der Adjunktion aus \ref{prop:3.5} und dem Tensorieren mit $\mco_X$.
+		Dies beruht auf der Adjunktion aus Prop.~\ref{prop:3.5} und dem Tensorieren mit $\mco_X$.
 	\end{proof}
 \end{lem}
