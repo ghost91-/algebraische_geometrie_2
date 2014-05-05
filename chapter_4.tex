@@ -109,7 +109,8 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 \end{prop}
 
 \begin{prop}
-	Für $f \in A$ sei $V(f) \coloneqq V(\langle f \rangle)$ und $D(f)\coloneqq A \setminus V(f)$.
+\label{prop:4.8}
+	Für $f \in A$ sei $V(f) \coloneqq V(\langle f \rangle)$ und $D(f)\coloneqq \Spec(A) \setminus V(f)$.
 	\begin{enumerate}[i)]
 		\item Für eine Familie $(f_i)_{i\in I}$ in $A$ und $g \in A$ gilt:
 		\[
@@ -123,12 +124,181 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 			\item Es gilt:
 			\begin{align*}
 				&D(g) \subseteq \bigcup_{i\in I} D(f_i)\\
-				\Leftrightarrow \quad & V(g) \supseteq \bigcap_{i \in I} V(f_i) = V(\langle\{f_i\mid i \in I\}\rangle)\\
-				\Leftrightarrow \quad & \sqrt{\langle g \rangle} \subseteq \sqrt{\langle\{f_i\mid i \in I\}\rangle}\\
-				\Leftrightarrow \quad & g \in \sqrt{\langle\{f_i\mid i \in I\}\rangle}
+				\Longleftrightarrow \quad & V(g) \supseteq \bigcap_{i \in I} V(f_i) = V(\langle\{f_i\mid i \in I\}\rangle)\\
+				\Longleftrightarrow \quad & \sqrt{\langle g \rangle} \subseteq \sqrt{\langle\{f_i\mid i \in I\}\rangle}\\
+				\Longleftrightarrow \quad & g \in \sqrt{\langle\{f_i\mid i \in I\}\rangle}
 			\end{align*}
 			\item Sei $\mfa$ ein Ideal und $\mfp \in U \coloneqq \Spec(A) \setminus V(\mfa)$. Zu zeigen ist, dass es ein $f \in A$ mit $\mfp \in D(f) \subseteq U$ gibt (Basiseigenschaft). Wegen $\mfp \notin V(\mfa)$ gibt es ein $f \in \mfa \setminus \mfp$ und man sieht leicht, dass dieses $f$ das Gewünschte liefert.
-			\item Dies folgt leicht aus i).
+			\item Quasikompakt heißt, dass jede offene Überdeckung $(V_i)_{i\in I}$ von $D(f)$ eine endliche Teilüberdeckung hat, das heißt es gibt ein endloiches $I_0 \subseteq I$ mit $\bigcup_{i\in I_0} V_i \supseteq D(f)$. Nach ii) bilden die Mengen $D(f)$ eine Basis, also sei ohne Beschränkung der Allgemeinheit $V_i = D(f_i)$ für ein $f_i \in A$. Nun gilt:
+			\begin{align*}
+				&D(f) \subseteq \bigcup_{i \in I} D(f_i)\\
+				\overset{\text{i)}}{\Longleftrightarrow} \quad & f \in \sqrt{\langle \{f_i \mid i \in I\}\rangle}\\
+				\Longleftrightarrow \quad & \exists\; m \ge 1,\; f^m = \sum_{i\in I_0} a_i f_i \in \langle \{f_i \mid i \in I\}\rangle \text{ für ein endliches }I_0 \subseteq I, a_i \in A\\
+				\Longleftrightarrow \quad & \exists \text{ endliches } I_0 \subseteq I,\; f \in \sqrt{\langle\{f_i\mid i \in I_0\}\rangle}\\
+				\Longleftrightarrow \quad & D(f) \subseteq \bigcup_{i \in I_0} D(f_i)
+			\end{align*}
+			Also ist $D(f)$ quasikompakt. Insbesondere ist $D(1) = \Spec(A)$ quasikompakt.
 		\end{enumerate}
 	\end{proof}
 \end{prop}
+
+\begin{prop}
+	Sei $\varphi\colon A \to B$ ein Ringhomomorphismus. Dann gilt:
+	\begin{enumerate}[i)]
+		\item Die Abbildung $f\colon X = \Spec(B) \to Y = \Spec(A),\; \mfp \mapsto \varphi^{-1}(\mfp)$ ist stetig. Oft bezeichnen wir $f$ auch mit $\Spec(\varphi) = f$. Weiter gelten folgende Identitäten:
+		\begin{alignat*}{2}
+			f^{-1}(V(M)) &= V(\varphi(M)) \quad &&\forall \;M \subseteq A\\
+			f^{-1}(D(a)) &= D(\varphi(a)) \quad &&\forall \;a \in A\\
+			\overline{f(V(\mfb))} &= V(\varphi^{-1}(\mfb)) \quad &&\forall\; \mfb \text{ Ideal in } B
+		\end{alignat*}
+		\item Ist $\varphi$ surjektiv und $\mfa \coloneqq \ker(\varphi)$, dann definiert $f$ einen Homöomorphismus
+		\[
+			\Spec(B) \overset{\sim}{\longto} V(\mfa).
+		\]
+	\end{enumerate}
+	
+	\begin{proof}
+		Dies wird in Aufgabe~4.2 gezeigt.
+	\end{proof}
+\end{prop}
+
+\begin{eri}
+	Sei $S \subseteq A$ abgeschlossen unter Multiplikation und $1 \in S$. Dann ist die Lokalisierung $A_S$ definiert als die Menge der Äquivalenzklassen unter folgender Äquivalenzrelation auf $A \times S$:
+	\[
+		(a,s)\sim(a',s') \Longleftrightarrow \exists\; t \in S \text{ mit } t(s'a-sa') = 0
+	\]
+	Die Äquivalenzklasse von $(a,s)$ wird mit $\frac{a}{s}$ bezeichnet. $A_S$ ist ein Ring.
+	\begin{enumerate}[i)]
+		\item Für $\mfp \in \Spec(A)$ sei $A_{\mfp}\coloneqq A_S$ mit $S=A\setminus \mfp$.
+		\item Für $f \in A$ sei $A_f \coloneqq A_S$ mit $S = \{f^m \mid m \in \N \}$.
+	\end{enumerate}
+\end{eri}
+
+\begin{kons}[Lokal geringter Raum auf $\Spec(A)$]
+\label{kons:4.11}
+	\begin{enumerate}[i)]
+		\item Sei $U$ offen in $\Spec(A)$. Dann bezeichnen wir mit $\mco(U)$ die Menge der Funktionen $s\colon U \to \coprod_{\mfp \in U}A_{\mfp}$, die folgende Eigenschaften erfüllen:
+		\begin{enumerate}[a)]
+			\item Für alle $\mfp \in U$ gilt $s(p) \in A_{\mfp}$
+			\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $a,f\in A$ mit $V \subseteq D(f)$ und $s(\mfq) =  \frac{a}{f} \in A_\mfq$ für alle $\mfq \in V$.
+		\end{enumerate}
+		\item Aufgrund der lokalen Natur der Axiome a) und b) sieht man, dass $U \mapsto \mco(U)$ eine Garbe von Ringen auf $\Spec(A)$ definiert. Dabei sind die Addition und Multiplikation von solchen Funktionen punktweise unter Benutzung der entsprechenden Operation in den $A_{\mfp}$ definiert.
+	\end{enumerate}
+\end{kons}
+
+\begin{prop}
+	\begin{enumerate}[i)]
+		\item Für alle $\mfp \in \Spec(A)$ gibt es einen kanonischen Isomorphismus
+		\[
+			\mco_{\mfp} \overset{\sim}{\longto} A_{\mfp}
+		\]
+		von Ringen, wobei $\mco_\mfp$ der Halm der Garbe $\mco$ in $\mfp$ ist. Insbesondere ist $\mco_\mfp$ ein lokaler Ring und damit ist $(\Spec(A),\mco)$ ein lokal geringter Raum.
+		\item Für alle $f \in A$ gibt es einen kanonischen Isomorphismus
+		\[
+			A_f \overset{\sim}{\longto}\mco_{(D(f))}
+		\]
+		von Ringen.
+		\item Es gilt $\mco(\Spec(A)) = A$.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Es gilt
+			\[
+				\mco_\mfp = \varinjlim_{\substackclap{\mfp \in U\\U \text{ offen}}} \, \mco(U),
+			\]
+			das heißt ein Element von $\mco_\mfp$ ist repräsentiert durch $(U,s)$, wobei $U$ offen mit $\mfp \in U$ und $s \in \mco(U)$ ist. Weiter gilt $[(U,s)] = [(U',s')] \in \mco_\mfp$ genau dann, wenn es ein offenes $V \subseteq U \cap U'$ gibt mit $\mfp \in V$ und $s\vert_V = s'\vert_V$. Sei $\mfp \in \Spec(A)$ und $U$ eine offene Umgebung von $\mfp$. Für $U$ offen in $\Spec(A)$ betrachten wir
+			\[
+			 	\mco(U) \to A_\mfp,\; s \mapsto s(\mfp).
+			\]
+			Nach a) sind dies wohldefinierte Ringhomomorphismen. Weiter sind diese Homomorphismen verträglich mit Einschränkungen auf kleinere Umgebungen $V$. Also wird ein Ringhomomorphismus $\varphi\colon\mco_\mfp \to A_\mfp,\; [(U,s)] \mapsto s(\mfp)$ induziert.
+			Sei $\frac{a}{f}\in A_\mfp$, also $f \notin \mfp,\; a \in A$. Dies definiert einen Schnitt
+			\[
+				s = \frac{a}{f}\colon D(f) \to \coprod_{\mfq \in D(f)} A_\mfq,\; \mfq \mapsto s(\mfq) \coloneqq \frac{a}{f} \in A_\mfq.
+			\]
+			Offenbar gilt $\varphi(s) = \frac{a}{f}\in A_\mfp$, also ist $\varphi$ surjektiv.
+
+			Sei $U$ eine Umgebung von $\mfp$ und seien $s,t \in \mco(U)$ mit $s(\mfp) = t(\mfp)$, das heißt
+			\[
+				\varphi([(U,s)]) = \varphi([(U,t)]).
+			\]
+			Wir wollen nun $s=t \in \mco_\mfp$ zeigen. Indem wir die Umgebung von $\mfp$ gegebenenfalls verkleinern, dürfen wir nach b) annehmen, dass es $a,b,f,g \in A$ mit $f,g \notin \mfp$ gibt mit $s = \frac{a}{f} \in \mco(U)$ und $t=\frac{b}{g}\in \mco(U)$ gibt. Dann gilt:
+			\begin{align*}
+				& s(\mfp) = \varphi(s) = \varphi(t) = t(\mfp)\\
+				\Longrightarrow \quad & \frac{a}{f} = \frac{b}{g} \in A_\mfp\\
+				\Longrightarrow \quad & \exists\; h \in A \setminus \mfp \text{ mit } h(ga-fb)=0
+			\end{align*}
+			Weiter gilt $\frac{a}{f}=\frac{b}{g} \in A_\mfq$ für alle $\mfq \in \Spec(A)$ mit $f,g,h \notin \mfq$. Die Menge dieser $\mfq$ ist gleich der offenen Menge $W \coloneqq D(f)\cap D(g) \cap D(h) \ni \mfp$. Also gilt $s\vert_{W\cap U} = t\vert_{W\cap U}$ und damit $s=t \in \mco_\mfp$ nach der Definition von $\mco_\mfp$. Also ist $\varphi$ injektiv.
+
+			Damit ist $\varphi$ ein kanonischer Isomorphismus.
+
+			\item Wir definieren
+			\begin{align*}
+				\psi_f\colon A_f &\to \mco(D(f))\\
+				\frac{a}{f^n} & \mapsto \left(s\colon D(f) \to \coprod_{\mfp \in D(f)}A_\mfp,\; \mfp \mapsto s(\mfp)\coloneqq \frac{a}{f^n}\in A_\mfp\right).
+			\end{align*}
+			Offenbar ist $\psi_f$ ein wohldefinierter Ringhomomorphismus.
+
+			Sei $\psi_f\left(\frac{a}{f^n}\right) = \psi_f \left(\frac{b}{f^m}\right)$. Dann gilt $\frac{a}{f^n}=\frac{b}{f^m} \in A_\mfp$ für alle $\mfp \in D(f)$. Sei
+			\[
+				\mfa\coloneqq \Ann_A(f^m a-f^n b) = \{g \in A \mid g \cdot (f^m a - f^n b) = 0\}.
+			\]
+			Beachte, dass $\mfa$ ein Ideal in $A$ ist. Nun gibt es ein $h \in A \setminus \mfp$ mit $h(f^m a -f^n b) = 0$, also $h \in \mfa \setminus \mfp$. Also gilt $\mfa \not \subseteq \mfp$, das heißt $\mfp \notin V(\mfa)$. Dies gilt für alle $\mfp \in D(f)$, also gilt $D(f) \cap V(\mfa) = \emptyset$. Damit gilt $V(\mfa) \subseteq V(f)$. Mit Proposition~\ref{prop:4.4} folgt wegen $f \in \sqrt{\mfa}$, dass es ein $k \ge 1$ mit $f^k \in \mfa$ gibt. Dann gilt
+			$f^k(f^m a -f^n b) = 0$ und damit $\frac{a}{f^n} = \frac{b}{g^m} \in A_f$. Also ist $\psi_f$ injektiv.
+
+			Sei $s \in \mco(D(f))$. Nach Proposition~\ref{prop:4.8} ii) und der Definition von $\mco$ in Konstruktion~\ref{kons:4.11} gibt es eine Familie $(h_i)_{i\in I}$ in $A$ mit
+			\begin{equation*}
+			\label{eq:4.12.1}
+				D(f) = \bigcup_{i\in I} D(h_i) \tag{$\star$}
+			\end{equation*}
+			und $a_i,g_i \in A$ mit $D(h_i) \subseteq D(g_i)$, sodass für alle $i \in I$
+			\[
+				s\vert_{D(h_i)} = \frac{a_i}{g_i} \in \mco(D(h_i))
+			\]
+			gilt. Aus $D(h_i) \subseteq D(g_i)$ folgt mit Proposition~\ref{prop:4.8}, dass es $n_i \ge 1$ und $c_i \in A$ mit $h_i^{n_i} = c_i g_i$ gibt. Dann gilt
+			\[
+				\frac{a_i}{g_i} = \frac{c_i a_i}{h_i^{n_i}} \in \mco(D(h_i)) = \mco(D(h_i^{n_i})).
+			\]
+			Wir ersetzen $h_i$ durch $h_i^{n_i}$ und $a_i$ durch $c_i a_i$ und erhalten
+			\[
+				s\vert_{D(h_i)} = \frac{a_i}{h_i} \in \mco(D(h_i)).
+			\]
+			Da $D(f)$ nach Proposition~\ref{prop:4.8} quasikompakt ist, gibt es $h_1,\ldots,h_r$ mit
+			\[
+				D(f) \overset{\eqref{eq:4.12.1}}{=}  D(h_1)\cup \cdots \cup D(h_r).
+			\]
+			Wir fassen $\frac{a_i}{h_i}$ und $\frac{a_j}{h_j}$ als Elemente von $A_{h_ih_j}$ auf. Wegen $D(h_i)\cap D(h_j) = D(h_ih_j)$ gilt 
+			\[
+				\psi_{h_ih_j}\left(\frac{a_i}{h_i}\right) = \psi_{h_ih_j}\left(\frac{a_j}{h_j}\right) = s\vert_{D(h_ih_j)} \in \mco(D(h_ih_j)).
+			\]
+			Aus der Injetivität von $\psi_{h_ih_j}$ folgt $\frac{a_i}{h_i} = \frac{a_j}{h_j} \in A_{h_ih_j}$. Deswegen gibt es $n_{ij}\ge 1$ mit
+			\begin{equation*}
+			\label{eq:4.12.2}
+				(h_ih_j)^{n_{ij}}(h_ja_i-h_ia_j) = 0 \quad \forall \;1 \le i,\; j \le r. \tag{$\star\star$}
+			\end{equation*}
+			Sei $n \coloneqq \max\{n_{ij}\mid 1\; \le i, j \le r\}$, $\tilde{a}_i\coloneqq h_i^na_i$, $\tilde{h}_i \coloneqq h_i^{n+1}$. Wieder gilt $D(\tilde{h}_i) = D(h_i)$. Aus \eqref{eq:4.12.2} folgt
+			\[
+				h_j^{n+1}(h_ia_i) - h_i^{n+1}(h_j^na_j) = 0 \quad \forall \;1 \le i,\; j\le r.
+			\]
+			Deswegen gilt
+			\[
+				s\vert_{D(\tilde{h}_i)} = \frac{\tilde{a}_i}{\tilde{h}_i} \text{ und } \tilde{h}_i\tilde{a}_j = \tilde{a}_i\tilde{h}_j \quad \forall \;1 \leq i,\; j \le r.
+			\]
+			Aus \eqref{eq:4.12.1} folgt mit Proposition~\ref{prop:4.8} i), dass es ein $m \ge 1$ mit $f^m = \sum_{i=1}^r b_i \tilde{h}_i$ für gewisse $b_i \in A$ gibt. Wir setzen $a \coloneqq \sum_{i=1}^r b_i \tilde{a}_i$. Für $1 \le j \le r$ gilt
+			\[
+				\tilde{h}_j a = \sum_{i=1}^r\tilde{h}_jb_i\tilde{a}_i = \sum_{i=1}^r\tilde{h}_ib_i \tilde{a}_j = f^m \tilde{a}_j
+			\]
+			und damit folgt
+			\[
+				\frac{\tilde{a}_j}{\tilde{h}_j} = \frac{a}{f^m} \in A_{\tilde{h}_j} \overset{\psi_{\tilde{h}_j}}{\hookrightarrow} \mco(D(\tilde{h}_j))
+			\]
+			und damit $\psi_f\left(\frac{a}{f}\right) = s$ auf jedem $D(\tilde{h}_j)$. Da $\mco$ eine Garbe ist, gilt dies auch auf $D(f)$. Damit ist $\psi_f$ surjektiv.
+
+			Insgesamt ist $\psi_f$ ein Isomorphismus.
+			\item Dies folgt aus ii) mit $f=1$.
+		\end{enumerate}
+	\end{proof}
+\end{prop}
+
+
+
+
