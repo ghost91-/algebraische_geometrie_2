@@ -1,0 +1,107 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0
+
+\chapter{Schemata}
+
+Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern die (quasiprojektiven) Varietäten aus der algebraischen Geometrie I.
+
+\begin{defn}
+\label{defn:5.1}
+	\begin{enumerate}[i)]
+		\item Ein Schema ist ein lokal geringter Raum $(X,\mco_X)$, wobei $X$ eine offene Überdeckung $(U_i)_{i\in I}$ hat, die die Eigneschaft besitzt, dass $(U_i,\mco_{X}\vert_{U_i})$ für alle $i \in I$ ein affines Schema ist. Wir nennen $X$ den \textbf{unterliegenden topologischen Raum} und $\mco_X$ die \textbf{Strukturgarbe}. Oft wird das Schema $(X,\mco_X)$ einfach mit $X$ abgekürzt, obwohl der topologische Raum das Schema nicht bestimmt.
+		\item Ein \textbf{Morphismus} von Schemata ist ein Morphismus von lokal geringten Räumen.
+	\end{enumerate}
+	Wir erhalten die Katergorie $\Sch$ der Schemata.
+\end{defn}
+
+\begin{prop}
+	Sei $X = (X,\mco_X)$ ein Schema.
+	\begin{enumerate}[i)]
+		\item Für $U$ offen in $X$ ist $(U,(\mco_U \coloneqq \mco_X\vert_U)$ ein Schema. Weiter hat man einen kanonischen Morphismus
+		\[
+			j\colon (U,\mco_U) \to (X,\mco_X).
+		\]
+		Wir nennen dies die \textbf{induzierte Schemastruktur} auf $U$ und sagen, dass $(U,\mco_U)$ ein \textbf{offenes Unterschema} von $X$ ist.
+		\item Die affinen offenen Unterschemata bilden eine Basis der Topologie von $X$.
+	\end{enumerate}
+	\begin{proof}
+		Dies folgt aus Proposition~\ref{prop:4.8} und Lemma~\ref{lem:4.16}.
+	\end{proof}
+\end{prop}
+
+\begin{bem}
+	Ein offenes affines Unterschema muss im Allgemeinen nicht wieder affin sein.
+\end{bem}
+
+\begin{bem*}
+	Sei $X$ ein topologischer Raum.
+	\begin{enumerate}[i)]
+		\item $X$ erfüllt das Axiom $T_0$, wenn es zu je zwei verschiedenen Punkten $x,y \in X$ eine offene Menge $U$ mit $x \in U$, $y\notin U$ oder $x \notin U$, $y \in U$ gibt. $X$ heißt dann $T_0$-Raum.
+		\item $X$ erfüllt das Axiom $T_1$, wenn es zu je zwei verschiedenen Punkten $x,y \in X$ offene Mengen $U_x,U_y$ gibt mit $x \in U_x$, $y \notin U_X$ und $x \notin U_Y$, $y \in U_y$. $X$ heißt dann $T_1$-Raum.
+		\item $X$ erfüllt das Axiom $T_2$, wenn es zu je zwei verschiedenen Punkten $x,y \in X$ offene Mengen $U_x,U_y$ gibt mit $x \in U_x$, $y \in U_y$ und $U_x \cap U_Y = \emptyset$. $X$ heißt dann $T_2$-Raum oder \textbf{Hausdorffraum}.
+	\end{enumerate}
+	Man sieht leicht, dass das Axiom $T_2$ das Axiom $T_1$ impliziert und, dass das Axiom $T_1$ das Axiom $T_0$ impliziert.
+\end{bem*}
+
+\begin{prop} Sei $(X, \mco_X)$ ein Schema
+	\begin{enumerate}[i)]
+		\item Der topologische Raum $X$ ist ein $T_0$-Raum.
+		\item Jede abgeschlossene irreduzible Teilmenge des topologischen Raums $X$ besitzt genau einen generischen Punkt.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Seien $x\neq y \in X$. Nach Definition~\ref{defn:5.1} gibt es eine affine offene Umbebung $U \cong \Spec(A)$ von $x$. Falls $y \notin U$, dann sind wir fertig, sei also ohne Beschränkung der Allgemeinheit $y \in U$. Die Punkte $x,y$ sind durch Primideale $\mfp,\mfq$ von $A$ gegeben. Es gilt $\mfp \neq \mfq$, sei also ohne Beschränkung der Allgemeinheit $\mfp \not\subseteq \mfq$. Dann gibt es ein $f \in \mfp \setminus \mfq$. $D(f)$ ist offen in $X$ und $x \notin D(f)$, aber $y\in D(f)$.
+			\item Wir zeigen zunächst die Existenz: Sei $V\subseteq X$ irreduzibel und abgeschlossen. Nach Definition~\ref{defn:5.1} gibt es ein offenes affines Unterschema $U \cong \Spec(A)$ mit $U \cap V \neq \emptyset$. Da $V$ abgeschlossen in $X$ ist, ist $U \cap V$ abgeschlossen in $U$ und weil $U$ offen in $X$ ist, ist $U \cap V$ offen in $V$. In Aufgabe~1.5 zur algebraischen Geometrie I haben wir gesehen, dass jede nicht leere, offene Teilmenge eines irreduziblen topologischen Raumes irreduzibel und dicht ist, also ist $U \cap V$ irreduzibel und dicht in $V$. Sei $\mfp \coloneqq I(U \cap V) \in \Spec(A)$. Nach Proposition~\ref{prop:4.7} iii) ist $\mfp$ ein generischer Punkt von $\Spec(A)$. Dieser entspricht einem Punkt $\eta$ in $U \subseteq X$. Es gilt $\overline{\eta}=U\cap V$ und damit ist $\eta$ dicht in $V$, also ein generischer Punkt von $V$.
+
+			Nun zeigen wir die Eindeutigkeit: Seien $\eta_1,\eta_2$ generische Punkte von $V$. Wir nehmen an, dass $\eta_1 \neq \eta_1$. Dann gibt es ohne Beschränkung der Allgemeinheit ein offenes $U$ mit $\eta_1 \in U$ und $\eta_2 \neq U$. Dann gilt $\eta_2 \in V\setminus U \neq V$ und damit folgt $\overline{\eta_2} \subseteq V\setminus U \neq V$ im Widerspruch dazu, dass $\eta_2$ ein generischer Punkt von $V$ ist.
+		\end{enumerate}
+	\end{proof}
+\end{prop}
+
+\begin{bem*}
+	Wir haben inbesondere gezeigt, dass jedes irreduzible affine Schema ein $T_0$-Raum ist. Weiter haben wir gesehen, dass jedes irreduzible affine Schema $X$ genau einen generischen Punkt $\eta$ hat.
+
+	Ist $(X,\mco_X)$ ein Schema, das mindestens zwei Punkte enthält. Dann ist $X$ jedoch kein $T_1$-Raum.
+	\begin{proof}
+		Wir wählen $y = \eta, x \neq y$. Falls $U$ eine offene Umgebung von $x$ ist, so gilt $y \in U$, da $y$ ein generischer Punkt ist.		
+	\end{proof}
+\end{bem*}
+
+\begin{lem}
+	Seien $X,Y$ Schemata.
+	\begin{enumerate}[i)]
+		\item Sei $(U_i)_{i\in I}$ eine offene Überdeckung von $X$ und seien $f_i\colon U_i\to Y$ Morphismen mit
+		\[
+			f_i\vert_{U_i\cap U_j} = f_j\vert_{U_i\cap U_j} \quad \forall\; i,j \in I.
+		\]
+		Dann gibt es genau einen Morphismus $f \colon X \to Y$ mit $f\vert_{U_i} = f_i$ für alle $i \in I$.
+		\item Die durch $U \mapsto \Hom_{\Sch}(U,Y)$ mit den Restriktionsabbildungen
+		\[
+			\Hom_{\Sch}(U,Y) \to \Hom_{\Sch}(V,Y)
+		\]
+		definierte Prägarbe von Mengen auf $X$ ist eine Garbe.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Genauer ist ein Morphismus $(f,f^{\#})\colon (X,\mco_X) \to (Y,\mco_Y)$ von lokal geringten Räumen zu konstruieren und die Eindeutigkeit zu zeigen. Gegeben sind Morphismen
+			\[
+				(f_i,f_i^{\#})\colon (U_i,\mco_{U_i}) \to (Y,\mco_Y),
+			\]
+			die auf den Überlappungen übereinstimmen. Für alle $x \in X$ gibt es ein $i \in I$ mit $x \in U_i$. Nun definieren wir die stetige Abbildung
+			\[
+				f\colon X \to Y,\; x \mapsto f(x) \coloneqq f_i(x).
+			\]
+			Dies ist wohldefiniert, da die $f_i$ auf den Überlappungen der $U_i$ übereinstimmen. Wir konstruieren nun $f^{\#}\colon \mco_Y \to f_*(\mco_X)$. Für $V$ offen in $Y$ müssen wir einen Homomorphismus
+			\[
+				f^{\#}_V\colon \mco_Y(V) \to ((f_*\mco_X)(V) = \mco_X(f^{-1}V))
+			\]
+			konstruieren. Sei $s \in \mco_Y(V)$. Beachte, dass $f^{-1}V$ von den offenen Teilmegenen $f^{-1}V \cap U_i$ überdeckt wird. Wir betrachten die Abbildungen
+			\begin{align*}
+				f_{i,V}^{\#}\colon \mco_Y(V)&\to (({f_i}_*\mco_{U_i})(V) = \mco_X(U_i \cap f^{-1}V))\\
+				s &\mapsto f^{\#}_{i,V}(s).
+			\end{align*}
+			Wegen der Vorraussetzung stimmen die $f_{i,V}^{\#}(s)$ auf den Überlappungen der Mengen $U_i\cap f^{-1}V$ überein. Wegen der Garbeneigenschaft gibt es ein eindeutiges $t \in \mco_X(f^{-1}V)$ mit $t\vert_{U_i\cap f^{-1}V} = f_{i,V}^{\#}(s)$ für alle $i \in I$. Wir definieren $f^{\#}_V \coloneqq t$. Man sieht sofort, dass $f_V^{\#}$ das Gewünschte liefert und eindeutig ist.
+			\item Dies folgt aus i), indem man $X \coloneqq U$ setzt.
+		\end{enumerate}
+	\end{proof}
+\end{lem}

@@ -94,6 +94,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 \end{lem}
 
 \begin{prop}
+\label{prop:4.7}
 	Sei $X = \Spec(A)$.
 	\begin{enumerate}[i)]
 		\item Für $\mfp \in X$ gilt $V(\mfp) = \overline{\{\mfp\}}$. Für $\mfp, \mfq \in X$ gilt insbesondere $\mfp \subseteq \mfq$ genau dann, wenn $\mfq \in \overline{\{\mfp\}}$ gilt.
@@ -187,6 +188,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 \end{kons}
 
 \begin{prop}
+\label{prop:4.12}
 	\begin{enumerate}[i)]
 		\item Für alle $\mfp \in \Spec(A)$ gibt es einen kanonischen Isomorphismus
 		\[
@@ -299,6 +301,69 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\begin{bem*}
+	Wir nennen $\mco$ die Garbe der regulären Funktionen auf $\Spec(A)$.
+\end{bem*}
 
+\begin{defn}
+	Der lokal geringte Raum $(\Spec(A), \mco)$ heißt \textbf{Spektrum} von $A$.
+\end{defn}
 
+\begin{prop}
+	Seien $A, B$ Ringe, $X \coloneqq \Spec(B)$ und $Y \coloneqq \Spec(A)$.
+	\begin{enumerate}[i)]
+		\item Ein Ringhomomorphismus $\varphi\colon A \to B$ induziert eine stetige Abbildung
+		\[
+			(f = \Spec(\varphi))\colon X \to Y,\; \mfp \mapsto \varphi^{-1}(\mfp),
+		\]
+		einen Garbenhomomorphismus
+		\[
+			f^{\#}\colon \mco_X \to f_*(\mco_Y)
+		\]
+		und einen Morphismus
+		\[
+			(f,f^{\#})\colon (X,\mco_X)\to (Y,\mco_Y)
+		\]
+		lokal geringter Räume.
+		\item Ein Morphismus lokal geringter Räume $(f,f^{\#})\colon (X,\mco_X)\to(Y,\mco_Y)$ induziert einen Ringhomomorphismus
+		\[
+			(\varphi = \Gamma(Y,f^{\#}))\colon (A = \mco(Y)) \to (B=\mco(X)).
+		\]
+		\item Es gibt eine bijektive Korrespondenz
+		\begin{align*}
+			\phi\colon \Hom_{\Ring}(A,B) &\to \Hom_{\lgR}((\Spec(B),\mco_{\Spec(B}),(\Spec(A),\mco_{\Spec(A}))\\
+			\varphi & \mapsto ((f=\Spec(\varphi)),f^{\#})
+		\end{align*}
+		und die Umkehrabbildung $\Psi$ ist gegeben durch
+		\[
+			(f,f^{\#})\mapsto \Gamma(\Spec(A),f^{\#}).
+		\]
+	\end{enumerate}
+	\begin{proof}
+		Dies wird in Aufgabe~5.1 gezeigt.
+	\end{proof}
+\end{prop}
 
+\begin{defn}
+	Ein \textbf{affines Schema} ist ein lokal geringter Raum $(X,\mco_X)$, der für einen Ring $A$ zu $(\Spec(A),\mco_{\Spec(A)})$ isomorph ist.
+\end{defn}
+
+\begin{lem}
+\label{lem:4.16}
+	Sei $f \in A$. Dann existiert ein kanonischer Isomorphismus
+	\[
+		(\Spec(A_f),\mco_{\Spec(A_f)}) \overset{\sim}{\longto} (D(f),\mco_{\Spec(A)}\vert_{D(f)})
+	\]
+	von lokal geringten Räumen. Insbesondere ist $(D(f),\mco_{\Spec(A)}\vert_{D(f)})$ ein affines Schema.
+	\begin{proof}
+		Dies folgt leicht aus Proposition~\ref{prop:4.12} und wird in Aufgabe~5.2 gezeigt.
+	\end{proof}
+\end{lem}
+
+\begin{defn}
+	Sei $(X,\mco_X)$ ein lokal geringter Raum und $p \in X$. Dann ist $\mco_{X,p}$ ein lokaler Ring mit eindeutigem Maximalideal $\mfm_p$. Also ist
+	\[
+		\kappa(p) \coloneqq \mco_{X,p}/\mfm_p
+	\]
+	ein Körper, den wir \textbf{Restklassenkörper} von $(X,\mco_X)$ in $p$ nennen.
+\end{defn}
