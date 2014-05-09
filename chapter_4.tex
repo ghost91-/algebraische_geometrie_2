@@ -6,7 +6,7 @@
 Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A)$ der Primideale, das in natürlicher Weise eine Topologie besitzt. Durch Lokalisierung von $A$ erhalten wir eine Garbe $\mco_{\Spec(A)}$ auf $\Spec(A)$ und damit einen lokal gringten Raum $(\Spec(A),\mco_{\Spec(A)})$. Im folgenden Kapitel~5 werden dies die Bausteine für Schemata sein. Affine Schemata sind ähnlich wie affine Varietäten aus der Algebraischen Geometrie I, mit dem Unterschied, dass Primideale statt Maximalideale als Punkte und beliebige Ringe zugelassen werden.
 
 \begin{defn}
-	Für $M\subseteq A$ sei $V(M)\coloneqq\{\mfp \in \Spec(A) \mid \supseteq M \}$. Dies entspricht der Nullstellenmenge aus der Algebraischen Gerometrie I.
+	Für $M\subseteq A$ sei $V(M)\coloneqq\{\mfp \in \Spec(A) \mid \mfp \supseteq M \}$. Dies entspricht der Nullstellenmenge aus der Algebraischen Gerometrie I.
 \end{defn}
 
 \begin{lem}
@@ -27,7 +27,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 		\]
 		\enquote{$\subseteq$}: Sei $\mfp \in V(\mfa)$. Dann gilt $\mfa \subseteq \mfp$ und damit $\mfa \cdot \mfb \subseteq \mfa \subseteq \mfp$, also $\mfp \in V(\mfa \cdot \mfb)$.
 
-		\enquote{$\supseteq$}: Sei $\mfp \in V(\mfa \cdot \mfp)$. Dann gilt $\mfa \cdot \mfb \subseteq \mfp$. Falls $\mfb \subseteq \mfp$ ist, dann gilt $\mfp \in V(\mfb)$ und wir sind fertig. Sei also ohne Beschränkung der Allgemeinheit $\mfb \not\subseteq \mfp$. Dann gibt es ein $b \in \mfb \setminus \mfp$. Für jedes $a \in \mfa$ gilt dann $a \cdot b \in \mfa \cdot \mfb \subseteq \mfp$. Da $\mfp$ prim ist, gilt also schon $a \in \mfp$ und damit $\mfa \subseteq \mfp$, also $\mfp \in V(\mfa)$.
+		\enquote{$\supseteq$}: Sei $\mfp \in V(\mfa \cdot \mfb)$. Dann gilt $\mfa \cdot \mfb \subseteq \mfp$. Falls $\mfb \subseteq \mfp$ ist, dann gilt $\mfp \in V(\mfb)$ und wir sind fertig. Sei also ohne Beschränkung der Allgemeinheit $\mfb \not\subseteq \mfp$. Dann gibt es ein $b \in \mfb \setminus \mfp$. Für jedes $a \in \mfa$ gilt dann $a \cdot b \in \mfa \cdot \mfb \subseteq \mfp$. Da $\mfp$ prim ist, gilt also schon $a \in \mfp$ und damit $\mfa \subseteq \mfp$, also $\mfp \in V(\mfa)$.
 		\item Dies ist einfach nachzurechnen.
 		\end{enumerate}
 	\end{proof}
@@ -46,7 +46,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 		\item Die Abbildungen
 		\begin{center}
 			\begin{tikzcd}
-				\{\text{abgeschlossene Teilmengen in } \Spec(A)\} \arrow[shift left=1.1ex]{r}{I} & \{\text{Ideale }\mfp \text{ in } A \text{ mit } \sqrt{\mfa} = \mfa\} \arrow[shift left=1.1ex]{l}{V}
+				\{\text{abgeschlossene Teilmengen in } \Spec(A)\} \arrow[shift left=1.1ex]{r}{I} & \{\text{Ideale }\mfa \text{ in } A \text{ mit } \sqrt{\mfa} = \mfa\} \arrow[shift left=1.1ex]{l}{V}
 			\end{tikzcd}
 		\end{center}
 		sind bijektiv, zueinander invers und inklusionsumkehrend.
@@ -130,7 +130,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 				\Longleftrightarrow \quad & g \in \sqrt{\langle\{f_i\mid i \in I\}\rangle}
 			\end{align*}
 			\item Sei $\mfa$ ein Ideal und $\mfp \in U \coloneqq \Spec(A) \setminus V(\mfa)$. Zu zeigen ist, dass es ein $f \in A$ mit $\mfp \in D(f) \subseteq U$ gibt (Basiseigenschaft). Wegen $\mfp \notin V(\mfa)$ gibt es ein $f \in \mfa \setminus \mfp$ und man sieht leicht, dass dieses $f$ das Gewünschte liefert.
-			\item Quasikompakt heißt, dass jede offene Überdeckung $(V_i)_{i\in I}$ von $D(f)$ eine endliche Teilüberdeckung hat, das heißt es gibt ein endloiches $I_0 \subseteq I$ mit $\bigcup_{i\in I_0} V_i \supseteq D(f)$. Nach ii) bilden die Mengen $D(f)$ eine Basis, also sei ohne Beschränkung der Allgemeinheit $V_i = D(f_i)$ für ein $f_i \in A$. Nun gilt:
+			\item Quasikompakt heißt, dass jede offene Überdeckung $(V_i)_{i\in I}$ von $D(f)$ eine endliche Teilüberdeckung hat, das heißt es gibt ein endliches $I_0 \subseteq I$ mit $\bigcup_{i\in I_0} V_i \supseteq D(f)$. Nach ii) bilden die Mengen $D(f)$ eine Basis, also sei ohne Beschränkung der Allgemeinheit $V_i = D(f_i)$ für ein $f_i \in A$. Nun gilt:
 			\begin{align*}
 				&D(f) \subseteq \bigcup_{i \in I} D(f_i)\\
 				\overset{\text{i)}}{\Longleftrightarrow} \quad & f \in \sqrt{\langle \{f_i \mid i \in I\}\rangle}\\
@@ -180,7 +180,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\begin{enumerate}[i)]
 		\item Sei $U$ offen in $\Spec(A)$. Dann bezeichnen wir mit $\mco(U)$ die Menge der Funktionen $s\colon U \to \coprod_{\mfp \in U}A_{\mfp}$, die folgende Eigenschaften erfüllen:
 		\begin{enumerate}[a)]
-			\item Für alle $\mfp \in U$ gilt $s(p) \in A_{\mfp}$
+			\item Für alle $\mfp \in U$ gilt $s(\mfp) \in A_{\mfp}$
 			\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $a,f\in A$ mit $V \subseteq D(f)$ und $s(\mfq) =  \frac{a}{f} \in A_\mfq$ für alle $\mfq \in V$.
 		\end{enumerate}
 		\item Aufgrund der lokalen Natur der Axiome a) und b) sieht man, dass $U \mapsto \mco(U)$ eine Garbe von Ringen auf $\Spec(A)$ definiert. Dabei sind die Addition und Multiplikation von solchen Funktionen punktweise unter Benutzung der entsprechenden Operation in den $A_{\mfp}$ definiert.
@@ -197,7 +197,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 		von Ringen, wobei $\mco_\mfp$ der Halm der Garbe $\mco$ in $\mfp$ ist. Insbesondere ist $\mco_\mfp$ ein lokaler Ring und damit ist $(\Spec(A),\mco)$ ein lokal geringter Raum.
 		\item Für alle $f \in A$ gibt es einen kanonischen Isomorphismus
 		\[
-			A_f \overset{\sim}{\longto}\mco_{(D(f))}
+			A_f \overset{\sim}{\longto}\mco(D(f))
 		\]
 		von Ringen.
 		\item Es gilt $\mco(\Spec(A)) = A$.
@@ -223,7 +223,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 			\[
 				\varphi([(U,s)]) = \varphi([(U,t)]).
 			\]
-			Wir wollen nun $s=t \in \mco_\mfp$ zeigen. Indem wir die Umgebung von $\mfp$ gegebenenfalls verkleinern, dürfen wir nach b) annehmen, dass es $a,b,f,g \in A$ mit $f,g \notin \mfp$ gibt mit $s = \frac{a}{f} \in \mco(U)$ und $t=\frac{b}{g}\in \mco(U)$ gibt. Dann gilt:
+			Wir wollen nun $s=t \in \mco_\mfp$ zeigen. Indem wir die Umgebung von $\mfp$ gegebenenfalls verkleinern, dürfen wir nach b) annehmen, dass es $a,b,f,g \in A$ mit $f,g \notin \mfp$ gibt, so dass $s = \frac{a}{f} \in \mco(U)$ und $t=\frac{b}{g}\in \mco(U)$ gilt. Dann gilt:
 			\begin{align*}
 				& s(\mfp) = \varphi(s) = \varphi(t) = t(\mfp)\\
 				\Longrightarrow \quad & \frac{a}{f} = \frac{b}{g} \in A_\mfp\\
@@ -327,11 +327,11 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 		lokal geringter Räume.
 		\item Ein Morphismus lokal geringter Räume $(f,f^{\#})\colon (X,\mco_X)\to(Y,\mco_Y)$ induziert einen Ringhomomorphismus
 		\[
-			(\varphi = \Gamma(Y,f^{\#}))\colon (A = \mco(Y)) \to (B=\mco(X)).
+			(\varphi = \Gamma(Y,f^{\#}))\colon (A = \mco_Y(Y)) \to (B=\mco_X(X)).
 		\]
 		\item Es gibt eine bijektive Korrespondenz
 		\begin{align*}
-			\phi\colon \Hom_{\Ring}(A,B) &\to \Hom_{\lgR}((\Spec(B),\mco_{\Spec(B}),(\Spec(A),\mco_{\Spec(A}))\\
+			\phi\colon \Hom_{\Ring}(A,B) &\to \Hom_{\lgR}((\Spec(B),\mco_{\Spec(B)}),(\Spec(A),\mco_{\Spec(A)}))\\
 			\varphi & \mapsto ((f=\Spec(\varphi)),f^{\#})
 		\end{align*}
 		und die Umkehrabbildung $\Psi$ ist gegeben durch
@@ -345,7 +345,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 \end{prop}
 
 \begin{defn}
-	Ein \textbf{affines Schema} ist ein lokal geringter Raum $(X,\mco_X)$, der für einen Ring $A$ zu $(\Spec(A),\mco_{\Spec(A)})$ isomorph ist.
+	Ein \textbf{affines Schema} ist ein lokal geringter Raum $(X,\mco_X)$, welcher für einen Ring~$A$ zu $(\Spec(A),\mco_{\Spec(A)})$ isomorph ist.
 \end{defn}
 
 \begin{lem}
