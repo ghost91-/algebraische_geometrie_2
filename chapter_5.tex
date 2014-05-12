@@ -68,6 +68,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 \end{bem*}
 
 \begin{lem}
+\label{lem:5.5}
 	Seien $X,Y$ Schemata.
 	\begin{enumerate}[i)]
 		\item Sei $(U_i)_{i\in I}$ eine offene Überdeckung von $X$ und seien $f_i\colon U_i\to Y$ Morphismen mit
@@ -104,4 +105,129 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 			\item Dies folgt aus i), indem man $X \coloneqq U$ setzt.
 		\end{enumerate}
 	\end{proof}
+\end{lem}
+
+\begin{prop}
+\label{prop:5.6}
+	Sei $X$ ein Schema und $A$ ein Ring. Dann ist die Abbildung
+	\begin{align*}
+		\Hom_{\Sch}(X,\Spec(A)) &\to \Hom_{\Ring}(A,\mco_X(X))\\
+		(f,f^{\#}) & \mapsto f^{\#}_{\Spec(A)}
+	\end{align*}
+	eine kannonische Bijektion.
+	\begin{proof}
+		Sei $\varphi\in \Hom_{\Ring}(A,\mco_X(X))$. Wir müssen nun zeigen, dass es genau ein $(f,f^{\#}) \in \Hom_{\Sch}(X,\Spec(A))$ mit $f^{\#}_{\Spec(A)} = \varphi$ gibt. Wir wählen eine offene Überdeckung $(U_i)_{i\in I}$ von $X$, wobei $U_i$ für alle $i \in I$ ein offenes Unterschema von $X$ ist. Nach Proposition~\ref{prop:4.14} gibt es genau ein $(f_i,f_i^{\#}) \in \Hom_{\Sch}(U_i,\Spec(A))$ mit $f^{\#}_{i,\Spec(A)} = \varphi_i$. Für jedes affine offene Unterschema $V$ von $U_i \cap U_j$ gilt $f_i\vert_V = f_j\vert_V$ für alle $i,j \in I$. Dies folgt aus der Eindeutigkeit in Proposition~\ref{prop:4.14}. Weil die Prägarbe der Morphismen in der Kategorie $\Sch$ schon eine Garbe ist, folgt
+		\[
+			f_i\vert_{U_i\cap U_j} = f_j\vert_{U_i\cap U_j},
+		\]
+		da es nach Lemma~\ref{lem:5.5} genau ein $(f,f^{\#}) \in \Hom_{\Sch}(X,\Spec(A))$ mit $f\vert_{U_i} = f_i$ für alle $i \in I$. Dies ergibt sofort die Existenz von $(f,f^{\#})$ mit Hilfe der Garbeneigenschaft der Morphismen. Die Eindeutigkeit ergit sich aus der Konstruktion.
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+\label{defn:5.7}
+	\begin{enumerate}[i)]
+		\item Sei $S$ ein Schema. Ein $S$\textbf{-Schema} ist ein Morphismus $f\colon X \to S$ von Schemata. Sei $g\colon X \to S$ ein weiteres $S$-Schema, dann setzen wir
+		\[
+			\Hom_{S}(X,Y)=\{h\colon X\to Y\mid h \in \Hom_{\Sch}(X,Y) \text{ mit } g \circ h = f\},
+		\]
+		das heißt $\Hom_{S}(X,Y)$ ist die Menge aller Morphismen $g \in \Hom_{\Sch}(X,Y)$, für die folgendes Diagramm kommutiert:
+		\begin{center}
+			\begin{tikzcd}
+				X\arrow{rr}{h}\arrow{dr}[swap]{f} && Y\arrow{dl}{g}\\
+				& S
+			\end{tikzcd}
+		\end{center}
+		\item Sei $S=\Spec(A)$ für einen Ring $A$. Dann sagen wir $A$\textbf{-Schema} statt $S$-Schema.	Nach Proposition~\ref{prop:5.6} haben wir ein $A$-Schema $f \colon X \to \Spec(A)$ genau dann, wenn wir einen Ringhomomorphismus $f^{\#}_{\Spec(A)}\colon A \to \mco_X(X)$ haben, also wenn es eine $A$-Algebrastruktur auf $\mco_X(X)$ gibt.
+	\end{enumerate}
+\end{defn}
+
+\begin{bsp}
+\label{bsp:5.8}
+	\begin{enumerate}[i)]
+		\item Setzte $A \coloneqq \Z$. Dann existiert für jedes Schema $X$ genau ein Morphismus $X \to \Spec(\Z)$ und somit ist $X$ ein kanonisches $\Z$-Schema, da genau ein Ringhomomorphismus $\Z \to \mco_X(X)$ existiert. Damit ist $\Spec(\Z)$ ein finales Objekt in der Kategorie der Schemata.
+		\item Sei $X$ ein Schema, dann setzen wir $A \coloneqq \mco_X(X)$. Dann gibt es einen kanonischen Homomorphismus $A \to \mco_X(X)$, nämlich die Identität. Damit existiert nach Proposition~\ref{prop:5.6} ein kanonischer Morphismus $X \to \Spec(A)$, das heißt $X$ ist kanonisch ein $(A=\mco_X(X))$-Schema.
+	\end{enumerate}
+\end{bsp}
+
+\begin{defn}
+\label{defn:5.9}
+	Ein \textbf{Verklebedatum} von Schemata ist eina Familie von Tripeln $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$, wobei $X_i$ für alle $i \in I$ ein Schema ist, $U_{ij}$ für alle $i,j \in I$ eine offene Teilmenge von $X_i$ ist und $\varphi_{ij}$ für alle $i,j \in I$ ein Isomorphismus
+	\[
+		\varphi_{ij} \colon (U_{ij}=(U_{ij},\mco_{X_i}\vert_{U_{ij}})) \simto (U_{ji}=(U_{ji},\mco_{X_j}\vert_{U_{ji}}))
+	\]
+	mit folgenden Eigenschaften ist:
+	\begin{enumerate}[i)]
+		\item Für alle $i,j \in I$ gilt $\varphi_{ij} = \varphi^{-1}_{ji}$, $U_{ii} = X_i$ und $\varphi_{ii}= \id$ .
+		\item Für alle $i,j,k \in I$ gilt $\varphi_{ij}(U_{ij}\cap U_{ik}) = U_{ji} \cap U_{jk}$.
+		\item Für alle $i,j,k \in I$ gilt $\varphi_{ik} = \varphi_{jk}\circ \varphi_{ij}$ auf $U_{ij} \cap U_{ik}$.
+	\end{enumerate}
+\end{defn}
+
+\begin{lem}[Verkleben von Schemata]
+\label{lem:5.10}
+	Sei ein Verkelbedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ gegeben. Dann gibt es ein bis auf Isomorphie eindeutig bestimmtes Schema $X$ zusammen mit Morphismen $\psi_i \colon X_i \to X$, die für alle $i \in I$ folgende Eigenschaften erfüllen:
+	\begin{enumerate}[i)]
+		\item $\psi_i$ induziert einen Isomorphismus $\psi_i \colon X_i \to \psi_i(X_i)$ von $X_i$ auf des offene Unterschema $\psi_i(X_i)$ von $X$.
+		\item Es gilt $\bigcup_{i \in I} \psi_i(X_i) = X$.
+		\item Es gilt $\psi_i(U_{ij}) = \psi_i(X_i) \cap \psi_i(X_j)$.
+		\item Es gilt $\psi_i = \psi_j \circ \varphi_{ij}$ auf $U_{ij}$.
+	\end{enumerate}
+	\begin{proof}
+		Sei $\widetilde{X} \coloneqq \coprod_{i\in I}X_i$ versehen mit der disjunkten Vereinigungstopologie, das heißt die offenen Mengen in $\widetilde{X}$ haben die Form $\coprod_{i\in I} U_i$, wobei $U_i$ für alle $i \in I$ offen in $X_i$ ist. Wir definieren folgende Äquivalenzrelation auf $\widetilde{X}$:
+		\begin{align*}
+			a \sim b \colon\Longleftrightarrow \exists \;i \in I \text{ mit } a \in U_i,\; \exists \;j \in I \text{ mit } b \in U_j \text{ mit } \varphi_{ij}(a) = b
+		\end{align*}
+		Sei $x \coloneqq \widetilde{X}/\sim$ der Raum der Äquivalenzkalssen. Dann erhalten wir die Klassenabbildung
+		\[
+			\pi\colon \widetilde{X} \twoheadrightarrow X,\; a \mapsto [a].
+		\]
+		Wir versehen $X$ mit der \textbf{Quotiententopologie}, das heißt $U$ ist genau dann offen in $X$, wenn $\pi^{-1}(U)$ offen in $\widetilde{X}$ ist. $\pi$ wird damit eine stetige und offene Abbildung. Nach Definition ist somit $U$ genau dann offen in $X$, wenn $\psi_i^{-1}(U)$ für alle $i \in I$ offen in $X_i$ ist, wobei $\psi_i$ durch
+		\[
+			\psi_i\colon X_i \to X,\; a \mapsto [a]
+		\]
+		gegeben ist. Beachte, dass $\psi_i$ für alle $i \in I$ stetig und injektiv ist. Nach Konstruktion gelten nun ii), iii), iv). Ebenson folgt, dass $\psi_i$ einen Homöomorphismus $X_i \to \psi_i(X_i)$ induziert. Weiter sehen wir aufgrund der Charakterisierung offener Mengen in $X$ ein, dass $U_i\coloneqq \psi_i(X_i)$ offen in $X$ ist. Wir definieren die Garbe
+		\[
+			\mco_{U_i} \coloneqq {\psi_i}_*(\mco_{X_i})
+		\]
+		auf $U_i$. Wir erhalten einen Isomorphismus
+		\[
+			\psi_i\colon(X_i,\mco_{X_i})\simto (U_i,\mco_{U_i})	
+		\]
+		von lokal geringten Räumen. Also ist $(U_i,\mco_{U_i})$ ein Schema. Die Garbenisomorphismen
+		\[
+			\varphi^{\#}_{ij}\colon \mco_{X_j}\vert_{U_{ji}} \simto (\varphi_{ij})_*(\mco_{X_i}\vert_{U_{ij}})
+		\]
+		auf dem Verklebedatum liefern Garbenisomorphismen 
+		\[
+			\widetilde{\varphi}^{\#}_{ij}\colon \mco_{U_i}\vert_{U_i \cap U_j} \simto \mco_{U_j}\vert_{U_i \cap U_j}
+		\]
+		mit $\widetilde{\varphi}^{\#}_{ii} = \id$, die die sogenannte \textbf{Kozykelbedingung}
+		\[
+			\widetilde{\varphi}_{ik} = \widetilde{\varphi}_{jk} \circ \widetilde{\varphi}_{ij} \text{ auf } U_i \cap U_j \cap U_k
+		\]
+		erfüllen. Durch Verkleben der Garben $\mco_{U_i}$ auf $U_i$ entlang der $\widetilde{\varphi}_{ij}$ erhält man eine Garbe $\mco_X$ auf $X$ (siehe Lemma~\ref{lem:5.11}). Nach Konstruktion ist $(X,\mco_X)$ ein lokal geringter Raum. Da $(X,\mco_X)$ eine offene Überdeckung durch die affinen Schemata
+		\[
+			(U_i,\mco_{U_i}) \simto (X_i, \mco_{X_i})
+		\]
+		bestitzt, folgt die Existenz. Die Eindeutigkeit ergibt sich aus der Konstruktion.
+	\end{proof}
+\end{lem}
+
+\begin{lem}[Verkleben von Garben]
+\label{lem:5.11}
+	Sein $X$ ein topologischer Raum mit einer offenen Überdeckung $(U_i)_{i\in I}$. Für alle $i \in I$ sei $\mcf_i$ eine Garbe auf $U_i$ und für alle $i,j \in I$ sei
+	\[
+		\varphi_{ij}\colon \mcf_i\vert_{U_i\cap U_j} \simto \mcf_j\vert_{U_i\cap U_j}
+	\]
+	ein Isomorphismus von Garben mit folgenden Eigenschaften:
+	\begin{enumerate}[i)]
+		\item für alle $i \in I$ gilt $\varphi_{ii} = \id_{\mcf_i}$.
+		\item Für alle $i,j,k \in I$ gilt $\varphi_{ik} = \varphi_{jk} \circ \varphi_{ij}$ auf $U_i \cap U_j \cap U_k$.
+	\end{enumerate}
+	Dann existiert eine bis auf Isomorphie eindeutige Garbe $\mcf$ auf $X$ zusammen mit Isomorphismen $\psi_i \colon \mcf\vert_{U_i} \to \mcf_i$ derart, dass für alle $i,j \in I$
+	\[
+		\psi_j\vert_{U_i \cap U_j} = \varphi \circ \psi_i\vert_{U_i\cap U_j}
+	\]
+	gilt. Wir sagen, dass $\mcf$ durch \textbf{Verkleben der $\mcf_i$ entlang der Isomorphismen $\varphi_{ij}$} entsteht.
 \end{lem}
