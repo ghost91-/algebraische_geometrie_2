@@ -120,7 +120,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\[
 			f_i\vert_{U_i\cap U_j} = f_j\vert_{U_i\cap U_j},
 		\]
-		da es nach Lemma~\ref{lem:5.5} genau ein $(f,f^{\#}) \in \Hom_{\Sch}(X,\Spec(A))$ mit $f\vert_{U_i} = f_i$ für alle $i \in I$. Dies ergibt sofort die Existenz von $(f,f^{\#})$ mit Hilfe der Garbeneigenschaft der Morphismen. Die Eindeutigkeit ergit sich aus der Konstruktion.
+		da es nach Lemma~\ref{lem:5.5} genau ein $(f,f^{\#}) \in \Hom_{\Sch}(X,\Spec(A))$ mit $f\vert_{U_i} = f_i$ für alle $i \in I$ gibt. Dies ergibt sofort die Existenz von $(f,f^{\#})$ mit Hilfe der Garbeneigenschaft der Morphismen. Die Eindeutigkeit ergibt sich aus der Konstruktion.
 	\end{proof}
 \end{prop}
 
@@ -152,7 +152,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 \begin{defn}
 \label{defn:5.9}
-	Ein \textbf{Verklebedatum} von Schemata ist eina Familie von Tripeln $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$, wobei $X_i$ für alle $i \in I$ ein Schema ist, $U_{ij}$ für alle $i,j \in I$ eine offene Teilmenge von $X_i$ ist und $\varphi_{ij}$ für alle $i,j \in I$ ein Isomorphismus
+	Ein \textbf{Verklebedatum} von Schemata ist eine Familie von Tripeln der Form $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$, wobei $X_i$ für alle $i \in I$ ein Schema ist, $U_{ij}$ für alle $i,j \in I$ eine offene Teilmenge von $X_i$ ist und $\varphi_{ij}$ für alle $i,j \in I$ ein Isomorphismus
 	\[
 		\varphi_{ij} \colon (U_{ij}=(U_{ij},\mco_{X_i}\vert_{U_{ij}})) \simto (U_{ji}=(U_{ji},\mco_{X_j}\vert_{U_{ji}}))
 	\]
@@ -166,11 +166,11 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 \begin{lem}[Verkleben von Schemata]
 \label{lem:5.10}
-	Sei ein Verkelbedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ gegeben. Dann gibt es ein bis auf Isomorphie eindeutig bestimmtes Schema $X$ zusammen mit Morphismen $\psi_i \colon X_i \to X$, die für alle $i \in I$ folgende Eigenschaften erfüllen:
+	Sei ein Verklebedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ gegeben. Dann gibt es ein bis auf Isomorphie eindeutig bestimmtes Schema $X$ zusammen mit Morphismen $\psi_i \colon X_i \to X$, die für alle $i \in I$ folgende Eigenschaften erfüllen:
 	\begin{enumerate}[i)]
 		\item $\psi_i$ induziert einen Isomorphismus $\psi_i \colon X_i \to \psi_i(X_i)$ von $X_i$ auf des offene Unterschema $\psi_i(X_i)$ von $X$.
 		\item Es gilt $\bigcup_{i \in I} \psi_i(X_i) = X$.
-		\item Es gilt $\psi_i(U_{ij}) = \psi_i(X_i) \cap \psi_i(X_j)$.
+		\item Es gilt $\psi_i(U_{ij}) = \psi_i(X_i) \cap \psi_j(X_j)$.
 		\item Es gilt $\psi_i = \psi_j \circ \varphi_{ij}$ auf $U_{ij}$.
 	\end{enumerate}
 	\begin{proof}
@@ -178,7 +178,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\begin{align*}
 			a \sim b \colon\Longleftrightarrow \exists \;i \in I \text{ mit } a \in U_i,\; \exists \;j \in I \text{ mit } b \in U_j \text{ mit } \varphi_{ij}(a) = b
 		\end{align*}
-		Sei $x \coloneqq \widetilde{X}/\sim$ der Raum der Äquivalenzkalssen. Dann erhalten wir die Klassenabbildung
+		Sei $x \coloneqq \widetilde{X}/\sim$ der Raum der Äquivalenzklassen. Dann erhalten wir die Klassenabbildung
 		\[
 			\pi\colon \widetilde{X} \twoheadrightarrow X,\; a \mapsto [a].
 		\]
@@ -186,7 +186,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\[
 			\psi_i\colon X_i \to X,\; a \mapsto [a]
 		\]
-		gegeben ist. Beachte, dass $\psi_i$ für alle $i \in I$ stetig und injektiv ist. Nach Konstruktion gelten nun ii), iii), iv). Ebenson folgt, dass $\psi_i$ einen Homöomorphismus $X_i \to \psi_i(X_i)$ induziert. Weiter sehen wir aufgrund der Charakterisierung offener Mengen in $X$ ein, dass $U_i\coloneqq \psi_i(X_i)$ offen in $X$ ist. Wir definieren die Garbe
+		gegeben ist. Beachte, dass $\psi_i$ für alle $i \in I$ stetig und injektiv ist. Nach Konstruktion gelten nun ii), iii), iv). Ebenso folgt, dass $\psi_i$ einen Homöomorphismus $X_i \to \psi_i(X_i)$ induziert. Weiter sehen wir aufgrund der Charakterisierung offener Mengen in $X$ ein, dass $U_i\coloneqq \psi_i(X_i)$ offen in $X$ ist. Wir definieren die Garbe
 		\[
 			\mco_{U_i} \coloneqq {\psi_i}_*(\mco_{X_i})
 		\]
@@ -227,7 +227,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{enumerate}
 	Dann existiert eine bis auf Isomorphie eindeutige Garbe $\mcf$ auf $X$ zusammen mit Isomorphismen $\psi_i \colon \mcf\vert_{U_i} \to \mcf_i$ derart, dass für alle $i,j \in I$
 	\[
-		\psi_j\vert_{U_i \cap U_j} = \varphi \circ \psi_i\vert_{U_i\cap U_j}
+                \psi_j\vert_{U_i \cap U_j} = \varphi_{ij} \circ \psi_i\vert_{U_i\cap U_j}
 	\]
 	gilt. Wir sagen, dass $\mcf$ durch \textbf{Verkleben der $\mcf_i$ entlang der Isomorphismen $\varphi_{ij}$} entsteht.
 \end{lem}
