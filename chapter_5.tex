@@ -43,7 +43,9 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	Man sieht leicht, dass das Axiom $T_2$ das Axiom $T_1$ impliziert und dass das Axiom $T_1$ das Axiom $T_0$ impliziert.
 \end{bem*}
 
-\begin{prop} Sei $(X, \mco_X)$ ein Schema.
+\begin{prop}
+\label{prop:5.4}
+	Sei $(X, \mco_X)$ ein Schema.
 	\begin{enumerate}[i)]
 		\item Der topologische Raum $X$ ist ein $T_0$-Raum.
 		\item Jede abgeschlossene irreduzible Teilmenge des topologischen Raums $X$ besitzt genau einen generischen Punkt.
@@ -231,3 +233,117 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\]
 	gilt. Wir sagen, dass $\mcf$ durch \textbf{Verkleben der $\mcf_i$ entlang der Isomorphismen $\varphi_{ij}$} entsteht.
 \end{lem}
+
+\begin{bsp}
+\label{bsp:5.12}
+	Sei $(X_i)_{i\in I}$ eine Familie von Schemata. Wir setzen $U_{ij}\coloneqq \emptyset$ und wählen als $\varphi_{ij}$ die trivialen Abbildungen. Damit erhalten wir ein Verklebedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ und mit Verkleben nach Lemma~\ref{lem:5.10} damit ein Schema $X$. Es ist $X$ die \textbf{disjunkte Vereinigung} $\coprod_{i\in I}X_i$ der $X_i$ als Schemata.
+\end{bsp}
+
+\begin{bsp}
+\label{bsp:5.13}
+	Sei $K$ ein Körper. Für $i=1,2$ sei $X_i\coloneqq \A^1_K = \Spec(K[T])$. Wir setzen $U_{12} \coloneqq X_1 \setminus V(T)$ und $U_{21}\coloneqq X_2 \setminus V(T)$. Als $\varphi_{12}$ und $\varphi_{21}$ wählen wir die identische Abbildung auf $U_{12} = U_{21} = 0 = \Spec(K[T]) \setminus V(T)$. Verkleben nach Lemma~\ref{lem:5.10} liefert ein Schema $X=$\enquote{$\A^1_K$ mit verdoppeltem Nullpunkt}. Es gilt $X= X_1 \cup X_2$ und $X_1 \cap X_2 = U$. Nach dem Garbenaxiom gilt:
+	\begin{align*}
+		\mco_X(X) &= \{(f,g) \in \mco_X(X_1)\times \mco_X(X_2) \mid f\vert_U = g\vert_U\}\\
+		&=\{(f,g) \in K[T] \times K[T] \mid \frac{f}{1} = \frac{g}{1} \in K[T]_T\}\\
+		&= K[T]\text{, wobei wir } \mco_(U) = \mco(D(T)) = K[T]_T \text{ benutzt haben.}
+	\end{align*}
+	\textbf{Behauptung:} $X$ ist kein affines Schema.
+	\begin{proof}
+		Wäre $X$ ein affines Schema, so wäre
+		\[
+			X = \Spec(\mco_X(X)) = \Spec(K[T])
+		\]
+		und
+		\[
+			(\Gamma(X,\mco_X) = K[T]) \to (\Gamma(X_1,\mco_{X_1}) = K[T|])
+		\]
+		wäre die Identität. Also erhalten wir den Widerspruch $X = X_1$.
+	\end{proof}
+\end{bsp}
+
+Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vergleiche auch Algebraische Geometrie I, projektive Varietäten).
+
+\begin{defn}
+\label{defn:5.14}
+	Sei $S = \bigoplus_{d\in \N} S_d$ ein graduierter Ring. Sei $S_+ \coloneqq \bigoplus_{d > 0}S_d$ das homogene Maximalideal, $S^{\text{hom}}\coloneqq \bigcup_{d\in \N}S_d$ die Menge der homogenen Elemente von $S$,
+	\[
+		\Proj(S) \coloneqq \{\mfp \mid \mfp \text{ homogenes Primideal in } S \text{ mit } S_+ \not \subseteq \mfp\}.
+	\]
+	Für ein homogenes Ideal $\mfa$ von $S$ setzen wir
+	\[
+		V_+(\mfa) = \{\mfp \in \Proj(S) \mid \mfa \subseteq \mfp\}.
+	\]
+\end{defn}
+
+\begin{lem}
+\label{lem:5.15}
+	\begin{enumerate}[i)]
+		\item Es gilt $V_+(S_+) = \emptyset$ und $V_+(\langle 0 \rangle) = \Proj(S)$.
+		\item Für homogene Ideale $\mfa,\mfb$ in $S$ gilt $V_+(\mfa) \cup V_+(\mfb) = V_+(\mfa \cdot \mfb)$.
+		\item Für homogene Ideale $(\mfa_i)_{i\in I}$ in $S$ gilt $\bigcap_{i\in I}V_+(\mfa_i) = V_+\left(\sum_{i\in I}\mfa_i\right)$.
+	\end{enumerate}
+	\begin{proof}
+		i) ist trivial. Die Eigenschaften ii) und iii) folgen aus
+		\[
+			V_+(\mfa) = V(\mfa) \cap \Proj(S) \subseteq \Spec(S)
+		\]
+		und den entsprechenden Aussagen für $V(\mfa)$ in $\Spec(S)$.
+	\end{proof}
+\end{lem}
+
+\begin{kons}[des Schemas $(\Proj(S),\mco)$]
+\label{kons:5.16}
+	Das Lemma~\ref{lem:5.15} liefert sofort, dass $\Proj(S)$ ein topologischer Raum $S$, bei dem abgeschlossenen Teilmengen gerade Mengen der Form $V_+(\mfa)$ für ein homogenes Ideal $\mfa$ von $S$ sind. Damit erhalten wir die Zariski-Topologie auf $\Proj(S)$.
+
+	Wir definieren die Garbe $\mco$ auf $\Proj(S)$ folgendermaßen: Sei $U$ offen in $\Proj(S)$. Dann ist $\mco(U)$ die Menge der Funktionen $s\colon U \to \coprod_{\mfp \in U}S_{(\mfp)}$, die folgende Eigenschaften erfüllen:
+	\begin{enumerate}[a)]
+		\item Für alle $\mfp \in U$ gilt $s(\mfp) \in S_{(\mfp)}$.
+		\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $a,f\in A$ mit $\deg(a)=\deg(f)$, der Eigenschaft, dass für alle $\mfq \in V$ schon $f \notin \mfq$ gilt und $s(\mfq) =  \frac{a}{f} \in A_\mfq$ für alle $\mfq \in V$.
+	\end{enumerate}
+	Hier ist
+	\[
+		S_{(\mfp)} \coloneqq \left\lbrace\text{Elemente vom Grad }0 \text{ in } S_{S^{\text{hom}}\setminus\mfp} \right\rbrace = \left\lbrace \frac{a}{s} \mid a \in S^{\text{hom}}, s \in S^{\text{hom}}\setminus \mfp, \deg(a) = \deg(s)\right\rbrace.
+	\]
+	Analog zum affinen Fall ist $\mco$ eine Garbe auf $\Proj(S)$. Wir nennen $(\Proj(S),\mco)$ das \textbf{projektive Spektrum} von $S$.
+\end{kons}
+
+\begin{prop}
+\label{prop:5.17}
+	\begin{enumerate}[i)]
+		\item Für alle $\mfp \in \Proj(S)$ gibt es einen kanonischen Isomorphismus
+		\[
+			\mco_\mfp \simto S_{(\mfp)}
+		\]
+		\item Für $f \in S^{\text{hom}}$ ist $D_+(f) \coloneqq \{\mfp \in \Proj(S) \mid f \notin \mfp\}$ offen in $\Proj(S)$. Für $(f_i)_{i\in I} \in S^{\text{hom}}$ mit $\langle\{f_i\mid i\in I\}\rangle = S_+$ gilt $\Proj(S) = \bigcup_{i\in I} D_+(f_i)$.
+		\item Für $d \in \N$, $d>0$, $f \in S_d$ und $S_{(f)} \coloneqq \left\lbrace \frac{a}{f^m}\mid a \in S^{\text{hom}}, \deg(\mfa) = md\right\rbrace$ gibt es einen kanonischen Isomorphismus
+		\[
+			(\varphi, \varphi^{\#})\colon\Big(D_+(f),\mco\vert_{D_+(f)}\Big)\simto \Big(\Spec(S_{(f)}),\mco_{\Spec(S_{(f)})}\Big).
+		\]
+		\item $(\Proj(S),\mco)$ ist in kanonischer Weise ein $S_0$-Schema.
+	\end{enumerate}
+	\begin{proof}
+		Dies wird analog zum affinen Fall in Aufgabe 6.2 gezeigt.
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+\label{defn:5.18}
+	Sei $A$ ein Ring und $n \in \N$. Dann definieren wir
+	\[
+		\A^n_A \coloneqq \Spec(A[T_1,\ldots,T_n])
+	\]
+	als den $n$-dimensionalen \textbf{affinen Raum} über $A$ und
+	\[
+		\P^n_A \coloneqq \Proj(A[T_1,\ldots,T_n])
+	\]
+	als den $n$-dimensionalen \textbf{projektiven Raum} über $A$.
+\end{defn}
+\begin{bsp}
+\label{bsp:5.19}
+	Sei $S \coloneqq A[T_0,\ldots,T_n]$. Für $i \in \{0,\ldots,n\}$ ergibt sich ein Isomorphismus
+	\begin{align*}
+		A[T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n] & \simto S_{(T_i)}\\
+		f(T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n) & \longmapsto f\left(\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right).
+	\end{align*}
+	Damit folgt $D_+(T_i) \cong \A^n_A$ und wir erhalten aus Proposition~\ref{prop:5.17}, dass $\P^n_A = \bigcup_{i=0}^n D_+(T_i)$ eine offene Überdeckung durch affine Räume ist (vergleiche Standardüberdeckung von $\P^n_k$ in der algebraischen Geometrie I).
+\end{bsp}

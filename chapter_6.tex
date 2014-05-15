@@ -1,0 +1,84 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0
+
+\chapter{Erste Eigenschaften von Schemata}
+\label{chapter:6}
+
+Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, wie \enquote{Endlichkeit} von Morphismen.
+
+\begin{eri}
+\label{eri:6.1}
+	\begin{enumerate}[i)]
+		\item Ein topologischer Raum heißt bekanntlich \textbf{quasikompakt}, wenn jede offene Überdeckung eine endliche Teilüberdeckung hat.
+		\item Ein Ring $A$ heißt \textbf{reduziert}, wenn $\nil(A) = \{0\}$ gilt, wobei $\nil(A) \coloneqq \sqrt{\{0\}} = \bigcap_{\mfp \in \Spec(A)} \mfp$ das \textbf{Nilradikal} von $A$ ist.
+	\end{enumerate}
+\end{eri}
+
+\begin{defn}
+\label{defn:6.2}
+	\begin{enumerate}[i)]
+		\item Ein Schema $(X,\mco_X)$ heißt
+		\begin{tabular}{l}
+			zusammenhängend\\
+			irreduzibel\\
+			quasi-kompakt
+		\end{tabular},
+		wenn der unterliegene topologische Raum
+		\begin{tabular}{l}
+			zusammenhängen\\
+			irreduzibel\\
+			quasi-kompakt
+		\end{tabular} ist.
+		\item Ein Schema $(x, \mco_X)$ heißt
+		\begin{tabular}{l}
+			integer\\
+			reduziert
+		\end{tabular},
+		falls für jedes offene $U$ in $X$ schon $\mco_X(U)$
+		\begin{tabular}{l}
+			integer\\
+			reduziert
+		\end{tabular} ist.
+	\end{enumerate}
+\end{defn}
+
+\begin{lem}
+\label{lem:6.3}
+	$X=\Spec(A)$ ist genau dann irreduziebl, wenn $\nil(A)$ ein Primideal ist. In diesem Fall ist $\nil(A)$ der generische Punkt von $X$.
+	\begin{proof}
+		Es gilt
+		\begin{align*}
+			&X \text{ irreduzibel}\\
+			\overset{\mathclap{\text{Proposition~\ref{prop:5.4} ii)}}}{\Longleftrightarrow} \quad & \qquad X \text{ hat generischen Punkt}\\
+			 \Longleftrightarrow \quad & \exists\; \mfp \in \Spec(A) \text{ mit } X = \overline{\{\mfp\}} = V(\mfp)\\
+			 \Longleftrightarrow \quad & \exists \text{ kleinstes Primideal in } A\\
+			 \Longleftrightarrow \quad &  \bigcap_{\mfp \in X} \mfp \text{ ist Primideal}
+		\end{align*}
+	\end{proof}
+\end{lem}
+
+\begin{lem}
+\label{lem:6.4}
+	Sei $X$ ein Schema und $f \in \mco_X(X)$. Wir betrachten die zu $f$ assoziierte Funktion
+	\[
+		F\colon X \to \coprod_{p \in X}\kappa(p),\; p \mapsto F(p)\coloneqq f+\mfm_{X,p}\in \kappa(p).
+	\]
+	Die Menge $V(f) \coloneqq \{p\in X\mid f(p) = 0\}$ ist abgeschlossen in $X$ und $X_f\coloneqq X \setminus V(f)$ ist offen in $X$.
+	\begin{proof}
+		$X$ wird durch offene affine Unterschemata $U=\Spec(A)$ überdeckt. Es genügt zu zeigen, dass $U\cap V(F)$ abgeschlossen in $U$ ist, da dann $V(f)$ abgeschlossen in $X$ ist. Setze
+		\[
+			\widetilde{f}\coloneqq f\vert_U\in \mco_X(U) = A.
+		\]
+		Für $\mfp\in U = \Spec(A)$ gilt:
+		\begin{align*}
+			&p \in V(F) \cap U\\
+			\Longleftrightarrow \quad & F(\mfp)=0\\
+			\Longleftrightarrow \quad & f+\mfm_{X,p} = 0 \in \kappa(\mfp) = A_\mfp/\mfp A_\mfp\\
+			\Longleftrightarrow \quad & \widetilde{f}_\mfp \in \mfp A_\mfp\\
+			\Longleftrightarrow \quad & \widetilde{f} \in \mfp\\
+			\Longleftrightarrow \quad & \mfp \in V(\langle \widetilde{f} \rangle)
+		\end{align*}
+		Somit ist $V(f)\cap U$ abgeschlossen in $U$.
+	\end{proof}
+\end{lem}
+
