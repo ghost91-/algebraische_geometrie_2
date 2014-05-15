@@ -22,7 +22,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 			j\colon (U,\mco_U) \to (X,\mco_X).
 		\]
 		Wir nennen dies die \textbf{induzierte Schemastruktur} auf $U$ und sagen, dass $(U,\mco_U)$ ein \textbf{offenes Unterschema} von $X$ ist.
-		\item Die affinen offenen Unterschemata bilden eine Basis der Topologie von $X$.
+		\item Die affinen offenen Unterschemata von $X$ bilden eine Basis der Topologie von $X$.
 	\end{enumerate}
 	\begin{proof}
 		Dies folgt aus Proposition~\ref{prop:4.8} und Lemma~\ref{lem:4.16}.
@@ -30,7 +30,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 \end{prop}
 
 \begin{bem}
-	Ein offenes affines Unterschema muss im Allgemeinen nicht wieder affin sein.
+	Ein offenes Unterschema eines affinen Schemas muss im Allgemeinen nicht wieder affin sein.
 \end{bem}
 
 \begin{bem*}
@@ -65,7 +65,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 	Ist $(X,\mco_X)$ ein Schema, das mindestens zwei Punkte enthält. Dann ist $X$ jedoch kein $T_1$-Raum.
 	\begin{proof}
-		Wir wählen $y = \eta, x \neq y$. Falls $U$ eine offene Umgebung von $x$ ist, so gilt $y \in U$, da $y$ ein generischer Punkt ist.		
+		Wir wählen $y = \eta,\; x \neq y$. Falls $U$ eine offene Umgebung von $x$ ist, so gilt $y \in U$, da $y$ ein generischer Punkt ist.		
 	\end{proof}
 \end{bem*}
 
@@ -241,11 +241,11 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 \begin{bsp}
 \label{bsp:5.13}
-	Sei $K$ ein Körper. Für $i=1,2$ sei $X_i\coloneqq \A^1_K = \Spec(K[T])$. Wir setzen $U_{12} \coloneqq X_1 \setminus V(T)$ und $U_{21}\coloneqq X_2 \setminus V(T)$. Als $\varphi_{12}$ und $\varphi_{21}$ wählen wir die identische Abbildung auf $U_{12} = U_{21} = 0 = \Spec(K[T]) \setminus V(T)$. Verkleben nach Lemma~\ref{lem:5.10} liefert ein Schema $X=$\enquote{$\A^1_K$ mit verdoppeltem Nullpunkt}. Es gilt $X= X_1 \cup X_2$ und $X_1 \cap X_2 = U$. Nach dem Garbenaxiom gilt:
+	Sei $K$ ein Körper. Für $i=1,2$ sei $X_i\coloneqq \A^1_K = \Spec(K[T])$. Wir setzen $U_{12} \coloneqq X_1 \setminus V(T)$ und $U_{21}\coloneqq X_2 \setminus V(T)$. Als $\varphi_{12}$ und $\varphi_{21}$ wählen wir die identische Abbildung auf $U_{12} = U_{21} = U = \Spec(K[T]) \setminus V(T)$. Verkleben nach Lemma~\ref{lem:5.10} liefert ein Schema $X=$\enquote{$\A^1_K$ mit verdoppeltem Nullpunkt}. Es gilt $X= X_1 \cup X_2$ und $X_1 \cap X_2 = U$. Nach dem Garbenaxiom gilt:
 	\begin{align*}
 		\mco_X(X) &= \{(f,g) \in \mco_X(X_1)\times \mco_X(X_2) \mid f\vert_U = g\vert_U\}\\
 		&=\{(f,g) \in K[T] \times K[T] \mid \frac{f}{1} = \frac{g}{1} \in K[T]_T\}\\
-		&= K[T]\text{, wobei wir } \mco_(U) = \mco(D(T)) = K[T]_T \text{ benutzt haben.}
+		&= K[T]\text{, wobei wir } \mco(U) = \mco(D(T)) = K[T]_T \text{ benutzt haben.}
 	\end{align*}
 	\textbf{Behauptung:} $X$ ist kein affines Schema.
 	\begin{proof}
@@ -255,7 +255,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\]
 		und
 		\[
-			(\Gamma(X,\mco_X) = K[T]) \to (\Gamma(X_1,\mco_{X_1}) = K[T|])
+			(\Gamma(X,\mco_X) = K[T]) \to (\Gamma(X_1,\mco_{X_1}) = K[T])
 		\]
 		wäre die Identität. Also erhalten wir den Widerspruch $X = X_1$.
 	\end{proof}
@@ -265,7 +265,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 
 \begin{defn}
 \label{defn:5.14}
-	Sei $S = \bigoplus_{d\in \N} S_d$ ein graduierter Ring. Sei $S_+ \coloneqq \bigoplus_{d > 0}S_d$ das homogene Maximalideal, $S^{\text{hom}}\coloneqq \bigcup_{d\in \N}S_d$ die Menge der homogenen Elemente von $S$,
+	Sei $S = \bigoplus_{d\in \N} S_d$ ein graduierter Ring. Sei $S_+ \coloneqq \bigoplus_{d > 0}S_d$ das homogene Maximalideal, $S^{\text{hom}}\coloneqq \bigcup_{d\in \N}S_d$ die Menge der homogenen Elemente von $S$ und
 	\[
 		\Proj(S) \coloneqq \{\mfp \mid \mfp \text{ homogenes Primideal in } S \text{ mit } S_+ \not \subseteq \mfp\}.
 	\]
@@ -312,7 +312,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 	\begin{enumerate}[i)]
 		\item Für alle $\mfp \in \Proj(S)$ gibt es einen kanonischen Isomorphismus
 		\[
-			\mco_\mfp \simto S_{(\mfp)}
+			\mco_\mfp \simto S_{(\mfp)}.
 		\]
 		\item Für $f \in S^{\text{hom}}$ ist $D_+(f) \coloneqq \{\mfp \in \Proj(S) \mid f \notin \mfp\}$ offen in $\Proj(S)$. Für $(f_i)_{i\in I} \in S^{\text{hom}}$ mit $\langle\{f_i\mid i\in I\}\rangle = S_+$ gilt $\Proj(S) = \bigcup_{i\in I} D_+(f_i)$.
 		\item Für $d \in \N$, $d>0$, $f \in S_d$ und $S_{(f)} \coloneqq \left\lbrace \frac{a}{f^m}\mid a \in S^{\text{hom}}, \deg(\mfa) = md\right\rbrace$ gibt es einen kanonischen Isomorphismus
@@ -343,7 +343,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 	Sei $S \coloneqq A[T_0,\ldots,T_n]$. Für $i \in \{0,\ldots,n\}$ ergibt sich ein Isomorphismus
 	\begin{align*}
 		A[T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n] & \simto S_{(T_i)}\\
-		f(T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n) & \longmapsto f\left(\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right).
+		f(T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n) & \longmapsto f\left(\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right),
 	\end{align*}
-	Damit folgt $D_+(T_i) \cong \A^n_A$ und wir erhalten aus Proposition~\ref{prop:5.17}, dass $\P^n_A = \bigcup_{i=0}^n D_+(T_i)$ eine offene Überdeckung durch affine Räume ist (vergleiche Standardüberdeckung von $\P^n_k$ in der algebraischen Geometrie I).
+	wobei mit $\widehat{T_i}$ gemeint ist, dass wir $T_i$ weglassen. Damit folgt $D_+(T_i) \cong \A^n_A$ und wir erhalten aus Proposition~\ref{prop:5.17}, dass $\P^n_A = \bigcup_{i=0}^n D_+(T_i)$ eine offene Überdeckung durch affine Räume ist (vergleiche Standardüberdeckung von $\P^n_k$ in der algebraischen Geometrie I).
 \end{bsp}
