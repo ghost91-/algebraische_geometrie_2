@@ -9,7 +9,7 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 \begin{eri}
 \label{eri:6.1}
 	\begin{enumerate}[i)]
-		\item Ein topologischer Raum heißt bekanntlich \textbf{quasikompakt}, wenn jede offene Überdeckung eine endliche Teilüberdeckung hat.
+		\item Ein topologischer Raum heißt \textbf{quasikompakt}, wenn jede offene Überdeckung eine endliche Teilüberdeckung hat.
 		\item Ein Ring $A$ heißt \textbf{reduziert}, wenn $\nil(A) = \{0\}$ gilt, wobei $\nil(A) \coloneqq \sqrt{\{0\}} = \bigcap_{\mfp \in \Spec(A)} \mfp$ das \textbf{Nilradikal} von $A$ ist.
 	\end{enumerate}
 \end{eri}
@@ -17,42 +17,46 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 \begin{defn}
 \label{defn:6.2}
 	\begin{enumerate}[i)]
-		\item Ein Schema $(X,\mco_X)$ heißt
-		\begin{tabular}{l}
+                \newcommand{\multitext}[1]{%
+                $\left\{\begin{tabular}{@{}l@{}}%
+                    #1
+                \end{tabular} \right\}$%
+                }
+                %
+		\item Ein Schema heißt
+                \multitext{%
 			zusammenhängend\\
 			irreduzibel\\
-			quasi-kompakt
-		\end{tabular},
+			quasikompakt},
 		wenn der unterliegene topologische Raum
-		\begin{tabular}{l}
-			zusammenhängen\\
+                \multitext{%
+			zusammenhängend\\
 			irreduzibel\\
-			quasi-kompakt
-		\end{tabular} ist.
-		\item Ein Schema $(x, \mco_X)$ heißt
-		\begin{tabular}{l}
+                        quasikompakt}
+                ist.
+		\item Ein Schema $(X, \mco_X)$ heißt
+                \multitext{%
 			integer\\
-			reduziert
-		\end{tabular},
+			reduziert},
 		falls für jedes offene $U$ in $X$ schon $\mco_X(U)$
-		\begin{tabular}{l}
+                \multitext{%
 			integer\\
-			reduziert
-		\end{tabular} ist.
+			reduziert}
+		ist.
 	\end{enumerate}
 \end{defn}
 
 \begin{lem}
 \label{lem:6.3}
-	$X=\Spec(A)$ ist genau dann irreduziebl, wenn $\nil(A)$ ein Primideal ist. In diesem Fall ist $\nil(A)$ der generische Punkt von $X$.
+	$X=\Spec(A)$ ist genau dann irreduzibel, wenn $\nil(A)$ ein Primideal ist. In diesem Fall ist $\nil(A)$ der generische Punkt von $X$.
 	\begin{proof}
 		Es gilt
 		\begin{align*}
 			&X \text{ irreduzibel}\\
-			\overset{\mathclap{\text{Proposition~\ref{prop:5.4} ii)}}}{\Longleftrightarrow} \quad & \qquad X \text{ hat generischen Punkt}\\
-			 \Longleftrightarrow \quad & \exists\; \mfp \in \Spec(A) \text{ mit } X = \overline{\{\mfp\}} = V(\mfp)\\
-			 \Longleftrightarrow \quad & \exists \text{ kleinstes Primideal in } A\\
-			 \Longleftrightarrow \quad &  \bigcap_{\mfp \in X} \mfp \text{ ist Primideal}
+                        \underset{\mathclap{\text{und Lemma~\ref{lem:4.6} ii)}}}{\overset{\mathclap{\text{Proposition~\ref{prop:5.4} ii)}}}{\Longleftrightarrow}} \qquad\quad & X \text{ hat generischen Punkt}\\
+			 \Longleftrightarrow \qquad\quad & \exists\; \mfp \in \Spec(A) \text{ mit } X = \overline{\{\mfp\}} = V(\mfp)\\
+			 \Longleftrightarrow \qquad\quad & \exists \text{ kleinstes Primideal in } A\\
+			 \Longleftrightarrow \qquad\quad &  \bigcap_{\mfp \in X} \mfp \text{ ist Primideal} .
 		\end{align*}
 	\end{proof}
 \end{lem}
@@ -61,24 +65,24 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 \label{lem:6.4}
 	Sei $X$ ein Schema und $f \in \mco_X(X)$. Wir betrachten die zu $f$ assoziierte Funktion
 	\[
-		F\colon X \to \coprod_{p \in X}\kappa(p),\; p \mapsto F(p)\coloneqq f+\mfm_{X,p}\in \kappa(p).
+		F\colon X \to \coprod_{p \in X}\kappa(p),\; p \mapsto F(p)\coloneqq f_p+\mfm_{X,p}\in \kappa(p).
 	\]
-	Die Menge $V(f) \coloneqq \{p\in X\mid f(p) = 0\}$ ist abgeschlossen in $X$ und $X_f\coloneqq X \setminus V(f)$ ist offen in $X$.
+	Die Menge $V(F) \coloneqq \{p\in X\mid F(p) = 0\}$ ist abgeschlossen in $X$ und $X_f\coloneqq X \setminus V(F)$ ist offen in $X$.
 	\begin{proof}
-		$X$ wird durch offene affine Unterschemata $U=\Spec(A)$ überdeckt. Es genügt zu zeigen, dass $U\cap V(F)$ abgeschlossen in $U$ ist, da dann $V(f)$ abgeschlossen in $X$ ist. Setze
+		$X$ wird durch offene affine Unterschemata $U=\Spec(A)$ überdeckt. Um zu zeigen, dass $V(F)$ abgeschlossen ist, genügt es zu zeigen, dass für eine fixierte solche Überdeckung für alle Unterschemata~$U$ der Überdeckung schon $V(F)\cap U$ abgeschlossen in $U$ ist. Setze
 		\[
-			\widetilde{f}\coloneqq f\vert_U\in \mco_X(U) = A.
+			\widetilde{f}\coloneqq f\vert_U\in \mco_X(U) \cong A.
 		\]
 		Für $\mfp\in U = \Spec(A)$ gilt:
 		\begin{align*}
-			&p \in V(F) \cap U\\
+			&\mfp \in V(F) \cap U\\
 			\Longleftrightarrow \quad & F(\mfp)=0\\
-			\Longleftrightarrow \quad & f+\mfm_{X,p} = 0 \in \kappa(\mfp) = A_\mfp/\mfp A_\mfp\\
+                        \Longleftrightarrow \quad & f_{\mfp}+\mfm_{X,\mfp} = 0 \in \kappa(\mfp) \cong A_\mfp/\mfp A_\mfp\\
 			\Longleftrightarrow \quad & \widetilde{f}_\mfp \in \mfp A_\mfp\\
 			\Longleftrightarrow \quad & \widetilde{f} \in \mfp\\
-			\Longleftrightarrow \quad & \mfp \in V(\langle \widetilde{f} \rangle)
+			\Longleftrightarrow \quad & \mfp \in V(\langle \widetilde{f} \rangle) \subset \Spec(A) .
 		\end{align*}
-		Somit ist $V(f)\cap U$ abgeschlossen in $U$.
+		Somit ist $V(F)\cap U$ abgeschlossen in $U = \Spec(A)$.
 	\end{proof}
 \end{lem}
 
