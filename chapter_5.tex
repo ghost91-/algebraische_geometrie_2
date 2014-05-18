@@ -103,7 +103,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 				f_{i,V}^{\#}\colon \mco_Y(V)&\to (({f_i}_*\mco_{U_i})(V) = \mco_X(U_i \cap f^{-1}V))\\
 				s &\mapsto f^{\#}_{i,V}(s).
 			\end{align*}
-			Wegen der Vorraussetzung stimmen die $f_{i,V}^{\#}(s)$ auf den Überlappungen der Mengen $U_i\cap f^{-1}V$ überein. Wegen der Garbeneigenschaft gibt es ein eindeutiges $t \in \mco_X(f^{-1}V)$ mit $t\vert_{U_i\cap f^{-1}V} = f_{i,V}^{\#}(s)$ für alle $i \in I$. Wir definieren $f^{\#}_V \coloneqq t$. Man sieht sofort, dass $f_V^{\#}$ das Gewünschte liefert und eindeutig ist.
+			Wegen der Vorraussetzung stimmen die $f_{i,V}^{\#}(s)$ auf den Überlappungen der Mengen $U_i\cap f^{-1}V$ überein. Wegen der Garbeneigenschaft gibt es ein eindeutiges $t \in \mco_X(f^{-1}V)$ mit $t\vert_{U_i\cap f^{-1}V} = f_{i,V}^{\#}(s)$ für alle $i \in I$. Wir definieren $f^{\#}_V(s) \coloneqq t$. Man sieht sofort, dass $f_V^{\#}$ das Gewünschte liefert und eindeutig ist.
 			\item Dies folgt aus i), indem man $X \coloneqq U$ setzt.
 		\end{enumerate}
 	\end{proof}
@@ -116,7 +116,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\Hom_{\Sch}(X,\Spec(A)) &\to \Hom_{\Ring}(A,\mco_X(X))\\
 		(f,f^{\#}) & \mapsto f^{\#}_{\Spec(A)}
 	\end{align*}
-	eine kannonische Bijektion.
+	eine kanonische Bijektion.
 	\begin{proof}
 		Sei $\varphi\in \Hom_{\Ring}(A,\mco_X(X))$. Wir müssen nun zeigen, dass es genau ein $(f,f^{\#}) \in \Hom_{\Sch}(X,\Spec(A))$ mit $f^{\#}_{\Spec(A)} = \varphi$ gibt. Wir wählen eine offene Überdeckung $(U_i)_{i\in I}$ von $X$, wobei $U_i$ für alle $i \in I$ ein offenes Unterschema von $X$ ist. Nach Proposition~\ref{prop:4.14} gibt es genau ein $(f_i,f_i^{\#}) \in \Hom_{\Sch}(U_i,\Spec(A))$ mit $f^{\#}_{i,\Spec(A)} = \varphi_i$. Für jedes affine offene Unterschema $V$ von $U_i \cap U_j$ gilt $f_i\vert_V = f_j\vert_V$ für alle $i,j \in I$. Dies folgt aus der Eindeutigkeit in Proposition~\ref{prop:4.14}. Weil die Prägarbe der Morphismen in der Kategorie $\Sch$ schon eine Garbe ist, folgt
 		\[
@@ -133,16 +133,20 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\[
 			\Hom_{S}(X,Y)=\{h\colon X\to Y\mid h \in \Hom_{\Sch}(X,Y) \text{ mit } g \circ h = f\},
 		\]
-		das heißt $\Hom_{S}(X,Y)$ ist die Menge aller Morphismen $g \in \Hom_{\Sch}(X,Y)$, für die folgendes Diagramm kommutiert:
+		das heißt $\Hom_{S}(X,Y)$ ist die Menge aller Morphismen $h \in \Hom_{\Sch}(X,Y)$, für die folgendes Diagramm kommutiert:
 		\begin{center}
 			\begin{tikzcd}
 				X\arrow{rr}{h}\arrow{dr}[swap]{f} && Y\arrow{dl}{g}\\
 				& S
 			\end{tikzcd}
 		\end{center}
-		\item Sei $S=\Spec(A)$ für einen Ring $A$. Dann sagen wir $A$\textbf{-Schema} statt $S$-Schema.	Nach Proposition~\ref{prop:5.6} haben wir ein $A$-Schema $f \colon X \to \Spec(A)$ genau dann, wenn wir einen Ringhomomorphismus $f^{\#}_{\Spec(A)}\colon A \to \mco_X(X)$ haben, also wenn es eine $A$-Algebrastruktur auf $\mco_X(X)$ gibt.
+		\item Sei $S=\Spec(A)$ für einen Ring $A$. Dann sagen wir $A$\textbf{-Schema} statt $S$-Schema.
 	\end{enumerate}
 \end{defn}
+
+\begin{bem*}
+    Nach Proposition~\ref{prop:5.6} haben wir ein $A$-Schema $f \colon X \to \Spec(A)$ genau dann, wenn wir einen Ringhomomorphismus $f^{\#}_{\Spec(A)}\colon A \to \mco_X(X)$ haben, also wenn es eine $A$-Alge\-brastruktur auf $\mco_X(X)$ gibt.
+\end{bem*}
 
 \begin{bsp}
 \label{bsp:5.8}
@@ -160,7 +164,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\]
 	mit folgenden Eigenschaften ist:
 	\begin{enumerate}[i)]
-		\item Für alle $i,j \in I$ gilt $\varphi_{ij} = \varphi^{-1}_{ji}$, $U_{ii} = X_i$ und $\varphi_{ii}= \id$ .
+		\item Für alle $i,j \in I$ gilt $\varphi_{ij} = \varphi^{-1}_{ji}$, $U_{ii} = X_i$ und $\varphi_{ii}= \id$.
 		\item Für alle $i,j,k \in I$ gilt $\varphi_{ij}(U_{ij}\cap U_{ik}) = U_{ji} \cap U_{jk}$.
 		\item Für alle $i,j,k \in I$ gilt $\varphi_{ik} = \varphi_{jk}\circ \varphi_{ij}$ auf $U_{ij} \cap U_{ik}$.
 	\end{enumerate}
@@ -168,23 +172,24 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 \begin{lem}[Verkleben von Schemata]
 \label{lem:5.10}
-	Sei ein Verklebedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ gegeben. Dann gibt es ein bis auf Isomorphie eindeutig bestimmtes Schema $X$ zusammen mit Morphismen $\psi_i \colon X_i \to X$, die für alle $i \in I$ folgende Eigenschaften erfüllen:
+	Sei ein Verklebedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ gegeben. Dann gibt es ein bis auf Isomorphie eindeutig bestimmtes Schema $X$ zusammen mit Morphismen $\psi_i \colon X_i \to X$, die für alle $i,j \in I$ folgende Eigenschaften erfüllen:
 	\begin{enumerate}[i)]
-		\item $\psi_i$ induziert einen Isomorphismus $\psi_i \colon X_i \to \psi_i(X_i)$ von $X_i$ auf des offene Unterschema $\psi_i(X_i)$ von $X$.
+		\item $\psi_i$ induziert einen Isomorphismus $\psi_i \colon X_i \to \psi_i(X_i)$ von $X_i$ auf das offene Unterschema $\psi_i(X_i)$ von $X$.
 		\item Es gilt $\bigcup_{i \in I} \psi_i(X_i) = X$.
 		\item Es gilt $\psi_i(U_{ij}) = \psi_i(X_i) \cap \psi_j(X_j)$.
 		\item Es gilt $\psi_i = \psi_j \circ \varphi_{ij}$ auf $U_{ij}$.
 	\end{enumerate}
 	\begin{proof}
-		Sei $\widetilde{X} \coloneqq \coprod_{i\in I}X_i$ versehen mit der disjunkten Vereinigungstopologie, das heißt die offenen Mengen in $\widetilde{X}$ haben die Form $\coprod_{i\in I} U_i$, wobei $U_i$ für alle $i \in I$ offen in $X_i$ ist. Wir definieren folgende Äquivalenzrelation auf $\widetilde{X}$:
+		Sei $\widetilde{X} \coloneqq \coprod_{i\in I}X_i$ versehen mit der disjunkten Vereinigungstopologie, das heißt die offenen Mengen in $\widetilde{X}$ haben die Form $\coprod_{i\in I} U_i$, wobei $U_i$ für alle $i \in I$ offen in $X_i$ ist. Wir definieren eine Äquivalenzrelation auf $\widetilde{X}$ wie folgt:
 		\begin{align*}
-			a \sim b \colon\Longleftrightarrow \exists \;i \in I \text{ mit } a \in U_i,\; \exists \;j \in I \text{ mit } b \in U_j \text{ mit } \varphi_{ij}(a) = b
+			a \sim b \quad:\Longleftrightarrow\quad \exists \;i,j \in I \text{ mit } a \in U_i,\, b \in U_j \text{ und } \varphi_{ij}(a) = b .
 		\end{align*}
-		Sei $x \coloneqq \widetilde{X}/\sim$ der Raum der Äquivalenzklassen. Dann erhalten wir die Klassenabbildung
+                Sei $X \coloneqq \widetilde{X}/{\sim}$ der Raum der Äquivalenzklassen. Dann erhalten wir die Klassenabbildung
 		\[
 			\pi\colon \widetilde{X} \twoheadrightarrow X,\; a \mapsto [a].
 		\]
 		Wir versehen $X$ mit der \textbf{Quotiententopologie}, das heißt $U$ ist genau dann offen in $X$, wenn $\pi^{-1}(U)$ offen in $\widetilde{X}$ ist. $\pi$ wird damit eine stetige und offene Abbildung. Nach Definition ist somit $U$ genau dann offen in $X$, wenn $\psi_i^{-1}(U)$ für alle $i \in I$ offen in $X_i$ ist, wobei $\psi_i$ durch
+                % FIXME/TODO: Wieso ist $\pi$ offen? (Nicht jede Quotientenabbildung ist offen ...)
 		\[
 			\psi_i\colon X_i \to X,\; a \mapsto [a]
 		\]
@@ -208,7 +213,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 		\[
 			\widetilde{\varphi}_{ik} = \widetilde{\varphi}_{jk} \circ \widetilde{\varphi}_{ij} \text{ auf } U_i \cap U_j \cap U_k
 		\]
-		erfüllen. Durch Verkleben der Garben $\mco_{U_i}$ auf $U_i$ entlang der $\widetilde{\varphi}_{ij}$ erhält man eine Garbe $\mco_X$ auf $X$ (siehe Lemma~\ref{lem:5.11}). Nach Konstruktion ist $(X,\mco_X)$ ein lokal geringter Raum. Da $(X,\mco_X)$ eine offene Überdeckung durch die affinen Schemata
+		erfüllen. Durch Verkleben der Garben $(U_i,\mco_{U_i})$ entlang der $\widetilde{\varphi}_{ij}$ erhält man eine Garbe $\mco_X$ auf~$X$ (siehe Lemma~\ref{lem:5.11}). Nach Konstruktion ist $(X,\mco_X)$ ein lokal geringter Raum. Da $(X,\mco_X)$ eine offene Überdeckung durch die affinen Schemata
 		\[
 			(U_i,\mco_{U_i}) \simto (X_i, \mco_{X_i})
 		\]
@@ -261,7 +266,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{proof}
 \end{bsp}
 
-Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vergleiche auch Algebraische Geometrie I, projektive Varietäten).
+Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vgl. auch Algebraische Geometrie I, projektive Varietäten).
 
 \begin{defn}
 \label{defn:5.14}
