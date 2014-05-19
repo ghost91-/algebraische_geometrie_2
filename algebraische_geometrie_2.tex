@@ -14,6 +14,8 @@
 \usepackage{enumerate}
 \usepackage{csquotes}
 \hypersetup{pdfinfo={Title={Algebraische Geometrie II}, Author={Johannes Loher}},colorlinks=false, pdfborder={0 0 0}}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\bibliography{bibliography}
 \setkomafont{disposition}{\normalfont\bfseries}
 
 \swapnumbers
@@ -96,6 +98,7 @@
 \newcommand{\Ann}{\operatorname{Ann}}
 \newcommand{\Proj}{\operatorname{Proj}}
 \newcommand{\nil}{\operatorname{nil}}
+\newcommand{\codim}{\operatorname{codim}}
 
 \newcommand{\Tgroup}{\operatorname{T}}
 \newcommand{\Ogroup}{\operatorname{O}}
@@ -119,6 +122,11 @@
 \newcommand{\longto}{\longrightarrow}
 \newcommand{\simto}{\overset{\sim}{\longrightarrow}}
 \newcommand{\substackclap}[1]{\mathclap{\substack{#1}}}
+\newcommand{\multitext}[1]{%
+$\left\{\begin{tabular}{@{}l@{}}%
+	#1
+\end{tabular} \right\}$%
+}
 
 % matrices will take an optional argument for format (like arrays)
 \makeatletter
@@ -159,4 +167,6 @@
 \input{chapter_4}
 \input{chapter_5}
 \input{chapter_6}
+
+\printbibliography
 \end{document}
