@@ -9,6 +9,8 @@
 *.dvi
 *.fdb_latexmk
 *.ps
+*.bcf
+*.run.xml
 
 # Mac OS X files
 .DS_Store
