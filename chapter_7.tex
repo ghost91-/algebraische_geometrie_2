@@ -1,0 +1,152 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0
+
+\chapter{Abgeschlossene Immersionen und Unterschemata}
+Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines gegebenen Schemas $X$. Im affinen Fall werden sie durch die Ideale in $\mco(X)$ bestimmt.
+
+\begin{defn}
+\label{defn:7.1}
+	Eine \textbf{offene Immersion} ist ein injektiver offener Morphismus $j\colon U \to X$ von Schemata, der einen Isomorphismus von $U$ auf das offene Unterschema $(j(U),\mco_X\vert_U)$ von $X$ induziert.
+\end{defn}
+
+\begin{defn}
+\label{defn:7.2}
+	\begin{enumerate}[i)]
+		\item Ein Morphismus $i \colon Z \to X$ von Schemata heißt \textbf{abgeschlossene Immersion} oder \textbf{abgeschlossene Einbettung}, falls folgende Eigenschaften gelten:
+		\begin{enumerate}[a)]
+			\item i(Z) ist eine abgeschlossene Teilmenge von $X$.
+			\item Die stetige Abbildung $i\colon Z \to i(Z)$ ist ein Homöomorphismus.
+			\item Der Homomorphismus $i^{\#}\colon \mco_X \to i*\mco_Z$ von Ringgarben ist surjektiv.
+		\end{enumerate}
+		\item Zwei abgeschlossene (beziehungsweise offene) Immersionen $i\colon Z \to X$ und $i'\colon Z' \to X$ heißen \textbf{isomorph}, wenn es einen Isomorphismus $h\colon Z \to Z'$ mit der Eigenschaft, dass das Diagramm
+		\begin{center}
+			\begin{tikzcd}
+				Z\arrow{r}{i} \arrow{d}{h} & X\\
+				Z'\arrow{ur}{i'}
+			\end{tikzcd}
+		\end{center}
+		kommutiert, gibt.
+		\item Ein \textbf{abgeschlossenes Unterschema} ist eine Isomorphieklasse von abgeschlossenen Immersionen $i \colon Z \to X$.
+	\end{enumerate}	
+\end{defn}
+
+\begin{kons}
+\label{kons:7.3}
+	Sei $A$ ein Ring und $X = \Spec(A)$. Wir betrachten ein Ideal $\mfa$ von $A$ und den Morphismus
+	\[
+		(i=\Spec(\varphi))\colon (Z\coloneqq \Spec(A/\mfa)) \to (X=\Spec(A)),
+	\]
+	der vom kanonischen Homomorphismus $A \overset{\varphi}{\longto}A/\mfa$ induziert wird. Wir wollen zeigen, dass $i$ eine abgeschlossen Immersion ist.
+
+	Es ist klar, dass $i$ ein Homöomorphismus
+	\[
+		i \colon \Spec(A/\mfa) \to (V(\mfa)=\{\mfp \in \Spec(A) \mid \mfp \supseteq \mfa\})
+	\]
+	ist. Somit gelten a) und b). Für c) zeigen wir, dass die Halmabbildungen surjektiv sind. Sei zuerst $\mfp \in (\Spec(A/\mfa) = Z)$ und $\mfq = i(\mfp) = \varphi^{-1}(\mfp)\in (V(\mfa) \subseteq \Spec(A))$. Da Lokalisieren exakt ist, erhalten wir
+	\begin{equation*}
+	\label{eq:7.3.1}\tag{$\star$}
+		A_\mfq/\mfa_\mfq \cong (A/\mfa)_\mfq.
+	\end{equation*}
+	Wir betrachten
+	\[
+		i_\mfq^{\#}\colon (\mco_{X,\mfq} = A_\mfq) \to ((i_*\mco_Z)_\mfq = \mco_{Z,\mfp} = (A/\mfa)_\mfp \overset{\eqref{eq:7.3.1}}{=} A_\mfq/\mfa_\mfq).
+	\]
+	Wir sehen also, dass $i_\mfq^{\#}$ surjektiv ist. Es bleibt $\mfq \in X \setminus V(\mfa)$ zu betrachten. Dann gilt
+	\[
+		(i_*\mco_Z)_\mfq = \{0\}.
+	\]
+	Also ist $i_\mfq^{\#}$ trivialerweise surjektiv.
+
+	$i$ ist also eine abgeschlossene Immersion und das dadurch definierte abgeschlossene Unterschema bezeichnen wir mit $V(\mfa)$.
+\end{kons}
+
+\begin{bem}
+\label{bem:7.4}
+	\begin{enumerate}[i)]
+		\item Sei $(X,\mco_X)$ ein geringter Raum. Eine \textbf{Idealgarbe} $\mcj$ in $\mco_X$ ist eine Vorschrift, die jeder offenen Teilmenge $U$ von $X$ ein Ideal $\mcj(U)$ in $\mco_X(U)$ zuordnet, wobei die $J(U)$ für alle $V$ offen in $U$ durch die Restriktionsabbildung $\rho_{UV}$ von $\mco_X$ auf $J(V)$ abgebildet wird.
+		\item Sei $\mcj$ eine Idealgarbe, dann haben wir die Quotientengarbe $\mco_X/\mcj$, die als zur Prägarbe
+		\[
+			U \mapsto \mco_X(U)/\mcj(U)
+		\]
+		assoziierte Garbe definiert ist. Beachte, dass der Quotientenhomomorphismus $\mco_X/\mco_X/\mcj$ im Sinne der Garben surjektiv ist, das heißt er ist auf den Halmen surjektiv.
+		\item Sei nun $i \colon Z \to X$ eine abgeschlossene Immersion von Schemata. Nach c) haben wir einen surjektiven Homomorphismus $i^{\#}\colon \mco_X \to i_*\mco_Z$, dessen Kern eine Idealgarbe $\mcj$ ist. Wir haben einen kanonischen Isomorphismus
+		\[
+			\mco_X/\mcj \simto i_*\mco_Z.
+		\]
+		Da isomorphe abgeschlossene Immersionen dieselbe Idealgarbe induzieren, ist $\mcj$ eine Invariante des von $i$ induzierten abgeschlossenen Unterschemas.
+	\end{enumerate}
+\end{bem}
+
+\begin{thm}
+\label{thm:7.4}
+	Sei $A$ ein Ring und $X=\Spec(A)$. Dann definiert die Abbildung
+	\begin{align*}
+		\{\text{Ideale in }A\}&\to \{\text{abgeschlossene Unterschemata von }X\}\\
+		\mfa &\mapsto i_\mfa\colon V(\mfa) \to X
+	\end{align*}
+	eine Bijektion. Insbesondere ist jedes abgeschlossene Unterschema von $X$ wieder affin.
+	\begin{proof}
+		Die Abbildung ist injektiv, denn wegen
+		\[
+			\mfa = \ker(i^{\#}_\mfa\colon (A = \Gamma(X,\mco_X) \to (\Gamma(X,{i_\mfa}_*\mco_{V(\mfa)}) = \Gamma(V(\mfa),\mco_{V(\mfa)}) = A/\mfa)
+		\]
+		kann man das Ideal $\mfa$ aus dem abgeschlossenen Unterschema $i_\mfa \colon V(\mfa) \to X$ zurückgewinnen. Dabei bezeichnet $\Gamma(U,\mcf) = \mcf(U)$ für alle Garben $\mcf$ und alle offenen Mengen $U$ von $\mcf$. Wir wollen nun die Surjektivität zeigen. Sei also ein abgeschlossenes Unterschema von $X$ durch die abgeschlossene Immersion $i \colon Z \to X$ gegeben. Betrachte
+		\[
+			i_X^{\#}\colon \underbrace{\Gamma(X,\mco_X)}_{=A} \to (\Gamma(X,i_*\mco_Z) = \Gamma(Z,\mco_Z)).
+		\]
+		Sei $\mfa = \ker(i_X^{\#}$, da heißt $\mfa$ ist ein Ideal in $A$. Nach dem Homomorphiesatz erhalten wir einen induzierten Homomorphismus
+		\[
+			\psi \colon A/\mfa \to \Gamma(Z,\mco_Z).
+		\]
+		Nach Proposition~\ref{prop:5.6} gibt es genau einen Morphismus $i'\colon Z \to (V(\mfa) = \Spec(A/\mfa))$ mit der Eigenschaft, dass ${i'}^{\#}_{V(\mfa)} = \psi$.
+		\begin{center}
+			\begin{tikzcd}
+				{} & \Gamma(Z,\mco_Z) & {} & {} & {} & Z\arrow{dl}[swap]{i'} \arrow{dr}{i} & {}\\
+				A/\mfa \arrow{ur} & {} & A \arrow{ll} \arrow{ul} & {} & V(\mfa)\arrow{rr}[swap]{i_\mfa} & {} & X
+			\end{tikzcd}
+		\end{center}
+		Mir müssen zeigen, dass $i'$ eine Isomorphismus ist, da dann $i$ isomorph zu $i_\mfa$ und damit die Abbildung in der Behauptung surjektiv ist.
+
+		\textbf{1. Schritt}: Sei $i \colon Z \to (X=\Spec(A))$ eine abgeschlossene Immersion und es sei $i_X^{\#}\colon (A=\Gamma(X,\mco_X)) \to \Gamma(Z,\mco_Z)$ injektiv. Dann ist $i$ ein Isomorphismus.
+		\begin{proof}[Beweis des 1. Schrittes]
+			Wir zeigen zuerst, dass $i$ ein Homöomorphismus ist. Da $i$ eine abgeschlossene Immersion ist, muss $i$ ein Homöomorphismus auf die abgeschlossene Teilmenge $i(Z)$ von $X$ sein. Also genügt es zu zeigen, dass $i$ surjektiv ist. Da $i(Z)$ abgeschlossen in $X$ ist und die offenen Mengen $D(a)\subseteq X \setminus Z$ eine Basis bilden, genügt es zu zeigen, dass $D(a) \subseteq X \setminus Z$ für alle $a \in A$ leer ist. Sei $U$ ein offenes affines Unterschema von $Z$, das heißt $U=\Spec(B)$. Sei $f\coloneqq i^{\#}(a)\vert_U \in B$. Es gilt
+			\[
+				U \overset{i(Z) \cap D(a) = \emptyset}{=} i^{-1}(V(a))\cap U \overset{\ref{prop:4.9}}{=} V(f),
+			\]
+			also ist $f \in \nil(B)$. Also gibt es ein $n \in \N$ mit $f^n = 0$ und damit folgt $i^{\#}(a^n)\vert_U = 0$. Da $i$ ein Homöomorphismus auf $i(Z)$ ist und $i(Z)$ eine abgeschlossene Teilmenge des quasikompakten Raumes $X$ ist, ist auch $Z$ quasikompakt. Also gibt es eine endliche Überdeckung von $Z$ durch offene affine Unterschemata $U$, wie oben. Nehmen wir das größte $n$, dann gilt $i^{\#}(a^n)\vert_U=0$ für diese endlich vielen $U$ und mit dem Garbenaxiom folgt $i^{\#}(a^n)=0$. Da $i^{\#}_x$ injektiv ist, folgt $a^n=0$. Dann gilt $a \in \nil(A)$ und somit $V(a) = X$, das heißt $D(a) = \emptyset$. Dies zeigt, dass $i$ ein Homöomorphismus ist. Es bleibt zu zeigen, dass $i^{\#}\colon\mco_X\to i_*\mco_Z$ ein Isomorphismus von Garben ist. Nach Definition einer abgeschlossenen Immersion ist $i^{\#}$ surjektiv. Es gnügt die Injektivität auf den Halmen zu zeigen. Sei also $\mfp \in (X=\Spec(A))$. Es gilt $\mco_{X,\mfp} = A_\mfp$. Weil $i$ bijektiv ist, gibt es genau ein $z \in Z$ mit $i(z) = \mfp$. Es gilt wie zuvor $(i_*\mco_Z)_{\mfp} = \mco_{Z,z}$, da $i$ ein Homöomorphismus ist. Die Halmabbildung durch
+			\[
+				(A_\mfp = \mco_{X,\mfp}) \overset{i^{\#}_z}{\longto}\mco_{Z,z}
+			\]
+			gegeben. Sei $\frac{a}{s}$ im Kern von $i^{\#}_z$ mit $a,s \in A,\; s \notin \mfp$. Dann liegt auch $a$ im Kern von $i^{\#}_z$. Wir wollen $\frac{a}{s}=0$ zeigen, sei also ohne Beschränkung der Allgemeinheit $s=1$. Es gibt eine offene Umgebung $U_0$ von $z$ in $Z$ mit
+			\begin{equation*}
+			\label{eq:7.4.1}\tag{$\star\star$}
+				i^{\#}(a)\vert_{U_0} = 0
+			\end{equation*}
+			und wir dürfen annehmen, dass $U_0$ wieder affin ist. Da $Z$ quasikompakt ist, gilt
+			\[
+				Z = U_0 \cup U_1 \cup \cdots \cup U_n
+			\]
+			für affine offene Unterschemata $(U_k,\mco\vert_{U_k}),\; k \in \{1,\ldots,n\}$. Da die $D_X(s)$ mit $s \in A$ eine Basis von $X = \Spec(A)$ bilden, gibt es ein $s_0\in A$ mit $\mfp \in D_X(s_0) \subseteq i(U_0)$. Wir zeigen
+			\begin{equation*}
+			\label{eq:7.4.2}\tag{$\star\star\star$}
+				\exists\; m \in \N \text{ mit } i^{\#}(s_0^ma) = 0.
+			\end{equation*}
+			Die Injektivität von $i^{\#}_X$ zeigt dann, dass $s_0^ma =$ gilt. Wegen $s_0\in \mco_{X,\mfp}^\times$ folgt dann, dass $a = 0$ gilt, wie gewünscht. Um \eqref{eq:7.4.2} zu zeigen, genügt es für jedes $j \in \{0,\ldots,n\}$ ein $m_j$ mit
+			\begin{equation*}
+			\label{eq:7.4.3}\tag{$\star\star\star\star$}
+				i^{\#}(s_0^{m_j}a)\vert_{U_j} = 0
+			\end{equation*}
+			zu finden (wegen dem Garbenaxiom). Für $j=0$ folgt mit \eqref{eq:7.4.1} $m_0=0$. Aus
+			\[
+				D_{U_j}(i^{\#}(s_0)\vert_{U_j}) \overset{Proposition~\ref{prop:4.9}}{=} i^{-1}(D(s_0)) \cap U_j \subseteq U_0 \cap U_j
+			\]
+			folgt mit \eqref{eq:7.4.1} und mit $f_j \coloneqq i^{\#}(s_0)\vert_{U_j}$, dass
+			\[
+				i^{\#}(a)\vert_{D_{U_j}(f_j)} = 0 \in (\mco_Z(D_{U_j}(f_j)) = \mco_Z(U_j)_{f_j})
+			\]
+			gilt. Dies zeigt \eqref{eq:7.4.3} und mit Hilfe der Definition der Lokalisierung folgt der 1. Schritt.
+		\end{proof}
+		\textbf{2. Schritt}: Wende den 1. Schritt auf $i'\colon Z \to (V(\mfa) = \Spec(A/\mfa))$ an.
+	\end{proof}
+\end{thm}
+
