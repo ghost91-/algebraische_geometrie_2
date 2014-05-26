@@ -1,0 +1,186 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet
+
+\chapter{Gefaserte Produkte und Basiswechsel}
+\label{chap:8}
+Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. In diesem Abschnitt wollen wir etwas ähnliches in der Kategorie der Schemata betrachten. In der modernen algebraischen Geometrie betrachtet man alles relativ bezüglich eines Schemas $S$ als Basis, das heißt wir wollen ein gefasertes Produkt $X \times_S Y$ für $S$-Schemata $f\colon X \to S$ und $g \colon Y \to S$ definieren. Das gefaserte Produkt wird ein $S$-Schema sein, dessen unterliegende Menge im Allgemeinen verschieden vom kartesischen Produkt der Mengen sein wird. $X \times_S Y$ ist (im Allgemeinen) ebenfalls verschieden von $\{(x,y) \in X \times Y\mid f(x) = g(y)\}$.
+
+\begin{defn}
+\label{defn:8.1}
+	Seien $X,Y,S$ Schemata und seien $f\colon X \to S$ und $g \colon Y \to S$ Morphismen. Ein \textbf{gefasertes Produkt} der $S$-Schemata $X$ und $Y$ ist ein Schema $X\times_S Y$ zusammen mit Morphismen, die das Diagramm
+	\begin{center}
+		\begin{tikzcd}
+			{} & X \times_S Y \arrow{dl}[swap]{p_1} \arrow{dr}{p_2} & {}\\
+			X\arrow{dr}[swap]{f} & {} & Y\arrow{dl}{g}\\
+			{} & S & {}
+		\end{tikzcd}
+	\end{center}
+	kommutativ machen. Wir verlangen weiter, dass folgende universelle Eigenschaft gilt: Für alle $S$-Schemata $T$ und alle Morphismen $h_1\colon T \to X$ und $h_2\colon T \to Y$ mit der Eigneschafz, dass das Diagramm
+	\begin{center}
+		\begin{tikzcd}
+			{} & T \arrow{dl}[swap]{h_1} \arrow{dr}{h_2} & {}\\
+			X\arrow{dr}[swap]{f} & {} & Y\arrow{dl}{g}\\
+			{} & S & {}
+		\end{tikzcd}
+	\end{center}
+	gibt es einen eindeutigen Morphismus $\theta\colon T \to X \times_S Y$, der das Diagramm
+	\begin{center}
+		\begin{tikzcd}
+			T \arrow[bend left]{drr}{h_2}\arrow[bend right]{ddr}[swap]{h_1}\arrow[dashed]{dr}{\exists ! \;\theta}\\
+			{} & X \times_S Y \arrow{d}[swap]{p_1}\arrow{r}{p_2} & Y \arrow{d}{g}\\
+			{} & X \arrow{r}[swap]{f} & S
+		\end{tikzcd}
+	\end{center}
+	kommutativ macht. Man nennt $p_1$ und $p_2$ die Projektionsabbildungen.
+\end{defn}
+
+\begin{thm}
+\label{thm:8.2}
+	Für zwei $S$-Schemata $X$ und $Y$ existiert das gefaserte Produkt $X \times_S Y$, ist ein $S$-Schema und eindeutig bis auf eindeutige Isomorphie.
+\end{thm}
+
+\begin{bem}[Vorbemerkung zum Beweis]
+\label{bem:8.3}
+	Für Schemata $X,Y$ und für ein offenes Unterschema $U$ von $Y$ gibt es eine natürliche Bijektion zwischen den Morphismen $h\colon X \to U$ und den Morphismen $h \colon X \to Y$ mit $h(X) \subseteq U$.
+\end{bem}
+
+\begin{proof}[Beweis von Theorem~\ref{thm:8.2}]
+	Mit den bekannten Standardargumenten bei universellen Eigenschaften folgt die Eindeutigkeit bis auf eindeutige Isomorphie.
+
+	Wir konstruieren $X \times_S Y$ zuerst im affinen Fall mit Hilfe des Tensorprodukts der unterliegenden Ringe. Der allgemeine Fall folgt durch \enquote{Verkleben}.
+
+	\textbf{1. Schritt (affiner Fall):} Seien $X = \Spec(A), Y = \Spec(B)$ und $S=\Spec(R)$. Dann existiert $X\times_S Y$ und ist $\Spec(B \otimes_R A)$.
+	\begin{proof}
+		Da $X$ und $Y$ $S$-Schemata sind, sind $A$ und $B$ nach Proposition~\ref{prop:5.6} $R$-Algebren. Dann ist $A \otimes_R B$ eine $R-Algebra$ mit dem Produkt
+		\[
+			(a_1 \otimes b_1) \cdot (a_2 \otimes b_2) = (a_1a_2)\otimes (b_1b_2).
+		\]
+		Die Projektionen $p_1\colon X\times_S Y \to X$ und $p_2\colon X \times_S Y \to Y$ entsprechen nach Proposition~\ref{prop:5.6} den Morphismen
+		\[
+			\Spec(p_1)\colon A \to A \otimes_R B,\; a \mapsto a \otimes 1
+		\]
+		und
+		\[
+			\Spec(p_2)\colon B \to A \otimes_R B,\; b \mapsto 1 \otimes b.
+		\]
+		Allgemeiner gilt nach Proposition~\ref{prop:5.6} $\Hom_{\Sch}(T, \Spec(D)) \cong \Hom_{\Ring}(D,\Gamma(T,\mco_T))$. Wir benutzen die universelle Eigenschaft des Tensorproduktes, die impliziert dass es für jeden Ring $C$ und für alle Homomorphismen $\varphi_1\colon A \to C$ und $\varphi_2\colon B \to C$ mit $\varphi_1 \circ \Spec(f) = \varphi_2 \circ \Spec(g)$ genau einen Morphismus $\varphi\colon A \otimes B \to C$ gibt, der das Diagramm
+		\begin{center}
+			\begin{tikzcd}
+				C\\
+				{} & A \otimes B\arrow[dashed]{ul}[swap]{\exists! \; \varphi} & B\arrow[bend right, start anchor=north]{llu}[swap]{\varphi_2}\arrow{l}[swap]{\Spec(p_2)}\\
+				{} & A\arrow[bend left=40]{uul}{\varphi_1}\arrow{u}{\Spec(p_1)} & R\arrow{l}{\Spec(f)}\arrow{u}[swap]{\Spec(g)}
+			\end{tikzcd}
+		\end{center}
+		kommutativ macht. Benutzen wir die \enquote{Dualität} aus Proposition~\ref{prop:5.6}, dann folgt die universelle Eigenschaft des gefaserten Produkts und damit der 1. Schritt.
+	\end{proof}
+	\textbf{2. Schritt:} Seien $X,Y$ zwei $S$-Schemata für die $X\times_S Y$ existiert und sei $U$ ein offenes Unterschema con $X$. Dann existiert $U \times_S Y = p_1^{-1}(U)$.
+	\begin{proof}
+		Das folgt aus der Vorbemerkung~\ref{bem:8.3} für das offene Unterschema $p_1^{-1}(U)$, das dann offensichtlich die universelle Eigenschaft erfüllt.
+	\end{proof}
+	\textbf{3. Schritt:} Seien $X,Y$ zwei $S$-Schemata und sei $(X_i)_{i\in I}$ eine offene Überdeckung von $X$ mit der Eigenschaft, dass $X_i\times_S Y$ für alle $i \in I$ existiert. Dann existiert auch $X \times_S Y$.
+	\begin{proof}
+		Für alle $i,j \in I$ sei
+		\[
+			X_{ij} \coloneqq X_i \cap X_j
+		\]
+		und
+		\[
+			U_{ij} \coloneqq p_1^{-1}(X_{ij} = X_{ij}\times_S Y \subseteq X_i \times_S Y,
+		\]
+		wobei $p_1 \colon X_i \times_S Y \to X$ die kanonische Projektion ist. Wegen $X_{ij} = X_{ji}$ gilt $U_{ij} \underset{\varphi_{ij}}{\simto}U_{ji}$ kanonisch. Dies ergibt ein Verklebedatum und nach Lemma~\ref{lem:5.10} erhalten wir en Schema $X\times_S Y$ durch Verklebung der $X_i\times_S Y$ entlang der $\varphi_{i}$. Es ist leicht zu sehen, dass $X \times_S Y$ die universelle Eigenschaft des gefaserten Produkts erfüllt.
+	\end{proof}
+	\textbf{4. Schritt:}\\
+	\begin{itemize}
+		\item Nach dem 1. Schritt existiert $X \times_S Y$ für $X$, $Y$ und $S$ affin.\\
+		\item Nach dem 3. Schritt existiert $X \times_S Y$ für $X$ beliebig und $Y$ und $S$ affin ($X$ ist überdeckt durch affine offne $U$).
+		\item Nach dem 3. Schritt existiert $X \times_S Y$ für $X$ und $Y$ beliebig und $S$ affin.
+	\end{itemize}
+	\textbf{5. Schritt:} Sei nun $S$ ein beliebiges Schema. Dann gibt es eine offene Überdeckung $(S_i)_{i \in I}$ von $S$. Sei $X_i \coloneqq f^{-1}(S_i)$ und $Y_i\coloneqq g^{-1}(S_i)$. Das sind offene Unterschemata von $X$, beziehungsweise $Y$. Nach dem 4. Schritt existiert $X_i \times_{S_i} Y_i$. Dann existiert aber auch $X_i\times_S Y = X_i \times_{S_i}$, da jeder Morphismus
+	\begin{center}
+		\begin{tikzcd}
+			T \arrow{r}\arrow{d} & Y\arrow{d}\\
+			X_i \arrow{r} & S
+		\end{tikzcd}
+	\end{center}
+	über $Y_i$ faktorisiert (da dann das Bild von $T$ in $Y$ om Urbild vom Bild von $X_i$ in $S$ ist). Nach dem 3. Schritt existiert dann $X\times_S Y$ (da $X$ von $(X_i)_{i \in I}$ überdeckt wird).
+\end{proof}
+
+\begin{bsp}
+\label{bsp:8.4}
+	\begin{enumerate}[i)]
+		\item Sei $X$ ein Schema und seien $U,V$ offene Unterschemata von $X$. Dann gilt $U\times_X V = U \cap V$ (hier ist $U$ ein $X$-Schema bezüglich der offenen Immersion $j\colon U \to X$). Insbesondere ist im affinen Fall $U = \Spec(B)$, $V=\Spec(C)$ offen in $X=\Spec(A)$
+		\[
+			U \cap V = U\times_X V = \Spec(B \otimes_A C) 	
+		\]
+		und damit ist $U \cap V$ affin.
+		\item Für einen Morphismus $f \colon X \to Y$ von Schemata und ein offenes Unterschema $U$ von $Y$ gilt
+		\[
+			U \times_Y X = f^{-1}(U)
+		\]
+		als offenes Unterschema von $X$.
+	\end{enumerate}
+	\begin{proof}
+		Mit Vorbemerkunh~\ref{bem:8.3} folgt leicht, dass $U\cap V$ (beziehungsweise $f^{-1}(U)$) die universelle Eigenschaft des gefaserten Produkts erfüllt. Man kann auch direkt den 2. Schritt des Beweises von Theorem~\ref{thm:8.2} verwenden.
+	\end{proof}
+\end{bsp}
+
+\begin{bem}
+\label{bem:8.5}
+	Sei $X$ ein Schema, $p \in X$ und $\kappa(p)$ der Restklassenkörper von $p$. Für eine offene Umgebung $U$ von $p$ in $X$ haben wir kanonische Homomorphismen
+	\[
+		\mco_X(U) \to \mco_{X,p} \to \kappa(p), \; s \mapsto s_p + \mfp_{X,p}.
+	\]
+	Wir erhalten einen kanonischen Morphismus
+	\[
+		\iota_p\colon \Spec(\kappa(p))\to X,
+	\]
+	indem wir den einzigen Punkt von $\Spec(\kappa(p))$ auf $p$ abbilden und für $U$ offen in $X$ den Homomorphismus
+	\[
+		\iota_{p,U}^{\#} \colon \mco_X(U)\to ({\iota_{p}}_*\mco_{Spec(\kappa(p))})(U) = \begin{cases}\kappa(p) & \text{falls } p \in U\\0 & \text{falls } p \notin U\end{cases}
+	\]
+	benutzen.
+\end{bem}
+
+\begin{defn}
+\label{defn:8.6}
+	Sei $f\colon X \to Y$ ein Morphismus von Schemata und $p \in Y$. Wir betrachten $\Spec(\kappa(p))$ als Schema über $Y$ mit Hilfe von $\iota_p$ aus Bemerkung~\ref{bem:8.5}. Dann heißt das $Y$-Schema $X\times_Y\Spec(\kappa(p))$ \textbf{Faser} von $f$ in $p$ und wird mit $X_p$ bezeichnet.
+	\begin{center}
+		\begin{tikzcd}
+			(X_p=X\times_Y \Spec(\kappa(p))) \arrow{r}{p_2}\arrow{d}[swap]{p_1} & \Spec(\kappa(p))\arrow{d}{\iota_p}\\
+			X \arrow{r}[swap]{f} & Y
+		\end{tikzcd}
+	\end{center}
+\end{defn}
+
+\begin{bem}
+\label{bem:8.7}
+	Man kann zeigen, dass der $X_p$ zugrunde liegende topologische Raum homöomorph zu $f^{-1}(\{p\})$ mit der induzierten Topologie (siehe \cite[I.3.4.6]{grothendieck1971elements} oder \cite[Ex.II.3.10]{hartshorne1977algebraic} oder \cite[Prop. 4.20 und (4.8)]{goertz2010algebraic}).
+\end{bem}
+
+\begin{bsp}
+\label{bsp:8.8}
+	Sei $K$ ein Körper, $X=\Spec(K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle)$. Wir betrachten den Morphismus
+	\[
+		f \colon X \to \A^1_K \coloneqq \Spec(K[T_3]),
+	\]
+	der durch den Ringhomomorphismus
+	\[
+		K[T_3] \to K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle, T_3 \mapsto T_3 + \langle T_2T_3 - T_1^2 \rangle.
+	\]
+	induziert wird. Der Punkt $p$ von $A^1_K$ sei gegeben als Bild des Morphismus $\Spec(K) \to A^1_K$, der durch den Ringhomomorphismus $K[T_3]\to K,\; T_3 \mapsto a$ mit $a \in K$ induziert wird. Das heißt $a$ ist die Koordinate des Punktes $p$. Es gilt:
+	\begin{align*}
+		X_p &= X \times_{\A^1_K}\Spec(\kappa(p))\\
+		&= \Spec(K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle) \times_{\A^1_K}\Spec(K)\\
+		&= \Spec(K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle) \otimes_{K[T_3]}) K)\\
+		&= \Spec(K[T_1,T_2]/\langle aT_2-T_1^2 \rangle)
+	\end{align*}
+	Für $a\neq 0$ gilt
+	\[
+		X_p \overset{T_2= \frac{1}{a}T_1^2}{\cong} \Spec(K[T_1]) \cong \A^1_K
+	\]
+	und damit ist $X_p$ ein integres affnines Schema. Für $a = 0$ gilt
+	\[
+		X_p = \Spec(K[T_1,T_2]/ \langle T_1^2 \rangle)
+	\]
+	und damit ist diese Faser nicht reduziert und damit auch nicht integer.
+\end{bsp}
