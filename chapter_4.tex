@@ -182,8 +182,8 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\begin{enumerate}[i)]
 		\item Sei $U$ offen in $\Spec(A)$. Dann bezeichnen wir mit $\mco(U)$ die Menge der Funktionen $s\colon U \to \coprod_{\mfp \in U}A_{\mfp}$, die folgende Eigenschaften erfüllen:
 		\begin{enumerate}[a)]
-			\item Für alle $\mfp \in U$ gilt $s(\mfp) \in A_{\mfp}$
-			\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $a,f\in A$ mit $V \subseteq D(f)$ und $s(\mfq) =  \frac{a}{f} \in A_\mfq$ für alle $\mfq \in V$.
+			\item\label{kons:4.11:a} Für alle $\mfp \in U$ gilt $s(\mfp) \in A_{\mfp}$
+			\item\label{kons:4.11:b} Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $a,f\in A$ mit $V \subseteq D(f)$ und $s(\mfq) =  \frac{a}{f} \in A_\mfq$ für alle $\mfq \in V$.
 		\end{enumerate}
 		\item Aufgrund der lokalen Natur der Axiome a) und b) sieht man, dass $U \mapsto \mco(U)$ eine Garbe von Ringen auf $\Spec(A)$ definiert. Dabei sind die Addition und Multiplikation von solchen Funktionen punktweise unter Benutzung der entsprechenden Operation in den $A_{\mfp}$ definiert.
 	\end{enumerate}
@@ -214,7 +214,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 			\[
 			 	\mco(U) \to A_\mfp,\; s \mapsto s(\mfp).
 			\]
-			Nach a) sind dies wohldefinierte Ringhomomorphismen. Weiter sind diese Homomorphismen verträglich mit Einschränkungen auf kleinere Umgebungen $V$. Also wird ein Ringhomomorphismus $\varphi\colon\mco_\mfp \to A_\mfp,\; [(U,s)] \mapsto s(\mfp)$ induziert.
+			Nach \ref{kons:4.11:a} sind dies wohldefinierte Ringhomomorphismen. Weiter sind diese Homomorphismen verträglich mit Einschränkungen auf kleinere Umgebungen $V$. Also wird ein Ringhomomorphismus $\varphi\colon\mco_\mfp \to A_\mfp,\; [(U,s)] \mapsto s(\mfp)$ induziert.
 			Sei $\frac{a}{f}\in A_\mfp$, also $f \notin \mfp,\; a \in A$. Dies definiert einen Schnitt
 			\[
 				s = \frac{a}{f}\colon D(f) \to \coprod_{\mfq \in D(f)} A_\mfq,\; \mfq \mapsto s(\mfq) \coloneqq \frac{a}{f} \in A_\mfq.
@@ -225,7 +225,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 			\[
 				\varphi([(U,s)]) = \varphi([(U,t)]).
 			\]
-			Wir wollen nun $s=t \in \mco_\mfp$ zeigen. Indem wir die Umgebung von $\mfp$ gegebenenfalls verkleinern, dürfen wir nach b) annehmen, dass es $a,b,f,g \in A$ mit $f,g \notin \mfp$ gibt, so dass $s = \frac{a}{f} \in \mco(U)$ und $t=\frac{b}{g}\in \mco(U)$ gilt. Dann gilt:
+			Wir wollen nun $s=t \in \mco_\mfp$ zeigen. Indem wir die Umgebung von $\mfp$ gegebenenfalls verkleinern, dürfen wir nach \ref{kons:4.11:b} annehmen, dass es $a,b,f,g \in A$ mit $f,g \notin \mfp$ gibt, so dass $s = \frac{a}{f} \in \mco(U)$ und $t=\frac{b}{g}\in \mco(U)$ gilt. Dann gilt:
 			\begin{align*}
 				& s(\mfp) = \varphi(s) = \varphi(t) = t(\mfp)\\
 				\Longrightarrow \quad & \frac{a}{f} = \frac{b}{g} \in A_\mfp\\

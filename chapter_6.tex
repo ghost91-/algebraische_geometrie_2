@@ -61,7 +61,11 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 	\[
 		F\colon X \to \coprod_{p \in X}\kappa(p),\; p \mapsto F(p)\coloneqq f_p+\mfm_{X,p}\in \kappa(p).
 	\]
-	Die Menge $V(f) \coloneqq \{p\in X\mid F(p) = 0\}$ ist abgeschlossen in $X$ und $X_f\coloneqq X \setminus V(f)$ ist offen in $X$.
+	Die Menge 
+	\[
+		V(f) \coloneqq \{p\in X\mid F(p) = 0\}
+	\]
+	ist abgeschlossen in $X$ und $X_f\coloneqq X \setminus V(f)$ ist offen in~$X$.
 	\begin{proof}
 		$X$ wird durch offene affine Unterschemata $U=\Spec(A)$ überdeckt. Um zu zeigen, dass $V(f)$ abgeschlossen ist, genügt es zu zeigen, dass für eine fixierte solche Überdeckung für alle Unterschemata~$U$ der Überdeckung schon $V(f)\cap U$ abgeschlossen in $U$ ist. Setze
 		\[
@@ -76,7 +80,7 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 			\Longleftrightarrow \quad & \widetilde{f} \in \mfp\\
 			\Longleftrightarrow \quad & \mfp \in V(\langle \widetilde{f} \rangle) \subset \Spec(A) .
 		\end{align*}
-		Somit ist $V(f)\cap U$ abgeschlossen in $U = \Spec(A)$. Dies zeigt auch, dass diese Definition von $V(f)$ konsitent mit der Defininition von $V(f)$ ist, im Fall, dass $X$ ein affines Schema ist.
+		Somit ist $V(f)\cap U$ abgeschlossen in $U = \Spec(A)$. Dies zeigt auch, dass diese Definition von $V(f)$ konsistent mit der Defininition von $V(f)$ ist, im Fall, dass $X$ ein affines Schema ist.
 	\end{proof}
 \end{lem}
 
@@ -89,18 +93,17 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 	\end{enumerate}
 	\begin{proof}
 		\begin{enumerate}[i)]
-			\item Nach Definition ist $X$ genau dann reduziert, wenn $\mco_X(U)$ für alle $U$ offen in $X$ ein reduzierter Ring ist.
-			\item \enquote{$\Longrightarrow$}: Sei $X$ also reduziert und $p \in X$. Falls es ein $f \in \mco_{X,p}\setminus\{0\}$ mit $f^n=0 \in \mco_{X,p}$ gibt für ein $n \in \N$, so gibt es ein $\widetilde{f}\in \mco_{X}(U)$ für eine offene Umgebung $U$ von $p$ mit $\widetilde{f}_p=f \in \mco_{X,p}$ mit $\widetilde{f}^n = 0$. Dies ist jedoch ein Widerspruch zu der Tastsache, dass $\mco_{X}(U)$ ein reduzierter Ring ist.\\
-			\enquote{$\Longleftarrow$}: Sei $\mco_X(U)$ ein reduzierter Ring
-			offen in $X$. Falls $\mco_X(U)$ nicht reduziert ist, dann gibt es ein $f \in \mco_X(U)\setminus\{0\}$ mit $f^n = 0$ für ein $n \in \N$. Dann gibt es ein $p \in U$ mit $f_p \neq 0 \in \mco_{X,p}$. Mit
+			\item
+			\enquote{$\Longrightarrow$}: Sei $X$ also reduziert und $p \in X$. Falls es ein $f \in \mco_{X,p}\setminus\{0\}$ mit $f^n=0 \in \mco_{X,p}$ gibt für ein $n \in \N$, so gibt es ein $\widetilde{f}\in \mco_{X}(U)$ für eine offene Umgebung $U$ von $p$ mit $\widetilde{f}_p=f \in \mco_{X,p}$ und $\widetilde{f}^n = 0$. Dies ist jedoch ein Widerspruch zu der Tastsache, dass $\mco_{X}(U)$ ein reduzierter Ring ist.\\
+			\enquote{$\Longleftarrow$}: Sei $U$ offen in $X$. Falls $\mco_X(U)$ nicht reduziert ist, dann gibt es ein $f \in \mco_X(U)\setminus\{0\}$ mit $f^n = 0$ für ein $n \in \N$. Dann gibt es ein $p \in U$ mit $f_p \neq 0 \in \mco_{X,p}$. Mit
 			\[
 				(f^n)_p = (f_p)^n=0 \in \mco_{X,p}
 			\]
 			folgt dann aber ein Widerspruch.
-			\item Sei $X$ integer, das heißt $\mco_X(U)$ ist für alle $U$ offen in $X$ integer. Betrachte $p \in X$. Wir wählen eine affine offene Umgebung $U = \Spec(A)$ von $p$ in $X$. Dann ist $p$ durch $\mfp \in \Spec(A)$ gegeben. Weil $X$ integer ist, ist $A = \mco_X(U)$ ein Integritätsbereich. Es gilt $\mco_{X,p} = A_\mfp$. Da die Lokalisierung eines Integritätsbereiches wieder integer ist, folgt die Behauptung.
-			\item \enquote{$\Longrightarrow$}: Sei $X$ ein integres Schema. Dann ist $X$ trivialer Weise reduziert. Wir zeigen wieder indirekt, dass $X$ irreduzibel ist. Ist $X$ nicht irreduzibel, so gibt es nicht-leere disjunkte offene Teilmengen $U_1,U_2$ von $X$. Da $U_1$ und $U_2$ disjunkt sind, gilt
+			\item Sei $X$ integer und sei $p \in X$. Wir wählen eine affine offene Umgebung $U = \Spec(A)$ von $p$ in $X$. Dann ist $p$ durch ein $\mfp \in \Spec(A)$ gegeben. Weil $X$ integer ist, ist $A = \mco_X(U)$ ein Integritätsbereich. Es gilt $\mco_{X,p} = A_\mfp$. Da die Lokalisierung eines Integritätsbereiches wieder integer ist, folgt die Behauptung.
+			\item \enquote{$\Longrightarrow$}: Sei $X$ ein integres Schema. Dann ist $X$ trivialerweise reduziert. Wir zeigen wieder indirekt, dass $X$ irreduzibel ist. Ist $X$ nicht irreduzibel, so gibt es nicht-leere disjunkte offene Teilmengen $U_1,U_2$ von $X$. Da $U_1$ und $U_2$ disjunkt sind, gilt
 			\[
-				\mco_X{U_1 \dcup U_2} = \mco_{X}(U_1) \times \mco_{X}(U_2).
+				\mco_X(U_1 \dcup U_2) = \mco_{X}(U_1) \times \mco_{X}(U_2).
 			\]
 			Solch ein Produkt hat jedoch immer Nullteiler der Form $(f,0) \cdot (0,g) = (0,0)$.\\
 			\enquote{$\Longleftarrow$}: Sei nun $X$ reduziert und irreduzibel. Sei weiter $U$ offen in $X$. Wir müssen zeigen, dass $\mco_X(U)$ ein Integritätsbereich ist. Seien $f,g \in \mco_X(U)$ mit $f\cdot g = 0$. Es gilt
