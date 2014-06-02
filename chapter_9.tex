@@ -1,0 +1,101 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet
+
+\chapter{Quasikohärente Modulgarben}
+\label{chap:9}
+
+Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den Ring $A$ durch einen $A$-Modul $M$ ersetzt, erhält man eine $\mco_X$-Modulgarbe. Auf einem beliebigen Schema $X$ heißt eine $\mco_X$-Modulgarbe quasikohärent, wenn wenn sie lokal von obiger Gestalt ist. Die quasikohärenten Garben erfüllen wichtige Eigenschaften in der algebraischen Geometrie, wie wir später sehen werden. Die kohärenten Garben spielen auf noetherschen Schemata die ROlle der endlich erzeugten Moduln in der Algebra.
+
+\begin{kons}
+\label{kons:9.1}
+	Sei $A$ ein Ring und $M$ ein $A$-Modul. Wir definieren eine Garbe $\widetilde{M}$ auf $\Spec(A)$ auf folgende Weise. Für $\mfp \in \Spec(A)$ haben wir die Lokalisierung
+	\[
+		M_{\mfp} = M \otimes_A A_\mfp.
+	\]
+	Sei also $U$ eine offene Teilmenge von $\Spec(A)$. Wir definieren $\widetilde{M}(U)$ als die Menge der Funktionen
+	\[
+		s \colon U \to \coprod_{\mfp \in U} M_{\mfp}
+	\]
+	die folgende Eigenschaften erfüllen:
+	\begin{enumerate}[a)]
+		\item Für alle $\mfp \in U$ gilt $s(\mfp) \in M_{\mfp}$.
+		\item $s$ ist lokal gleich $\frac{m}{f}$ für ein $m \in M, f \in A$, ... (kopiere von oben.)
+	\end{enumerate}
+	Offensichtlich bildet $\widetilde{M}$ mit den Restriktionsabbildungen eine Garbe.
+\end{kons}
+
+\begin{prop}
+\label{prop:9.2}
+	Für die Garbe $\widetilde{M}$ auf $X=\Spec(A)$ gelten folgende Eigenschaften:
+	\begin{enumerate}[i)]
+		\item $\widetilde{M}$ ist kanonisch ein $\mco_X$-Modul.
+		\item Für alle $\mfp \in X$ gilt $\widetilde{M}_{\mfp} = M_{\mfp}$.
+		\item Für alle $f \in A$ ist der $(A_f = \mco_X(D(f)))$-Modul $\widetilde{M}(D(f))$ kanonisch Isomorph zur Lokalisierung $M_f = M \otimes_A A_f$.
+		\item Es gilt $\Gamma(X,\widetilde{M}) = M$.
+		\item Für alle $\mco_X$-Moduln $\mcf$ und alle $A$-Moduln $M$ existieren kanonische Isomorphismen:
+		\begin{center}
+			\begin{tikzcd}
+				\Hom_{\mco_X}(\widetilde{M},\mcf) \arrow[shift left=1.1ex]{r}{\overset{\alpha}{\sim}} & \Hom_A(M,\Gamma(X,\mcf)) \arrow[shift left=1.1ex]{l}{\underset{\beta}{\sim}}
+			\end{tikzcd}
+		\end{center}
+	\end{enumerate}
+	\begin{proof}
+		i) folgt aus der Konstruktion von $\widetilde{M}$ in Konstruktion~\ref{kons:9.1} (beziehungsweise $\mco_X$ in Konstruktion~\ref{kons:4.11}). ii) - iv) werden analog zu den entsprechenden Aussagen in Proposition~\ref{prop:4.12} für $\mco_X$ bewiesen.
+
+		Wir beweisen v): Um $\alpha$ zu definieren, nehmen wir einfach die globalen Schnitte des Homomorphismus $\widetilde{M}\to \mcf$ und erhalten einen $A$-Modulhomomorphismus $\Gamma(X,\widetilde{M}) \to \Gamma(X,\mcf)$. Nach iv) erhalten wir $M = \Gamma(X,\widetilde{M})$ und damit einen $A$-Modulhomomorphismus $M \to \Gamma(X,\mcf)$ wie gewünscht. Dies definiert $\alpha$. Sei nun ein $A$-Modulhomomorphismus $h\colon M \to \Gamma(X,\mcf)$ gegeben. Wir definieren einen kanonischen $\mco_X$-Modulhomomorphismus $\beta(h)\colon \widetilde{M}\to \mcf$ wiefolgt: Für $f \in A$ gilt $\mco_X(D(f)) = A_f$ und $\Gamma(D(f),\mcf)$ ist damit ein $A_f$-Modul. Nach iii) gilt
+		\[
+			\widetilde{M}(D(f)) = M_f = M \otimes_A A_f.
+		\]
+		Da die Mengen $D(f)$ eine Basis der Topologie von $X=\Spec(A9$ bilden, folgt aus den Garbenaxiomen, dass ein Morphismus $\widetilde{M}\to \mcf$ von $\mco_X$-Moduln durch ein auf Durchschnitten $D(f)\cap D(g) = D(fg)$ kompatibeles System von $A_f$-linearen Abbildungen $\widetilde{M}(D(f)) \to \mcf(D(f))$ gegeben ist.
+		Damit das Diagramm
+		\begin{center}
+			\begin{tikzcd}
+				(M=\widetilde{M}(X)) \arrow{r}{h = \alpha(\beta(h))} \arrow{d} & \Gamma(X,\mcf)\arrow{d}\\
+				\widetilde{M}(D(f)) \arrow{r}{\beta(h)_{D(f)}} & \Gamma(D(f),\mcf)
+			\end{tikzcd}
+		\end{center}
+		kommutiert, müssen wir die Abbildung
+		\begin{alignat*}{3}
+			(M \otimes_A A_f = \widetilde{M}(D(f))) \to & \Gamma(X,\mcf)\otimes_A A_f &&\to \Gamma(D(f)m\mcf)\\
+			m \otimes a \mapsto &  h(m)\otimes \frac{a}{1} && {}\\
+			{} & s \otimes a && \mapsto a \cdot s\vert_{D(f)}
+		\end{alignat*}
+		wählen. Diese liefern ein System kompatibler Abbildungen und definieren damit ein kanonisches $\beta(h)\in \Hom_{\mco_X}(\widetilde{M},\mcf)$. Wählt man speziell $f=1$ mit $D(1) = X$, $M_1=M$ und $A_1 = A$, dann folgt $\alpha \circ \beta = \id$. Da sich
+		\[
+			(\Gamma(X,\widetilde{M}) = M) \to \Gamma(X,\mcf)
+		\]
+		wie oben gesehen zu einem Homomorphismus $\widetilde{M} \to \mcf$ fortsetzt, folgt auch $\beta \circ \alpha = \id$.
+	\end{proof}
+\end{prop}
+
+\begin{prop}
+Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) \to (X = \Spec(A))$ der zugehörige Morphismus von Schemata. Dann gilt:
+	\begin{enumerate}[i)]
+		\item Für jede exakte Sequenz
+		\[
+			0 \to M' \to M \to M'' \to 0
+		\]
+		von $A$-Moduln ist auch
+		\[
+			0 \to \widetilde{M'} \to \widetilde{M} \to \widetilde{M''} \to 0
+		\]
+		eine exakte Sequenz von $\mco_X$-Moduln und für alle $A$-Moduln $M,N$ existiert eine kanonische Bijektion
+		\[
+			\Hom_A(M,N) \simto \Hom_{\mco_X}(\widetilde{M},\widetilde{N}).
+		\]
+		\item Für alle $A$-Moduln $M,N$ gilt $\widetilde{M\otimes_A N} = \widetilde{M} \otimes_{\mco_X} \widetilde{N}$.
+		\item Für eine Familie $(M_i)_{i\in I}$ von $A$-Moduln gilt $\widetilde{(\bigoplus_{i\in I}M_i} = \bigoplus_{i\in I} \widetilde{M_i}$
+		\item Sein $N$ ein $B$-Modul. Da $B$ eine $A$-Algebra ist, kann man $N$ als $A$-Modul betrachten. Wir bezeichnen diese $A$-Modulstruktur auf $N$ mit $_{A}N$. Es gilt $f_*(\widetilde{N}) = \widetilde{_{A}N}$.
+		\item Für einen $A$-Modul $M$ gilt
+		\[
+			f^*(\widetilde{M}) = \widetilde{(M \otimes_A B)}.
+		\]
+		\item Fü $\mfp \in \Spec(A)$, $\mfq \in \Spec(B)$ mit $f(\mfq) = \mfp$ gilt
+		\[
+			f^*(\widetilde{M})_\mfq = \widetilde{M_\mfp \otimes_{A_{\mfp}} B_\mfq}
+		\]
+	\end{enumerate}
+	\begin{proof}
+		Dies wird in den Übungen gezeigt.
+	\end{proof}
+\end{prop}
