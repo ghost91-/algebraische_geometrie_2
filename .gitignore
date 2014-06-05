@@ -9,6 +9,8 @@
 *.dvi
 *.fdb_latexmk
 *.ps
+*.bbl
+*.blg
 *.bcf
 *.run.xml
 
