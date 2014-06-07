@@ -149,12 +149,12 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 		\item $f$ heißt \textbf{injektiv} beziehungsweise \textbf{surjektiv} beziehungsweise \textbf{bijektiv}, wenn die unterliegende Abbildung topologischer Räume injektiv beziehungsweise surjektiv beziehungsweise bijektiv ist.
 		\item $f$ heißt \textbf{offen} beziehungsweise \textbf{abgeschlossen} beziehungsweise \textbf{Homöomorphismus}, wenn die unterliegende Abbildung topologischer Räume  offen beziehungsweise abgeschlossen beziehungsweise ein Homöomorphismus ist.
 		\item $f$ heißt \textbf{quasikompakt}, wenn $f^{-1}(V)$ für alle $V$ quasikompakt und offen in $Y$ quasikompakt ist.
-		\item $f$ heißt \textbf{lokal von endlichem Typ}, wenn für alle affinen offenen Unterschemata $V=\Spec(A)$ von $Y$ und jedes affine offene Unterschema $U = \Spec(B)$ in $f^{-1}(V)$ schon $B$ eine endliche $A$-Algebra ist vermöge der Abbildung
+		\item\label{defn:6.8:iv} $f$ heißt \textbf{lokal von endlichem Typ}, wenn für alle affinen offenen Unterschemata $V=\Spec(A)$ von $Y$ und jedes affine offene Unterschema $U = \Spec(B)$ in $f^{-1}(V)$ schon $B$ eine endliche $A$-Algebra ist vermöge der Abbildung
 		\[
 			(A = \mco_{Y}(V))\overset{f^{\#}}{\longto}(\Gamma(V,f_*\mco_X)=\Gamma(f^{-1}V,\mco_X))\overset{\text{Einschränkung}}{\longto}(\Gamma(U,\mco_X) = B).
 		\]
 		\item $f$ heißt \textbf{von endlichem Typ}, wenn $f$ lokal von endlichem Typ und quasikompakt ist.
-		\item $f$ heißt \textbf{endlich}, wenn für alle affinen offenen Unterschemata $V = \Spec(A)$ von $Y$ schon $f^{-1}(V)$ ein affines offenes Unterschema von $X$ und $B = \Gamma(f^{-1}(V),\mco_X)$ ein endlich erzeugter $A$-Modul ist vermöge derselben Abbildung, wie in iv).
+		\item $f$ heißt \textbf{endlich}, wenn für alle affinen offenen Unterschemata $V = \Spec(A)$ von $Y$ schon $f^{-1}(V)$ ein affines offenes Unterschema von $X$ und $B = \Gamma(f^{-1}(V),\mco_X)$ ein endlich erzeugter $A$-Modul ist vermöge derselben Abbildung, wie in \ref{defn:6.8:iv}.
 	\end{enumerate}
 \end{defn}
 
@@ -183,21 +183,21 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 \begin{prop}
 \label{prop:6.11}
 	\begin{enumerate}[i)]
-		\item Sei $Y$ ein lokal noethersches Schema und sei $f\colon X \to Y$ ein Morphismus lokal von endlichem Typ. Dann ist auch $X$ ein lokal noethersches Schema.
+		\item\label{prop:6.11:i} Sei $Y$ ein lokal noethersches Schema und sei $f\colon X \to Y$ ein Morphismus lokal von endlichem Typ. Dann ist auch $X$ ein lokal noethersches Schema.
 		\item Sei $Y$ ein noethersches Schema und sei $f \colon X \to Y$ ein Morphismus von endlichem Typ. Dann ist auch $X$ ein noethersches Schema.
 	\end{enumerate}
 	\begin{proof}
-		Nach dem hilbertschen Basissatz ist eine endlich erzeugte Algebra über einem noetherschen Ring wieder noethersch.
+		Nach dem Hilbert'schen Basissatz ist eine endlich erzeugte Algebra über einem noetherschen Ring wieder noethersch.
 		\begin{enumerate}[i)]
-			\item Es gibt eine Überdeckung $(V_i)_{i \in I}$ von $Y$ durch offene affine Unterschemata $V_i=\Spec(B_i)$ mit der Eigenschaft, dass $f^{-1}(V_i) = \bigcup_{j \in J_i} U_{ij}$ gilt, wobei $U_{ij} = \Spec(B_{ij})$ ist und $B_{ij}$ für alle $i,j \in I$ eine endlich erzeugte $B_i$-Algebra ist. Da $Y$ lokal noethersch ist, ist $B_i$ nothersch und damit nach dem hilbertschen Basissatz auch $B_{ij}$. Nach Proposition~\ref{prop:6.7} ist $X$ lokal noethersch.
-			\item Dies folgt aus i), weil $f$ quasikompakt ist.
+			\item Es gibt eine Überdeckung $(V_i)_{i \in I}$ von $Y$ durch offene affine Unterschemata $V_i=\Spec(B_i)$ mit der Eigenschaft, dass $f^{-1}(V_i) = \bigcup_{j \in J_i} U_{ij}$ gilt, wobei $U_{ij} = \Spec(B_{ij})$ ist und $B_{ij}$ für alle $i,j \in I$ eine endlich erzeugte $B_i$-Algebra ist. Da $Y$ lokal noethersch ist, ist $B_i$ noethersch und damit nach dem Hilbert'schen Basissatz auch $B_{ij}$. Nach Proposition~\ref{prop:6.7} ist $X$ lokal noethersch.
+			\item Dies folgt aus \ref{prop:6.11:i}, weil $f$ quasikompakt ist.
 		\end{enumerate}
 	\end{proof}
 \end{prop}
 
 \begin{bsp}
 \label{bsp:6.12}
-	Sei $A$ ein Ring. Dann sind die kanonischen Morphismen $\A^n_A \to \Spec(A)$ und $\P^n_A\to\Spec(A)$ quasikompakt (benutze die endliche Standadüberdeckung durch affine Räume). Sie sind auch von endlichem Typ. Sie sind genau dann endlich, wenn wenn $n = 0$ ist. Falls $A$ ein noetherscher Ring ist, dann sind $\A_A^n$ und $\P_A^n$ noethersche Schemata.
+	Sei $A$ ein Ring. Dann sind die kanonischen Morphismen $\A^n_A \to \Spec(A)$ und $\P^n_A\to\Spec(A)$ quasikompakt (benutze die endliche Standardüberdeckung durch affine Räume). Sie sind auch von endlichem Typ. Weiter sind sie genau dann endlich, wenn $n = 0$ ist. Falls $A$ ein noetherscher Ring ist, sind $\A_A^n$ und $\P_A^n$ noethersche Schemata.
 \end{bsp}
 
 \begin{defn}
@@ -215,7 +215,7 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 			&\text{von abgeschlossenen irreduziblen Teilmengen in }X\}.
 		\end{align*}
 		die \textbf{Kodimension} von $Z$ in $X$.
-		\item Für $Y$ abgeschlossen in $X$ definieren wir
+		\item Für $Y\subseteq X$ abgeschlossen (aber nicht notwendigerweise irreduzibel) definieren wir
 		\[
 			\codim(Y,X) \coloneqq \inf\{\codim(Z,X) \mid Z \text{ abgeschlossen und irreduzibel in } Y\}.
 		\]
@@ -231,7 +231,7 @@ Nachdem wir Schemata definiert haben untersuchen wir hier erste Eigenschaften, w
 		\[
 			\dim(Y) + \codim(Y,X) = \dim(X)
 		\]
-		für alle abgeschlossenen irreduziblen Teilmengen von $X$. Dies folgt aus dem entsprechenden Satz für die Krulldimension (siehe auch \cite[Chapter 5, §14]{matsumura1970commutative}). Für beliebige Schemata ohne gewisse Endlichkeitsvorraussetzungen ist dies im Allgemeinen falsch.
+		für alle abgeschlossenen irreduziblen Teilmengen~$Y$ von $X$. Dies folgt aus dem entsprechenden Satz für die Krulldimension (siehe auch \cite[Chapter 5, §14]{matsumura1970commutative}). Für beliebige Schemata ohne gewisse Endlichkeitsvorraussetzungen ist dies im Allgemeinen falsch.
 	\end{enumerate}
 \end{bem}
 
