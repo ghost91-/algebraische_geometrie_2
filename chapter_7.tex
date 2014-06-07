@@ -14,15 +14,16 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 	\begin{enumerate}[i)]
 		\item Ein Morphismus $i \colon Z \to X$ von Schemata heißt \textbf{abgeschlossene Immersion} oder \textbf{abgeschlossene Einbettung}, falls folgende Eigenschaften gelten:
 		\begin{enumerate}[a)]
-			\item i(Z) ist eine abgeschlossene Teilmenge von $X$.
-			\item Die stetige Abbildung $i\colon Z \to i(Z)$ ist ein Homöomorphismus.
-			\item Der Homomorphismus $i^{\#}\colon \mco_X \to i_*\mco_Z$ von Ringgarben ist surjektiv.
+			\item\label{defn:7.2:a} i(Z) ist eine abgeschlossene Teilmenge von $X$.
+			\item\label{defn:7.2:b} Die stetige Abbildung $i\colon Z \to i(Z)$ ist ein Homöomorphismus.
+			\item\label{defn:7.2:c} Der Homomorphismus $i^{\#}\colon \mco_X \to i_*\mco_Z$ von Ringgarben ist surjektiv, d.\,h.
+			    der induzierte Homomorphismus $i^\#_p$ auf den Halmen ist für alle $p\in X$ surjektiv.
 		\end{enumerate}
 		\item Zwei abgeschlossene (beziehungsweise offene) Immersionen $i\colon Z \to X$ und $i'\colon Z' \to X$ heißen \textbf{isomorph}, wenn es einen Isomorphismus $h\colon Z \to Z'$ mit der Eigenschaft, dass das Diagramm
 		\begin{center}
 			\begin{tikzcd}
-				Z\arrow{r}{i} \arrow{d}{h} & X\\
-				Z'\arrow{ur}{i'}
+				Z\arrow{dr}[']{i} \arrow{rr}{h} & & Z' \arrow{dl}{i'} \\
+				& X &
 			\end{tikzcd}
 		\end{center}
 		kommutiert, gibt.
@@ -34,18 +35,18 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 \label{kons:7.3}
 	Sei $A$ ein Ring und $X = \Spec(A)$. Wir betrachten ein Ideal $\mfa$ von $A$ und den Morphismus
 	\[
-		(i=\Spec(\varphi))\colon (Z\coloneqq \Spec(A/\mfa)) \to (X=\Spec(A)),
+		(i\coloneqq\Spec(\varphi))\colon (Z\coloneqq \Spec(A/\mfa)) \to (X=\Spec(A)),
 	\]
-	der vom kanonischen Homomorphismus $A \overset{\varphi}{\longto}A/\mfa$ induziert wird. Wir wollen zeigen, dass $i$ eine abgeschlossen Immersion ist.
+	der vom kanonischen Homomorphismus $A \overset{\varphi}{\longto}A/\mfa$ induziert wird. Wir wollen zeigen, dass $i$ eine abgeschlossene Immersion ist.
 
-	Es ist klar, dass $i$ ein Homöomorphismus
+	Nach Übungsaufgabe~4.2\,b) ist klar, dass $i$ ein Homöomorphismus
 	\[
 		i \colon \Spec(A/\mfa) \to (V(\mfa)=\{\mfp \in \Spec(A) \mid \mfp \supseteq \mfa\})
 	\]
-	ist. Somit gelten a) und b). Für c) zeigen wir, dass die Halmabbildungen surjektiv sind. Sei zuerst $\mfp \in (\Spec(A/\mfa) = Z)$ und $\mfq = i(\mfp) = \varphi^{-1}(\mfp)\in (V(\mfa) \subseteq \Spec(A))$. Da Lokalisieren exakt ist, erhalten wir
+	ist. Somit gelten \ref{defn:7.2:a} und \ref{defn:7.2:b}. Es bleibt \ref{defn:7.2:c} zu zeigen: Sei zuerst $\mfp \in (\Spec(A/\mfa) = Z)$ und $\mfq = i(\mfp) = \varphi^{-1}(\mfp)\in (V(\mfa) \subseteq \Spec(A))$. Da Lokalisieren exakt ist, erhalten wir
 	\begin{equation*}
 	\label{eq:7.3.1}\tag{$\star$}
-		A_\mfq/\mfa_\mfq \cong (A/\mfa)_\mfq.
+		A_\mfq/\mfa_\mfq \cong (A/\mfa)_{\varphi(\mfq)}.
 	\end{equation*}
 	Wir betrachten
 	\[
@@ -57,7 +58,7 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 	\]
 	Also ist $i_\mfq^{\#}$ trivialerweise surjektiv.
 
-	$i$ ist also eine abgeschlossene Immersion und das dadurch definierte abgeschlossene Unterschema bezeichnen wir mit $V(\mfa)$.
+	$i$ ist also eine abgeschlossene Immersion und das dadurch definierte abgeschlossene Unterschema von~$X$ bezeichnen wir mit $V(\mfa)$.
 \end{kons}
 
 \begin{bem}
@@ -68,8 +69,8 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 		\[
 			U \mapsto \mco_X(U)/\mcj(U)
 		\]
-		assoziierte Garbe definiert ist. Beachte, dass der Quotientenhomomorphismus $\mco_X/\mco_X/\mcj$ im Sinne der Garben surjektiv ist, das heißt er ist auf den Halmen surjektiv.
-		\item Sei nun $i \colon Z \to X$ eine abgeschlossene Immersion von Schemata. Nach c) haben wir einen surjektiven Homomorphismus $i^{\#}\colon \mco_X \to i_*\mco_Z$, dessen Kern eine Idealgarbe $\mcj$ ist. Wir haben einen kanonischen Isomorphismus
+		assoziierte Garbe definiert ist. Beachte, dass der Quotientenhomomorphismus $\mco_X\to\mco_X/\mcj$ im Sinne der Garben surjektiv ist, das heißt er ist auf den Halmen surjektiv.
+		\item Sei nun $i \colon Z \to X$ eine abgeschlossene Immersion von Schemata. Nach \ref{defn:7.2:c} haben wir einen surjektiven Homomorphismus $i^{\#}\colon \mco_X \to i_*\mco_Z$, dessen Kern eine Idealgarbe $\mcj$ ist. Wir haben einen kanonischen Isomorphismus
 		\[
 			\mco_X/\mcj \simto i_*\mco_Z.
 		\]
