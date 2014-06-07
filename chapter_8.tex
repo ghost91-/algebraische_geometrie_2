@@ -184,3 +184,50 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	\]
 	und damit ist diese Faser nicht reduziert und damit auch nicht integer.
 \end{bsp}
+
+\begin{defn}[Basiswechsel]
+\label{defn:8.9}
+	Betrachte ein $Y$-Schema $X$, das heißt einen Morphismus $f\colon X \to Y$. Weiter sei ein Morphismus $g\colon Y' \to Y$ von Schemata gegeben. Wir betrachten das gefaserte Produkt
+	\begin{center}
+		\begin{tikzcd}
+			(X'\coloneqq X \times_Y Y') \arrow{d}{g'} \arrow{r}{f'} & Y' \arrow{d}{g}\\ X \arrow{r}{f} & Y,
+		\end{tikzcd}
+	\end{center}
+	wobei wir die Projektionen mit $f'$ und $g'$ bezeichnen. Wir nennen das ein \textbf{kartesisches Diagramm}. Wir sagen, dass das $Y'$-Schema $X'$ \textbf{durch den Basiswechsel $Y'\to Y$ aus dem $Y$-Schema $X$ entsteht}. Äquivalent sagen wir, dass $f'$ Der Basiswechsel von $f$ bezüglich $g$ ist. Analog ist $g'$ der Basiswechsel von $g$ bezüglich $f$.
+\end{defn}
+
+\begin{defn}
+\label{defn:8.10}
+	Sei $\mce$ eine Eigenschaft von Morphismen.
+	\begin{enumerate}[i)]
+		\item Die Eigenschaft $\mce$ heißt \textbf{abgeschlossen unter Komposition}, wenn für Morphismen $X \overset{f}{\longto} Y \overset{g}{\longto}Z$, die die Eigenschaft $\mce$ haben schon gilt, dass $g \circ f$ die Eigenschaft $\mce$ hat.
+		\item Die Eigenschaft $\mce$ heißt \textbf{stabil unter Basiswechsel}, wenn für Morphismen $f\colon X \to Y$ und $g \colon Y' \to Y$, wobei dir Eigenschaft $\mce hat$, schon gilt, dass der Basiswechsel $f'$ von $f$ bezüglich $g$ die Eigenschaft $\mce$ hat.
+	\end{enumerate}
+\end{defn}
+
+\begin{prop}
+\label{prop:8.11}
+	Die Eigenschaft \enquote{lokal von endlichem Typ} ist abgeschlossen unter Komposition und stabil unter Basiswechsel.
+	\begin{proof}
+		\enquote{Komposition}: Seien $f\colon X \to Y$ und $g \colon Y \to Z$ lokal von endlichem Typ. Sei $W = \Spec(A)$ ein offenes affines Unterschema von $Z$. Sei weiter $p \in (g \circ f)^{-1}(W)$. Sei $V=\Spec(B)$ ein offenes affines Unterschema von $g^{-1}(W)$ mit $f(p) \in V$. Da $g$ lokal von endlichem Typ ist, folgt, dass $B$ eine endlich erzeugte $A$-Algebra ist. Sei $U = \Spec(C)$ ein offenes affines Unterschema von $f^{-1}(V)$ mit $p \in U$. Weil $f$ lokal von endlichem Typ ist, folgt, dass $C$ eine endlich erzeugte $B$-Algebra ist. Insgesamt ist also $C$ eine endlich ereugte $A$-Algebra. Wenn $p$ über $X$ läuft, erhalten wir entsprechend obige Mengen $W$, $V$ und $U$, wobei $X$ durch die Mengen $U$ überdeckte wird. Aus Proposition~\ref{prop:6.10} folgt, dass $g\circ f$ lokal von endlichem Typ ist.
+
+		\enquote{Basiswechsel}: Wir haben folgendes kartesisches Diagramm:
+		\begin{center}
+			\begin{tikzcd}
+				(X'\coloneqq X \times_Y Y') \arrow{d}{g'} \arrow{r}{f'} & Y' \arrow{d}{g}\\ X \arrow{r}{f} & Y,
+			\end{tikzcd}
+		\end{center}
+		Wir nehmen an, dass $f$ lokal von endlichem Typ ist und müssen zeigen, dass auch $f'$ lokal von endlichem Typ ist. Nach Proposition~\ref{prop:6.10} ii) existieren offene affine Überdeckungen $(V_i)_{i\in I}$ von $Y$ und $(U_{ij})_{j\in J_i}$ von $f^{-1}(V_i)$ mit der Eigenschaft, dass $\mco_X(U_{ij})$ für alle $i\in I$ und alle $j \in J_i$ eine endlich erzeugte $\mco_Y(V_i)$-Algebra ist. Sei $(V_{ik})_{k \in K_i}$ eine offene affine Überdeckung von $g^{-1}(V_i)$.
+		\begin{center}
+			\begin{tikzcd}
+				{} & (U_{ijk} \coloneqq U_{ij} \times_{V_i} V_{ik}') \arrow{r} \arrow{d} & V_{ik}'\arrow{d} \arrow[phantom]{r}{\subseteq} & Y'\\
+				X' & U_{ij} \arrow[phantom]{l}{\supseteq} \arrow{r} & V_i \arrow[phantom]{r}{\subseteq} & X
+			\end{tikzcd}
+		\end{center}
+		Für dieses gefaserte Produkt $U_{ijk}$ gilt
+		\[
+			U_{ijk} = \Spec(\mco(U_{ij} \otimes_{\mco(V_i)} \mco(V_{ik}')
+		\]
+		nach dem ersten Schritt im Beweis von Theorem~\ref{thm:8.2}. Also ist $\mco(U_{ijk}) = \mco(U_{ij} \otimes_{\mco(V_i)} \mco(V_{ik}'$ eine endlich erzeugte $\mco(V_{ik}')$-Algebra. Wir haben im Beweis von Theorem~\ref{thm:8.2} gesehen, dass $(U_{ijk})_{i\in I,j\in J_i, k \in K_i}$ eine offene affine Überdeckung von $X'$ ist. Nach Proposition~\ref{prop:6.10} ist dann $f'$ lokal von endlichem Typ.
+	\end{proof}
+\end{prop}
