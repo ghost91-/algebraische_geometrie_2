@@ -15,7 +15,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 			{} & S & {}
 		\end{tikzcd}
 	\end{center}
-	kommutativ machen. Wir verlangen weiter, dass folgende universelle Eigenschaft gilt: Für alle $S$-Schemata $T$ und alle Morphismen $h_1\colon T \to X$ und $h_2\colon T \to Y$ mit der Eigneschafz, dass das Diagramm
+	kommutativ machen. Wir verlangen weiter, dass folgende universelle Eigenschaft gilt: Für alle $S$-Schemata $T$ und alle Morphismen $h_1\colon T \to X$ und $h_2\colon T \to Y$ mit der Eigenschaft, dass das Diagramm
 	\begin{center}
 		\begin{tikzcd}
 			{} & T \arrow{dl}[swap]{h_1} \arrow{dr}{h_2} & {}\\
@@ -23,7 +23,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 			{} & S & {}
 		\end{tikzcd}
 	\end{center}
-	gibt es einen eindeutigen Morphismus $\theta\colon T \to X \times_S Y$, der das Diagramm
+	kommutiert, gibt es einen eindeutigen Morphismus $\theta\colon T \to X \times_S Y$, der das Diagramm
 	\begin{center}
 		\begin{tikzcd}
 			T \arrow[bend left]{drr}{h_2}\arrow[bend right]{ddr}[swap]{h_1}\arrow[dashed]{dr}{\exists ! \;\theta}\\
@@ -36,7 +36,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 
 \begin{thm}
 \label{thm:8.2}
-	Für zwei $S$-Schemata $X$ und $Y$ existiert das gefaserte Produkt $X \times_S Y$, ist ein $S$-Schema und eindeutig bis auf eindeutige Isomorphie.
+	Für zwei $S$-Schemata $X$ und $Y$ existiert das gefaserte Produkt $X \times_S Y$, es ist ein $S$-Schema und eindeutig bis auf eindeutige Isomorphie.
 \end{thm}
 
 \begin{bem}[Vorbemerkung zum Beweis]
@@ -49,9 +49,9 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 
 	Wir konstruieren $X \times_S Y$ zuerst im affinen Fall mit Hilfe des Tensorprodukts der unterliegenden Ringe. Der allgemeine Fall folgt durch \enquote{Verkleben}.
 
-	\textbf{1. Schritt (affiner Fall):} Seien $X = \Spec(A), Y = \Spec(B)$ und $S=\Spec(R)$. Dann existiert $X\times_S Y$ und ist $\Spec(B \otimes_R A)$.
+	\textbf{1. Schritt (affiner Fall):} Seien $X = \Spec(A), Y = \Spec(B)$ und $S=\Spec(R)$. Dann existiert $X\times_S Y$ und \enquote{ist} $\Spec(A \otimes_R B)$.
 	\begin{proof}
-		Da $X$ und $Y$ $S$-Schemata sind, sind $A$ und $B$ nach Proposition~\ref{prop:5.6} $R$-Algebren. Dann ist $A \otimes_R B$ eine $R-Algebra$ mit dem Produkt
+		Da $X$ und $Y$ beide $S$-Schemata sind, sind $A$ und $B$ nach Proposition~\ref{prop:5.6} $R$-Algebren. Dann ist $A \otimes_R B$ eine $R$-Algebra mit dem Produkt
 		\[
 			(a_1 \otimes b_1) \cdot (a_2 \otimes b_2) = (a_1a_2)\otimes (b_1b_2).
 		\]
@@ -63,17 +63,17 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 		\[
 			\Spec(p_2)\colon B \to A \otimes_R B,\; b \mapsto 1 \otimes b.
 		\]
-		Allgemeiner gilt nach Proposition~\ref{prop:5.6} $\Hom_{\Sch}(T, \Spec(D)) \cong \Hom_{\Ring}(D,\Gamma(T,\mco_T))$. Wir benutzen die universelle Eigenschaft des Tensorproduktes, die impliziert dass es für jeden Ring $C$ und für alle Homomorphismen $\varphi_1\colon A \to C$ und $\varphi_2\colon B \to C$ mit $\varphi_1 \circ \Spec(f) = \varphi_2 \circ \Spec(g)$ genau einen Morphismus $\varphi\colon A \otimes B \to C$ gibt, der das Diagramm
+		Allgemeiner gilt nach Proposition~\ref{prop:5.6}: $\Hom_{\Sch}(T, \Spec(D)) \cong \Hom_{\Ring}(D,\Gamma(T,\mco_T))$. Wir benutzen die universelle Eigenschaft des Tensorproduktes, die impliziert dass es für jeden Ring $C$ und für alle Homomorphismen $\varphi_1\colon A \to C$ und $\varphi_2\colon B \to C$ mit $\varphi_1 \circ \Spec(f) = \varphi_2 \circ \Spec(g)$ genau einen Morphismus $\varphi\colon A \otimes_R B \to C$ gibt, der das Diagramm
 		\begin{center}
 			\begin{tikzcd}
 				C\\
-				{} & A \otimes B\arrow[dashed]{ul}[swap]{\exists! \; \varphi} & B\arrow[bend right, start anchor=north]{llu}[swap]{\varphi_2}\arrow{l}[swap]{\Spec(p_2)}\\
+				{} & A \otimes_R B\arrow[dashed]{ul}[swap]{\exists! \; \varphi} & B\arrow[bend right, start anchor=north]{llu}[swap]{\varphi_2}\arrow{l}[swap]{\Spec(p_2)}\\
 				{} & A\arrow[bend left=40]{uul}{\varphi_1}\arrow{u}{\Spec(p_1)} & R\arrow{l}{\Spec(f)}\arrow{u}[swap]{\Spec(g)}
 			\end{tikzcd}
 		\end{center}
 		kommutativ macht. Benutzen wir die \enquote{Dualität} aus Proposition~\ref{prop:5.6}, dann folgt die universelle Eigenschaft des gefaserten Produkts und damit der 1. Schritt.
 	\end{proof}
-	\textbf{2. Schritt:} Seien $X,Y$ zwei $S$-Schemata für die $X\times_S Y$ existiert und sei $U$ ein offenes Unterschema con $X$. Dann existiert $U \times_S Y = p_1^{-1}(U)$.
+	\textbf{2. Schritt:} Seien $X,Y$ zwei $S$-Schemata, für die $X\times_S Y$ existiert und sei $U$ ein offenes Unterschema von $X$. Dann existiert $U \times_S Y = p_1^{-1}(U)$.
 	\begin{proof}
 		Das folgt aus der Vorbemerkung~\ref{bem:8.3} für das offene Unterschema $p_1^{-1}(U)$, das dann offensichtlich die universelle Eigenschaft erfüllt.
 	\end{proof}
@@ -85,24 +85,24 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 		\]
 		und
 		\[
-			U_{ij} \coloneqq p_1^{-1}(X_{ij} = X_{ij}\times_S Y \subseteq X_i \times_S Y,
+			U_{ij} \coloneqq (p^i_1)^{-1}(X_{ij}) = X_{ij}\times_S Y \subseteq X_i \times_S Y,
 		\]
-		wobei $p_1 \colon X_i \times_S Y \to X$ die kanonische Projektion ist. Wegen $X_{ij} = X_{ji}$ gilt $U_{ij} \underset{\varphi_{ij}}{\simto}U_{ji}$ kanonisch. Dies ergibt ein Verklebedatum und nach Lemma~\ref{lem:5.10} erhalten wir en Schema $X\times_S Y$ durch Verklebung der $X_i\times_S Y$ entlang der $\varphi_{i}$. Es ist leicht zu sehen, dass $X \times_S Y$ die universelle Eigenschaft des gefaserten Produkts erfüllt.
+		wobei $p^i_1 \colon X_i \times_S Y \to X$ die kanonische Projektion ist. Wegen $X_{ij} = X_{ji}$ gilt $\varphi_{ij}\colon U_{ij} \simto U_{ji}$ kanonisch. Dies ergibt ein Verklebedatum und nach Lemma~\ref{lem:5.10} erhalten wir ein Schema $X\times_S Y$ durch Verklebung der $X_i\times_S Y$ entlang der $\varphi_{ij}$. Es ist leicht zu sehen, dass $X \times_S Y$ die universelle Eigenschaft des gefaserten Produkts erfüllt.
 	\end{proof}
-	\textbf{4. Schritt:}\\
+	\textbf{4. Schritt:}
 	\begin{itemize}
-		\item Nach dem 1. Schritt existiert $X \times_S Y$ für $X$, $Y$ und $S$ affin.\\
-		\item Nach dem 3. Schritt existiert $X \times_S Y$ für $X$ beliebig und $Y$ und $S$ affin ($X$ ist überdeckt durch affine offne $U$).
+		\item Nach dem 1. Schritt existiert $X \times_S Y$ für $X$, $Y$ und $S$ affin.
+		\item Nach dem 3. Schritt existiert $X \times_S Y$ für $X$ beliebig und $Y$ und $S$ affin ($X$ ist überdeckt durch affine offene $U$).
 		\item Nach dem 3. Schritt existiert $X \times_S Y$ für $X$ und $Y$ beliebig und $S$ affin.
 	\end{itemize}
-	\textbf{5. Schritt:} Sei nun $S$ ein beliebiges Schema. Dann gibt es eine offene Überdeckung $(S_i)_{i \in I}$ von $S$. Sei $X_i \coloneqq f^{-1}(S_i)$ und $Y_i\coloneqq g^{-1}(S_i)$. Das sind offene Unterschemata von $X$, beziehungsweise $Y$. Nach dem 4. Schritt existiert $X_i \times_{S_i} Y_i$. Dann existiert aber auch $X_i\times_S Y = X_i \times_{S_i}$, da jeder Morphismus
+	\textbf{5. Schritt:} Sei nun $S$ ein beliebiges Schema. Dann gibt es eine affine offene Überdeckung $(S_i)_{i \in I}$ von $S$. Sei $X_i \coloneqq f^{-1}(S_i)$ und $Y_i\coloneqq g^{-1}(S_i)$. Das sind offene Unterschemata von $X$ beziehungsweise $Y$. Nach dem 4. Schritt existiert $X_i \times_{S_i} Y_i$. Dann existiert aber auch $X_i\times_S Y = X_i \times_{S_i} Y_i$, da für jedes Paar von Morphismen, für die das Diagramm
 	\begin{center}
 		\begin{tikzcd}
-			T \arrow{r}\arrow{d} & Y\arrow{d}\\
-			X_i \arrow{r} & S
+			T \arrow{r}\arrow{d} & Y\arrow{d}{g}\\
+			X_i \arrow{r}[swap]{f\vert_{X_i}} & S
 		\end{tikzcd}
 	\end{center}
-	über $Y_i$ faktorisiert (da dann das Bild von $T$ in $Y$ om Urbild vom Bild von $X_i$ in $S$ ist). Nach dem 3. Schritt existiert dann $X\times_S Y$ (da $X$ von $(X_i)_{i \in I}$ überdeckt wird).
+	kommutiert, $T\to Y$ über $Y_i$ faktorisiert (da das Bild von $T$ in $Y$ in $g^{-1}(f\vert_{X_i}(X_i)) \subset g^{-1}(S_i)$ enthalten ist). Nach dem 3. Schritt existiert dann $X\times_S Y$ (da $X$ von $(X_i)_{i \in I}$ überdeckt wird).
 \end{proof}
 
 \begin{bsp}
