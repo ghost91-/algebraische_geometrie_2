@@ -108,7 +108,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 \begin{bsp}
 \label{bsp:8.4}
 	\begin{enumerate}[i)]
-		\item Sei $X$ ein Schema und seien $U,V$ offene Unterschemata von $X$. Dann gilt $U\times_X V = U \cap V$ (hier ist $U$ ein $X$-Schema bezüglich der offenen Immersion $j\colon U \to X$). Insbesondere ist im affinen Fall $U = \Spec(B)$, $V=\Spec(C)$ offen in $X=\Spec(A)$
+		\item Sei $X$ ein Schema und seien $U,V$ offene Unterschemata von $X$. Dann gilt $U\times_X V = U \cap V$ (hier tragen $U$ bzw. $V$ eine $X$-Schema-Struktur bezüglich der offenen Immersion $U \to X$ bzw. $V\to X$). Insbesondere ist im affinen Fall $U = \Spec(B)$, $V=\Spec(C)$ offen in $X=\Spec(A)$
 		\[
 			U \cap V = U\times_X V = \Spec(B \otimes_A C) 	
 		\]
@@ -120,7 +120,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 		als offenes Unterschema von $X$.
 	\end{enumerate}
 	\begin{proof}
-		Mit Vorbemerkunh~\ref{bem:8.3} folgt leicht, dass $U\cap V$ (beziehungsweise $f^{-1}(U)$) die universelle Eigenschaft des gefaserten Produkts erfüllt. Man kann auch direkt den 2. Schritt des Beweises von Theorem~\ref{thm:8.2} verwenden.
+		Mit Vorbemerkung~\ref{bem:8.3} folgt leicht, dass $U\cap V$ (beziehungsweise $f^{-1}(U)$) die universelle Eigenschaft des gefaserten Produkts erfüllt.
 	\end{proof}
 \end{bsp}
 
@@ -128,9 +128,10 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 \label{bem:8.5}
 	Sei $X$ ein Schema, $p \in X$ und $\kappa(p)$ der Restklassenkörper von $p$. Für eine offene Umgebung $U$ von $p$ in $X$ haben wir kanonische Homomorphismen
 	\[
-		\mco_X(U) \to \mco_{X,p} \to \kappa(p), \; s \mapsto s_p + \mfp_{X,p}.
+		\mco_X(U) \to \mco_{X,p} \to \kappa(p), \; s \mapsto s_p + \mfm_p
 	\]
-	Wir erhalten einen kanonischen Morphismus
+	(wobei $\mfm_p$ das Maximalideal von $\mco_{X,p}$ ist).
+	Wir erhalten weiter einen kanonischen Morphismus
 	\[
 		\iota_p\colon \Spec(\kappa(p))\to X,
 	\]
@@ -138,7 +139,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	\[
 		\iota_{p,U}^{\#} \colon \mco_X(U)\to ({\iota_{p}}_*\mco_{Spec(\kappa(p))})(U) = \begin{cases}\kappa(p) & \text{falls } p \in U\\0 & \text{falls } p \notin U\end{cases}
 	\]
-	benutzen.
+	von zuvor bzw. den Nullmorphismus benutzen.
 \end{bem}
 
 \begin{defn}
@@ -154,7 +155,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 
 \begin{bem}
 \label{bem:8.7}
-	Man kann zeigen, dass der $X_p$ zugrunde liegende topologische Raum homöomorph zu $f^{-1}(\{p\})$ mit der induzierten Topologie (siehe \cite[I.3.4.6]{grothendieck1971elements} oder \cite[Ex.II.3.10]{hartshorne1977algebraic} oder \cite[Prop. 4.20 und (4.8)]{goertz2010algebraic}).
+	Man kann zeigen, dass der $X_p$ zugrunde liegende topologische Raum homöomorph zu $f^{-1}(\{p\})$ mit der induzierten Topologie (siehe \cite[{}I.3.4.6]{grothendieck1971elements} oder \cite[Ex.II.3.10]{hartshorne1977algebraic} oder \cite[Prop. 4.20 und (4.8)]{goertz2010algebraic}).
 \end{bem}
 
 \begin{bsp}
@@ -167,18 +168,18 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	\[
 		K[T_3] \to K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle, T_3 \mapsto T_3 + \langle T_2T_3 - T_1^2 \rangle.
 	\]
-	induziert wird. Der Punkt $p$ von $A^1_K$ sei gegeben als Bild des Morphismus $\Spec(K) \to A^1_K$, der durch den Ringhomomorphismus $K[T_3]\to K,\; T_3 \mapsto a$ mit $a \in K$ induziert wird. Das heißt $a$ ist die Koordinate des Punktes $p$. Es gilt:
+	induziert wird. Der Punkt $p$ von $\A^1_K$ sei gegeben als Bild des Morphismus $\Spec(K) \to \A^1_K$, der durch den Ringhomomorphismus $K[T_3]\to K,\; T_3 \mapsto a$ mit $a \in K$ induziert wird. Das heißt $a$ ist die Koordinate des Punktes $p$. Es gilt:
 	\begin{align*}
 		X_p &= X \times_{\A^1_K}\Spec(\kappa(p))\\
 		&= \Spec(K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle) \times_{\A^1_K}\Spec(K)\\
-		&= \Spec(K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle) \otimes_{K[T_3]}) K)\\
+		&= \Spec\bigl( (K[T_1,T_2,T_3]/\langle T_2T_3 - T_1^2 \rangle) \otimes_{K[T_3]} K \bigr)\\
 		&= \Spec(K[T_1,T_2]/\langle aT_2-T_1^2 \rangle)
 	\end{align*}
 	Für $a\neq 0$ gilt
 	\[
 		X_p \overset{T_2= \frac{1}{a}T_1^2}{\cong} \Spec(K[T_1]) \cong \A^1_K
 	\]
-	und damit ist $X_p$ ein integres affnines Schema. Für $a = 0$ gilt
+	und damit ist $X_p$ ein integres affines Schema. Für $a = 0$ gilt
 	\[
 		X_p = \Spec(K[T_1,T_2]/ \langle T_1^2 \rangle)
 	\]
@@ -187,13 +188,13 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 
 \begin{defn}[Basiswechsel]
 \label{defn:8.9}
-	Betrachte ein $Y$-Schema $X$, das heißt einen Morphismus $f\colon X \to Y$. Weiter sei ein Morphismus $g\colon Y' \to Y$ von Schemata gegeben. Wir betrachten das gefaserte Produkt
+	Wir betrachten ein $Y$-Schema $X$, das heißt einen Morphismus $f\colon X \to Y$. Weiter sei ein Morphismus $g\colon Y' \to Y$ von Schemata gegeben. Wir betrachten das gefaserte Produkt
 	\begin{center}
 		\begin{tikzcd}
 			(X'\coloneqq X \times_Y Y') \arrow{d}{g'} \arrow{r}{f'} & Y' \arrow{d}{g}\\ X \arrow{r}{f} & Y,
 		\end{tikzcd}
 	\end{center}
-	wobei wir die Projektionen mit $f'$ und $g'$ bezeichnen. Wir nennen das ein \textbf{kartesisches Diagramm}. Wir sagen, dass das $Y'$-Schema $X'$ \textbf{durch den Basiswechsel $Y'\to Y$ aus dem $Y$-Schema $X$ entsteht}. Äquivalent sagen wir, dass $f'$ Der Basiswechsel von $f$ bezüglich $g$ ist. Analog ist $g'$ der Basiswechsel von $g$ bezüglich $f$.
+	wobei wir die Projektionen mit $f'$ und $g'$ bezeichnen. Wir nennen dies ein \textbf{kartesisches Diagramm}. Wir sagen, dass das $Y'$-Schema $X'$ \textbf{durch den Basiswechsel $Y'\to Y$ aus dem $Y$-Schema $X$ entsteht}. Äquivalent sagen wir, dass $f'$ Der Basiswechsel von $f$ bezüglich $g$ ist. Analog ist $g'$ der Basiswechsel von $g$ bezüglich $f$.
 \end{defn}
 
 \begin{defn}
@@ -201,7 +202,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	Sei $\mce$ eine Eigenschaft von Morphismen.
 	\begin{enumerate}[i)]
 		\item Die Eigenschaft $\mce$ heißt \textbf{abgeschlossen unter Komposition}, wenn für Morphismen $X \overset{f}{\longto} Y \overset{g}{\longto}Z$, die die Eigenschaft $\mce$ haben schon gilt, dass $g \circ f$ die Eigenschaft $\mce$ hat.
-		\item Die Eigenschaft $\mce$ heißt \textbf{stabil unter Basiswechsel}, wenn für Morphismen $f\colon X \to Y$ und $g \colon Y' \to Y$, wobei dir Eigenschaft $\mce hat$, schon gilt, dass der Basiswechsel $f'$ von $f$ bezüglich $g$ die Eigenschaft $\mce$ hat.
+		\item Die Eigenschaft $\mce$ heißt \textbf{stabil unter Basiswechsel}, wenn für Morphismen $f\colon X \to Y$ und $g \colon Y' \to Y$, wobei $f$ die Eigenschaft $\mce$ hat, schon gilt, dass der Basiswechsel $f'$ von $f$ bezüglich $g$ die Eigenschaft $\mce$ hat.
 	\end{enumerate}
 \end{defn}
 
@@ -217,17 +218,17 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 				(X'\coloneqq X \times_Y Y') \arrow{d}{g'} \arrow{r}{f'} & Y' \arrow{d}{g}\\ X \arrow{r}{f} & Y,
 			\end{tikzcd}
 		\end{center}
-		Wir nehmen an, dass $f$ lokal von endlichem Typ ist und müssen zeigen, dass auch $f'$ lokal von endlichem Typ ist. Nach Proposition~\ref{prop:6.10} ii) existieren offene affine Überdeckungen $(V_i)_{i\in I}$ von $Y$ und $(U_{ij})_{j\in J_i}$ von $f^{-1}(V_i)$ mit der Eigenschaft, dass $\mco_X(U_{ij})$ für alle $i\in I$ und alle $j \in J_i$ eine endlich erzeugte $\mco_Y(V_i)$-Algebra ist. Sei $(V_{ik})_{k \in K_i}$ eine offene affine Überdeckung von $g^{-1}(V_i)$.
+		Wir nehmen an, dass $f$ lokal von endlichem Typ ist und müssen zeigen, dass auch $f'$ lokal von endlichem Typ ist. Nach Proposition~\ref{prop:6.10} ii) existieren offene affine Überdeckungen $(V_i)_{i\in I}$ von~$Y$ und $(U_{ij})_{j\in J_i}$ von $f^{-1}(V_i)$ mit der Eigenschaft, dass $\mco_X(U_{ij})$ für alle $i\in I$ und alle $j \in J_i$ eine endlich erzeugte $\mco_Y(V_i)$-Algebra ist. Sei $(V_{ik})_{k \in K_i}$ eine offene affine Überdeckung von $g^{-1}(V_i)$.
 		\begin{center}
 			\begin{tikzcd}
-				{} & (U_{ijk} \coloneqq U_{ij} \times_{V_i} V_{ik}') \arrow{r} \arrow{d} & V_{ik}'\arrow{d} \arrow[phantom]{r}{\subseteq} & Y'\\
-				X' & U_{ij} \arrow[phantom]{l}{\supseteq} \arrow{r} & V_i \arrow[phantom]{r}{\subseteq} & X
+				U_{ijk} & \arrow[phantom]{l}{\coloneqq} U_{ij} \times_{V_i} V_{ik}' \arrow{r} \arrow{d} & V_{ik}'\arrow{d} \arrow[phantom]{r}{\subseteq} & Y'\\
+				X' & U_{ij} \arrow[phantom]{l}{\supseteq\mkern15mu} \arrow{r} & V_i \arrow[phantom]{r}{\subseteq} & X
 			\end{tikzcd}
 		\end{center}
 		Für dieses gefaserte Produkt $U_{ijk}$ gilt
 		\[
-			U_{ijk} = \Spec(\mco(U_{ij} \otimes_{\mco(V_i)} \mco(V_{ik}')
+			U_{ijk} = \Spec(\mco(U_{ij}) \otimes_{\mco(V_i)} \mco(V_{ik}'))
 		\]
-		nach dem ersten Schritt im Beweis von Theorem~\ref{thm:8.2}. Also ist $\mco(U_{ijk}) = \mco(U_{ij} \otimes_{\mco(V_i)} \mco(V_{ik}'$ eine endlich erzeugte $\mco(V_{ik}')$-Algebra. Wir haben im Beweis von Theorem~\ref{thm:8.2} gesehen, dass $(U_{ijk})_{i\in I,j\in J_i, k \in K_i}$ eine offene affine Überdeckung von $X'$ ist. Nach Proposition~\ref{prop:6.10} ist dann $f'$ lokal von endlichem Typ.
+		nach dem ersten Schritt im Beweis von Theorem~\ref{thm:8.2}. Also ist $\mco(U_{ijk}) = \mco(U_{ij}) \otimes_{\mco(V_i)} \mco(V_{ik}')$ eine endlich erzeugte $\mco(V_{ik}')$-Algebra. Wir haben im Beweis von Theorem~\ref{thm:8.2} gesehen, dass $(U_{ijk})_{i\in I,\,j\in J_i,\,k\in K_i}$ eine offene affine Überdeckung von $X'$ ist. Nach Proposition~\ref{prop:6.10} ist dann $f'$ lokal von endlichem Typ.
 	\end{proof}
 \end{prop}
