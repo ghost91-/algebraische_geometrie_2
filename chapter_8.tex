@@ -5,6 +5,7 @@
 \label{chap:8}
 Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. In diesem Abschnitt wollen wir etwas ähnliches in der Kategorie der Schemata betrachten. In der modernen algebraischen Geometrie betrachtet man alles relativ bezüglich eines Schemas $S$ als Basis, das heißt wir wollen ein gefasertes Produkt $X \times_S Y$ für $S$-Schemata $f\colon X \to S$ und $g \colon Y \to S$ definieren. Das gefaserte Produkt wird ein $S$-Schema sein, dessen unterliegende Menge im Allgemeinen verschieden vom kartesischen Produkt der Mengen sein wird. $X \times_S Y$ ist (im Allgemeinen) ebenfalls verschieden von $\{(x,y) \in X \times Y\mid f(x) = g(y)\}$.
 
+\nextmark{gefasertes Produkt}
 \begin{defn}
 \label{defn:8.1}
 	Seien $X,Y,S$ Schemata und seien $f\colon X \to S$ und $g \colon Y \to S$ Morphismen. Ein \textbf{gefasertes Produkt} der $S$-Schemata $X$ und $Y$ ist ein Schema $X\times_S Y$ zusammen mit Morphismen, die das Diagramm
@@ -34,6 +35,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	kommutativ macht. Man nennt $p_1$ und $p_2$ die Projektionsabbildungen.
 \end{defn}
 
+\nextmark{Existenz und Eindeutigkeit des gefaserten Produkts}
 \begin{thm}
 \label{thm:8.2}
 	Für zwei $S$-Schemata $X$ und $Y$ existiert das gefaserte Produkt $X \times_S Y$, es ist ein $S$-Schema und eindeutig bis auf eindeutige Isomorphie.
@@ -105,6 +107,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	kommutiert, $T\to Y$ über $Y_i$ faktorisiert (da das Bild von $T$ in $Y$ in $g^{-1}(f\vert_{X_i}(X_i)) \subset g^{-1}(S_i)$ enthalten ist). Nach dem 3. Schritt existiert dann $X\times_S Y$ (da $X$ von $(X_i)_{i \in I}$ überdeckt wird).
 \end{proof}
 
+\nextmark{Faserprodukte mit offenen Unterschemata}
 \begin{bsp}
 \label{bsp:8.4}
 	\begin{enumerate}[i)]
@@ -142,6 +145,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	von zuvor bzw. den Nullmorphismus benutzen.
 \end{bem}
 
+\nextmark{Faser eines Schema-Morphismus}
 \begin{defn}
 \label{defn:8.6}
 	Sei $f\colon X \to Y$ ein Morphismus von Schemata und $p \in Y$. Wir betrachten $\Spec(\kappa(p))$ als Schema über $Y$ mit Hilfe von $\iota_p$ aus Bemerkung~\ref{bem:8.5}. Dann heißt das $Y$-Schema $X\times_Y\Spec(\kappa(p))$ \textbf{Faser} von $f$ in $p$ und wird mit $X_p$ bezeichnet.
@@ -197,6 +201,7 @@ Das kartesische Produkt von Mengen, Vektorräumen oder Ringen ist wohlbekannt. I
 	wobei wir die Projektionen mit $f'$ und $g'$ bezeichnen. Wir nennen dies ein \textbf{kartesisches Diagramm}. Wir sagen, dass das $Y'$-Schema $X'$ \textbf{durch den Basiswechsel $Y'\to Y$ aus dem $Y$-Schema $X$ entsteht}. Äquivalent sagen wir, dass $f'$ Der Basiswechsel von $f$ bezüglich $g$ ist. Analog ist $g'$ der Basiswechsel von $g$ bezüglich $f$.
 \end{defn}
 
+\nextmark{abg. unter Komposition, stabil unter Basiswechsel}
 \begin{defn}
 \label{defn:8.10}
 	Sei $\mce$ eine Eigenschaft von Morphismen.
