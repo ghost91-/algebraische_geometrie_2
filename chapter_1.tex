@@ -7,6 +7,7 @@ Garben sind abstrakte Verallgemeinerungen von Funktionenräumen. Sie sind fundam
 
 $X$ sei ein topologischer Raum.
 
+\nextmark{Prägarbe}
 \begin{defn}
 \label{defn:1.1}
 	Eine \textbf{Prägarbe} $\mathcal{F}$ (von abelschen Gruppen) auf $X$ besteht aus folgenden Daten:
@@ -24,6 +25,7 @@ $X$ sei ein topologischer Raum.
 	Analog definiert man Prägarben von Ringen, Algebren oder Mengen, ...
 \end{bem}
 
+\nextmark{Garbe}
 \begin{defn}
 \label{defn:1.3}
 	Eine Prägarbe $\mathcal{F}$ auf $X$ heißt \textbf{Garbe}, falls zusätzlich für jede offene Menge $U$ in $X$ und jede offene Überdeckung $U=\bigcup_{i \in I}V_i$ von $U$ folgendes gilt:
@@ -46,6 +48,7 @@ $X$ sei ein topologischer Raum.
 	\end{proof}
 \end{bem}
 
+\nextmark{Garbe der reellwertigen Funktionen}
 \begin{bsp}
 \label{bsp:1.5}
 	Sei $x$ ein topologischer Raum. Für $U$ offen in $X$ sei
@@ -66,6 +69,7 @@ $X$ sei ein topologischer Raum.
 
 \end{bsp}
 
+\nextmark{konstante Prägarbe}
 \begin{bsp}
 	Sein $A$ eine fixierte abelsche Gruppe. Die zugehörige \textbf{konstante Prägarbe} $\mathcal{F}$ ist definiert durch:
 	\begin{itemize}
@@ -115,6 +119,7 @@ $X$ sei ein topologischer Raum.
 	In Beispiel~\ref{bsp:1.5} wählen wir ein $x \in X$. Wir definieren $f\sim g$, falls es eine Umgebung $U$ von $x$ gibt mit $f\vert_U = g\vert_U$. Dies liefert eine Äquivalenzrelation auf der Menge der reellwertigen Funktionen, die auf einer Umgebung von $x$ definiert sind. Der \textbf{Halm} $\mathcal{F}_x$ ist definiert als Raum der Äquivalenzklassen bezüglich dieser Äquivalenzrelation.
 \end{bsp}
 
+\nextmark{Halm}
 \begin{defn}
 	Sei $\mathcal{F}$ eine Prägarbe auf $X$, dann verallgemeinern wir die obige Konstruktion. Sei $x \in X$. Wir betrachten die Menge $\{(U,s)\mid s \in \mathcal{F}(U),\; U \text{ offene Umgebung von } x\}$. Wir definieren auf dieser Menge eine Relation auf folgende Weise: Es gelte	$(U,s) \sim (V,t)$ genau dann, wenn es eine offene Umgebung $W\subseteq U \cap V$ von $x$ mit $\rho_{UW}(s) = \rho_{VW}(t)$ gibt. Man zeigt leicht, dass dies eine Äquivalenzrelation ist. Der \textbf{Halm} $\mathcal{F}_x$ ist definiert als der Raum der Äquivalenzklassen bezüglich dieser Äquivalenzrelation. Dies ist eine abelsche Gruppe:
 	\[
@@ -125,6 +130,7 @@ $X$ sei ein topologischer Raum.
 
 \stepcounter{thm}
 
+\nextmark{Morphismus von (Prä-)Garben}
 \begin{defn}
 	Ein \textbf{Homomorphismus} $\varphi \colon \mathcal{F} \to \mathcal{G}$ \textbf{von (Prä-)Garben} auf $x$ ist eine Familie von Homomorphismen $\varphi_U \colon \mathcal{F}(U) \to \mathcal{G}(U)$ abelscher Gruppen für alle $U$ offen in $X$, sodass
 	\begin{center}
@@ -140,6 +146,7 @@ $X$ sei ein topologischer Raum.
 	Die Prägarben, beziehungsweise Garben auf einem topologischen Raum $X$ bilden eine Kategorie, die wir mit $\PSh(X)$, beziehungsweise $\Sh(X)$ bezeichnen.
 \end{defn}
 
+\nextmark{Prüfbarkeit von Isomorphie auf Halmen}
 \begin{prop}
 	Sei $\varphi \colon \mathcal{F} \to \mathcal{G}$ ein Homomorphismus von Garben auf $X$. Dann ist $\varphi$ genau dann ein Isomorphismus von Garben, wenn $\varphi_x \colon \mathcal{F}_x \to \mathcal{G}_x,\; s_x \mapsto \varphi_x(s_x) \coloneqq [(U,\varphi\vert_U(s))]$ für alle $x \in X$ ein Isomorphismus abelscher Gruppen ist.
 	\begin{proof}
@@ -174,8 +181,9 @@ $X$ sei ein topologischer Raum.
 	\]
 \end{bem}
 
+\nextmark{assoziierte Garbe}
 \begin{defn}
-	Wir bezeichnen die Garbe $U \mapsto \Gamma(U,S)$ mit $\mathcal{F}^+$. Sie heißt zu $\mathcal{F}$ \textbf{assozierte Garbe}. Wir haben einen kanonischen Homomorphismus
+	Wir bezeichnen die Garbe $U \mapsto \Gamma(U,S)$ mit $\mathcal{F}^+$. Sie heißt zu $\mathcal{F}$ \textbf{assoziierte Garbe}. Wir haben einen kanonischen Homomorphismus
 	\[
 		\theta\colon \mathcal{F} \to \mathcal{F}^+,\; \underbrace{s}_{\in \mathcal{F}(U)} \mapsto \underbrace{\overline{s}}_{\in \mathcal{F}^+(U)=\Gamma(U,S)}.
 	\]

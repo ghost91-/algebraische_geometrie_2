@@ -3,6 +3,7 @@
 
 \chapter{Modulgarben auf geringten Räumen}
 
+\nextmark{(Garbe von) OX-Modul(n), Morphismus von OX-Moduln}
 \begin{defn}
 	Sei $(X,\mathcal{O}_X)$ ein geringter Raum. Eine \textbf{Garbe von} $\mathcal{O}_X$\textbf{-Moduln} (oder einfach ein $\mathcal{O}_X$\textbf{-Modul}) ist eine Garbe $\mathcal{F}$ von abelschen Gruppen auf $X$, die Folgendes erfüllt:
 	\begin{enumerate}[i)]
@@ -28,6 +29,7 @@
 	\]
 \end{defn}
 
+\nextmark{Exaktheit von Sequenzen von OX-Moduln, OX-Hom, Restklassenkörper, Faser}
 \begin{bem}
 	Sei $(X, \mathcal{O}_X)$ ein geringter Raum.
 	\begin{enumerate}[i)]
@@ -63,6 +65,7 @@
 	\end{enumerate}
 \end{bem}
 
+\nextmark{(lokal) freier OX-Modul, Rang, invertierbare Garbe}
 \begin{defn}
 	Sei $(X, \mathcal{O}_X)$ ein lokal geringter Raum.
 	\begin{enumerate}[i)]
@@ -77,17 +80,19 @@
 	\end{enumerate}
 \end{defn}
 
+\nextmark{inverse Bildgarbe}
 \begin{defn}
 	Sei $f\colon X \to Y$ eine stetige Abbildung topologischer Räume. Für eine Garbe $\mathcal{G}$ auf $Y$ betrachten wir die Prägarbe
 	\[
 		U \mapsto \varinjlim_{\substackclap{f(U)\subseteq V\\V\subseteq Y \text{ offen}}} \, \mathcal{G}(V) = \frac{\{(V,s)\mid V \supseteq f(U),\; V \subseteq Y \text{ offen},\;s\in\mathcal{G}(V)\}}{(V,s)\sim(V',s') \Leftrightarrow \exists \;W \supseteq f(U),\; W \subseteq V \cap V' \text{ offen mit } s\vert_W = s'\vert_W}.
 	\]
-	Die \textbf{inverse Bildgarbe} $f^{-1}\mathcal{G}$ auf $X$ ist die dazu assozieierte Garbe. Die Konstruktion definiert einen kontravarianten Funktor
+	Die \textbf{inverse Bildgarbe} $f^{-1}\mathcal{G}$ auf $X$ ist die dazu assoziierte Garbe. Die Konstruktion definiert einen kontravarianten Funktor
 	\[
 		f^{-1}\colon \Sh(Y) \to \Sh(X),\; \mathcal{F} \mapsto f^{-1}\mathcal{F}. 
 	\]
 \end{defn}
 
+\nextmark{Adjunktion zwischen f^-1 und f_*}
 \begin{prop}
 \label{prop:3.5}
 	Sei $f\colon X \to Y$ stetig. Dann existiert für jede Garbe $\mathcal{F}$ auf $X$ und jede Garbe~$\mathcal{G}$ auf $Y$ eine Bijektion
@@ -97,6 +102,7 @@
 	welche natürlich in $\mathcal{F}$ und $\mathcal{G}$ ist. Man sagt $f^{-1}$ ist \textbf{linksadjungiert} zu $f_*$ und $f_*$ ist \textbf{rechtsadjungiert} zu $f^{-1}$
 \end{prop}
 
+\nextmark{Tensorprodukt von OX-Moduln, inverse Bildgarbe bei OX-Moduln}
 \begin{kons}
 	\begin{enumerate}[i)]
 		\item Sei $(X,\mco_X)$ ein geringter Raum und seien $\mcf$ und $\mcg$ zwei $\mco_X$-Moduln auf~$X$. Dann definiert
@@ -137,6 +143,7 @@
 	\end{enumerate}
 \end{kons}
 
+\nextmark{Verträglichkeit von Tensorprodukt und inversem Bild mit Halmen}
 \begin{lem}
 	\begin{enumerate}[i)]
 		\item Seien $(X,\mco_X)$ ein geringter Raum, $p\in X$ und $\mcf,\mcg$ zwei $\mco_X$-Moduln. Dann gilt
@@ -158,6 +165,7 @@
 	\end{enumerate}
 \end{lem}
 
+\nextmark{Adjunktion zwischen f^* und f_* (bei OX-Moduln)}
 \begin{lem}
 	Sei $f\colon (X,\mco_X) \to (Y,\mco_Y)$ ein Morphismus geringter Räume. Dann ist der Funktor $f^*$ linksdadjungiert zum Funktor $f_*$, das heißt für alle $\mco_X$-Moduln $\mcf$ und alle $\mco_Y$-Moduln~$\mcg$ gilt
 	\[

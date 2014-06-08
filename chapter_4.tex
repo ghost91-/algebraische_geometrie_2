@@ -5,6 +5,7 @@
 
 Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A)$ der Primideale, das in natürlicher Weise eine Topologie besitzt. Durch Lokalisierung von $A$ erhalten wir eine Garbe $\mco_{\Spec(A)}$ auf $\Spec(A)$ und damit einen lokal gringten Raum $(\Spec(A),\mco_{\Spec(A)})$. Im folgenden Kapitel~5 werden dies die Bausteine für Schemata sein. Affine Schemata sind ähnlich wie affine Varietäten aus der Algebraischen Geometrie I, mit dem Unterschied, dass Primideale statt Maximalideale als Punkte und beliebige Ringe zugelassen werden.
 
+\nextmark{\glqq Nullstellengebilde\grqq\ bei Spec}
 \begin{defn}
 	Für $M\subseteq A$ sei $V(M)\coloneqq\{\mfp \in \Spec(A) \mid \mfp \supseteq M \}$. Dies entspricht der Nullstellenmenge aus der Algebraischen Gerometrie I.
 \end{defn}
@@ -37,6 +38,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	Wir definieren eine Teilmenge von $\Spec(A)$ als abgeschlossen, wenn sie die Form $V(\mfa)$ für ein Ideal $\mfa$ von $A$ hat. Eine Teilmenge $U$ von $\Spec(A)$ heißt dann offen, wenn $\Spec(A)\setminus U$ abgeschlossen ist. Nach Lemma~\ref{lem:4.2} definiert dies eine Topologie auf $\Spec(A)$, die wir \textbf{Zariski-Topologie} nennen.
 \end{defn}
 
+\nextmark{Def. Verschwindeideal, Ideale in $A$ vs. Topologie auf $\Spec(A)$}
 \begin{prop}
 \label{prop:4.4}
 	Für $Y\subseteq \Spec(A)$ definieren wir das Verschwindungsideal $I(Y) \coloneqq \bigcap_{\mfp \in Y} \mfp$.
@@ -67,6 +69,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\nextmark{abgeschlossener/generischer Punkt, Spezialisierung}
 \begin{defn}
 	Sei $X$ ein topologischer Raum.
 	\begin{enumerate}[i)]
@@ -110,6 +113,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\nextmark{Def./Eig. standard-offener Mengen $D(\,\cdot\,)$}
 \begin{prop}
 \label{prop:4.8}
 	Für $f \in A$ sei $V(f) \coloneqq V(\langle f \rangle)$ und $D(f)\coloneqq \Spec(A) \setminus V(f)$.
@@ -144,6 +148,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\nextmark{Def./Eig. von $\Spec(\phi)$}
 \begin{prop}
 \label{prop:4.9}
 	Sei $\varphi\colon A \to B$ ein Ringhomomorphismus. Dann gilt:
@@ -165,6 +170,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\nextmark{Lokalisierung}
 \begin{eri}
 	Sei $S \subseteq A$ abgeschlossen unter Multiplikation und $1 \in S$. Dann ist die Lokalisierung $A_S$ definiert als die Menge der Äquivalenzklassen unter folgender Äquivalenzrelation auf $A \times S$:
 	\[
@@ -189,6 +195,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{enumerate}
 \end{kons}
 
+\nextmark{Eig. der Strukturgarbe auf $\Spec(A)$}
 \begin{prop}
 \label{prop:4.12}
 	\begin{enumerate}[i)]
@@ -307,10 +314,13 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	Wir nennen $\mco$ die Garbe der regulären Funktionen auf $\Spec(A)$.
 \end{bem*}
 
+\nextmark{Spektrum eines Rings (als lgR)}
 \begin{defn}
 	Der lokal geringte Raum $(\Spec(A), \mco)$ heißt \textbf{Spektrum} von $A$.
 \end{defn}
 
+\pagebreak[2]
+\nextmark{Ringhomomorphismen vs. Morphismen zwischen Spektren}
 \begin{prop}
 \label{prop:4.14}
 	Seien $A, B$ Ringe, $X \coloneqq \Spec(B)$ und $Y \coloneqq \Spec(A)$.
@@ -347,10 +357,12 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{prop}
 
+\nextmark{affines Schema}
 \begin{defn}
 	Ein \textbf{affines Schema} ist ein lokal geringter Raum $(X,\mco_X)$, welcher für einen Ring~$A$ zu $(\Spec(A),\mco_{\Spec(A)})$ isomorph ist.
 \end{defn}
 
+\nextmark{standard-offene Mengen sind affin}
 \begin{lem}
 \label{lem:4.16}
 	Sei $f \in A$. Dann existiert ein kanonischer Isomorphismus
@@ -363,6 +375,7 @@ Zu jedem Ring $A$ (kommutativ und mit Eins) betrachten wir das Spektrum $\Spec(A
 	\end{proof}
 \end{lem}
 
+\nextmark{Restklassenkörper}
 \begin{defn}
 	Sei $(X,\mco_X)$ ein lokal geringter Raum und $p \in X$. Dann ist $\mco_{X,p}$ ein lokaler Ring mit eindeutigem Maximalideal $\mfm_p$. Also ist
 	\[
