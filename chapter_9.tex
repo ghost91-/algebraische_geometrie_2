@@ -4,7 +4,7 @@
 \chapter{Quasikohärente Modulgarben}
 \label{chap:9}
 
-Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den Ring $A$ durch einen $A$-Modul $M$ ersetzt, erhält man eine $\mco_X$-Modulgarbe. Auf einem beliebigen Schema $X$ heißt eine $\mco_X$-Modulgarbe quasikohärent, wenn wenn sie lokal von obiger Gestalt ist. Die quasikohärenten Garben erfüllen wichtige Eigenschaften in der algebraischen Geometrie, wie wir später sehen werden. Die kohärenten Garben spielen auf noetherschen Schemata die ROlle der endlich erzeugten Moduln in der Algebra.
+Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den Ring $A$ durch einen $A$-Modul $M$ ersetzt, erhält man eine $\mco_X$-Modulgarbe. Auf einem beliebigen Schema $X$ heißt eine $\mco_X$-Modulgarbe quasikohärent, wenn wenn sie lokal von obiger Gestalt ist. Die quasikohärenten Garben erfüllen wichtige Eigenschaften in der algebraischen Geometrie, wie wir später sehen werden. Die kohärenten Garben spielen auf noetherschen Schemata die Rolle der endlich erzeugten Moduln in der Algebra.
 
 \begin{kons}
 \label{kons:9.1}
@@ -17,18 +17,18 @@ Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den R
 		\item Für alle $\mfp \in U$ gilt $s(\mfp) \in M_{\mfp}$
 		\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $m\in M,\;f\in A$ mit $V \subseteq D(f)$ und $s(\mfq) = \frac{m}{f} \in M_\mfq$ für alle $\mfq \in V$.
 	\end{enumerate}
-	Offensichtlich bildet $\widetilde{M}$ mit den Restriktionsabbildungen eine Garbe.
+	Offensichtlich bildet $\widetilde{M}$ mit \enquote{Einschränken von Funktionen} als Restriktionsabbildungen eine Garbe.
 \end{kons}
 
 \begin{prop}
 \label{prop:9.2}
 	Für die Garbe $\widetilde{M}$ auf $X=\Spec(A)$ gelten folgende Eigenschaften:
 	\begin{enumerate}[i)]
-		\item $\widetilde{M}$ ist kanonisch ein $\mco_X$-Modul.
-		\item Für alle $\mfp \in X$ gilt $\widetilde{M}_{\mfp} = M_{\mfp}$.
-		\item Für alle $f \in A$ ist der $(A_f = \mco_X(D(f)))$-Modul $\widetilde{M}(D(f))$ kanonisch Isomorph zur Lokalisierung $M_f = M \otimes_A A_f$.
-		\item Es gilt $\Gamma(X,\widetilde{M}) = M$.
-		\item Für alle $\mco_X$-Moduln $\mcf$ und alle $A$-Moduln $M$ existieren kanonische Isomorphismen:
+		\item\label{prop:9.2:i} $\widetilde{M}$ ist kanonisch ein $\mco_X$-Modul.
+		\item\label{prop:9.2:ii} Für alle $\mfp \in X$ gilt $\widetilde{M}_{\mfp} = M_{\mfp}$.
+		\item\label{prop:9.2:iii} Für alle $f \in A$ ist der $(A_f = \mco_X(D(f)))$-Modul $\widetilde{M}(D(f))$ kanonisch Isomorph zur Lokalisierung $M_f = M \otimes_A A_f$.
+		\item\label{prop:9.2:iv} Es gilt $\Gamma(X,\widetilde{M}) = M$.
+		\item\label{prop:9.2:v} Für alle $\mco_X$-Moduln $\mcf$ und alle $A$-Moduln $M$ existieren kanonische Isomorphismen:
 		\begin{center}
 			\begin{tikzcd}
 				\Hom_{\mco_X}(\widetilde{M},\mcf) \arrow[shift left=1.1ex]{r}{\overset{\alpha}{\sim}} & \Hom_A(M,\Gamma(X,\mcf)) \arrow[shift left=1.1ex]{l}{\underset{\beta}{\sim}}
@@ -36,25 +36,25 @@ Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den R
 		\end{center}
 	\end{enumerate}
 	\begin{proof}
-		i) folgt aus der Konstruktion von $\widetilde{M}$ in Konstruktion~\ref{kons:9.1} (beziehungsweise $\mco_X$ in Konstruktion~\ref{kons:4.11}). ii) - iv) werden analog zu den entsprechenden Aussagen in Proposition~\ref{prop:4.12} für $\mco_X$ bewiesen.
+		\ref{prop:9.2:i} folgt aus der Konstruktion von $\widetilde{M}$ in Konstruktion~\ref{kons:9.1} (beziehungsweise $\mco_X$ in Konstruktion~\ref{kons:4.11}). \ref{prop:9.2:ii}--\ref{prop:9.2:iv} werden analog zu den entsprechenden Aussagen in Proposition~\ref{prop:4.12} für $\mco_X$ bewiesen.
 
-		Wir beweisen v): Um $\alpha$ zu definieren, nehmen wir einfach die globalen Schnitte des Homomorphismus $\widetilde{M}\to \mcf$ und erhalten einen $A$-Modulhomomorphismus $\Gamma(X,\widetilde{M}) \to \Gamma(X,\mcf)$. Nach iv) erhalten wir $M = \Gamma(X,\widetilde{M})$ und damit einen $A$-Modulhomomorphismus $M \to \Gamma(X,\mcf)$ wie gewünscht. Dies definiert $\alpha$. Sei nun ein $A$-Modulhomomorphismus $h\colon M \to \Gamma(X,\mcf)$ gegeben. Wir definieren einen kanonischen $\mco_X$-Modulhomomorphismus $\beta(h)\colon \widetilde{M}\to \mcf$ wiefolgt: Für $f \in A$ gilt $\mco_X(D(f)) = A_f$ und $\Gamma(D(f),\mcf)$ ist damit ein $A_f$-Modul. Nach iii) gilt
+		Wir beweisen v): Um $\alpha$ zu definieren, nehmen wir einfach die globalen Schnitte des Homomorphismus $\widetilde{M}\to \mcf$ und erhalten einen $A$-Modulhomomorphismus $\Gamma(X,\widetilde{M}) \to \Gamma(X,\mcf)$. Nach \ref{prop:9.2:iv} erhalten wir $M = \Gamma(X,\widetilde{M})$ und damit einen $A$-Modulhomomorphismus $M \to \Gamma(X,\mcf)$ wie gewünscht. Dies definiert $\alpha$. Sei nun ein $A$-Modulhomomorphismus $h\colon M \to \Gamma(X,\mcf)$ gegeben. Wir definieren einen kanonischen $\mco_X$-Modulhomomorphismus $\beta(h)\colon \widetilde{M}\to \mcf$ wie folgt: Für $f \in A$ gilt $\mco_X(D(f)) = A_f$ und $\Gamma(D(f),\mcf)$ ist damit ein $A_f$-Modul. Nach \ref{prop:9.2:iii} gilt
 		\[
 			\widetilde{M}(D(f)) = M_f = M \otimes_A A_f.
 		\]
-		Da die Mengen $D(f)$ eine Basis der Topologie von $X=\Spec(A9$ bilden, folgt aus den Garbenaxiomen, dass ein Morphismus $\widetilde{M}\to \mcf$ von $\mco_X$-Moduln durch ein auf Durchschnitten $D(f)\cap D(g) = D(fg)$ kompatibeles System von $A_f$-linearen Abbildungen $\widetilde{M}(D(f)) \to \mcf(D(f))$ gegeben ist.
+		Da die Mengen $D(f)$ eine Basis der Topologie von $X=\Spec(A)$ bilden, folgt aus den Garbenaxiomen, dass ein Morphismus $\widetilde{M}\to \mcf$ von $\mco_X$-Moduln durch ein auf Durchschnitten $D(f)\cap D(g) = D(fg)$ kompatibeles System von $A_f$-linearen Abbildungen $\widetilde{M}(D(f)) \to \mcf(D(f))$ eindeutig gegeben ist.
 		Damit das Diagramm
 		\begin{center}
-			\begin{tikzcd}
+			\begin{tikzcd}[column sep=1.3cm]
 				(M=\widetilde{M}(X)) \arrow{r}{h = \alpha(\beta(h))} \arrow{d} & \Gamma(X,\mcf)\arrow{d}\\
 				\widetilde{M}(D(f)) \arrow{r}{\beta(h)_{D(f)}} & \Gamma(D(f),\mcf)
 			\end{tikzcd}
 		\end{center}
 		kommutiert, müssen wir die Abbildung
-		\begin{alignat*}{3}
-			(M \otimes_A A_f = \widetilde{M}(D(f))) \to & \Gamma(X,\mcf)\otimes_A A_f &&\to \Gamma(D(f)m\mcf)\\
-			m \otimes a \mapsto &  h(m)\otimes \frac{a}{1} && {}\\
-			{} & s \otimes a && \mapsto a \cdot s\vert_{D(f)}
+		\begin{alignat*}{2}
+			(M \otimes_A A_f = \widetilde{M}(D(f))) &\to \Gamma(X,\mcf)\otimes_A A_f &&\to \Gamma(D(f),\mcf)\\
+			m \otimes a &\mapsto  h(m)\otimes a \\
+			& \phantom{\mathbin\mapsto h(m)} \mathllap{s} \otimes a &&\mapsto a \cdot s\vert_{D(f)}
 		\end{alignat*}
 		wählen. Diese liefern ein System kompatibler Abbildungen und definieren damit ein kanonisches $\beta(h)\in \Hom_{\mco_X}(\widetilde{M},\mcf)$. Wählt man speziell $f=1$ mit $D(1) = X$, $M_1=M$ und $A_1 = A$, dann folgt $\alpha \circ \beta = \id$. Da sich
 		\[
@@ -66,7 +66,7 @@ Wenn man in der Konstruktion der Strukturgarbe $\mco_X$ auf $X = \Spec(A)$ den R
 
 \begin{prop}
 \label{prop:9.3}
-Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) \to (X = \Spec(A))$ der zugehörige Morphismus von Schemata. Dann gilt:
+Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi)) \colon \Spec(B) \to (X \coloneqq \Spec(A))$ der zugehörige Morphismus von Schemata. Dann gilt:
 	\begin{enumerate}[i)]
 		\item Für jede exakte Sequenz
 		\[
@@ -82,12 +82,12 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 		\]
 		\item Für alle $A$-Moduln $M,N$ gilt $\widetilde{(M\otimes_A N)} = \widetilde{M} \otimes_{\mco_X} \widetilde{N}$.
 		\item Für eine Familie $(M_i)_{i\in I}$ von $A$-Moduln gilt $\widetilde{(\bigoplus_{i\in I}M_i)} = \bigoplus_{i\in I} \widetilde{M_i}$
-		\item Sein $N$ ein $B$-Modul. Da $B$ eine $A$-Algebra ist, kann man $N$ als $A$-Modul betrachten. Wir bezeichnen diese $A$-Modulstruktur auf $N$ mit $_{A}N$. Es gilt $f_*(\widetilde{N}) = \widetilde{_{A}N}$.
+		\item Sei $N$ ein $B$-Modul. Da $B$ eine $A$-Algebra ist, kann man $N$ als $A$-Modul betrachten. Wir bezeichnen diese $A$-Modulstruktur auf $N$ mit $_{A}N$. Es gilt $f_*(\widetilde{N}) = \widetilde{(_{A}N)}$.
 		\item Für einen $A$-Modul $M$ gilt
 		\[
 			f^*(\widetilde{M}) = \widetilde{(M \otimes_A B)}.
 		\]
-		\item Fü $\mfp \in \Spec(A)$, $\mfq \in \Spec(B)$ mit $f(\mfq) = \mfp$ gilt
+		\item Für einen $A$-Modul~$M$ und $\mfp \in \Spec(A)$, $\mfq \in \Spec(B)$ mit $f(\mfq) = \mfp$ gilt
 		\[
 			f^*(\widetilde{M})_\mfq = \widetilde{(M_\mfp \otimes_{A_{\mfp}} B_\mfq)}
 		\]
@@ -101,17 +101,17 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 \label{bem:9.4}
 	Sei $(X,\mco_X)$ ein geringter Raum.
 	\begin{enumerate}[i)]
-		\item Wir betrachten den $\mco_X$-Modul $\mcf$. Es gibt einen kanonischen Isomorphismus
+		\item\label{bem:9.4:i} Wir betrachten einen $\mco_X$-Modul $\mcf$. Es gibt einen kanonischen Isomorphismus
 		\[
 			\Hom_{\mco_X}(\mco_X,\mcf) \simto \Gamma(X,\mcf),\; h \mapsto h_X(1)
 		\]
 		von $\Gamma(X,\mco_X)$-Moduln. Die Umkerhabbildung ist folgendermaßen gegeben: Der globale Schnitt $s \in \Gamma(X,\mcf)$ wird auf den Homomorphismus $h_s\colon \mco_X \to \mcf$, der auf einer offenen Menge $U$ durch $h_s(U)\colon \mco_X(U) \to \mcf(U),\; f \mapsto f \circ s\vert_U$ definiert ist, geschickt.
-		\item Für einen $A$-Modul $M$ definieen wir $M^I \coloneqq \prod_{i\in I}M$ und den Teilmodul $M^{(M)} \coloneqq \bigoplus_{i\in I} M$. Wir verwenden die analoge Notation für $\mco_X$-Moduln. Für eine beliebige Menge $I$ gilt aufgrund der universellen Eigenschaft der direkten Summe:
+		\item Für einen $A$-Modul $M$ definieren wir $M^I \coloneqq \prod_{i\in I}M$ und den Teilmodul $M^{(I)} \coloneqq \bigoplus_{i\in I} M$. Wir verwenden die analoge Notation für $\mco_X$-Moduln. Für eine beliebige Menge $I$ gilt aufgrund der universellen Eigenschaft der direkten Summe:
 		\begin{align*}
-			\Hom_{\mco_X}(\mco_X^{(I)},\mcf) \qquad &\overset{\mathclap{\text{Definition}}}{=} \qquad \Hom_{\mco_X}(\bigoplus_{i\in I}\mco_X,\mcf)\\
+			\Hom_{\mco_X}(\mco_X^{(I)},\mcf) \qquad &\overset{\mathclap{\text{Definition}}}{=} \qquad \Hom_{\mco_X}\Bigl(\bigoplus_{i\in I}\mco_X,\mcf\Bigr)\\
 			&= \qquad \prod_{i\in I} \Hom_{\mco_X}(\mco_X,\mcf)\\
 			&\overset{\mathclap{\text{Definition}}}{=} \qquad \Hom_{\mco_X}(\mco_X,\mcf)^I\\
-			&\overset{\text{i)}}{=} \qquad \Gamma(\mco_X,\mcf)^I
+			&\overset{\text{\ref{bem:9.4:i}}}{=} \qquad \Gamma(X,\mcf)^I
 		\end{align*}	 
 	\end{enumerate}
 \end{bem}
@@ -119,7 +119,7 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 \begin{defn}
 \label{defn:9.5}
 	\begin{enumerate}[i)]
-		\item Seien $(X,\mco_X)$ ein geringter Raum und $\mcf$ ein $\mco_X$-Modul wie oben. Weiter sei $(s_i)_{i\in I}\in \Gamma(X,\mcf)^I$ eine Familie von globalen Schnitten von $F$. Wir sagen, dass \textbf{$\mcf$ von $(s_i)_{i\in I}$ erzeugt wird}, falls der zugehörige Morphismus $\mco_X^{(I)}\to \mcf$ aus Bemerkung~\ref{bem:9.4} ii) surjektiv ist.
+		\item Seien $(X,\mco_X)$ ein geringter Raum und $\mcf$ ein $\mco_X$-Modul wie oben. Weiter sei $(s_i)_{i\in I}\in \Gamma(X,\mcf)^I$ eine Familie von globalen Schnitten von $\mcf$. Wir sagen, dass \textbf{$\mcf$ von $(s_i)_{i\in I}$ erzeugt wird}, falls der zugehörige Morphismus $\mco_X^{(I)}\to \mcf$ aus Bemerkung~\ref{bem:9.4} ii) surjektiv ist.
 		\item $\mcf$ heißt \textbf{quasikohärenter} $\mco_X$-Modul, falls jeder Punkt aus $X$ eine offene Umgebung $U$ hat mit der Eigenschaft, dass $\mcf\vert_U$ isomorph zum Kokern eines $\mco_X\vert_U$-Modulhomomorphismus von freien $\mco_X\vert_U$-Moduln ist, das heißt, dass es eine exakte Sequenz
 		\begin{equation*}
 		\label{eq:9.5.1}\tag{$\star$}
@@ -134,11 +134,11 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 \label{prop:9.6}
 	Sei $(X,\mco_X)$ ein Schema und $\mcf$ ein $\mco_X$-Modul.
 	\begin{enumerate}[i)]
-		\item $\mcf$ ist genau dann quasikohärent, wenn es für alle $p\in X$ eine offene affine Umgebung $U=\Spec(A)$ und einen $A$-Modul $M$ mit $\mcf\vert_U \cong \widetilde{M}$ gibt.
-		\item Wenn $X$ ein noethersches Schema ist, dann ist $\mcf$ genau dann hohärent, wenn es für alle $p\in X$ eine offene affine Umgebung $U=\Spec(A)$ und einen endlich erzeugten $A$-Modul $M$ mit $\mcf\vert_U \cong \widetilde{M}$ gibt.
+		\item\label{prop:9.6:i} $\mcf$ ist genau dann quasikohärent, wenn es für alle $p\in X$ eine offene affine Umgebung $U=\Spec(A)$ und einen $A$-Modul $M$ mit $\mcf\vert_U \cong \widetilde{M}$ gibt.
+		\item\label{prop:9.6:ii} Wenn $X$ ein noethersches Schema ist, ist $\mcf$ genau dann hohärent, wenn es für alle $p\in X$ eine offene affine Umgebung $U=\Spec(A)$ und einen endlich erzeugten $A$-Modul~$M$ mit $\mcf\vert_U \cong \widetilde{M}$ gibt.
 	\end{enumerate}
 	\begin{proof}
-		\enquote{$\Longrightarrow$} bei i) (beziehungsweise ii)). Sei also $\mcf$ quasikohärent (beziehungsweise kohärent) und $p\in X$. Wir wählen eine offene Umgebung $U$ von $p$, für die \eqref{eq:9.5.1} gilt. Durch Verkleinern können wir ohne Beschränkung der ALlgemeinheit annehmen, dass $U$ offen und affin ist, also $U= \Spec(A)$ für einen gewissen Ring $A$. Dann gilt
+		\enquote{$\Longrightarrow$} bei \ref{prop:9.6:i} (beziehungsweise \ref{prop:9.6:ii}). Sei also $\mcf$ quasikohärent (beziehungsweise kohärent) und $p\in X$. Wir wählen eine offene Umgebung $U$ von $p$, für die \eqref{eq:9.5.1} gilt. Durch Verkleinern können wir ohne Beschränkung der Allgemeinheit annehmen, dass $U$ offen und affin ist, also $U= \Spec(A)$ für einen gewissen Ring $A$. Dann gilt
 		\[
 			\mco_X\vert_U = \mco_U = \mco_{\Spec(A)} = \widetilde{A}
 		\]
@@ -147,21 +147,21 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 		\label{eq:9.6.1}\tag{$\star\star$}
 			(\mco_X\vert_U)^{(I)} = \mco_U^{(I)} \overset{\text{Proposition~\ref{prop:9.3}}}{=} \widetilde{(A^{(I)})}.
 		\end{equation*}
-		Sei $M$ der Kokern des Homomorphismus $A^{(I)}\to A^{(J)}$, der durch betrachtung der globalen Schnitte von $(\mco_X\vert_U)^{(I)}\to (\mco_X\vert_U)^{(J)}$ abgeleitet wird. Wir erhalten wegen der Definition von Kokern und der Exaktheit des Funktors \~ ein kommutatives Diagramm mit exaten Zeilen:
+		Sei $M$ der Kokern des Homomorphismus $A^{(I)}\to A^{(J)}$, der durch Betrachtung der globalen Schnitte von $(\mco_X\vert_U)^{(I)}\to (\mco_X\vert_U)^{(J)}$ abgeleitet wird. Wir erhalten wegen der Definition von Kokern und der Exaktheit des Funktors $\widetilde{\;\cdot\;}$ ein kommutatives Diagramm mit exaten Zeilen:
 		\begin{center}
 			\begin{tikzcd}
 				(\mco_X\vert_U)^{(I)}\arrow{r}\arrow{d}{\cong} & (\mco_X\vert_U)^{(J)}\arrow{r}\arrow{d}{\cong} & \mcf\vert_U \arrow{r}\arrow{d} & 0\\
-				\widetilde{A^(I)} \arrow{r} & \widetilde{A^{(J)}} \arrow{r} & \widetilde{M} \arrow{r} & 0
+				\widetilde{A^{(I)}} \arrow{r} & \widetilde{A^{(J)}} \arrow{r} & \widetilde{M} \arrow{r} & 0
 			\end{tikzcd}
 		\end{center}
-		Also wird ein Isomorphismus $\mcf\vert_U \simto \widetilde{M}$ von $(\mco_X\vert_U = \mco_U)$-Moduln induziert.
+		Also wird (Fünferlemma!) ein Isomorphismus $\mcf\vert_U \simto \widetilde{M}$ von $(\mco_X\vert_U = \mco_U)$-Moduln induziert.
 
 		\enquote{$\Longleftarrow$}: Offenbar ist jeder $A$-Modul $M$ der Kokern von einem Homomorphismus freier Moduln, das heißt
 		\begin{equation*}
-		\label{eq:9.6.2}\tag{$\star\star\star$}
+		\label{eq:9.6.2}\tag{$\star{\star}\star$}
 			A^{(I)} \to A^{(J)} \to M \to 0,
 		\end{equation*}
-		wähle zum Beispiel $J=M$ und $I = \ker(A^{(J)}\to M$. Falls $A$ noethersch und $M$ eindlich erzeugt ist, dann kann man $I$ und $J$ endlich wählen (wähle $J=$Erzeugendensystem von $M$ und $I=$Erzeugendensystem von $\ker(A^{(J)}\to M)$). Sei nun $U=\Spec(A)$ und $\widetilde{M}\cong \mcf\vert_U$. Dann ergibt \eqref{eq:9.6.2} und Proposition~\ref{prop:9.3} eine exakte Folge
+		wähle zum Beispiel $J=M$ und $I = \ker(A^{(J)}\to M)$. Falls $A$ noethersch und $M$ endlich erzeugt ist, dann kann man $I$ und $J$ endlich wählen (wähle $J=$~endliches Erzeugendensystem von $M$ und $I=$~endliches Erzeugendensystem von $\ker(A^{(J)}\to M)$). Sei nun $U=\Spec(A)$ und $\widetilde{M}\cong \mcf\vert_U$. Dann ergibt \eqref{eq:9.6.2} und Proposition~\ref{prop:9.3} eine exakte Folge
 		\[
 			\underbrace{\widetilde{A^{(I)}}}_{\cong \mco_X\vert_U^{(I)}} \to \underbrace{\widetilde{A^{(J)}}}_{\cong \mco_X\vert_U^{(J)}}\to \underbrace{\widetilde{M}}_{\cong \mcf\vert_U} \to 0
 		\]
@@ -173,17 +173,17 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 \label{bsp:9.7}
 	\begin{enumerate}[i)]
 		\item Für jedes Schema $X$ ist $\mco_X$ ein kohärenter $\mco_X$-Modul.
-		\item Seien $A$ ein Ring und $X=\Spec(A)$, $\mfa$ ein Ideal von $A$ und $i\colon (Y=\Spec(A/\mfa))\to X$ das zugehörige abgeschlossene Unterschema. Dann gibt es einen kanonischen Isomorphismus
+		\item\label{bsp:9.7:ii} Seien $A$ ein Ring und $X=\Spec(A)$, $\mfa$ ein Ideal von $A$ und $i\colon (Y=\Spec(A/\mfa))\to X$ das zugehörige abgeschlossene Unterschema. Dann gibt es einen kanonischen Isomorphismus
 		\begin{equation*}
 		\label{eq:9.7.1}\tag{$\triangle$}
 			\widetilde{A/\mfa} \simto i_*\mco_Y.
 		\end{equation*}
 		Ist $A$ noethersch, so folgt insbesondere, dass $i_*\mco_Y$ ein kohärenter $\mco_X$-Modul ist.
 	\end{enumerate}
-	\begin{proof}[Beweis von ii)]
+	\begin{proof}[Beweis von \ref{bsp:9.7:ii}]
 		Es genügt einen Isomorphismus \eqref{eq:9.7.1} zu konstruieren. Es gilt
 		\[
-			(\Gamma(X,i_*\mco_Y)=\mco_Y(Y) =A/\mfa
+			\Gamma(X,i_*\mco_Y)=\mco_Y(Y) =A/\mfa
 		\]
 		und somit induziert der Isomorphismus $A/\mfa \to \Gamma(X,i_*\mco_Y)$ nach Proposition~\ref{prop:9.2} einen Homomorphismus
 		\[
@@ -201,6 +201,7 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 	\end{proof}
 \end{bsp}
 
+\pagebreak[2]
 \begin{prop}
 \label{prop:9.8}
 	Seien $X$ ein Schema und $\mcf$ ein $\mco_X$-Modul
@@ -231,16 +232,15 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 
 \begin{prop}
 \label{prop:9.10}
-	Sei $f\colon X \to Y$ ein Morphismus von Schemata und sei $\mcf$ (beziehungsweise $\mcg$) ein quasikohärenter $\mco_X$ (beziehungsweise $\mco_Y$)-Modul.
+	Sei $f\colon X \to Y$ ein Morphismus von Schemata und sei $\mcf$ beziehungsweise~$\mcg$ ein quasikohärenter $\mco_X$- beziehungsweise $\mco_Y$-Modul.
 	\begin{enumerate}[i)]
-		\item $f^*\mcg$ ist quasikohärent.
-		\item Falls $X$ und $Y$ noethersch sind und falls $\mcg$ kohärent ist, so ist auch $f^*\mcg$ kohärent.
-		\item Falls $X$ noethersch ist, so ist auch $f_*\mcf$ quasikohärent.
+		\item\label{prop:9.10:i}   $f^*\mcg$ ist quasikohärent.
+		\item\label{prop:9.10:ii}  Falls $X$ und $Y$ noethersch sind und falls $\mcg$ kohärent ist, so ist auch $f^*\mcg$ kohärent.
+		\item\label{prop:9.10:iii} Falls $X$ noethersch ist, so ist auch $f_*\mcf$ quasikohärent.
 	\end{enumerate}
-	\begin{proof}\hfill\\
-		\begin{itemize}
-			\item[i) und ii)] Die Behauptung ist lokal auf $X$ und $X$, also sei ohne Beschränkung der Allgemeinheit $X=\Spec(B)$ und $Y=\Spec(A)$. Dann folgt die Behauptung aus Proposition~\ref{prop:9.3} v).
-			\item[iii)] Sei $X$ noethersch. Es ist zu zeigen, dass $f_*\mcf$ quasikohärent ist. Die Behauptung ist lokal auf $Y$, sei also ohne Beschränkung der Allgemeinheit $Y=\Spec(A)$. Da $X$ ein noethersches Schema ist, ist $X$ ein noetherscher topologischer Raum. Jede offene Teilmenge eines noetherschen topologischen Raumes ist quasikompakt. Also besitzt $X$ eine endliche offene Überdeckung $(U_i){i\in I}$ durch offene affine Unterschemata $U_i$. Weiter besitzt jedes $U_{ij}\coloneqq U_i \cap U_j$ eine endliche offene Übedeckung $(U_{ijk})_{k\in I_{ij}}$ durch offene affine Unterschemata $U_{ijk}$. Wir bezeichnen die kanonischen Morphismen
+	\begin{proof} \ref{prop:9.10:i} und \ref{prop:9.10:ii}: Die Behauptung ist lokal auf $X$ und $Y$, also sei ohne Beschränkung der Allgemeinheit $X=\Spec(B)$ und $Y=\Spec(A)$. Dann folgt die Behauptung aus Proposition~\ref{prop:9.3}\,v).
+		
+		Es bleib \ref{prop:9.10:iii} zu zeigen: Sei $X$ noethersch. Es ist zu zeigen, dass $f_*\mcf$ quasikohärent ist. Die Behauptung ist lokal auf $Y$, sei also ohne Beschränkung der Allgemeinheit $Y=\Spec(A)$. Da $X$ ein noethersches Schema ist, ist $X$ ein noetherscher topologischer Raum. Jede offene Teilmenge eines noetherschen topologischen Raumes ist quasikompakt. Also besitzt $X$ eine endliche offene Überdeckung $(U_i)_{i\in I}$ durch offene affine Unterschemata $U_i$. Weiter besitzt $U_{ij}\coloneqq U_i \cap U_j$ eine endliche offene Überdeckung $(U_{ijk})_{k\in I_{ij}}$ durch offene affine Unterschemata $U_{ijk}$. Wir bezeichnen die kanonischen Morphismen
 			\[
 			 	X \to Y,\; U_i\to Y,\;U_{ijk}\to Y
 			\]
@@ -249,11 +249,10 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 			\label{eq:9.10.1}\tag{$\bigcirc$}
 				\begin{alignedat}{3}
 					0 \to f_*\mcf &\to \quad\prod_{i\in I}f_*(\mcf\vert_{U_i}) &&\to \prod_{i,j\in I}\prod_{k \in I_{ij}}f_*(\mcf\vert_{U_{ijk}})\\
-					s &\mapsto (s\vert_{U_i})_{i\in I},\; (s_i)_{i\in I} &&\mapsto (s_i\vert_{U_{ijk}}-s_j\vert_{U_{ijk}})_{ij,\in I, k \in I_{ij}}
+					s &\mapsto (s\vert_{U_i})_{i\in I},\; (s_i)_{i\in I} &&\mapsto (s_i\vert_{U_{ijk}}-s_j\vert_{U_{ijk}})_{i,j\in I,\, k \in I_{ij}}
 				\end{alignedat}
 			\end{equation*}
-			exakt ist, Nach Proposition~\ref{prop:9.3} iv) sind $f_*(\mcf\vert_{U_i})$ und $f_*(\mcf_{U_ijk})$ quasikohärente $\mco_Y$-Moduln. Nach Proposition~\ref{prop:9.3} iii) folgt, dass auch die obige direkte Summe quasikohärent ist. In Übung~9.4 sehen wir, dass der Kern von einem Homomorphismus von quasikohärenten $\mco_Y$-Moduln wieder quasikohärent ist. Also folgt aus \eqref{eq:9.10.1}, dass $f_*(\mcf)$ kohärent ist.
-		\end{itemize}
+			exakt ist. Nach Proposition~\ref{prop:9.3} iv) sind $f_*(\mcf\vert_{U_i})$ und $f_*(\mcf\vert_{U_{ijk}})$ quasikohärente $\mco_Y$-Moduln. Aus Proposition~\ref{prop:9.3} iii) folgt, dass auch die obigen Produktgarben quasikohärent sind (denn über endlichen Indexmengen stimmen Produkte und direkte Summen überein). In Übung~9.4 sehen wir, dass der Kern von einem Homomorphismus von quasikohärenten $\mco_Y$-Moduln wieder quasikohärent ist. Also folgt aus \eqref{eq:9.10.1}, dass $f_*(\mcf)$ quasikohärent ist.
 	\end{proof}
 \end{prop}
 
@@ -265,6 +264,6 @@ Sei $\varphi\colon A \to B$ ein RInghomomorphismus und $f \colon (Y = \Spec(B)) 
 	\[
 		f_*(\mcf)(Y) = \mcf(X) = K[x]
 	\]
-	bezüglich des kanonischen Morphismus $f\colon X \to Y$. $k[x]$ ist aber nicht endlich erzeugt als $(k=\mco(Y))$-Modul und damit ist $f_*(\mcf)$ nicht kohärent.
+	bezüglich des kanonischen Morphismus $f\colon X \to Y$. Aber $k[x]$ ist nicht endlich erzeugt als Modul über $k=\mco_Y(Y)$ und damit ist $f_*(\mcf)$ nicht kohärent.
 \end{bem}
 
