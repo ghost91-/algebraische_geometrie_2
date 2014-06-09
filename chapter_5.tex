@@ -5,15 +5,17 @@
 
 Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern die (quasiprojektiven) Varietäten aus der algebraischen Geometrie I.
 
+\nextmark{Schema, Morphismus von Schemata}
 \begin{defn}
 \label{defn:5.1}
 	\begin{enumerate}[i)]
-		\item Ein Schema ist ein lokal geringter Raum $(X,\mco_X)$, wobei $X$ eine offene Überdeckung $(U_i)_{i\in I}$ hat, die die Eigneschaft besitzt, dass $(U_i,\mco_{X}\vert_{U_i})$ für alle $i \in I$ ein affines Schema ist. Wir nennen $X$ den \textbf{unterliegenden topologischen Raum} und $\mco_X$ die \textbf{Strukturgarbe}. Oft wird das Schema $(X,\mco_X)$ einfach mit $X$ abgekürzt, obwohl der topologische Raum das Schema nicht bestimmt.
+		\item Ein \textbf{Schema} ist ein lokal geringter Raum $(X,\mco_X)$, wobei $X$ eine offene Überdeckung $(U_i)_{i\in I}$ hat, die die Eigneschaft besitzt, dass $(U_i,\mco_{X}\vert_{U_i})$ für alle $i \in I$ ein affines Schema ist. Wir nennen $X$ den \textbf{unterliegenden topologischen Raum} und $\mco_X$ die \textbf{Strukturgarbe}. Oft wird das Schema $(X,\mco_X)$ einfach mit $X$ abgekürzt, obwohl der topologische Raum das Schema nicht bestimmt.
 		\item Ein \textbf{Morphismus} von Schemata ist ein Morphismus von lokal geringten Räumen.
 	\end{enumerate}
 	Wir erhalten die Katergorie $\Sch$ der Schemata.
 \end{defn}
 
+\nextmark{offenes Unterschema, offene Unterschemata bilden Basis}
 \begin{prop}
 	Sei $X = (X,\mco_X)$ ein Schema.
 	\begin{enumerate}[i)]
@@ -33,6 +35,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	Ein offenes Unterschema eines affinen Schemas muss im Allgemeinen nicht wieder affin sein.
 \end{bem}
 
+\nextmark{Trennungsaxiome für top. Räume}
 \begin{bem*}
 	Sei $X$ ein topologischer Raum.
 	\begin{enumerate}[i)]
@@ -43,6 +46,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	Man sieht leicht, dass das Axiom $T_2$ das Axiom $T_1$ impliziert und dass das Axiom $T_1$ das Axiom $T_0$ impliziert.
 \end{bem*}
 
+\nextmark{Schemata sind T0, Existenz und Eindeutigkeit generischer Punkte}
 \begin{prop}
 \label{prop:5.4}
 	Sei $(X, \mco_X)$ ein Schema.
@@ -69,6 +73,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{proof}
 \end{bem*}
 
+\nextmark{Verkleben von Schema-Morphismen}
 \begin{lem}
 \label{lem:5.5}
 	Seien $X,Y$ Schemata.
@@ -109,6 +114,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{proof}
 \end{lem}
 
+\nextmark{Morphismen X --> Spec(A) vs. Morphismen A --> OX(X)}
 \begin{prop}
 \label{prop:5.6}
 	Sei $X$ ein Schema und $A$ ein Ring. Dann ist die Abbildung
@@ -126,6 +132,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{proof}
 \end{prop}
 
+\nextmark{S-Schema, Morphismen von S-Schemata}
 \begin{defn}
 \label{defn:5.7}
 	\begin{enumerate}[i)]
@@ -162,6 +169,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{enumerate}
 \end{bsp}
 
+\nextmark{Verklebedatum}
 \begin{defn}
 \label{defn:5.9}
 	Ein \textbf{Verklebedatum} von Schemata ist eine Familie von Tripeln der Form $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$, wobei $X_i$ für alle $i \in I$ ein Schema ist, $U_{ij}$ für alle $i,j \in I$ eine offene Teilmenge von $X_i$ ist und $\varphi_{ij}$ für alle $i,j \in I$ ein Isomorphismus
@@ -245,6 +253,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	gilt. Wir sagen, dass $\mcf$ durch \textbf{Verkleben der $\mcf_i$ entlang der Isomorphismen $\varphi_{ij}$} entsteht.
 \end{lem}
 
+\nextmark{disjunkte Vereinigung von Schemata}
 \begin{bsp}
 \label{bsp:5.12}
 	Sei $(X_i)_{i\in I}$ eine Familie von Schemata. Wir setzen $U_{ij}\coloneqq \emptyset$ und wählen als $\varphi_{ij}$ die trivialen Abbildungen. Damit erhalten wir ein Verklebedatum $(X_i,U_{ij},\varphi_{ij})_{i,j\in I}$ und mit Verkleben nach Lemma~\ref{lem:5.10} damit ein Schema $X$. Es ist $X$ die \textbf{disjunkte Vereinigung} $\coprod_{i\in I}X_i$ der $X_i$ als Schemata.
@@ -274,6 +283,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 
 Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vgl. auch Algebraische Geometrie I, projektive Varietäten).
 
+\nextmark{Proj(S), projektives \glqq Nullstellengebilde\grqq}
 \begin{defn}
 \label{defn:5.14}
 	Sei $S = \bigoplus_{d\in \N} S_d$ ein graduierter Ring. Sei $S_+ \coloneqq \bigoplus_{d > 0}S_d$ das homogene Maximalideal, $S^{\text{hom}}\coloneqq \bigcup_{d\in \N}S_d$ die Menge der homogenen Elemente von $S$ und
@@ -302,6 +312,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 	\end{proof}
 \end{lem}
 
+\nextmark{projektives Spektrum als Schema}
 \begin{kons}[des Schemas $(\Proj(S),\mco)$]
 \label{kons:5.16}
 	Das Lemma~\ref{lem:5.15} liefert sofort, dass $\Proj(S)$ ein topologischer Raum ist, bei dem abgeschlossenen Teilmengen gerade Mengen der Form $V_+(\mfa)$ für ein homogenes Ideal $\mfa$ von $S$ sind. Damit erhalten wir die Zariski-Topologie auf $\Proj(S)$.
@@ -319,6 +330,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 	Analog zum affinen Fall ist $\mco$ eine Garbe auf $\Proj(S)$. Wir nennen $(\Proj(S),\mco)$ das \textbf{projektive Spektrum} von $S$.
 \end{kons}
 
+\nextmark{Eig. der Strukturgarbe auf Proj(S)}
 \begin{prop}
 \label{prop:5.17}
 	\begin{enumerate}[i)]
@@ -338,6 +350,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 	\end{proof}
 \end{prop}
 
+\nextmark{affiner/projektiver Raum über einem Ring}
 \begin{defn}
 \label{defn:5.18}
 	Sei $A$ ein Ring und $n \in \N$. Dann definieren wir

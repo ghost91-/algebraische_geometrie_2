@@ -4,11 +4,13 @@
 \chapter{Abgeschlossene Immersionen und Unterschemata}
 Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines gegebenen Schemas $X$. Im affinen Fall werden sie durch die Ideale in $\mco(X)$ bestimmt.
 
+\nextmark{offene Immersion}
 \begin{defn}
 \label{defn:7.1}
 	Eine \textbf{offene Immersion} ist ein injektiver offener Morphismus $j\colon U \to X$ von Schemata, der einen Isomorphismus von $U$ auf das offene Unterschema $(j(U),\mco_X\vert_U)$ von $X$ induziert.
 \end{defn}
 
+\nextmark{abgeschlossene Immersion, abgeschlossenes Unterschema}
 \begin{defn}
 \label{defn:7.2}
 	\begin{enumerate}[i)]
@@ -31,6 +33,7 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 	\end{enumerate}	
 \end{defn}
 
+\nextmark{abgeschlossenes Unterschema von Spec(A) zu einem Ideal von A}
 \begin{kons}
 \label{kons:7.3}
 	Sei $A$ ein Ring und $X = \Spec(A)$. Wir betrachten ein Ideal $\mfa$ von $A$ und den Morphismus
@@ -78,6 +81,7 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 	\end{enumerate}
 \end{bem}
 
+\nextmark{Ideale in A vs. abg. Unterschemata von Spec(A)}
 \begin{thm}
 \label{thm:7.4}
 	Sei $A$ ein Ring und $X=\Spec(A)$. Dann definiert die Abbildung
@@ -129,12 +133,12 @@ Wir untersuchen die Schemastrukturen von einer abgeschlossenen Teilmenge eines g
 			\]
 			für affine offene Unterschemata $(U_k,\mco\vert_{U_k}),\; k \in \{1,\ldots,n\}$. Da die $D_X(s)$ mit $s \in A$ eine Basis von $X = \Spec(A)$ bilden, gibt es ein $s_0\in A$ mit $\mfp \in D_X(s_0) \subseteq i(U_0)$. Wir zeigen
 			\begin{equation*}
-			\label{eq:7.4.2}\tag{$\star\star\star$}
+			\label{eq:7.4.2}\tag{$\star{\star}\star$}
 				\exists\; m \in \N \text{ mit } i^{\#}(s_0^ma) = 0.
 			\end{equation*}
 			Die Injektivität von $i^{\#}_X$ zeigt dann, dass $s_0^ma =$ gilt. Wegen $s_0\in \mco_{X,\mfp}^\times$ folgt dann, dass $a = 0$ gilt, wie gewünscht. Um \eqref{eq:7.4.2} zu zeigen, genügt es für jedes $j \in \{0,\ldots,n\}$ ein $m_j$ mit
 			\begin{equation*}
-			\label{eq:7.4.3}\tag{$\star\star\star\star$}
+			\label{eq:7.4.3}\tag{$\star{\star}{\star}\star$}
 				i^{\#}(s_0^{m_j}a)\vert_{U_j} = 0
 			\end{equation*}
 			zu finden (wegen dem Garbenaxiom). Für $j=0$ folgt mit \eqref{eq:7.4.1} $m_0=0$. Aus
