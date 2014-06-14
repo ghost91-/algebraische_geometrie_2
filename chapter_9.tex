@@ -271,9 +271,10 @@ Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi
 	\[
 		f_*(\mcf)(Y) = \mcf(X) = K[x]
 	\]
-	bezüglich des kanonischen Morphismus $f\colon X \to Y$. Aber $k[x]$ ist nicht endlich erzeugt als Modul über $k=\mco_Y(Y)$ und damit ist $f_*(\mcf)$ nicht kohärent.
+	bezüglich des kanonischen Morphismus $f\colon X \to Y$. Aber $K[x]$ ist nicht endlich erzeugt als Modul über $K=\mco_Y(Y)$ und damit ist $f_*(\mcf)$ nicht kohärent.
 \end{bem}
 
+\nextmark{Träger}
 \begin{defn}
 \label{defn:9.12}
 	Sei $\mcf$ eine beliebige Garbe auf einem topologischen Raum $X$. \begin{enumerate}[i)]
@@ -290,7 +291,7 @@ Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi
 		\[
 			\Ann_A(m) \coloneqq \{a \in A \mid a \cdot m = 0\}.
 		\]
-		\item\label{lem:9.13:iii} Sei $M$ ein eindlich erzeugter $A$-Modul. Dann gilt $\Supp(\mcf)=V(\Ann_A(M))$ für
+		\item\label{lem:9.13:iii} Sei $\mcf$ wie in \ref{lem:9.13:ii} für einen endlich erzeugten $A$-Modul~$M$. Dann gilt $\Supp(\mcf)=V(\Ann_A(M))$ für
 		\[
 			\Ann_A(M) \coloneqq \{a \in A \mid a \cdot m = 0 \text{ für alle } m \in M\}.
 		\]
@@ -321,17 +322,17 @@ Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi
  	\end{enumerate}
  	\begin{proof}
  		\begin{enumerate}[i)]
- 			\item Die Behauptung ist lokal auf $X$, sei also ohne Beschränkung der Algemeinheit $X=\Spec(A)$ für einen Ring $X$. Da $Y$ ein abgeschlossenes Unterschema von $\Spec(A)$ ist, ist $Y$ nach Theorem~\ref{thm:7.5} durch
+ 			\item Die Behauptung ist lokal auf $X$, sei also ohne Beschränkung der Allgemeinheit $X=\Spec(A)$ für einen Ring $X$. Da $Y$ ein abgeschlossenes Unterschema von $\Spec(A)$ ist, ist $Y$ nach Theorem~\ref{thm:7.5} durch
  			\[
  				i\colon \Spec(A/\mfa) \to \Spec(A)
  			\]
  			für ein Ideal $\mfa$ in $A$ gegeben. Trivialerweise ist $\mfa = \ker(A \to A/\mfa)$ und mit Proposition~\ref{prop:9.3}\ref{lem:9.13:i} folgt
  			\[
- 				\widetilde{\mfa} = \ker(\widetilde{A} \to \widetilde{A/\mfa} \overset{\text{Beispiel~\ref{bsp:9.7}~\ref{bsp:9.7:ii}}}{=} \ker(\mco_X \to i_* \mco_Y) = J_Y.
+ 				\widetilde{\mfa} = \ker(\widetilde{A} \to \widetilde{A/\mfa}) \overset{\text{Beispiel~\ref{bsp:9.7}~\ref{bsp:9.7:ii}}}{=} \ker(\mco_X \to i_* \mco_Y) = J_Y.
  			\]
  			Also ist $J_Y$ quasikohärent wie gewünscht.
- 			\item Die Behauptung ist wieder lokal, sei also ohne Beschränkung der Allgemeinheit $X = \Spec(A)$ für einen Ring $A$. Wie oben gilt $J_Y \cong \widetilde{\mfa}$. Da $A$ noethersch ist, folgt, dass $\mfa$ endlich erzeugt und damit ist $J_Y$ kohärent ist.
- 			\item Wir definieren die Umkehrabbildung: Sei $J$ eine quasikohärente $\mco_X$-Modulgarbe auf $X$. Dann ist $\mco_X/J$ quasikohärent. Wir betrachten den globalen Schnitt $1 \in \Gamma(X,\mco_X/J)$. Er erzeugt die Garbe $\mco_X/J$ in jedem Halm, das heißt es gilt $1_p \ne 0 \in (\mco_X/J)_p$ genau dann, wenn $(\mco_X/J)_p \ne 0$. Nach Lemma~\ref{lem:9.13}\ref{lem:9.13:i} ist
+ 			\item Die Behauptung ist wieder lokal, sei also ohne Beschränkung der Allgemeinheit $X = \Spec(A)$ für einen Ring $A$. Wie oben gilt $J_Y \cong \widetilde{\mfa}$. Da $A$ noethersch ist, folgt, dass $\mfa$ endlich erzeugt und damit $J_Y$ kohärent ist.
+ 			\item Wir definieren die Umkehrabbildung: Sei $J$ eine quasikohärente $\mco_X$-Idealgarbe auf $X$. Dann ist $\mco_X/J$ quasikohärent. Wir betrachten den globalen Schnitt $1 \in \Gamma(X,\mco_X/J)$. Er erzeugt die Garbe $\mco_X/J$ in jedem Halm, das heißt es gilt $1_p \ne 0 \in (\mco_X/J)_p$ genau dann, wenn $(\mco_X/J)_p \ne 0$. Nach Lemma~\ref{lem:9.13}\ref{lem:9.13:i} ist
  			\[
  				Y \coloneqq \Supp(\mco_X/J) = \Supp(1)
  			\]
@@ -340,7 +341,7 @@ Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi
  			\label{eq:9.15.1}\tag{$\star$}
  				(Y,i^{-1}(\mco_X/J)) \to (X,\mco_X)
  			\]
- 			von lokal geringten Räumen. Wir müssen zeigen, dass $(Y,i^{-1}(\mco_X/J))$ ein Schema ist und, dass \eqref{eq:9.15.1} eine abgeschlossene Immersion mit Idealgarbe $J$ ist. Da wir beide Behauptungen lokal auf $X$ prüfen können sei ohne Beschränung der Allgemeinheit $X = \Spec(A)$ für einen Ring $A$. Mit Proposition~\ref{prop:9.8} folgt $J = \widetilde{\mfa}$ für ein Ideal $\mfa$ in $A$, da $J$ quasikohärent ist. Mit Proposition~\ref{prop:9.3} folgt $\mco_X/J = \widetilde{A/\mfa}$ und damit folgt
+ 			von lokal geringten Räumen. Wir müssen zeigen, dass $(Y,i^{-1}(\mco_X/J))$ ein Schema ist und dass \eqref{eq:9.15.1} eine abgeschlossene Immersion mit Idealgarbe $J$ ist. Da wir beide Behauptungen lokal auf $X$ prüfen können sei ohne Beschränung der Allgemeinheit $X = \Spec(A)$ für einen Ring $A$. Aus Proposition~\ref{prop:9.8} erhalten wir $J = \widetilde{\mfa}$ für ein Ideal $\mfa$ in $A$, da $J$ quasikohärent ist. Mit Proposition~\ref{prop:9.3} folgt $\mco_X/J = \widetilde{A/\mfa}$ und damit folgt
  			\[
  				\Supp(\widetilde{A/\mfa}) = \{\mfp \in \Spec(A) \mid (A/\mfa)_\mfp \neq 0\} = \{\mfp \in \Spec(A) \mid \mfp \supseteq \mfa\} = V(\mfa).
  			\]
@@ -359,16 +360,16 @@ Sei $\varphi\colon A \to B$ ein Ringhomomorphismus und $(f\coloneqq\Spec(\varphi
 
 \begin{defn}
 \label{defn:9.16}
-	Sei $S$ ein graduierter Ring und $M$ ein graduierter $S$-Modul. Dann definieren wir analog zum affinen Fall eine Garbe $\widetilde{M}$ auf $\Proj(S)$. Für ein homogenes Primideal $\mfp \in \Proj(S)$ sein $M_{(\mfp)}\coloneqq$ Gruppe der Elemente vom Grad $0$ in $T^{-1}M$, mit $T\coloneqq \{s \in S^\text{hom}\mid s \in S \setminus \mfp\}$. Also ist
+	Sei $S$ ein graduierter Ring und $M$ ein graduierter $S$-Modul. Dann definieren wir analog zum affinen Fall eine Garbe $\widetilde{M}$ auf $\Proj(S)$. Für ein homogenes Primideal $\mfp \in \Proj(S)$ sei $M_{(\mfp)}\coloneqq$ Gruppe der Elemente vom Grad $0$ in $T^{-1}M$, mit $T\coloneqq \{s \in S^\text{hom}\mid s \in S \setminus \mfp\}$. Also ist
 	\[
-		M_{(\mfp)} = \Bigg\lbrace \frac{m}{s} \Bigg\vert m \in M^{\text{hom}}, s \in S^{\text{hom}}, \deg(m) = \deg(s) \Bigg\rbrace
+		M_{(\mfp)} = \Bigg\lbrace \frac{m}{s} \;\Bigg\vert\; m \in M^{\text{hom}},\, s \in S^{\text{hom}},\, \deg(m) = \deg(s) \Bigg\rbrace
 	\]
 	ein $S_{(\mfp)}$-Modul. Sei $U$ offen in $\Proj(S)$. Definiere $\widetilde{M}(U)$ als die Menge der Funktionen $s\colon U \to \coprod_{\mfp \in U}M_{(\mfp)}$, die folgende Eigenschaften erfüllen:
 	\begin{enumerate}[a)]
 		\item Für alle $\mfp \in U$ gilt $s(\mfp) \in M_{(\mfp)}$.
-		\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $m \in M^{\text{hom}}$, $f\in S^{\text{hom}}$ mit folgenden Eigenschaften: $\deg(m)=\deg(f)$ und für alle $\mfq \in V$ gilt $f \notin \mfq$ und $s(\mfq) =  \frac{m}{f} \in M_{(\mfq)}$.
+		\item Für alle $\mfp \in U$ gibt es eine offene Umgebung $V$ von $\mfp$ in $U$ und $m \in M^{\text{hom}}$, $f\in S^{\text{hom}}$ mit den folgenden Eigenschaften: $\deg(m)=\deg(f)$ und für alle $\mfq \in V$ gilt $f \notin \mfq$ und $s(\mfq) =  \frac{m}{f} \in M_{(\mfq)}$.
 	\end{enumerate}
-	Mit den Restriktionsabbildungen wird $\widetilde{M}$ zu einer Garbe auf $\Proj(S)$.
+	Mit \enquote{Einschränken von Funktionen} als Restriktionsabbildungen wird $\widetilde{M}$ zu einer Garbe auf $\Proj(S)$.
 \end{defn}
 
 \begin{prop}

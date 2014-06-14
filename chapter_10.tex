@@ -3,14 +3,15 @@
 
 \chapter{Separierte und eigentliche Morphismen}
 \label{chap:10}
-Ein topologischer Raum $X$ ist genau dann hausdoffsch, wenn die Diagonale $\Delta \coloneqq \{(x,x) \mid x \in X\}$ abgeschlossen in $X \times X$ ist. Nun ist bekanntlich ein Schema $X$ nicht hausdorffsch, (außer $\dim(X) = 0$) und $X\times X$ ist auch nicht mit der Produkttopologie versehen. Deshalb ist es sinnvoll, die Diagonale zu benutzen, um den Begriff des \textbf{separierten} Morphismus einzuführen. Das ersetzt hausdorffsch in der algebraischen Geometrie.
+Ein top. Raum $X$ ist genau dann hausdoffsch, wenn die Diagonale $\Delta \coloneqq \{(x,x) \mid x \in X\}$ abgeschlossen in $X \times X$ ist. Nun ist bekanntlich ein Schema $X$ nicht hausdorffsch (außer $\dim(X) = 0$) und $X\times X$ ist auch nicht mit der Produkttopologie versehen. Deshalb ist es sinnvoll, die Diagonale zu benutzen, um den Begriff des \textbf{separierten} Morphismus einzuführen. Das ersetzt hausdorffsch in der algebraischen Geometrie.
 
-Weiter werden wir \textbf{eigentliche} Morphismen definieren, die eine ähnliche Rolle spielen, wie die Kompaktheit in der Analysis. Das präzise Analogon in der topologie ist eine stetige Abbildung mit der Eigenschaft, dass die Urbilder kompakter Mengen wieder kompakt sind.
+Weiter werden wir \textbf{eigentliche} Morphismen definieren, die eine ähnliche Rolle spielen, wie die Kompaktheit in der Analysis. Das präzise Analogon in der Topologie ist eine stetige Abbildung mit der Eigenschaft, dass die Urbilder kompakter Mengen wieder kompakt sind.
 
+\nextmark{Diagonalmorphismus, separierter Morphismus, separiertes Schema}
 \begin{defn}
 \label{defn:10.1} Sei $f \colon X \to Y$ ein Morphismus von Schemata.
 	\begin{enumerate}[i)]
-		\item\label{defn:10.1:i} Wir benutzen das gefaserte Produkt um den \textbf{Diagonalmorphismus}
+		\item\label{defn:10.1:i} Wir benutzen das gefaserte Produkt, um den \textbf{Diagonalmorphismus}
 		\[
 			\Delta\coloneqq \Delta_{X/Y} \coloneqq \Delta_f \colon X \to X \times_Y X
 		\]
@@ -31,18 +32,19 @@ Weiter werden wir \textbf{eigentliche} Morphismen definieren, die eine ähnliche
 \label{lem:10.2}
 	Sei $f \colon X \to Y$ ein Morphismus von Schemata. Dann ist $f$ genau dann separiert, wenn es eine offene Überdeckung $(V_i)_{i\in I}$ von $Y$ gibt, mit der Eigenschaft, dass $f^{-1}(V_i) \to V_i$ für alle $i \in I$ separiert ist.
 	\begin{proof}
-		mit der Universellen Eigenschaft def gefaserten Produkts folgt
+		Mit der universellen Eigenschaft des gefaserten Produkts folgt
 		\[
 			W_i \coloneqq p_1^{-1}(f^{-1}(V_i)) \cap p_2^{-1}(f^{-1}(V_i)) = f^{-1}(V_i) \times_{V_i} f^{-1}(V_i) \subseteq X \times_Y X.
 		\]
 		Die $W_i$ bilden eine offene Überdeckung der Diagonalen $\Delta(X)$ und es gilt $\Delta_{X/Y}\vert_{W_i} = \Delta_{f^{-1}(V_i)/V_i}$, das heißt, es gilt
 		\[
-			\Bigg(\Delta^{-1}_{X/Y}(W_i) \overset{\Delta_{X/Y}}{\longto} W_i\Bigg) = \Bigg(f^{-1}(V_i) \overset{\Delta_{f^{-1}(V_i)/V_i}}{\longto} W_i\Bigg).
+			\Bigg(\Delta^{-1}_{X/Y}(W_i) \xrightarrow{\Delta_{X/Y}} W_i\Bigg) = \Bigg(f^{-1}(V_i) \xrightarrow{\Delta_{f^{-1}(V_i)/V_i}} W_i\Bigg).
 		\]
-		Da man eine abgschlossene Immersion lokal auf dem Bild prüfen kann, folgt die Behauptung. 
+		Da man die Eigenschaft \enquote{abgschlossene Immersion} lokal auf dem Bild prüfen kann, folgt die Behauptung. 
 	\end{proof}
 \end{lem}
 
+\pagebreak[2]
 \begin{prop}
 \label{prop:10.3}
 	Jeder Morphismus $f\colon X \to Y$ von affinen Schemata ist separiert.
