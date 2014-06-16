@@ -1,6 +1,11 @@
 %!TEX root = algebraische_geometrie_2.tex
 % vim: tw=0 noet sts=8 sw=8
 
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 
+
 \chapter{Separierte und eigentliche Morphismen}
 \label{chap:10}
 Ein top. Raum $X$ ist genau dann hausdoffsch, wenn die Diagonale $\Delta \coloneqq \{(x,x) \mid x \in X\}$ abgeschlossen in $X \times X$ ist. Nun ist bekanntlich ein Schema $X$ nicht hausdorffsch (außer $\dim(X) = 0$) und $X\times X$ ist auch nicht mit der Produkttopologie versehen. Deshalb ist es sinnvoll, die Diagonale zu benutzen, um den Begriff des \textbf{separierten} Morphismus einzuführen. Das ersetzt hausdorffsch in der algebraischen Geometrie.
@@ -52,3 +57,61 @@ Weiter werden wir \textbf{eigentliche} Morphismen definieren, die eine ähnliche
 		Seien $X=\Spec(B)$ und $Y=\Spec(A)$ für gewisse Ring $A$ und $B$. Dann wird $B$ durch $f$ zu einer $A$-Algebra. Die Morphismen $g_1\colon B \to B \otimes_A B,\; b \mapsto b \otimes 1$ und $g_2\colon B \to B \otimes_A B,\; b \mapsto 1 \otimes b$ induzieren die Projektionen $p_1,p_2 \colon X\times_Y X\to X$. Dann induziert $\varphi\colon B\otimes_A B \to B, b \otimes b' \mapsto bb'$ den Diagonalmorphismus $\Delta_f\colon X \to X \times_Y X$. $\varphi$ ist surjektiv, also ist $\Delta_f$ nach Konstruktion~\ref{kons:7.3} eine abgeschlossene Immersion gegeben durch das Ideal $\ker(\varphi)$.
 	\end{proof}
 \end{prop}
+
+\begin{prop}
+  \label{prop:10.4}
+  Ein Morphismus $f \colon X \to Y$ ist genau dann separiert, wenn $\Delta(X)$ abgeschlossen ist in $X \times_Y X$.
+  \begin{proof}
+    \begin{description}
+    \item{\glqq$\boldsymbol{\Rightarrow}$\grqq} $f$ separiert $\Rightarrow$ $\Delta$ abgeschlossene Immersion $\Rightarrow$ $\Delta(X)$ abgeschlossen in $X \times_Y X$
+    \item{\glqq$\boldsymbol{\Leftarrow}$\grqq} Sei $\Delta(X)$ abgeschlossen in $X \times_Y X$. Wir versehen $\Delta(X) \subseteq X \times_Y X$ mit der induzierten Topologie. Beachte, dass der Morphismus $\Delta$ ein Schnitt von $p_1$ (bzw. $p_2$) ist, dass heißt $p_i \circ \Delta = \id_X$, also ist $\Delta \colon X \to X \times_Y X$ injektiv und surjektiv weil abgeschlossene Immersion.$\Delta$ ist also bijektiv und stetig.
+      
+      Für $U\subseteq X$ offen gilt $\Delta(U) = \Delta(X) \cap (U \times_Y U)$ offen in $\Delta(X)$, also ist $\Delta \colon X \to \Delta(X)$ eine offene Abbildung und damit ein Homöomorphismus.
+
+      Damit $\Delta$ eine abgeschlossene Immersion it, bleibt die Surjektivität des Garbenhomomorphismus $\Delta^\#\colon \mco_{X \times_Y X} \to \Delta_*  \mco_X$ zu Zeigen. Das kann man lokal auf $\mco_X \times_Y X$ testen. Sei $P \in X \times_Y X$ und $V$ eine affine, offenene Umgebung von $f(P)$ in $Y$, sowie $U$ offene, affine Umgebung von $P$ in $f^{-1}(V)$. $\Rightarrow$ $U \times_Y U$ ist offene affine Umgebung von $\Delta(P)$ in $X \times_Y X$. Nach \ref{prop:10.3} ist $\Delta\colon U \to U \times_Y U$ eine abgeschlossene Immersion, damit ist $\Delta^\#$ surjektiv über $U \times_Y U$ und damit in einer Umgebung von $\Delta(P)$.
+
+      Für $Q \in (X \times_Y X) \setminus \Delta(X)$ müssen wir die Surjektivität von $\Delta^\#$ auch in einer Umgebung testen. Da $(X \times_Y X) \setminus \Delta(X)$ offen ist folgt $(\Delta_* \mco_X)_Q = 0$, dass heißt die Surjektivität ist trivial im Halm über $Q$.
+    \end{description}
+  \end{proof}
+\end{prop}
+
+\begin{defn}
+  \label{defn:10.5}
+  Sei $f \colon X \to Y$ Morphismus von Schemata.
+  \begin{enumerate}[i)]
+  \item $f$ heißt \textbf{abgeschlossen} genau dann, wenn für alle $Z \subseteq X$ abgeschlossen gilt, dass $f(Z)\subseteq Y$ abgeschlossen ist.
+  \item $f$ heißt \textbf{universell abgeschlossen}, wenn jeder Basiswechsel $f'$ von $f$ abgeschlossen ist.
+  \item $f$ heißt \textbf{eigentlich}, wenn $f$ separiert, von endlichem Typ und universell abgeschlossen ist.
+  \end{enumerate}
+\end{defn}
+
+\begin{bem}
+  \label{bem:10.6}
+  Sei $f\colon X \to Y$ ein Morphismus von endlichem Typ zwischen noetherschen Schemata,
+
+  Wir sagen, dass $f$ das \textbf{Bewertungskriterium für Separiertheit (bzw. Eigenltichkeit)} erfüllt, falls gilt:
+    
+  Für jeden diskreten Bewertungsring $R$ mit $K = \Quot(R)$, $i \colon \Spec(K) \to \Spec(R)$ der durch $R \subseteq K$ induziere Morphismus, und alle Morphismen $\Spec(K) \to X, \Spec(R) \to Y$ für die das Diagramm
+  \begin{center}
+    \begin{tikzcd}
+      \Spec(K) \arrow{r} \arrow{d}{i} & X \arrow{d} \\
+      \Spec(R) \arrow{r} & Y
+    \end{tikzcd}
+  \end{center}
+  kommutiert, gibt es einen (bzw. genau einen) Morphismus $d \colon \Spec(R) \to X$ so, dass das Diagramm
+  \begin{center}
+    \begin{tikzcd}
+      \Spec(K) \ar{r} \ar{d}{i} & X \ar{d} \\
+      \Spec(R) \ar{r} \ar{ru}{d}& Y
+    \end{tikzcd}
+  \end{center}
+  in beiden Dreiecken kommutiert.
+\end{bem}
+
+\begin{thm}
+  \label{thm:10.7}
+  Ein Morphismus $f \colon X \to Y$ von Schemata ist genau dann separiert (bzw. eigentlich), wenn $f$ das Kriterium für Separiertheit (bzw. Eigentlichkeit) erfüllt.
+  \begin{proof}
+    Siehe z.B. \cite[7.2.3]{grothendieck1971elements}, oder \cite[Thm. 15.9]{goertz2010algebraic} (bzw. \cite[Thm 7.3.8]{grothendieck1971elements})
+  \end{proof}
+\end{thm}
