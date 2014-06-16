@@ -1,0 +1,160 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\chapter{Projektive Morphismen}
+
+Wir werden projektive Schemata oder allgemeiner projektiver Morphismen studieren. Sie sind ein wichtiger Spezialfall von eigentlichen Morphismen. Im Chow-Lemma werden wir eine gewisse Umkehrung sehen und zeigen, dass jeder
+eigentliche Morphismus unter gewissen Umständen durch einen eigentlichen Morphismus dominiert wird %War tatsächlich so an der Tafel
+
+\begin{defn}
+  \label{defn:11.1}
+  \begin{enumerate}[i)]
+  \item Eine Morphismus $f \colon X \to Y$ von Schemata heißt \textbf{projektiv} genau dann, wenn eine abgeschlossene Immersion $i$ existiert so, dass das Diagramm
+    \begin{center}
+      \begin{tikzcd}
+        X \arrow[hook]{r}{i} \ar{dr}{f} & \P_Y^n \coloneqq \P_\Z^n \times_{\Spec(Z)} Y \ar{d}{p_2} \\
+        & Y
+      \end{tikzcd}
+    \end{center}
+    kommutiert.
+  \item $f$ heißt genau dann \textbf{quasi-projektiv}, wenn eine offene Immersion $o \colon X \to X'$ in ein Schema $X$ und einen projektiven Morphismus $f' \colon X' \to Y$ gibt so, dass das Diagramm
+    \begin{center}
+      \begin{tikzcd}
+        X \ar[hook]{r}{o} \ar{dr}{f} & X' \ar{d}{f'}\\
+        & Y
+      \end{tikzcd}
+    \end{center}
+    kommutiert.
+  \end{enumerate}
+\end{defn}
+
+\begin{warn}
+  \label{warn:11.2}
+  Dies ist nicht die allgemeine Definition projektiver Morphismen aus \cite[5.5]{grothendieck1971elements}. Letztere ist im Gegensatz zu \ref{defn:11.1} lokal im Bild definiert.
+  Beide Definitionen sind äquivalent, falls $Y$ quasi-projektive über einem affinen Schema ist.
+\end{warn}
+
+\begin{prop}
+  \label{prop:11.3}
+  \begin{enumerate}[i)]
+  \item\label{prop:11.3.1} Sei $\varphi \colon S \to S'$ ein Homomorphismus graduierter Ringe. Dann wird eine Morphismus
+    \[
+    f = \Proj(\varphi) \colon \Proj(S') \setminus V_+(<\varphi(S_+)>) \to \Proj(S)
+    \]
+    induziert mit
+    \begin{alignat*}{2}
+      f(\mfp) &\coloneqq \varphi^{-1}(\mfp) & \quad \forall \mfp &\in \Proj(S') \setminus V_+(<\varphi(S_+)>) \\
+      f^{-1} (D_+(h)) &= D_+(\varphi(h)) & \forall h &\in S_+^{\text{hom}} \\
+      f|_{D_+(\varphi(h))} &= \Spec(\varphi_{(h)}) & \forall h &\in S_+^{\text{hom}}
+    \end{alignat*}
+    für die kanonischen Abbildungen
+    \begin{align*}
+      D_+(\varphi(h)) = \Spec(S_{(\varphi(h))}' & \to D_+(h) = \Spec(S_{(h)})\\
+      \varphi_{(h)} \coloneqq S_{(h)} & \to S_{(\varphi(h))}'
+    \end{align*}
+  \item\label{prop:11.3.2} Ist $\varphi$ in \ref{prop:11.3.1} surjektiv, dann ist $V_+(\varphi(S_+)) = \emptyset$ und $\Proj(\varphi)\colon\Proj(S') \to \Proj(S)$ ist abgeschlossene Immersion.
+  \item\label{prop:11.3.3} Sei $A$ Ring, $S$ eine graduierte $A$-Algebra, $B$ eine $A$-Algebra. Betrachte die Graduierung
+    \[
+    S \otimes_A B = \bigoplus_{d\in \N} \left( S_d \otimes B \right).
+    \]
+    Dann existiert ein kanonischer Isomorphismus
+    \[
+    \Proj(S) \times_{\Spec(A)} \Spec(B) \xlongrightarrow{\sim}\Proj(S \otimes_A B)
+    \]
+  \item\label{prop:11.3.4}
+    Seien $S,S'$ graduierte $A$-Algebren. Für die graduierte $A$-Algebra
+    \[
+    S \times_A S' \coloneqq \bigoplus_{s\in\N} \left( S_d \otimes_A S_d' \right) \subseteq S \otimes_A S'
+    \]
+    existert eine kanonischer Isomorphismus
+    \[
+    \Proj(S) \times_{\Spec(A)} \Proj(S') \xlongrightarrow{\sim} \Proj(S \times_A S')
+    \]
+  \end{enumerate}
+  
+  \begin{proof}
+    Folgt leicht aus Definitionen
+  \end{proof}
+\end{prop}
+
+\begin{kor}
+  \label{kor:11.4}
+  \begin{enumerate}[i)]
+  \item\label{kor:11.4.1} Sei $S$ graduierter Ring, der als $S_0$-Algebra durch endlich viele Elemente aus $S_1$ erzeugt wird. Dann ist der kanonische Morphismus
+    \[
+    \Proj(S) \to \Spec(S_0)
+    \]
+    surjektiv.
+  \item\label{kor:11.4.2} Sei $Y$ eine Schema, $N \coloneqq mn + m + n = (m+1)(n+1)-1$ für $m,n \in \N$ gegeben. Dann existiert eine kanonische, abgeschlossene Immersion
+    \[
+    \psi_{m,n} \colon \P_Y^m \times \P_Y^n \to \P_Y^N,
+    \]
+    die \textbf{Segre-Einbettung} genannt wird.
+  \end{enumerate}
+  \begin{bsp*} Ein klassisches Beispiel aus der Algebraischen Geometrie I: Es sei $k$ algebraisch abgeschlossener Körper, dann erhält man
+    \begin{align*}
+      \psi_{m,n} \colon \P_k^m \times \P_k^n &\to \P_k^N \\
+      ((x_0 : \dotsm : x_m),(y_1:\dotsm:y_n)) &\mapsto (x_0 y_0 : x_0 y_1 : \dotsm : x_0 y_n: x_1 y_0 : \dotsm : x_n y_m)
+    \end{align*}    
+  \end{bsp*}
+  \begin{proof}
+    \begin{enumerate}[i)]
+    \item Sei $A =S_0$. Da $S$ durch endlich viele Elemente aus $S_1$ als $A$-Algebra erzeugt wird existiert eine Surjektion
+      \[
+      S' \coloneq A[T_0,\dotsc,T_n] \to S
+      \]
+      von graduierten Ringen. Nach \ref{prop:11.3},\ref{prop:11.3.2} ist $\Proj(S) \to \Proj(S')$ eine abgeschlossene Immersion, und man erhält ein kommutierendes Diagramm
+      \begin{center}
+        \begin{tikzcd}
+          \Proj(S) \ar[r] \ar[d] & \Proj(S') = \P_A^n \ar[ld] \\
+          \Spec(A)
+        \end{tikzcd}
+      \end{center}
+      und $\Proj(S) \to \Spec(A)$ projektiv.
+    \item
+      Setze 
+      \begin{align*}
+        S &\coloneqq \Z[T_0,\dotsc,T_m]\\
+        S' &\coloneqq \Z[T_0,\dotsc, T_n]\\
+        S'' &\coloneqq Z_0 [ T_0,\dotsc,T_N ]\\
+        &\phantom{:}= \Z[T_{ij} | 0 \leq i \leq m, 0 \leq j \leq n ]
+      \end{align*}
+      mit lexikographischer Ordnung auf den $T_{ij}$. Dann haben wir einen surjektiven Homomorphismus
+      \begin{align*}
+        S'' &\to S \times_A S'\\
+        T_{ij} & \mapsto T_i \otimes T_j
+      \end{align*}
+      Nach \ref{prop:11.3}, \ref{prop:11.3.2} und \ref{prop:11.3.4} erhalten wir eine abgeschlossene Immersion $\P_\Z^m \times_\Z \P_\Z^n \to \P_\Z^N$. Durch Basiswechsel erhalten wir die Aussage.
+    \end{enumerate}
+  \end{proof}
+\end{kor}
+
+\begin{prop}
+  \label{prop:11.5}
+  \begin{enumerate}[i)]
+  \item\label{prop:11.5.1} Abgeschlossene Immersionen sind projektiv.
+  \item\label{prop:11.5.2} Projektivität ist stabil unter Basiswechsel.
+  \item\label{prop:11.5.3} Komposition von projektiven Morphismen ist projektiv.
+  \item\label{prop:11.5.4} Für projektive Morphismen $X\to S, Y \to S$ ist $X \times_S Y \to S$ projektiv.
+  \item\label{prop:11.5.5} Sind $f \colon X \to Y, g \colon Y \to Z$ Morphismen, so dass $g$ und $g \circ f$ projektiv sind. Dann ist $f$ projektiv
+  \end{enumerate}
+  \begin{proof} Idee für \ref{prop:11.5.3}: Seien $f \colon X \to Y ,g \colon Y \to Z$ projektive Morphismen
+    \begin{center}
+      \begin{tikzcd}
+        X \ar[hook]{r}{i_X} \ar{dr}{f}
+        & \P_Y^n \ar[r] \ar[d] \ar[phantom]{dr}{\square}
+        & \P_Z^m \times \P_Z^n \ar{d} \ar{r}{\psi_{n,m}}[swap]{\text{Segre}}
+        & \P_Z^N \ar[bend left]{ddl}\\ 
+        & Y \ar[hook]{r}{i_Y} \ar{dr}{g}
+        & \P_Z^m \ar{d}\\
+        & & Z
+      \end{tikzcd}
+    \end{center}
+    Man kann zeigen, dass das Rechteck in der Mitte des Diagramms karthesisch ist. Damit ist $\P_Y^n \to P_Z^m \times \P_Z^n$ abgeschlossene Immersion nach \ref{prop:11.5.3}, und $\psi_{n,m}$ nach \ref{kor:11.4}, \ref{kor:11.4.2}. Da die Komposition abgeschlossener Immersionen wieder eine abgeschlossene Immersion ist, ist $f \circ g$ projektiv.
+  \end{proof}
+\end{prop}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 
