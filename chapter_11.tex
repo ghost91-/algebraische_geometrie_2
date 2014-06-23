@@ -4,7 +4,7 @@
 \chapter{Projektive Morphismen}
 
 Wir werden projektive Schemata oder allgemeiner projektive Morphismen studieren. Sie sind ein wichtiger Spezialfall von eigentlichen Morphismen. Im Chow-Lemma % TODO: ref
-werden wir eine gewisse Umkehrung sehen und zeigen, dass jeder eigentliche Morphismus unter gewissen Umständen durch einen eigentlichen Morphismus dominiert wird.
+werden wir eine gewisse Umkehrung sehen und zeigen, dass jeder eigentliche Morphismus unter gewissen Umständen durch einen projektiven Morphismus dominiert wird.
 
 \begin{defn}
 	\label{defn:11.1}
@@ -153,6 +153,164 @@ werden wir eine gewisse Umkehrung sehen und zeigen, dass jeder eigentliche Morph
 		Man kann zeigen, dass das Rechteck in der Mitte des Diagramms karthesisch ist. Damit ist $\P_Y^n \to P_Z^m \times \P_Z^n$ nach \ref{prop:11.5:iii} eine abgeschlossene Immersion und $\psi_{n,m}$ nach Korollar~\ref{kor:11.4} \ref{kor:11.4:ii} ebenfalls. Da die Komposition abgeschlossener Immersionen wieder eine abgeschlossene Immersion ist, ist $f \circ g$ projektiv.
 	\end{proof}
 \end{prop}
+
+\begin{lem}
+\label{lem:11.6}
+	\begin{enumerate}[i)]
+		\item\label{lem:11.6:i} Für ein homogenes Ideal $I$ im graduierten Ring $S$ mit $I \subseteq S_+$ gilt
+		\[
+			S_+ \cap \sqrt{I} = S_+ \cap \bigcap_{\substack{\mfp \in \Proj(S)\\U\subseteq\mfp}}\mfp.
+		\]
+		\item\label{lem:11.6:ii} Es gilt $\Proj(S) = \emptyset$ genau dann, wenn $S_+\subseteq \nil(S)$.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item \cite[Proposition~13.2~(3)]{goertz2010algebraic}.
+			\item \begin{description}
+				\item[\enquote{$\Leftarrow$}:] Sei $S_+\subseteq \nil(S)$. Dann gilt
+				\[
+					S_+ \subseteq \nil(S) = \sqrt{\{0\}} = \bigcap_{\mfp\in \Spec(S)}\mfp
+				\]
+				und damit folgt $\Proj(S) = \emptyset$.
+				\item[\enquote{$\Rightarrow$}:] Sei $\Proj(S) = \emptyset$. Wir verwenden \ref{lem:11.6:i} für $I=\{0\}$. Dann folgt
+				\[
+					S_+\cap \sqrt{\{0\}} = S_+ \cap \bigcap_{\substack{\mfp \in \Proj(S)\\U\subseteq\mfp}}\mfp = S_+
+				\]
+				und daraus folgt wiederum
+				\[
+					S_+ \subseteq \nil(S).
+				\]
+			\end{description}
+		\end{enumerate}
+	\end{proof}
+\end{lem}
+
+\begin{thm}
+\label{thm:11.7}
+	Ein projektiver Morphismus von Schemata ist eigentlich.
+	\begin{proof}
+		Sei $f\colon X \to Y$ ein projektiver Morphismus, das heißt $f$ faktorisiert auf folgende Weise:
+		\begin{center}
+			\begin{tikzcd}
+				X\arrow{r}{i} \arrow{dr}[swap]{f}& \P^n_Y\arrow{d}{p_2}\\
+				&Y
+			\end{tikzcd}
+		\end{center}
+		Eine abgeschlossene Immersion ist nach Aufgabe~11.2 eigentlich. Weil die Eigenschaft, eigentlich zu sein, abgeschlossen unter Komposition ist, genügt es zu zeigen, dass $\P_Y^n\to Y$ eigentlich ist. Weil die Eigenschaft, eigentlich zu sein, nach Aufgabe~11.2 stabil unter Basiswechsel ist, genügt es zu zeigen, dass $\P^n_\Z\to \Spec(\Z)$ eigentlich ist. Nach Aufgabe~10.3 ist $p_2\colon \P^n_\Z \to \Spec(\Z)$ separiert und nach Beispiel~\ref{bsp:6.12} vom endlichem Typ. Es bleibt zu zeigen, dass $p_2$ universell abgeschlossen ist. Sei also $X$ ein Schema, dann wollen wir zeigen, dass $\pi\colon \P^n_X\to X$ abgeschlossen ist. Da wir dies lokal auf $X$ prüfen können, können wir ohne Beschränkung der Allgemeinheit $X = \Spec(A)$ für einen Ring $A$ annehmen. Für $B\coloneqq A[T_0,\ldots,T_n]$ gilt $\P^n_X=\Proj(B)$. Sei $V$ abgeschlossen in $\P^n_X$. Wir müssen zeigen, dass $\pi(V)$ abgeschlossen in $X$ ist. Nach Definition der Topologie auf $\Proj(B)$ folgt
+		\[
+			V = V_+(\mfa)
+		\]
+		für ein homogenes Ideal $\mfa$ von $B$. Wir werden zeigen, dass $X \setminus\pi(V)$ offen in $X$ ist. Sei $C\coloneqq B/\mfa$, dann ist $C$ ein graduierter Ring. Da der Quotientenhomomorphismus $B\to C$ surjektiv ist, erhalten wir eine abgeschlossene Immersion $(V=\Proj(C))\to (\Proj(B) =\P^n_X = \P^n_A)$ und damit $V$ als abgeschlosssenes Unterschema von $\P^n_X$. Für $\mfp \in X \setminus \pi(V)$ gilt $V \cap \pi^{-1}(\mfp) = \emptyset$. Beachte, dass $V\cap \pi^{-1}(\mfp)$ Die Faser der Abbildung $V\overset{\pi}{\longrightarrow} X$ über $\mfp$ ist. Nach Proposition~\ref{prop:11.3} gilt
+		\[
+			V \cap \pi^{-1}(\mfp) = V \times_X\Spec(\kappa(\mfp)) \overset{\text{Proposition~\ref{prop:11.3}~\ref{prop:11.3:iii}}}{=} \Proj(C\otimes_A\kappa(\mfp))
+		\]
+		Aus $\emptyset = \Proj(C\otimes_A\kappa(\mfp))$ folgt aber mit Lemma~\ref{lem:11.6}~\ref{lem:11.6:ii}
+		\[\label{eq:11.7.1}\tag{$\star$}
+			(C\otimes_A\kappa(\mfp))_+ \subseteq \nil(C\otimes_A\kappa(\mfp)).
+		\]
+		Wegen $B=A[T_0,\ldots,T_n]$ ist $B$ als $A$-Algebra durch endlich viele Elemente aus $B_1$ erzeugt (zum Beispiel $T_0,\ldots,T_n$). Deswegen ist auch $C=B/\mfa$ als $C_0$-Algebra durch endlich viele Elemente aus $C_1$ erzeugt und damit ist auch $C\otimes_A\kappa(\mfp)$ als $C_0\otimes_A\kappa(\mfp)$-ALgebra erzeugt durch endlich viele Elemente aus $C_1\otimes_A\kappa(\mfp)$. Anders geasgt kann man jedes $c \in C\otimes_A\kappa(\mfp)$ als Polynom mit Koeffizienten in $C_0\otimes\kappa(\mfp)$ un in den \enquote{Variablen} $\overline{c_0},\ldots,\overline{c_n} \in C_1 \otimes_A\kappa(\mfp)$ schreieben. Nach \eqref{eq:11.7.1} sind  die Elemente $\overline{c_0},\ldots,\overline{c_n}$ alle nilpotent. Es gibt also ein $d \in \N$ mit der Eigenschaft, dass $C_{d'}\otimes_A \kappa(\mfp) = \{0\}$ für alle $d'\ge d$ gilt. Betrachte jetzt
+		\[
+			(C_d)_\mfp = C_d\otimes_A A_\mfp.
+		\]
+		Da $C_d$ also $A$-Modul endlich erzeugt ist, ist $(C_d)_\mfp$ endlich erzeugt über dem lokalen Ring $A_\mfp$. Wegen
+		\[
+			(C_d)_\mfp \otimes_A \kappa(\mfp) = C_d \otimes_A \kappa(\mfp) = \{0\}
+		\]
+		folgt mit dem Lemma von Nakayama
+		\begin{equation*}\label{eq:11.7.2}
+			(C_d)_\mfp = \{0\}.
+		\end{equation*}
+		Nach Lemma~\ref{lem:9.13} ist $\Supp(C_d)$ abgeschlossen. Es ist aber $\mfp \notin \Supp(C_d)$ wegen \eqref{eq:11.7.2}. Also gibt es ein $h \in A$ mit
+		\[
+			\mfp \in D(h) \subseteq \Spec(A) \setminus \Supp(C_d).
+		\]
+		Daraus folgt
+		\[
+			\underbrace{C_d \otimes_A A_h}_{=(C_d)_h} = \{0\},
+		\]
+		es gibt also ein $N \in \N$ mit
+		\[
+			h^N C_d = \{0\}.
+		\]
+		Wir dürfen $h$ durch $h^N$ ersetzen, dann folgt $hC_d = \{0\}$. Mit $C_d = B_d/\mfa_d$ folgt $hB_d \subseteq \mfa_d$. Inbesondere gilt $hT_i^d \in \mfa_d$ für alle $i \in \{0,\ldots,n\}$.
+
+		Um nun zu zeigen, dass $X \setminus\pi(V)$ offen ist, genügt es zu zeigen, dass $D(h)$ als offene Umgebung von $\mfp$ und $\pi(V)$ disjunkt sind. Dabei gehen wir indirekt vor. Wir nehmen also an, dass es ein $\mfq \in V = V_+(\mfa)$ mit $\pi(\mfq) \in D(h)$ gibt. Es gilt $\pi(\mfq) = A \cap \mfq$ nach Definition von $\pi$. Aus $\pi(\mfq) \in D(h)$ folgt $h \notin A \cap \mfq$. Wegen $h \in A$ gilt insbesondere $h \notin \mfq$. Andererseits gilt $h T_i^d \in \mfa \subseteq \mfq$ und daraus folgt $T_i^d \in \mfq$, denn $\mfq$ ist ein Primideal. Es gilt also auch $T_i\in \mfq$ für alle $i \in \{0,\ldots,n\}$ und damit $B_+ \subseteq \mfq$ im WIderspruch zu $\mfq \in \Proj(B)$.
+	\end{proof}
+\end{thm}
+
+\begin{kor}
+\label{kor:11.8}
+	Ein quasiprojektiver Morphismus ist separiert und von endlichem Typ.
+	\begin{proof}
+		Nach Aufgabe~10.2 ist eine offene Immersion separiert. Offenbar ist eine offene Immersion auch von endlichem Typ. Sei $f\colon X \to Y$ ein quasiprojektiver Morphismus, das heißt $f$ hat eine Faktorisierung $f=g\circ i$, wobei $i$ eine offene Immersion und $g$ ein projektiver Morphismus ist. Da $i$ von endlichem Typ und separiert ist, und weil $g$ nach Theorem~\ref{thm:11.7} von endlichem Typ und separirt ist, ist auch $f=g\circ i$ von endlichem Typ und separiert, da diese Eigneschaften abgeschlossen unter Komposition sind.
+	\end{proof}
+\end{kor}
+
+Es gibt eigentliche Morphismen, die nicht projektiv sind. In der Theorie der torischen Varietäten gibt man sogar Beispiele von eigentlichen torischen Varietäten über Körpern an, die nicht projektiv sind. Das folgende Lemma ist die bestmögliche \enquote{Umkehrung} von Theorem~\ref{thm:11.7}.
+
+\begin{lem}[Lemma von Chow]
+\label{lem:11.9}
+	Sei $Y$ eine noethersches Schema und $g \colon X \to Y$ ein eigentlicher Morphismus. Dann existiert ein Schema $X'$, ein Morphismus $h\colon X' \to X$ und eine offene Dichte Teilmenge $U$ von $X$ mit der eigenschaft, dass $f \coloneqq g \circ h$ projektiv ist und $h$ einen Morphismus $g^{-1}(U)\to U$ induziert.
+	\begin{center}
+		\begin{tikzcd}
+			h^{-1}(U) \arrow{r}{\sim} & U\\
+			X' \arrow{r}{h}\arrow{dr}{f} & X\arrow{d}{g}\\
+			{}& Y
+		\end{tikzcd}
+	\end{center}
+	\begin{proof}
+		\cite[{}5.6]{grothendieck1961elements}
+	\end{proof}
+\end{lem}
+
+\begin{bem}
+\label{bem:11.10}
+	Aus Proposition~\ref{prop:9.3}~\ref{lem:9.13:ii} und Proposition~\ref{prop:9.8} folgt, dass für quasikohärente (bezeihungsweise kohärente) $\mco_X$-Moduln $\mcf, \mcg$ auf dem (noetherschen) Schema $X$ auch $\mcf\otimes_{\mco_X}\mcg$ eine quasikohärenter (beziehungsweise kohärenter) $\mco_X$-Modul ist.
+\end{bem}
+
+\begin{defn}
+\label{defn:11.11}
+	Sei $S$ ein graduierter Ring und $X = \Proj(S)$.
+	\item Ein \textbf{graduierter $S$-Modul} $M$ ist ein $S$-Modul $M$ mit einer Graduierung $M=\bigoplus_{n\in \Z}M_n$ mit der Eigenschaft, dass $S_dM_n \subseteq M_{d+n}$ für alle $d,n  \in \Z$ gilt. Das Tensorprodukt $M\otimes_S N$ versehen wir mit der Graduierung, die die Eigenschaft hat, dass $\deg(m\otimes n) = \deg(m)+\deg(n)$ für alle $m \in M^\text{hom}$ und $n \in N^\text{hom}$ gilt.
+	\item Sei $M$ ein graduierter $S$-Modul und $n \in \Z$. Dann definieren wir den graduierten $S$-Modul $M(n)$ als den Modul $M$ mit neuer Graduierung
+	\[
+		M(n)_m \coloneqq M_{m+n} \quad \forall\, m \in \Z.
+	\]
+	\enquote{Wir verschieben die alte Graduierung um $n$ Schritte nach links.} Insbesondere bezeichnet $S(n)$ den $S$-Modul $S$ mit der Graduierung
+	\[
+		(S(n))_m\coloneqq S_{m+n}.
+	\]
+	\item Ist $n \in \Z$, so bezeichnen wir mit $\mco_X(n)$ den quasikohärenten $\mco_X$-Modul $\widetilde{S(n)}$ aus Proposition~\ref{prop:9.6}. Der $\mco_X$-Modul $\mco_X(1) = \widetilde{S(1)}$ heißt die \textbf{getwistete Garbe von Serre}.
+	\item ISt $\mcf$ ein $\mco_X$-Modul, dann haben wir einen quasikohärenten $\mco_X$-Modul $\mcf(n)\coloneqq \mcf \otimes_{\mco_X}\mco_X(n)$.
+\end{defn}
+
+\begin{prop}
+\label{prop:11.12}
+	Sei $S$ ein graduierter Ring, der von $S_1$ also $S_0$-Algebra erzeugt wird. Sei $X\coloneqq \Proj(S)$. Dann gilt:
+	\begin{enumerate}[i)]
+		\item $\mco_X(n)$ ist eine invertierbare Garbe auf $X$, das heißt lokal frei vom Rang $1$.
+		\item Für graduierte $S$-Moduln $M,N$ gibt es kanonische Isomorphismen
+		\begin{align*}
+			\widetilde{M\otimes_S N} & \cong \widetilde{M}\otimes_{\mco_X} \widetilde{N}\\
+			\widetilde{M}(n) & \cong \widetilde{M(n)}\\
+			\mco_X(m)\otimes_{\mco_X} \mco_X(n) &\cong \mco_X(m+n).
+		\end{align*}
+	\end{enumerate}
+\end{prop}
+
+\begin{defn}
+\label{defn:11.13}
+	Sei $S$ ein graduierter Ring, $X=\Proj(S)$ und $\mcf$ ein $\mco_X$-Modul.
+	\begin{enumerate}[i)]
+		\item Ein $s \in S_d=(S(d))_0$ definiert für jedes $f \in S_+^\text{hom}$ ein Element $\frac{s}{1}$ in $(S(d))_(f) = \Gamma(D_+(f),\mco_X(d))$. Diese Elemente verkleben zu einem Element in $\Gamma(X,\mco_X(d))$, das wir mit $s$ bezeichnen.
+		\item Der \textbf{graduierte $S$-Modul assoziiert zu $\mcf$} ist die graduirte abelsche Gruppe $\Gamma_*(\mcf)\coloneqq \bigoplus_{n\in \Z}\Gamma(X,\mcf(n))$ mit folgender Struktur: Sind $s \in S_d$ und $t \in \Gamma(X,\mcf(n))$, so ist $st \in \Gamma_*(\mcf)$ das Bild von $s \otimes t$ unter
+		\[
+		 	\Gamma(X,\mco_X(d))\otimes_S \Gamma(X,\mcf(n)) \to \Big(\Gamma(X,\mco_X(d)\otimes_{\mco_X}\mcf(n)) = \Gamma(X,\mcf(n+d))\Big).
+		 \] 
+	\end{enumerate}
+	
+\end{defn}
+
 
 %%% Local Variables: 
 %%% mode: latex
