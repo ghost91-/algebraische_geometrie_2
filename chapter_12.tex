@@ -1,0 +1,199 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\chapter{Weildivisoren}
+
+In der Algebraischen Geometrie I haben wir Divisoren auf Kurven eingeführt und wichtige Sätze wie den Satz von Riemann-Roch gesehen. Wir führen nun Weildivisoren als formale Linearkombinationen von irreduziblen Teilmengen der Kodimension $1$ ein.
+
+\begin{eri}
+\label{eri:12.1}
+	Ein Integritätsbereich $A$ heißt \textbf{ganz abgeschlossen}, falls für alle $n \in \N$, $a_0,\ldots,a_{n-1} \in A$ und $\alpha\in \Quot(A)$ mit
+	\[
+		\alpha^n+a_{n-1}\alpha^{n-1}+\ldots+a_0 = 0
+	\]
+	schon $\alpha \in A$ folgt.
+\end{eri}
+
+\begin{defn}
+\label{defn:12.2}
+	Ein Schema $X$ heißt \textbf{normal}, falls $\mco_{X,x}$ für alle $x\in X$ ein ganz abgeschlossener Integritätsbereich ist.
+\end{defn}
+
+\begin{defn}
+\label{defn:12.3}
+	Ein noetherscher lokaler Ring $A$ heißt \textbf{regulär}, wenn für das Maximalideal $\mfm$ und den Restklassenkörper $k = A/\mfm$ schon
+	\[
+		\dim_k(\mfm/\mfm^2) = \dim(A)
+	\]
+	gilt.
+\end{defn}
+
+\begin{bem}
+\label{bem:12.4}
+	Sei $A$ ein noetherscher lokaler Ring. Wenn $A$ regulär ist, dann ist $A$ faktoriell. Daraus folgt leicht, dass $A$ ganz abgeschlossen ist.
+	\begin{proof}
+		\cite[78]{matsumura1970commutative}.
+	\end{proof}
+\end{bem}
+
+\begin{defn}
+\label{defn:12.5}
+	Ein noethersches Schema $X$ heißt \textbf{regulär (beziehungsweise lokal faktoriel)}, wenn $\mco_{X,x}$ für alle $x \in X$ regulär (beziehungsweise faktoriell) ist.
+\end{defn}
+
+\begin{defn}
+\label{defn:12.6}
+	Ein noethersches Schema heißt \textbf{regulär in Kodimension $1$}, wenn jeder lokale Ring $\mco_{X,x}$ der Dimension $1$ regulär ist.
+\end{defn}
+
+\begin{thm}
+\label{thm:12.7}
+	Sei $A$ ein noetherscher lokaler Ring der Dimension $1$ mit Maximalideal $\mfm$. Dann sind folgende Aussagen äquivalent:
+	\begin{enumerate}[i)]
+		\item $A$ ist ein diskreter Bewertungsring.
+		\item $A$ ist ganz abgeschlossener Integritätsbereich.
+		\item $A$ ist regulär.
+		\item $\mfm$ ist ein Hauptideal.
+	\end{enumerate}
+	\begin{proof}
+		\cite[Proposition~9.2, S.~94]{atiyah1994introduction}.
+	\end{proof}
+\end{thm}
+
+\begin{bem}
+\label{bem:12.8}
+	Mit Bemerkung~\ref{bem:12.4} und Theorem~\ref{thm:12.7} folgt sofort für jedes noethersche Schema $X$:
+	\[
+		X \text{ regulär } \xLongrightarrow{\ref{bem:12.4}} X \text{ lokal faktoriell } \xLongrightarrow{\ref{bem:12.4}} X \text{ normal } \xLongrightarrow{\ref{thm:12.7}} x \text{ regulär in Kodimension } 1
+	\]
+\end{bem}
+
+Ab jetzt sei $X$ ein noethersches integrales separiertes Schema, das regulär in Kodimension $1$ ist.
+
+\begin{defn}
+\label{defn:12.9}
+	\begin{itemize}
+		\item Ein \textbf{Primdivisor} $Y$ von $X$ ist ist ein abgeschlossene Unterschema $Y$ von $X$ der Kodimension $1$.
+		\item Ein \textbf{Weildivisor} $D$ von $X$ ist eine formale Linearkombination $D=\sum_{i}m_iY_i$ mit Koeffizienten $m_i\in \Z$ und endlich vielen Primdivisoren $Y_i$. Die Weildivisroen bilden also eine Gruppe
+		\[
+			Z^1(X) \coloneqq \{\text{Weildivisoren auf }X\} = \bigoplus_{Y \text{ Primdivisor von }X}Y.
+		\]
+		\item Ein Weildivisor $D$ von $X$ heißt effektiv, wenn $D = \sum_{i}m_iY_i$ mit $m_i\ge 0$ gilt. Man schreibt dann auch $D \ge 0$.
+	\end{itemize}
+\end{defn}
+
+\begin{bem}
+\label{bem:12.10}
+	Für alle $x \in X$ folgt direkt aus der Definition der Kodimension in Definition~\ref{defn:6.13}
+	\[
+		\label{eq:12.10.1}\tag{$\star$}
+		\dim(\mco_{X,x}) = \codim(\overline{x},X).
+	\]
+	Sei $Y$ ein Primdivisor von $X$. Da $Y$ irreduzibel ist, gibt es genau einen generischen Punkt $\eta$ von $Y$. Mit \eqref{eq:12.10.1} folgt $\dim(\mco_{X,\eta}) = 1$ und mit Theorem~\ref{thm:12.7} folgt, dass $\mco_{X,\eta}$ ein diskreter Bewertungsring ist. Beachte, dass 
+	\[
+		\Quot(\mco_{X,\eta}) = K(X)
+	\]
+	gilt, da $X$ integral ist. Dabei ist $K(X)$ der Funktionenkörper, der durch $\mco_{X,\xi}$ für den generischen Punkt $\xi$ von $X$ definert ist. Es gilt $K(X) = \Quot(B)$ für jedes offene affine Unterschema $\emptyset \ne \Spec(B)$ von $X$.
+
+	\textbf{Fazit:} Wir erhalten eine durch $Y$ eindeutig bestimmte diskrete Bewertung $v_Y\colon K(X) \twoheadrightarrow \Z$. Nach dem Bewertungskriterium und weil $X$ separiert ist, ist $Y$ eindeutig durch die Bewertung $v_Y$ bestimmt.
+\end{bem}
+
+\begin{lem}
+\label{lem:12.11}
+	Ist $f \in K(X)^\times$, so gilt $v_Y(f)\ne 0$ für höchstens endlich viele Primdivisoren $Y$ von $X$.
+	\begin{proof}
+		\cite[Lemma~II.6.1]{hartshorne1977algebraic}.
+	\end{proof}
+\end{lem}
+
+\begin{defn}
+\label{defn:12.12}
+	Der \textbf{Weildivisor zu $f$} ist definiert als
+	\[
+		\cyc(f)\coloneqq \sum_{Y}v_Y(f) Y,
+	\]
+	wobei $Y$ über alle Primdivisoren läuft. Nach Lemma~\ref{lem:12.11} ist $\cyc(f)$ ein Weildivisor. Solche Divisoren nennen wir \textbf{Hauptdivisoren}.
+\end{defn}
+
+\begin{defn}
+\label{defn:12.13}
+	Zwei Weildivisoren $D_1$ und $D_2$ von $X$ heißen \textbf{linear äquivalent}, falls $D_1-D_2$ ein Hauptdivisor ist. Wir erhalten eine Äquivalenzrelation $\sim$ auf der Gruppe der Weildivisoren auf $X$. Wegen $\cyc(fg) = \cyc(f)-\cyc(g)$ bilden die Hauptdivisoren eine Untergruppe von $Z^1(X)$. Die Gruppe
+	\[
+		\CH^1(X) \coloneqq Z^1(X)/\sim \; = Z^1(X)/\{\text{Hauptdivisoren}\}
+	\]
+	heißt erste \textbf{Chowgruppe} oder \textbf{Divisorenklassengruppe}.
+\end{defn}
+
+\begin{prop}
+\label{prop:12.14}
+	Sei $A$ ein noetherscher Integritätsbereich und $X=\Spec(A)$. Dann ist $A$ genau dann faktoriell, wenn $\CH^1(X)=\{0\}$ gilt.
+	\begin{proof}
+		Dies ist ein Resultat aus der kommutativen Algebra, siehe \cite[Chapter~7, §3]{bourbaki1998commutative} oder \cite[Proposition~II.6.2]{hartshorne1977algebraic}. Es verallgemeinert das entsprechende Resultat für Dedekindbereiche aus der algebraischen Zahlentheorie.
+	\end{proof}
+\end{prop}
+
+\begin{bsp}
+\label{bsp:12.15}
+	Sei $K$ ein Körper. Dann ist $\CH^1(\A_K^n) = \{0\}$, denn $\A^1_K=\Spec(A)$ für den faktoriellen Ring $A=K[T_1,\ldots,T_n]$. Dies gilt allgemeiner für einen faktoriellen Ring $K$. Siehe \cite[Appendix~A]{gubler2014vorlesungsskript}.
+\end{bsp}
+
+\begin{defn}
+\label{defn:12.16}
+	Sei $K$ ein Körper und $H$ sei ein Primdivisor von $\P^n_K$, das heißt $H$ ist ein integres abgeschlossene Unterschema von $\P^n_K$ der Kodimension $1$. Nach \cite[Corollary~5.4.2]{goertz2010algebraic} gilt $H=V_+(g)$ für ein irreduzibles homogenes Polynom $g\in K[T_0,\ldots,T_n]$. Wir defineren den \textbf{Grad} von $H$ als
+	\[
+		\deg(H) \coloneqq \deg(g).
+	\]
+	Für einen Weildivisor $D = \sum_{j}m_jH_j$ definieren wir den \textbf{Grad} durch
+	\[
+		\deg(D) = \sum_{j}m_j\deg(H_j).
+	\]
+\end{defn}
+
+\begin{prop}
+\label{prop:12.17}
+	Sei $H \coloneqq V_+(T_0)$ in $\P^n_K$, wobei $T_0,\ldots,T_n$ die homogenen Koordinaten sind.
+	\begin{enumerate}[a)]
+		\item\label{prop:12.17:a} Falls $D$ ein Weildivisor von $\P^n_K$ vom Grad $d$ ist, so gilt $D\sim dH$.
+		\item\label{prop:12.17:b} Für alle $f \in K(\P^n_K)^\times$ gilt $\deg(\cyc(f)) = 0$.
+		\item\label{prop:12.17:c} $\deg$ induziert einen Isomorphismus $\CH^1(\P^n_K)\simto \Z$.
+	\end{enumerate}
+	\begin{proof}
+		Sein $S=K[T_0,\ldots,T_n]$ ist faktoriell nach \cite[Theorem~A.3]{gubler2014vorlesungsskript}. Für $g \in S_d$ gilt $g=g_1^{n_1}\cdot \ldots \cdot g_r^{n_r}$ für irreduzible $g_j\in S_{d_j}$ und $n_j \in \N$. Wir definieren
+		\[
+			\cyc(g)\coloneqq \sum_{j}n_jV_+(g_j).
+		\]
+		Dies ist jedoch \textbf{kein} Hauptdivisor (für $d \ne 0$), da $g$ \textbf{keine} rationale Funtion ist.
+
+		Sei jetzt $f\in K(\P^n_K)^\times$, dann gilt $f=\frac{g}{h}$ mit $g,h\in S_d$. Durch Berechnen der Multiplizitäten in jedem $V_+(g_j)$, beziehungsweise $V_+(h_k)$ und durch Benutzung der Additivität von Bewertungen erhält man sofort
+		\[
+			\cyc(f) = \cyc(g) - \cyc(h).
+		\]
+		Dann folgt
+		\[
+			\deg(\cyc(f)) = \deg(\cyc(g)) - \deg(\cyc(h)) = \sum_j n_j d_j - \sum_k n_k'd_k' = d - d = 0,
+		\]
+		wobei $h = h_1^{n'_1}\cdot,\ldots,h_s^{n'_s}$ mit $h_k \in S_{d'_k}$ und $n'_k \in \N$ gilt. Damit ist \ref{prop:12.17:b} gezeigt.
+
+		Wir zeigen nun \ref{prop:12.17:a}. Sei $D$ ein Weildivisor vom Grad $d$. Dann gilt $D=D_1-D_2$ für effektive Weildivisoren $D_1$ und $D_2$. Weil der Grad additiv ist, genügt es, die Behauptung für $D_1$ und $D_2$ zu zeigen. Sei also ohne Beschränkung der Allgemeinheit $D$ ein effektiver Weildivisor. Es gilt also $D = \sum_{j} m_j H_j$ mit $m_j\ge 0$. Nach Definition~\ref{defn:12.16} gilt $H_j=V_+(g_j)$ für $g_j \in S_{d_j}$ irreduzibel. Es gilt also nach Definition
+		\[
+			D = \sum_{j}m_j \cyc(g_j) = \cyc(g)
+		\]
+		für $g = g_1^{m_1}\cdot \ldots \cdot g_r^{m_r}$. Dann folgt
+		\[
+			D-dH = \cyc(g) - d \cyc(T_0) = \cyc\left(\frac{g}{T_0^d}\right) = \text{ Hauptdivisor}
+		\]
+		und damit \ref{prop:12.17:a}.
+
+		Nun wollen wir noch \ref{prop:12.17:c} zeigen. Wir haben einen Homomorphismus $Z^1(\P^n_K) \to \Z,\; D \mapsto \deg(D)$. Nach \ref{prop:12.17:b} ist die Untergruppe der Hauptdivisoren im Kern dieses Morphismuses und damit erhalten wir einen induzierten Isomorphismus
+		\[
+			\CH^1(\P^n_K)\to \Z,
+		\]
+		denn ist $D \in Z^1(X)$ mit $\deg(D) = 0$, so gilt nach \ref{prop:12.17:a} schon $D \sim 0$, also ist der Morphismus injektiv, und es gilt $\deg(H) = \deg(T_0)=1$, also ist er auch surjektiv.
+	\end{proof}
+\end{prop}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 

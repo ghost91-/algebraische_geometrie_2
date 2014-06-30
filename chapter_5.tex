@@ -3,7 +3,7 @@
 
 \chapter{Schemata}
 
-Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern die (quasiprojektiven) Varietäten aus der algebraischen Geometrie I.
+Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern die (quasiprojektiven) Varietäten aus der Algebraischen Geometrie I.
 
 \nextmark{Schema, Morphismus von Schemata}
 \begin{defn}
@@ -57,7 +57,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\begin{proof}
 		\begin{enumerate}[i)]
 			\item Seien $x\neq y \in X$. Nach Definition~\ref{defn:5.1} gibt es eine affine offene Umgebung $U \cong \Spec(A)$ von $x$. Falls $y \notin U$, dann sind wir fertig, sei also ohne Beschränkung der Allgemeinheit $y \in U$. Die Punkte $x,y$ sind durch Primideale $\mfp,\mfq$ von $A$ gegeben. Es gilt $\mfp \neq \mfq$, sei also ohne Beschränkung der Allgemeinheit $\mfp \not\subseteq \mfq$. Dann gibt es ein $f \in \mfp \setminus \mfq$, und somit ist $D(f)$ offen in $X$ mit $x \notin D(f)$, aber $y\in D(f)$.
-			\item Wir zeigen zunächst die Existenz: Sei $V\subseteq X$ irreduzibel und abgeschlossen. Nach Definition~\ref{defn:5.1} gibt es ein offenes affines Unterschema $U \cong \Spec(A)$ mit $U \cap V \neq \emptyset$. Da $V$ abgeschlossen in $X$ ist, ist $U \cap V$ abgeschlossen in $U$ und weil $U$ offen in $X$ ist, ist $U \cap V$ offen in $V$. In Aufgabe~1.5 zur algebraischen Geometrie I haben wir gesehen, dass jede nicht leere, offene Teilmenge eines irreduziblen topologischen Raumes irreduzibel und dicht ist, also ist $U \cap V$ irreduzibel und dicht in $V$. Sei $\mfp \coloneqq I(U \cap V) \in \Spec(A)$. Nach Proposition~\ref{prop:4.7} iii) ist $\mfp$ ein generischer Punkt von $\Spec(A)$. Dieser entspricht einem Punkt $\eta$ in $U \subseteq X$. Es gilt $\overline{\eta}=U\cap V$ und damit ist $\eta$ dicht in $V$, also ein generischer Punkt von $V$.
+			\item Wir zeigen zunächst die Existenz: Sei $V\subseteq X$ irreduzibel und abgeschlossen. Nach Definition~\ref{defn:5.1} gibt es ein offenes affines Unterschema $U \cong \Spec(A)$ mit $U \cap V \neq \emptyset$. Da $V$ abgeschlossen in $X$ ist, ist $U \cap V$ abgeschlossen in $U$ und weil $U$ offen in $X$ ist, ist $U \cap V$ offen in $V$. In Aufgabe~1.5 zur Algebraischen Geometrie I haben wir gesehen, dass jede nicht leere, offene Teilmenge eines irreduziblen topologischen Raumes irreduzibel und dicht ist, also ist $U \cap V$ irreduzibel und dicht in $V$. Sei $\mfp \coloneqq I(U \cap V) \in \Spec(A)$. Nach Proposition~\ref{prop:4.7} iii) ist $\mfp$ ein generischer Punkt von $\Spec(A)$. Dieser entspricht einem Punkt $\eta$ in $U \subseteq X$. Es gilt $\overline{\eta}=U\cap V$ und damit ist $\eta$ dicht in $V$, also ein generischer Punkt von $V$.
 
 			Nun zeigen wir die Eindeutigkeit: Seien $\eta_1,\eta_2$ generische Punkte von $V$. Wir nehmen an, dass $\eta_1 \neq \eta_1$. Dann gibt es ohne Beschränkung der Allgemeinheit ein offenes $U$ mit $\eta_1 \in U$ und $\eta_2 \neq U$. Dann gilt $\eta_2 \in V\setminus U \neq V$ und damit folgt $\overline{\eta_2} \subseteq V\setminus U \neq V$ im Widerspruch dazu, dass $\eta_2$ ein generischer Punkt von $V$ ist.
 		\end{enumerate}
@@ -281,7 +281,7 @@ Schemata sind die Hauptobjekte der algebraischen Geometrie. Sie verallgemeinern 
 	\end{proof}
 \end{bsp}
 
-Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vgl. auch Algebraische Geometrie I, projektive Varietäten).
+Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affinen Schemata vor, aber \enquote{homogenisieren alles} (vergleiche auch \cite[11~Projektive Varietäten]{gubler2014vorlesungsskript}).
 
 \nextmark{Proj(S), projektives \glqq Nullstellengebilde\grqq}
 \begin{defn}
@@ -370,7 +370,7 @@ Wir konstruieren jetzt projektive Schemata. Dabei gehen wir analog wie bei affin
 		A[T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n] & \simto S_{(T_i)}\\
 		f(T_0,\ldots,T_{i-1},\widehat{T_i},T_{i+1},\ldots,T_n) & \longmapsto f\left(\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right),
 	\end{align*}
-	wobei mit $\widehat{T_i}$ gemeint ist, dass wir $T_i$ weglassen. Damit folgt $D_+(T_i) \cong \A^n_A$ und wir erhalten aus Proposition~\ref{prop:5.17}, dass $\P^n_A = \bigcup_{i=0}^n D_+(T_i)$ eine offene Überdeckung durch affine Räume ist (vergleiche Standardüberdeckung von $\P^n_k$ in der algebraischen Geometrie I).
+	wobei mit $\widehat{T_i}$ gemeint ist, dass wir $T_i$ weglassen. Damit folgt $D_+(T_i) \cong \A^n_A$ und wir erhalten aus Proposition~\ref{prop:5.17}, dass $\P^n_A = \bigcup_{i=0}^n D_+(T_i)$ eine offene Überdeckung durch affine Räume ist (vergleiche Standardüberdeckung von $\P^n_k$ in der Algebraischen Geometrie I).
 \end{bsp}
 
 %%% Local Variables: 
