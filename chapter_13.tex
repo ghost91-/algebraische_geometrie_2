@@ -1,0 +1,207 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\chapter{Kähler-Differentiale}
+
+\begin{defn}
+\label{defn:13.1}
+	Sei $A$ ein Ring, $B$ eine $A$-Algebra und $M$ ein $B$-Modul.
+	\begin{enumerate}[i)]
+		\item Eine \textbf{$A$-Derivation von $B$ nach $M$} ist eine $A$-lineare Abbildung
+		\[
+			d\colon B \to M
+		\]
+		mit
+		\[
+			d(fg) = fd(g)+d(f)g \quad \forall\, f,g \in B.
+		\]
+		\item Die Menge der $A$-Derivationen von $B$ nach $M$ bildet einen $A$-Untermodul von $\Hom_A(B,M)$, den wir mit $\Der_A(B,M)$ bezeichnen.
+		\item Der \textbf{Modul der (relativen) (Kähler-) Differentiale von $B$ über $A$} ist ein $B$-Modul $\Omega_{B/A}^1$ zusammen mit einer $A$-Derivation
+		\[
+			d_{B/A}\colon B \to \Omega_{B/A}^1,
+		\]
+		die in folgendem SInne universell ist: Ist $d \colon B \to M$ eine $A$-Derivation in einen $B$-Modul $M$, so gibt es genau einen $B$-Modulhomomorphismus
+		\[
+			\varphi\colon \Omega_{B/A}^1\to M
+		\]
+		mit der Eigenschaft, dass folgendes Diagramm kommutativ ist:
+		\begin{center}
+			\begin{tikzcd}
+				B\arrow{rr}{d_{B/A}}\arrow{dr}{d} & &\Omega_{B/A}^1\arrow[dashed]{dl}{\exists!\, \varphi}\\
+				& M
+			\end{tikzcd}
+		\end{center}
+		Die Abbildung $d_{B/A}$ heißt \textbf{äußeres DIfferential von $B$ über $A$}.
+	\end{enumerate}
+\end{defn}
+
+\begin{bem}
+\label{bem:13.2}
+	Sei $d \in \Der_A(B,M)$. Dann gilt:
+	\begin{align*}
+		&d(1) = d(1\cdot 1) = 1 \cdot d(1)+d(1) \cdot 1\\
+		\Longrightarrow\quad & d(1) = 0\\
+		\Longrightarrow\quad & d(a) = a \cdot d(1) = 0 \quad \forall\, a \in A
+	\end{align*}
+	
+\end{bem}
+
+\begin{lem}
+\label{lem:13.3}
+	Sei $B$ eine $A$-Algebra. Der Modul $(\Omega^1_{B/A},d_{B/A})$ existiert und ist bis auf eindeutige Isomorphie eindeutig.
+	\begin{proof}
+		\begin{description}
+			\item[Eindeutigkeit] Standardagument.
+			\item[Existenz] $B \otimes_A B$ ist eine $B$-Algebra vermöge Linksmultiplikation:
+			\[
+				f(g\otimes h) \coloneqq (f\otimes 1)(g \otimes h) = (fg)\otimes h \quad \forall\, f,g,h\in B
+			\]
+			Betrachte den Epimorphismus $m\colon B\otimes_B\to B,\; f\otimes g \mapsto fg$ von $B$-Algebren und setze $I \coloneqq \ker(m)$. Dann ist
+			\[
+				\Omega_{B/A}^1 \coloneqq I/I^2
+			\]
+			ein Modul über dem Ring $(B\otimes_A B)_I \underset{\cong}{m}$. Wir definieren
+			\[
+				d_{B/A}\colon B \to \Omega_{B/A}^1,\; f \mapsto 1 \otimes f - f \otimes 1 + I^2.
+			\]
+			Es ist leicht zu zeigen, dass $d_{B/A}$ eine $A$-Derivation ist. Sei nun $d\colon B \to M$ eine beliebige $A$-Derivation. Dann definieren
+			\[
+				\varphi'\colon I \to M,\; \sum_{i}f_i\otimes g_i \mapsto \sum_{i}f_id(g_i).
+			\]
+			Dann ist $\varphi'$ $B$-linear und $I^2\subseteq \ker(\varphi')$, also erhalten wir eine $B$-lineare Abbildung
+			\[
+				\varphi\colon \Omega_{B/A}^1\to M
+			\]
+			mit
+			\[
+				\varphi\circ d_{B/A}(f) = \varphi(1\otimes f- f\otimes 1) = d(f) - f\cdot d(1) = d(f).
+			\]
+			Es bleibt zu zeigen, dass $\varphi$ eindeutig ist. Für $h = \sum_{i}f_i\otimes g_i$ gilt:
+			\begin{alignat*}{2}
+				h &\equiv \sum_i f_i \otimes g_i - \underbrace{f_ig_i \otimes 1}_{\in I^2}& \mod I^1\\
+				&\equiv \sum_i f_i d_{B/A}(g_i) & \mod I^2
+			\end{alignat*}
+			Also wird $I/I^2$ als $B$-Modul von Elementen der Form $d_{B/A}(g)$ erzeugt. Mit $\varphi \circ d_{B/A}=d$ folgt die Behauptng.
+		\end{description}
+	\end{proof}
+\end{lem}
+
+\begin{lem}
+\label{lem:13.4}
+	Sei $B$ eine $A$-Algebra und $\Omega_{B/A}^1 = (\Omega_{B/A}^1, d)$ der Modul der Differentiale. Dann gilt:
+	\begin{enumerate}[i)]
+		\item\label{lem:13.4:i} Falls $B$ von $E\subseteq B$ also $A$-Algebra erzeugt wird, dann lässt sich jedes $\alpha \in \Omega_{B/A}^1$ als
+		\[
+			\alpha = sum_{i=1}^k b_i d(e_i)
+		\]
+		für geeignete $k \in \N$, $b_i\in B$ und $e_i \in E$ schreiben.
+		\item\label{lem:13.4:ii} Ist $B=A[T_1,\ldots,T_n$, so ist $\Omega_{B/A}^1 = BdT_1+\ldots+BdT_n$ ein freier $B$-Modul mit Basis $dT_1,\ldots,dT_n$.
+		\item\label{lem:13.4:iii} Sei $A'$ eine $A$-Algebra und $B' = B \otimes_A A'$, dann existiert ein kanonischer Isomorphismus von $B'$-Moduln
+		\[
+			\Omega_{B/A}^1\otimes_B B' \simto \Omega_{B'/A'}^1.
+		\]
+		\item\label{lem:13.4:iv} Ist $A \to B$ surjektiv, so gilt $\Omega_{B/A}^1 = 0$.
+	\end{enumerate}
+	Sei $S \subseteq B$ multiplikativ abgeschlossen.
+	\begin{enumerate}[i)]
+	\setcounter{enumi}{4}
+		\item\label{lem:13.4:v} Eine $A$-Derivation $d\colon B \to M$ ein einen $B$-Moduk $M$ besitzt eine eindeutige Fortsetzung zu einer $A$-Derivation
+		\[
+			d_S\colon S^{-1}B \to S^{-1}M
+		\]
+		gegeben durch
+		\[
+			d_S \left(\frac{b}{s}\right) = \left(\frac{sd(b)-bd(s)}{s^2}\right).
+		\]
+	\end{enumerate}
+	\begin{proof}
+		\cite[{}II.8]{hartshorne1977algebraic}
+	\end{proof}
+\end{lem}
+
+\begin{lem}[Lemma über die relative Kotangentialfolge]
+\label{lem:13.5}
+	Ist $\varphi\colon B \to C$ ein Homomorphismus von $A$-Algebren, so existiert eine exakte Sequenz von $C-Moduln$
+	\[
+		\Omega_{B/A}^1\otimes C \overset{f}{\longto} \Omega_{C/A}^1 \overset{g}{\longto}\Omega_{B/C}^1\longto 0
+	\]
+	mit
+	\[
+		f(b_1d_{B/A}(b_2)\otimes c) = b_1 c d_{C/A}(b_2)
+	\]
+	für alle $b_1,b_2\in B$ und $c \in C$ und 
+	\[
+		g(c_1d_{C/A}(c_2)) = c_1d_{C/B}(c_2)
+	\]
+	für alle $c_1,c_2 \in C$.
+\end{lem}
+
+\begin{bem}
+\label{bem:13.6}
+	Sei $f \colon X \to S$ ein Morphismus von Schemata und  $\Delta = \Delta_{X/S}\colon X \to X \times_S X$ der Diagonalmorphismus.
+	\begin{enumerate}[i)]
+		\item\label{bem:13.6:i} Seien $X=\bigcup_{i \in I}U_i$ und $S=\bigcup_{j \in J}V_j$ offene affine Überdeckungen mit der Eigenschaft, dass für jedes $i \in I$ ein $j(i) \in J$ mit
+		$f(U_i)\subseteq V_{j(i)}$ existiert. Dann bilden die affinen Schemata $W_i \coloneqq U_i \times_{V_{j(i)}} U_i$ eine offene Überdeckung von $\Delta(X)$. Nach Proposition~\ref{prop:10.3} ist $\Delta(X) \cap W_i = \Delta_{U_i/V_{j(i)}}(U_i)$ abgeschlossen in $W_i$, also auch in der offenen Menge $W\coloneqq \bigcup_{i\in I} W_i$. Wir erhalten
+		\begin{center}
+			\begin{tikzcd}
+				X \arrow{rr}{\Delta} \arrow{dr}{\Delta}[swap]{\text{abgeschlossene Immersion}}&& X \times_S X\\
+				& W\arrow{ur}[swap]{\text{offene Immersion}}
+			\end{tikzcd}
+		\end{center}
+		\item\label{bem:13.6:ii} Ist $X\to S$ separiert, so ist $\Delta(X)$ in $X \times_S X$ abgeschlossen und wir können in \ref{bem:13.6:i} $W=X\times_S X$ wählen.
+	\end{enumerate}
+\end{bem}
+
+\begin{defn}
+\label{defn:13.7}
+	Sei $X$ ein $S$-Schema und $\Delta\colon X \to W \subseteq X\times_S X$ der Diagonlamorphismus, wobei $W$ wie in Bemerkung~\ref{bem:13.6} gewählt sei. Weiter sei $J$ die quasikohärente Idealgarbe $\mco_W$, die $\Delta(X)$ als abgeschlossenes Unterschema von $W$ beschreibt. Dann heißt der $\mco_X$-Modul
+	\[
+		\Omega_{X/S}^1\coloneqq \Delta^*(J/J^2)
+	\]
+	die \textbf{Garbe der (relativen) Differentiale} für $X$ über $S$. 
+\end{defn}
+
+\begin{bem}
+\label{bem:13.8}
+	Mit der Notation aus Definition~\ref{defn:13.7} gilt:
+	\begin{enumerate}[i)]
+		\item\label{bem:13.8:i} $\Omega_{X/S}^1$ ist unabhängig von der Wahl von $W$.
+		\item\label{bem:13.8:ii} Mit $J$ sind auch $J^2, J/J^2$ und $\Omega_{X/S}^1$ quasikohärente $\mco_X$-Moduln. Ist $S$ noethersch und $X \to S$ von endlichem Typ, so ist $X\times_SX$ noethersch und $J$ und $\Omega_{X/S}^1$ sind kohärent. %(Quasi-)Kohärenz
+		\item\label{bem:13.8:iii} Die kanonische $\mco_S$-lineare Abbildung $d_{X/S}\colon \mco_X\to \Omega_{X/S}^1$, die einen Schnitt $f$ von $\mco_X$ auf $p_2^*f - p_1^*f$ abbildet, heißt \textbf{äußeres Differential}.
+		\item\label{bem:13.8:iv} Zu $f\colon X \to S$ seien affine offene Mengen $U = \Spec(B) \subseteq X$ und $V = \Spec(A) \subseteq S$ mit $f(U) \subseteq V$ gewählt. Da die Diagonale $\Delta_{U/V}\colon U \to U \times_V U$ durch die Multiplikationsabbildung $B\otimes_A B \to B$ definiert ist, folgt aus dem Beweis von Lemma~\ref{lem:13.3}:
+		\[
+			\Omega_{X/S}^1\vert_{U} = \widetilde{\Omega_{B/A}^1}, \quad d_{X/S}\vert_U = \widetilde{d_{B/A}}
+		\]
+		Damit übertragen sich die Eigenschaften von $\Omega_{B/A}^1$ auf $\Omega_{X/S}^1$:%Affine lokale Beschreibung
+		\item\label{bem:13.8:v} Sei $S'$ ein $S$-Schema und $X' = X \times_S S'$ der Basiswechsel mit zugehöriger Prjektion $p_1\colon X' \to X$, so liefert der Isomorphismus in Lemma~\ref{lem:13.4}~\ref{lem:13.4:iii} mit \ref{bem:13.8:iv} einen Isomorphismus
+		\[
+			p_1^*\Omega_{X/S}^1 \simto \Omega_{X'/S'}^1
+		\]%Basiswechsel
+		\item\label{bem:13.8:vi} Sei $f \colon X \to Y$ ein $S$-Morphismus. Dann liefert Lemma~\ref{lem:13.5} mit \ref{bem:13.8:iv} eine exakte Sequenz von $\mco_X$-Moduln
+		\[
+			f^*\Omega_{Y/S}^1 \to \Omega_{X/S}^1 \to \Omega_{X/Y}^1\to 0.
+		\]%relative Kotangentialsequenz
+		\item\label{bem:13.8:vii} Seien $X_1, X_2$ $S$-Schemata und seien $p_i\colon X_1\times_S X_2 \to X_i$ die Prijektionen. Dann gibt es einen kanonischen Isomorphismus
+		\[
+			p_1^*\Omega_{X_1/S}^1 \oplus p_2^*\Omega_{X_2/S}^1 \simto \Omega_{X_1 \times_S X_2 / S}^1.
+		\]
+	\end{enumerate}
+\end{bem}
+
+\begin{bsp}
+\label{bsp:13.9}
+	Sei $A$ ein Ring und $X=\Spec(A[T_1,\ldots,T_n])$. Dann ist $\Omega_{X/\Spec(A)}^1$ ein freier $\mco_X$-Modul, dessen Basis durch die globalen Schnitte $dT_1,\ldots,dT_n$ gegeben ist. (siehe Lemma~\ref{lem:13.4}~\ref{lem:13.4:ii} und Bemerkung~\ref{bem:13.8}~\ref{bem:13.8:iv}).
+\end{bsp}
+
+\begin{thm}
+\label{thm:13.10}
+	Sei $X$ eine irreduzible Varietät über dem algebraisch abgeschlossenen Körper $k$ (siehe 11.23). Dann ist $\Omega_{X/k}^1$ genau dann lokal frei vom Rang $\dim(X)$, wenn $X$ regulär ist.
+	\begin{proof}
+		\cite[Theorem~II.8.15]{hartshorne1977algebraic}.
+	\end{proof}
+\end{thm}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 
