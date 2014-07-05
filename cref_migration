@@ -22,4 +22,4 @@ oder wie auch immer die bezeichner bei den Labels sind.
 
 Dann folgende sed-Sequenz auf alle relevanten Dateien loslasen:
 
-sed -e 's!label{\([a-z_][a-z_]*\):!label\[\1\]{\1!g'
+sed -e 's!label{\([a-z_][a-z_]*\):!label\[\1\]{\1.!g'
