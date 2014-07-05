@@ -1,0 +1,25 @@
+Für "Auto"-Referenzen mit Cref und amsthm:
+
+NACH amsthm und hyperref \usepackage{cleveref}
+
+zumindest bei mir funktioniert cleveref <=> ams nicht,
+(er sagt immer "Theorem")
+deswegen in Header:
+
+\crefname{thm}{Theorem}{theoreme}
+\crefname{satz}{Satz}{Sätze}
+\crefname{prop}{Proposition}{Propositionen}
+\crefname{lem}{Lemma}{Lemmata}
+\crefname{cor}{Korollar}{Korollare}
+\crefname{defn}{Definition}{Definitionen}
+\crefname{bem}{Bemerkung}{Bemerkungen}
+\crefname{bsp}{Beispiel}{Beispiele}
+\crefname{instruct}{Anleitung}{Anleitungen}
+\crefname{rememb}{Erinnerung}{Erinnerungen}
+\crefname{empt}{}{}
+
+oder wie auch immer die bezeichner bei den Labels sind.
+
+Dann folgende sed-Sequenz auf alle relevanten Dateien loslasen:
+
+sed -e 's!label{\([a-z_][a-z_]*\):!label\[\1\]{\1!g'
