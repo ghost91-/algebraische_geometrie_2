@@ -1,0 +1,214 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\chapter{Cartier-Divisoren}
+
+Cartier-Divisoren sind lokal durch eine Gleichung gegeben. Dabei steht die FUnktion im Vordergrund und nicht die Nullstellen. Geht man zu den Nullstellen und Polstellen über, so erhält man einen Weildivisor. 
+
+\begin{defn}
+\label{defn:14.1}
+	Eine \textbf{invertierbare Garbe} $\mcf$ auf einem geringten Raum $(X,\mco_X)$ ist ein lokal freier $\mco_X$-Modul vom Rang $1$, das heißt für alle $x \in X$ gibt es eine offene Umgebung $U$ von $x$ mit $\mcf\vert_U \cong \mco_{U}$.
+\end{defn}
+
+
+\begin{prop}
+\label{prop:14.2}
+	Sein $\mce$ ein lokal freier $\mco_X$-Modul von endlichem Rang ind sei $\mce^V \coloneqq \underline{\Hom}_{\mco_X}(\mce,\mco_X)$ der \textbf{duale $\mco_X$-Modul}. Dann gilt
+	\begin{enumerate}[a)]
+		\item Es gilt $\mce \cong (\mce^v)^v$.
+		\item Für alle $\mco_X$-Moduln gibt es einen kanonischen Isomorphismus $\underline{\Hom}_{\mco_X}(\mce,\mcf) \simto \mce^v\otimes_{\mco_X} \mcf$.
+	\end{enumerate}
+\end{prop}
+
+\begin{kor}
+\label{kor:14.3}
+	Seien $\mcl, \mcm$ invertierbare Garben. Dann dann sind
+	\[
+		\mcl \otimes \mcm \coloneqq \mcl \otimes_{\mco_X} \mcm
+	\]
+	und
+	\[
+		\mcl^{-1} \coloneqq \mcl^v.
+	\]
+	wieder invertierbare Garben.
+	\begin{proof}
+		Dies folgt sofort aus Proposition~\ref{prop:14.2}.
+	\end{proof}
+\end{kor}
+
+\begin{defn}
+\label{defn:14.4}
+	Nach Korollar~\ref{kor:14.3} bilden die Isomorphisklassen invertierbarer Garben auf $X$ eine abelsche Gruppe bezüglich $\otimes$. Sie heit die \textbf{Picard-Gruppe} von $X$ und wird mit $\Pic(X)$ bezeichnet.
+\end{defn}
+
+\begin{bem}
+\label{bem:14.5}
+	Sei $X$ ein geringter Raum und $U$ offen in $X$. Die Menge
+	\[
+		S(U) \coloneqq \{ f \in \Gamma(U,\mco_X)\mid \text{ für alle }p \in U\text{ ist }f_p \text{ kein Nullteiler in }\mco_{X,p}\}
+	\]
+	ist multiplikativ abgeschlossen.
+\end{bem}
+
+\begin{defn}
+\label{defn:14.6}
+	Sie zur Prägarbe $U \mapsto S(U)^{-1}\Gamma(U,\mco_X)$ assoziierte Garbe $\mcm_X$ heißt die \textbf{Garbe der meromorphen Funktionen} auf $X$.
+\end{defn}
+
+\begin{warn*}
+	Die Definitionen in \cite[{}II.6]{hartshorne1977algebraic} und \cite[§21]{grothendieck1967elements} sind falsch. Siehe [Kleinman: Misconceptions about KX].
+\end{warn*}
+
+\begin{bem}
+\label{bem:14.7}
+	\begin{enumerate}[i)]
+		\item Der kanonische Homomorphismus $\mco_X \to \mcm_X$ ist injektiv.
+		\begin{proof}
+			Betrachte die Halme, dann ist $\mco_{X,p}\to \mcm_{X,p}$ injektiv, weil wir nicht in nullteiler lokalisieren.
+		\end{proof}
+		\item Seien $\mco_X^\times$ und $\mcm_X^\times$ die Garben der Einheiten in den entsprechenden Garben, dann erhalten wir einen injektiven Homomorphismus $\mco_X^\times \to \mcm_X^\times$.
+	\end{enumerate}
+\end{bem}
+
+\begin{bem}
+\label{bem:14.8}
+	\begin{enumerate}[i)]
+		\item\label{bem:14.8:i} Sei $X$ ein Schema und $U=\Spec(A)$ ein offenes affines Unterschema. Dann gilt
+		\[
+			S(U) = \{f \in A \mid f \text{ ist kein Nullteiler in }A\}.
+		\]
+		\item\label{bem:14.8:ii} Ist $X$ ein integres Schema, $\eta$ der generische Punkt von $X$ und $K(X) \coloneqq \kappa(\eta)$ der Funktionenköroer, so ist $\mcm_X$ die konstante Garbe, die zu $K(X)$ assoziiert ist, das heißt für alle nicht leeren offenen $U$ in $X$ gilt $\mcm_X(U) = K(X)$ und die Restriktionen sind durch die Identität gegeben.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Sei $f\in \Gamma(U,\mco_X) = A$. Falls $f\in S(U)$ mit $fg = 0)$ für ein $g\in \Gamma(U,\mco_X) = A$, dann gilt für alle $p \in X$ schon $f_p g_p = 0 \in \mco_{X,p}$. Also ist $g_p = 0 \in \mco_{X,p}$ für alle $p \in X$ und es folgt $g = 0\in \Gamma(U,\mco_X) = A$. Sei umgekehrt $f$ kein Nullteiler in $A$. Dann ist $f_p$ für alle $p \in X$ kein Nullteiler in $\mco_{X,p} = A_p$.
+			\item Dies folgt mit \cite[{}3.29]{goertz2010algebraic}.
+		\end{enumerate}
+	\end{proof}
+\end{bem}
+
+\begin{defn}
+\label{defn:14.9}
+	\begin{enumerate}[i)]
+		\item ein \textbf{Cartier-Divisor} auf $X$ ist ein Element der abelschen Gruppe
+		\[
+			\CaDiv(X) \coloneqq \Gamma(X,\mcm_X^\times/\mco_X^\times).
+		\]
+		Wir schreiben Cartier-Divisoren additiv, obwohl $\mcm_X^\times/\mco_X^\times$ multiplikativ geschrieben wird.
+		\item Ein Cartier-Divisor heißt \textbf{Haupt-Cartier-Divisor (Hauptdivisor)}, falls er im Bild der kanonischen Abbildung
+		\[\label{eq:14.9.1}\tag{$\star$}
+			\div\colon \Gamma(X,\mcm_X^\times) \to \Gamma(X,\mcm_X^\times/\mco_X^\times)
+		\]
+		liegt. Zwei Cartier-Divisoren $D_1$ und $D_2$ heißen \textbf{linear äquivalent}, wenn $D_1 - D_2$ ein Hauptdivisor ist. Wir schreiben $D_1 \sim D_2$.
+		\item Der Kokern von \eqref{eq:14.9.1} heißt \textbf{Cartier-Divisorenklassengruppe} und wird mit $\CaCl(X)$ bezeichnet, das heißt $\CaCl(X) = \CaDiv(X)/\{\text{Hauptdivisoren}\}$.
+	\end{enumerate}
+\end{defn}
+
+\begin{bem}
+\label{bem:14.10}
+	\begin{enumerate}[i)]
+		\item\label{bem14.10:i} Seien $U$ und $V$ offen in $X$, $f \in \Gamma(U,\mcm_X^\times$ und $g \in \Gamma(V, \mcm_X^\times)$. Dann ergibt $f \cdot g$ Sinn auf $U \cap V$, das heißt $f \cdot g\coloneqq f\vert_{U\cap V} \cdot g \vert_{U \cap V} \in \Gamma(U\cap V, \mcm_X^\times)$.
+		\item\label{bem14.10:ii} Cartier-Divisoren sind Elemente in $\Gamma(X,\mcm_X^\times/\mco_X^\times)$ und werden damit surch \textbf{zulässige Familien} $(U_i,f_i)_{i\in I}$ repräsentiert, wobei Folgendes gilt:
+		\begin{itemize}
+			\item $(U_i)_{i\in I}$ ist eine offene Überdeckung von $X$.
+			\item Es gilt $f_i \in (U_i \mco_X^\times)$.
+			\item Für alle $i,j \in I$ gilt $\frac{f_i}{f_j}\in \Gamma(U_i\cap U_j,\mco_X^\times)$, das heißt es gibt ein $g_{ij} \in \mco_X^\times(U_i \cap U_j)$ mit $f_i = g_{ij} f_j$.
+		\end{itemize}
+		\item\label{bem14.10:iii} Zwei zulässige Familien $(U_i,f_i)_{i \in I}$ und $(U_j',f_j')_{j\in J}$ definieren genau dann denselben Cartier-Divisor, wenn $f_i(f_j')^{-1} \in \Gamma(U_i\cap U_j',\mco_X^\times)$ für alle $i\in I$ und $j \in J$ gilt.
+		\item\label{bem14.10:iv} Nach \ref{bem14.10:ii} können zwei Cartier-Divisoren nach geeigneter Verfeinerung der Überdeckungen stets durch zulässige Funktionen \textbf{derselben} Überdeckung beschrieben werden.
+		\item\label{bem14.10:v} Für Cartier-Divisoren $D = [(U_i,f_i)_{i\in I}]$, $E = [(U_i,g_i)_{i \in I}]$ und $f \in \mcm_X^\times(X)$ gilt:
+		\begin{align*}
+			D+E &= [(U_i,f_ig_i)_{i \in I}]\\
+			-D &= [(U_i,f_i^{-1})_{i \in I}]\\
+			\div(f) &= [(X,f)]\\
+			0 &= \div(1) = [(X,1)]
+		\end{align*}
+	\end{enumerate}
+\end{bem}
+
+\begin{defn}
+\label{defn:14.11}
+	Ein Cartier-Divisor $D$ heißt \textbf{effektiv}, wenn $D = [(U_i,f_i)_{i \in I}]$ mit $f_i \in \Gamma(U_i,\mco_X)\cap \Gamma(U_i,\mcm_X^\times)$. Wir schreiben $D \ge 0$ und erhalten eine partielle Ordnung auf $\CaDiv(X)$.
+\end{defn}
+
+\begin{kons}
+\label{kons:14.12}
+	\begin{enumerate}[i)]
+		\item Sei $D \in \CaDiv(X)$ repräsentiert durch die zulässige Familie $(U_i,f_i)_{i \in I}$. Nach Konstruktion ist $\mcm_X$ ein torsionsfreier $\mco_X$-Modul. Wir konstruieren nun einen invertierbaren $\mco_X$-Untermodul $\mco_X(D)$ von $\mcm_X$. Für $i \in I$ sei $\mcl_i\coloneqq f_i^{-1}\mco_{U_i}$ der von $f_i^{-1}$ erzeugte $\mco_{U_i}$-Untermodul von $\mcm_X\vert_{U_i} = M_{U_i}$. Für $i,j \in I$ gilt
+		\[
+			\mcl_i\vert_{U_i\cap U_j} = \mcl_j\vert_{U_i\cap U_j} \subseteq \mcm_X\vert_{U_i \cap U_j},
+		\]
+		also gibt es genau einen $\mco_X$-Untermodul $\mco_X(D)$ von $\mcm_X$ mit $\mco_X(D)\vert_{U_i} = \mcl_i$ für alle $i \in I$.
+		\item Man prüft leicht, dass $\mco_X(D)$ unabhängig von der Wahl der zulässigen Familie $(U_i,f_i)_{i\in I}$ ist.
+		\item Nach Konstruktion ist $\mcl_i=\mco_X(D)\vert_{U_i}$ ein lokal freier $\mco_{U_i}$-Modul vom Rang $1$. Also ist $\mco_X(D)$ ein invertierbarer $\mco_X$-Untermodul von $\mcm_X$. Wir nennen $\mco_X(D)$ die \textbf{dem Cartier-Divisor $D$ zugeordnete invertierbare Garbe}.
+	\end{enumerate}
+\end{kons}
+
+\begin{prop}
+\label{prop:14.13}
+	\begin{enumerate}[i)]
+		\item Die Abbildung
+		\[
+			\CaDiv(X) \to \{\text{ivertierbare }\mco_X-\text{Untermoduln von }\mcm_X\},\; D \mapsto \mco_X(D)
+		\]
+		ist ein bijektiver Gruppenhomomorphismus.
+		\item Die Abbildung
+		\[
+			\CaDiv(X)\to \Pic(X),\; D \mapsto [\mco_X(D)]
+		\]
+		ist ein Gruppenhomomorphismus und induziert einen injektiven Gruppenhomomorphismus
+		\[\label{eq:14.13.1}\tag{$\triangle$}
+			\CaCl(X) \hookrightarrow \Pic(X),\; [D] \mapsto [\mco_X(D)].
+		\]
+		\item Falls $X$ integer ist, dann ist \eqref{eq:14.13.1} ein Isomorphismus.
+	\end{enumerate}
+	\begin{proof}
+		\cite[Propositionen~II.6.13-II.6.15]{hartshorne1977algebraic}.
+	\end{proof}
+\end{prop}
+
+\begin{bem}
+\label{bem:14.14}
+	Sei jetzt $X$ ein integres noethersches separiertes Schema, das regulär in Kodimension $1$ ist. Sei $D$ ein Cartier-Divisor auf $X$, gegeben durch die zulässige Familie $(U_i,f_i)_{i \in I}$. Weil $X$ integer ist gilt nach Bemerkung~\ref{bem:14.8}~\ref{bem:14.8:ii}
+	\[\label{eq:14.14.1}\tag{$\square$}
+		f_i \in K(X)^\times \text{ und } f_i/f_j \in \mco_{U_i\cap U_j}^\times.
+	\]
+	Wir definieren den \textbf{assoziierten Weildivisor} $\cyc(D)$ druch Verkleben der Hauptdivisoren $\div(f\vert_{U_i})$ auf $U_i$. Dies ist wohldefiniert wegen \eqref{eq:14.14.1}. Damit erhalten wir einen Gruppenhomomorphismus
+	\[
+		\cyc\colon \CaDiv(X) \to \{\text{Wildivisoren}\},\; D \mapsto \cyc(D).
+	\]
+\end{bem}
+
+\begin{thm}
+\label{thm:14.15}
+	Falls $X$ ein integres \textbf{normales} noethersches separiertes Schema ist, dann ist dieser Gruppenhomomrphismus $\cyc$ injektiv. Er ist genau dann ein Isomorphismus, wenn $X$ loakl faktoriell ist.
+	\begin{proof}
+		\cite[Théorème~21.6.9]{grothendieck1967elements}.
+	\end{proof}
+\end{thm}
+
+\begin{kor}
+\label{kor:14.16}
+	Sei $X$ wie in Theorem~\ref{thm:14.15}. Dann haben wir einen Monomorphismus
+	\[
+		\CH^1(X) \hookrightarrow \Pic(X),\; [D] \mapsto [\cyc(D)]. 
+	\]
+	Falls $X$ noch lokal faktoriell ist, dann ist dies ein Isomorphismus.
+	\begin{proof}
+		Nach Definition ist das Bild der Gruppe der Hauptdivisoren gleich der Gruppe der Haupt-Cartier-Divisoren. Damit folgt die Behauptung aus Theorem~\ref{thm:14.15}.
+	\end{proof}
+\end{kor}
+
+\begin{bsp}
+\label{bsp:14.17}
+	Es gilt
+	\[
+		\Pic(\P^n_K) = \{\mco_{\P^n_k}(m)\mid m \in \Z\} \cong \Z
+	\]
+	nach Korollar~\ref{kor:14.16} und Proposition~\ref{prop:12.17}.
+\end{bsp}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 
