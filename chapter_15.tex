@@ -1,0 +1,175 @@
+%!TEX root = algebraische_geometrie_2.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\chapter{Projektive Einbettungen}
+
+\begin{bem}
+\label{bem:15.1}
+	Wir werden in diesem Abschnitt zu einem Schema $X$ von endlichem Typ über dem Ring $A$ die Abbildungen und Immersionen in einen projektiven Raum $\P^n_A$ studieren.
+\end{bem}
+
+\begin{bem}
+\label{bem:15.2}
+	\begin{enumerate}[i)]
+		\item Sei $A$ ein Ring und $\P^n_A=\Proj(A[T_0,\ldots,t_n])$. Dann haben wir für alle $m \in \Z$ invertierbare Garben $\mco(m)$ auf $\P^n_A$. Sei $S \coloneqq A[T_0,\ldots,T_n]$. Nach \ref{11.14} gilt dann
+		\[
+			S \cong \Gamma_*(\mco_{\P_A^n})\coloneqq \bigoplus_{m \in \Z} \Gamma(\P^n_A,\mco(m)).
+		\]
+		Insbesondere sind $T_0,\ldots,T_n$ globale Schnitte von $\mco(1)$. Für $p \in \P^n_A$ gilt $\mco(1) = S(1)_{(p)}$. Also wird $\mco(1)_p$ von den Bildern der globalen Schnitte $T_0,\ldots,T_n$ erzeugt und damit wird $\mco(1)$ durch die globalen Schnitte $T_0,\ldots,T_n$ erzeugt.
+		\item Sei $f\colon X \to Y$ ein Morphismus von Schemata und sei $\mcf$ ein $\mco_Y$-Modul. Wir haben eine Adjunktion
+		\[
+			\Hom(f^*\mcf,f^*\mcf) \cong \Hom(\mcf,f_*f^*\mcf),
+		\]
+		also induziert die Identität links auf der rechten Seite einen Homomorphismus, den wir auf den Schnitten einer offenen Menge $U$ von $Y$ mit
+		\[
+			f^*\colon \Gamma(U,\mcf) \to (\Gamma(U,f_*f^*\mcf) = \Gamma(f^{-1}U,f^*\mcf))
+		\]
+		bezeichnen.
+	\end{enumerate}
+\end{bem}
+
+\begin{thm}
+\label{thm:15.3}
+	\begin{enumerate}[i)]
+		\item\label{thm:15.3:i} Sei $\varphi\colon X \to \P^n_A$ ein Morphismus über $A$. Dann ist $\mcl \coloneqq \varphi^*\mco(1)$ eine invertierbare Garbe auf $X$, die durch die globalen Schnitte $s_i\coloneqq \varphi^*(T_i)$, $i =0,\ldots,n$ erzeugt wird.
+		\item\label{thm:15.3:ii} Sei umgekehrt $X$ ein Schema über dem Ring $A$ und $\mcl$ eine invertierbare Garbe auf $X$ und seien $s_0,\ldots,s_n \in \Gamma(X,\mcl)$ mit der Eigenschaft, dass $\mcl$ als $\mco_X$-Modul von $s_0,\ldots,s_n$ erzeugt wird. Dann gibt es genau ein Paar $(\varphi, \psi)$ mit der Eigenschaft, dass $\varphi\colon X \to \P^n_A$ ein $A$-Morphismus und $\psi\colon \mcl \simto \varphi^*\mco(1)$ ein Isomorphismus von $\mco_X$-Modulen mit der Eigenschaft, dass für alle $i=0,\ldots,n$ schon $\psi(s_i) = \varphi^*(T_i)$ gilt.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[i)]
+			\item Es gilt $\varphi^*\mco(1) = \mco_X\otimes_{\varphi^{-1}\mco_{\P^n_A}}\varphi^{-1}\mco(1)$, wobei $\varphi^{-1}\mco(1)$ die Garbe zu
+			\[
+				U \mapsto \varinjlim_{\substack{\varphi(U) \subseteq V\\V\text{ offen in }X}}\mco(1)(V)
+			\]
+			ist. Die $T_i$ defineren $s_i\coloneqq \varphi^*(T_i) \in \Gamma(X,\varphi^*\mco(1))$ und die erzeugen $\varphi^*\mco(1)$ als $\mco_X$-Modul, denn für $p \in X$ und $q\coloneqq \varphi(p)$ gilt
+			\[
+				(\varphi^*\mco(1))_p = \mco_{X,p)\otimes_{\mco_{\P_A^n}}}\mco(1)_q
+			\]
+			und dann kann man Bemerkung~\ref{bem:15.2} benutzen und es folgt \ref{thm:15.3:i}.
+			\item Seien $X$, $\mcl$ und $s_0,\ldots,s_n$ wie in \ref{thm:15.3:ii} gegeben. Für $i \in I\coloneqq \{0,\ldots,n\}$ sei
+			\[
+				X_i \coloneqq \{p \in X \mid (s_i)_p \notin \mfm_{X,p}\mcl_p\}.
+			\]
+			Aus Lemma~\ref{lem:6.4} folgt, dass $X_i$ offen in $X$ ist.
+
+			Wir behaupten nun
+			\[\label{eq:15.3.1}\tag{$\star$}
+				\mco_{X_i} s_i\vert_{X_i} = \mcl\vert_{X_i}.
+			\]
+			In der Tat is die Abbildung
+			\[
+				\mco_{X_i}\to \mcl_{\vert_{X_i}},\; f \mapsto f \cdot s_i
+			\]
+			bijektiv, da sie nach Definition von $X_i$ auf den Halmen bijektiv ist.
+
+			Da $\mcl$ von den $s_i$ als $\mco_X$-Modul erzeugt wird, folgt, dass $(X_i)_{i\in I}$ eine offene Überdeckung von $X$ ist. Für $i,j \in I$ gibt es wegen \eqref{eq:15.3.1} ein $g_{ij} \in \Gamma(X_i,\mco_{X_i})$ mit $s_j = g_{ij} s_i$ euf $X_i$. Der Ringhomomorphismus
+			\[
+				\left(A[T_0,\ldots,T_n]_{(T_i)} = A\left[\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right] \right)\to \Gamma(X_i,\mco_{X_i}),\; \frac{T_j}{T_i} \mapsto g_{ij}
+			\]
+			induziert nach Proposition~\ref{prop:5.6} einen Morphismus
+			\[
+				\varphi_i\colon X_i \to (U_i\coloneqq D_+(T_i) = \Spec A[T_0,\ldots,T_n]_{(T_i)} \subseteq \P^n_A).
+			\]
+			Man rechnet leicht nach, dass die $(\varphi_i)_{i\in I}$ zu einem Morphismus $\varphi \colon X \to \P^n_A$ verkleben. Wegen $\mco(1)\vert_{U_i} = \mco_{U_i}T_i$ folgt $\varphi^*\mco(1)\vert_{X_i} = \mco_{X_i} \varphi^*(T_i)$. Damit existiert ein Isomorphismus
+			\[
+				\psi_i\colon \mcl\vert_{X_i} \simto \varphi^*\mco(1)\vert_{X_i}, \; s_i \mapsto \varphi^*(T_i).
+			\]
+			Da $s_j = g_{ij}s_i$ und $\varphi^*(T_j)=g_{ij}\varphi^*(T_i)$ gilt, verkleben diese $\psi_i$ zum gesuchten Isomorphismus $\psi\colon \mcl \simto \varphi^*\mco(1)$. Dies zeigt die Existenz von $(\varphi,\psi)$ in \ref{thm:15.3:ii} und die Eindeutigkeit ergibt sich aus der Konstruktion.
+		\end{enumerate}
+	\end{proof}
+\end{thm}
+
+\begin{bsp}[Automorphismus von $\P^n_K$ für Körper $K$]
+\label{bsp:15.4}
+	\begin{enumerate}[i)]
+		\item Sei $n \in \N \setminus\{0\}$ und $A=(a_{ij})\in \GL_{n+1}(K)$.
+		\[
+			\psi_A\colon K[T_0,\ldots,T_n]\to K[T_0,\ldots,T_n], \; T_i \mapsto \sum_{j=1}^na_{ij}T_j
+		\]
+		ist ein Automorphismus graduierter Ringe mit Inverser $\psi_{A^-1}$. Dies induziert einen Autmorphismus $\phi_A \colon \P_k^n \to \P_k^n$ mit $\phi_{AB} = \phi_A \circ \phi_B$ und $\phi_{A^{-1}} = \phi_A^{-1}$.
+		\item Für $\lambda \in K^\times$ gilt $\phi_{\lambda A} = \phi_{\lambda_A}$. Damit operiert $\PGL_n(K)\coloneqq \GL_{n+1}(K)/K^\times$ als Gruppe von Automorphismen auf $\P^n_K$.
+		\item Diese Operation von $\PGL_n(K)$ auf $\P^n_K$ ist treu, das heißt
+		\[
+			\Phi\colon \PGL_n(K) \to \Aut_K(\P^n_K),\; [A]\mapsto \phi_A
+		\]
+		ist injektiv, wie man leicht durch das Betrachten der Punkte $[1:0:\ldots:0],[0:1:0:\ldots:0],\ldots,[0:\ldots:0:1]$ feststellt.\\
+		\textbf{Behauptung:} $\Phi\colon \PGL_n(K)\to \Aut_K(\P^n_K)$ ist ein Isomorphismus.
+
+		\textbf{Beweis:} Sei $\varphi\colon \P^n_K\to \P^n_K$ ein Isomorphismus. Nach Beispiel~\ref{bsp:14.17} gilt $\Pic(\P^n_K)\cong \Z$ mit den Erzeugern $\mco(1)$ beziehungsweise $\mco(-1)$. Da $\varphi$ ein Automotphismus ist, ist auch
+		\[
+			\varphi^*\colon \Pic(\P^n_K)\to \Pic(\P^n_K),\; L \mapsto \varphi^*L
+		\]
+		ein Isomorphismus. Es folgt $\varphi^*\mco(1) \in \{\mco(1),\mco(-1)\}$. Da $\varphi^*$ euch einen Isomorphismus zwischen $\Gamma(\P^n_K,\mco(1))$ und $\Gamma(\P^n_K,\varphi^*\mco(1)$ liefert, kommt nur $\mco(1)$ als $\varphi^*\mco(1)$ in Frage, denn es gilt
+		\[
+			\Gamma(\P^n_K,\mco(1)) = KT_0\oplus \ldots \oplus KT_n \ne 0 = \Gamma(\P^n_K,\mco(-1)).
+		\]
+		Wir können also $\varphi^*\mco(1)$ mit $\mco(1)$ identifizieren. Da $T_0,\ldots,T_n$ eine $K$-Basis von $\Gamma(\P^n_K,\mco(1))$ ist, folgt
+		\[
+			s_i\coloneqq \varphi^*(T_i) = \sum_{j=0}^n a_{ij}T_j
+		\]
+		für geeignete $a_{ij} \in K$. Da $\varphi^*$ einen Automorphismus auf den globalen Schnitten induziert, ist $(s_i)_{0 \le i \le n}$ eine $K$-Basis von $\Gamma(\P^n_K,\mco(1))$. Dann ist $A \coloneqq (a_{ij})_{0\le i,j \le n} \in \GL_{n+1}(K)$. Nach Theorem~\ref{thm:15.3} ist $\varphi$ eindeutig durch die $s_i$ bestimmt und es folgt $\varphi = \phi_A$.
+	\end{enumerate}
+\end{bsp}
+
+\begin{prop}
+\label{prop:15.5}
+	Sei $phi\colon X \to \P^n_A$ ein Morphismus über $A$ wie in Theorem~\ref{thm:15.3} zur invertierbaren Garbe $\mcl$ auf $X$ mit $s_0.\ldots,s_n \in \Gamma(X,\mcl)$ assoziiert. $phi$ ist genau dann eine abgeschlossene Immersion (und folglich $X$ projektiv über $A$), wenn folgendes gilt:
+	\begin{enumerate}[i)]
+		\item\label{prop:15.5:i} Jede offene Menge $X_i \coloneqq X_{s_i}$ ist affin.
+		\item\label{prop:15.5:ii} Für alle $i = 0,\ldots, n$ ist der Ringhomomorphismus
+		\[
+			A\left[\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right] \to \Gamma(X_i,\mco_{X_i}),\; \frac{T_j}{T_i} \mapsto \frac{s_j}{s_i}
+		\]
+		surjektiv.
+	\end{enumerate}
+	\begin{proof}
+		Sei $\varphi$ eine abgeschlossene Immersion, $U_i \coloneqq D_+(T_i) =\Spec(B_i)\underset{\text{offen}}{\subseteq}\P^n_A$, mit $B_i \coloneqq A\left[\frac{T_0}{T_i},\ldots,\frac{T_n}{T_i}\right]$. Dan ist $X_i = X \cap U_i$ ein abgeschlossene Unterschema von dem affinen Schema $U_i$ und nach Theorem~\ref{thm:7.5}ist $X_i$ durch ein Ideal $\mfb_i$ in $B_i$ gegeben und es gilt $X_i=\Spec(B_i/\mfb_i)$. Weiter ist dann der Morphismus aus \ref{prop:15.5:ii} surjektiv, weil $B_i \to B_i/\mcf_i$ surjektiv ist.
+
+		Sei umgekehrt $\varphi$ ein Morphismus mit \ref{prop:15.5:i} und \ref{prop:15.5:ii}. Dann ist $X_i$ ein abgeschlossenes Unterschema von $X$ gegeben durch den Kern von des Morphismus in \ref{prop:15.5:ii}. Also definiert $\varphi$ (lokal im Zielbereich) eine abgeschlossenes Unterschema und damit ist $\varphi$ eine abgeschlossene Immersion.
+	\end{proof}
+\end{prop}
+
+\begin{eri}
+\label{eri:15.6}
+	Sei $f\colon X \to Y$ ein Morphismus von Schemata und $\mcl$ eine invertierbare Garbe auf $X$. Dann heißt $\mcl$ \textbf{sehr ampel relativ zu $\mcf$}, falls es ein $n \in \N$ und eine abgeschlossene Immersion $i \colon X \to \P^n_Y$ von $Y$-Schemata gibt, mit der Eigenschaft, dass $\mcl \cong i^*\mco(1)$ gilt. Siehe auch \ref{11.16}.
+\end{eri}
+
+\begin{defn}
+\label{defn:15.6}
+	Eine invertierbare Garbe $\mcl$ auf einem noetherschen Schema $X$ heißt \textbf{ampel}, wenn es für alle kohärenten Garben $\mcf$ auf $X$ ein $l_0 \in \N \setminus \{0\}$ git, mit der Eigenschaft, dass $\mcf \otimes \mcl^{\otimes l}$ für alle $l \ge l_0$ durch globale Schnitte erzeugt wird.
+\end{defn}
+
+\begin{bem}
+\label{bem:15.7}
+	\begin{enumerate}[i)]
+		\item\label{bem:15.7:i} Eine invertierbare Garbe ist ampel \textbf{auf einem Schema} und sehr ampel \textbf{relativ zu einem Morphismus}.
+		\item\label{bem:15.7:ii} Sei $A$ ein noetherscher Ring und $f\colon X \to \Spec(A)$ ein projektiver Morphismus. Falls $\mcl$ eine sehr ample Garbe relativ zu $f$ ist, dann ust $\mcl$ ampel auf $X$. Dies folgt aus dem Theorem von Serre in \ref{11.17}.
+		\item\label{bem:15.7:iii} Die Umkehrung von \ref{bem:15.7:ii} ist im Allgemeinen falsch.
+		\item\label{bem:15.7:iv} Ist $X$ affin, dann zeigt man leicht, dass jede invertierbare Garbe ampel auf $X$ ist.
+	\end{enumerate}
+\end{bem}
+
+\begin{prop}
+\label{prop:15.8}
+	Für eine invertierbare Garbe $\mcl$ auf einem noetherschen Schema $X$ sind folgende Aussagen äquivalent:
+	\begin{enumerate}[i)]
+		\item $\mcl$ ist ampel.
+		\item Für alle $m > 0$ ist $\mcl^{\otimes m}$ ampel.
+		\item Es gibt ein $m \in \N$ mit der Eigenschaft, dass $\mcl^{\otimes m}$ ampel ist.
+	\end{enumerate}
+	\begin{proof}
+		\cite[Proposition~II.7.5]{hartshorne1977algebraic}.
+	\end{proof}
+\end{prop}
+
+\begin{thm}
+\label{thm:15.9}
+	Sei $A$ ein noetherscher Ring, $f \colon X \to \Spec(A)$ ein Morphismus von endlichem Typ und $\mcl$ eine invertierbare Garbe auf $X$. Dann ist $\mcl$ genau dann ampel auf $X$, wenn es ein $m \in \N \setminus \{0\}$ mit der Eigenschaft, dass $\mcl^{\otimes m}$ sehr ampel relativ zu $f$.
+	\begin{proof}
+		\cite[Theorem~II.7.6]{hartshorne1977algebraic}.
+	\end{proof}
+\end{thm}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "algebraische_geometrie_2"
+%%% End: 
