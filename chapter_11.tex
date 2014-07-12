@@ -311,11 +311,142 @@ Es gibt eigentliche Morphismen, die nicht projektiv sind. In der Theorie der tor
 			mit folgender Struktur: Sind $s \in S_d$ und $t \in \Gamma(X,\mcf(n))$, so ist $st \in \Gamma_*(\mcf)$ das Bild von $s \otimes t$ unter
 		\[
 		 	\Gamma(X,\mco_X(d))\otimes_S \Gamma(X,\mcf(n)) \to \Bigl(\Gamma(X,\,\mco_X(d)\otimes_{\mco_X}\!\mcf(n)) = \Gamma(X,\mcf(n+d))\Bigr).
-		 \] 
+		\] 
 	\end{enumerate}
-	
 \end{defn}
 
+\begin{prop}
+\label{prop:11.14}
+	Sei $A$ ein Ring, $S \coloneqq A[T_0,\ldots,T_r]$ und $X\coloneqq \Proj(S) = \P^r_A$. Dann gibt es einen kanonischen Isomorphismus $S \simto \Gamma_*(\mco_X)$ graduierter Ringe. Es gilt also $D_d \cong \Gamma(X,\mco_X(d))$ für alle $d \in \Z$. Insbesondere gilt $\Gamma(X,\mco_X(d)) = 0$.
+	\begin{proof}
+	 	Dies wird in Aufgabe~11.4 gezeigt.
+	 \end{proof} 
+\end{prop}
+
+\begin{prop}
+\label{prop:11.15}
+	Sei $S$ ein graduierter Ring, der als $S_0$-Algebra durch endlich viele Elemente aus $S_1$ erzeugt wird. Dann gibt es für jeden quasikohärenten $\mco_X$-Modul $\mcf$ einen kanonischen Isomorphismus $\widetilde{\Gamma_*(\mcf)}\simto \mcf$.
+	\begin{proof}
+		\cite[Proposition~II.5.15]{hartshorne1977algebraic}.
+	\end{proof}
+\end{prop}
+
+\begin{defn}
+\label{defn:11.16}
+	\begin{enumerate}[i)]
+		\item Sei $Y$ ein Schema und $n\in \N$. Wir erhalten ein kartesisches Diagramm
+		\begin{center}
+			\begin{tikzcd}[column sep=large, row sep=large]
+				\P^n_Y\arrow{r}{g}[swap]{\text{Basiswechsel}}\arrow{d}[swap]{\pi_2}\arrow[phantom]{dr}{\square}& \P^n_{\Z}\arrow{d}\\
+				Y \arrow{r} & \Spec(\Z)\mathclap{,}
+			\end{tikzcd}
+		\end{center}
+		wobei die Morphismen $\colon Y \to \Spec(\Z)$ und $\P^n_\Z\to \Spec(\Z)$ jeweils die kanonischen Morphismen sind. Auf $\P^n_\Z = \Proj(\Z[T_0,\ldots,T_n])$ ist $\mco_{\P^n_\Z}(m)$ für alle $m \in \Z$ definiert. Nun heißt
+		\[
+			\mco(m) \coloneqq \mco_{\P^n_Y}(m) \coloneqq g^*\left(\mco_{\P^n_\Z}(m)\right)
+		\]
+		die \textbf{getwistete Garbe von Serre}.
+		\item Sei $X$ ein Schema über $Y$. Eine invertierbare Garbe $\mcf$ heißt \textbf{sehr ampel relativ zu $Y$}, wenn es ein $n \in \N$, eine offene Immersion $i \colon X \hookrightarrow \P^n_Y$ und einen Isomorphismus $\mcf \cong i^*\left(\mco_{\P^n_Y}(1)\right)$ gibt. 
+	\end{enumerate}
+\end{defn}
+
+\begin{bem*}
+	Analog wie bei den projektiven Morphismen weicht die Definition von der in \cite[éfinition~4.4.2]{grothendieck1961elements} ab. Es gilt dasselbe wie in Proposition~\ref{prop:11.15}.
+\end{bem*}
+
+\begin{thm}[Theorem von Serre]
+\label{thm:11.17}
+	Sei $X$ ein projektives Schema über $S\coloneqq \Spec(A)$ für einen noetherschen Ring $A$. Weiter sei $\mco(1)$ eine sehr ample invertierbare Garbe relativ zu $S$ auf $X$. Für einen kohärenten $\mco_X$-Modul $\mcf$ definieren wir für alle $n \in \N$
+	\[
+		\mcf(n) \coloneqq \mcf \otimes_{\mco_X}\mco(n),
+	\]
+	mit $\mco(n) = \mco(1)^{\otimes n}$ für $n > 0$, $\mco(0)=\mco_X$ und $\mco(n) = \underline{\Hom}(\mco(-n),\mco_X))$ für $n < 0$. Dann gibt es ein $n_0\in \N$ mit der Eigenschaft, dass $\mcf(n)$ für alle $n \ge n_0$ von endlich vielen globalen Schnitten erzeugt wird.
+	\begin{proof}
+		\cite[Theorem~5.17]{hartshorne1977algebraic}.
+	\end{proof}
+\end{thm}
+
+\begin{kor}
+\label{kor:11.18}
+	Sei $X$ ein projektives Schema über einem noetherschen Ring $A$ und sei $\mcf$ eine kohärente Garbe auf $X$. Dann gibt es $n_1,\ldots,n_k \in \Z$ und einen surjektiven Homomorphismus $\bigoplus_{i=1}^k\mco(n_i)\\twoheadrightarrow \mcf$.
+	\begin{proof}
+		Nach Theorem~\ref{thm:11.17} gibt es ein $n \in \N$ und $s_1,\ldots,s_k\in \Gamma(X,\mcf(n))$, die $\mcf(n)$ erzeugen. Wir erhalten eine Surjektion
+		\[
+			\bigoplus_{i=1}^k\mco_X \twoheadrightarrow \mcf(n), \; (a_1,\ldots,a_k)\mapsto \sum_{i=1}^ka_is_i.
+		\]
+		Da $\mco_X(-n)$ eine invertierbare Garbe ist, ist tensorieren mit $\mco_X(-n)$ exakt. Wir erhalten also wie gewünscht folgende Surjektion:
+		\begin{center}
+			\begin{tikzcd}
+				\left(\bigoplus_{i=1}^k\mco_X\right)\otimes_{\mco_X}\mco_X(-n) \arrow[two heads]{r}\arrow[equal]{d} & \mcf(n)\otimes_{\mco_X}\mco_X(-n)\arrow[equal]{d}\\
+				\bigoplus_{i=1}^k\mco_X\otimes_{\mco_X}\mco_X(-n) \arrow[equal]{d} & \mcf \otimes_{\mco_X}\mco_X(n) \otimes_{\mco_X}\mco_X(-n) \arrow[equal]{d}\\
+				\bigoplus_{i=1}^k\mco_X(-n) & \mcf \otimes_{\mco_X}\mco_X \cong \mcf
+			\end{tikzcd}
+		\end{center}
+	\end{proof}
+\end{kor}
+
+\begin{thm}
+\label{thm:11.19}
+	Sei $K$ ein Körper, $A$ eine endlich erzeugte $K$-Algebra, $X$ ein projektives Schema über $\Spec(A)$ und $\mcf$ ein kohärenter $\mco_X$-Modul. Dann ist $\Gamma(X,\mcf)$ ein endlich erzeugter $A$-Modul.
+	\begin{proof}
+		\cite[Theorem~II.5.19]{hartshorne1977algebraic}.
+	\end{proof}
+\end{thm}
+
+\begin{satz}[Endlichkeitssatz]
+\label{satz:11.20}
+	Seien $X$ und $Y$ Schemata von endlichem Typ über dem Körper $K$. Weiter sei $f \colon X \to Y$ ein projektiver Morphismus und $\mcf$ ein kohärenter $\mco_X$-Modul. Dann ist $f_*(\mcf)$ ein kohärenter $\mco_X$-Modul.
+	\begin{proof}
+		Nach Proposition~\ref{prop:9.8} ist $f_*(\mcf)$ genau dann kohärent, wenn $f_*(\mcf)\vert_U$ für alle offenen $U = \Spec(A) \subseteq Y$ kohärent ist. Sei also $U = \Spec(A)$ ein offenes affines Unterschema von $Y$. Wir betrachten folgendes Diagramm:
+		\begin{center}
+			\begin{tikzcd}
+				f^{-1}(U)\arrow{r}{g}\arrow[hook]{d} & \Spec(A) = U\arrow[hook]{d}\\
+				X \arrow{r}[swap]{f} & Y
+			\end{tikzcd}
+		\end{center}
+		Damit folgt aus den Definitionen $f_*(\mcf)\vert_U = g_*\left(\mcf\vert_{f^{-1}(U)}\right)$, also kann man ohne Beschränking der Allgemeinheit annehmen, dass $Y=U=\Spec(A)$ gilt. Da $X$ und $Y$ von endlichem Typ über $K$ sind, sind sie noethersch. Damit folgt aus Proposition~\ref{prop:9.10}, dass $f_*(\mcf)$ quasikohärent ist und damit nach Proposition~\ref{prop:9.8}
+		\[
+			f_*(\mcf) = \widetilde{\Gamma(Y,f_*(\mcf))} = \widetilde{\Gamma(X,\mcf)}.
+		\]
+		Da $Y$ von endlichem Typ über $K$ ist, ist $A$ eine endlich erzeigte $K$-Algebra. Nach Theorem~\ref{thm:11.19} ist $\Gamma(X,\mcf)$ ein endlich erzeugter $A$-Modul und damit ist $f_*(\mcf)$ nach Proposition~\ref{prop:9.8} kohärent.
+	\end{proof}
+\end{satz}
+
+\begin{bem}
+\label{bem:11.21}
+	Der Endlichkeitssatz~\ref{satz:11.20} gilt allgemeiner für eigentliche Morphismen zwischen noetherschen Schemata.
+	\begin{proof}
+		\cite[Théorème~3.2.1]{grothendieck1961elementsiii}.
+	\end{proof}
+\end{bem}
+
+\begin{thm}
+\label{thm:11.22}
+	Sei $k$ ein algebraisch abgeschlosseren Körper. Dann gibt es einen kanonischen volltreuen Funktor $t$ von der Kategorie der irreduziblen quasi-projektiven (beziehungsweise projektiven) Varietäten über $k$ im Sinne der Algebraischen Geometrie~I in die Kategorie der Schemata über $k$, dessen Bild die Klasse der integren quasi-projektiven (beziehungsweise reduzierten projektiven) Schemata über $k$ ist.
+	\begin{proof}
+		Nach Aufgabe~11.3 gibt es einen volltreuen Funktor
+		\[
+			t\colon \{\text{affine Varietäten über }k\} \to \Sh,\; V \mapsto \Spec(k[V]),
+		\]
+		dessen Bild die Kategorie der affinen reduzierten Schemata von endlichem Typ über $k$ ist. Dabei entsprechen die irreduziblen affinen Varietäten den integren affinen Schemata von endlichem Typ über $k$. Weiter haben wir gesehen, dass die offenen, beziehungsweise abgeschlossenen Teilmengen einer Varietät $V$ den offenen, beziehungsweise abgeschlossenen Teilmengen von $t(V)$ entsprechen. Weiter ist $t$ verträglich mit Vereinigungen und Schnitten offener Mengen. Damit erhält man durch Verkleben den gewünschten Funktor $t$.
+
+		Sei $V$ eine irreduzible quasi-projektive (beziehungsweise projektive) Varietät über $k$. Dann ist $V$ eine offene Teilmenge in einer abgeschlossenen Menge $\overline{V}$ in $\P^n_k$. Wegen $t(\P^n_k) = \P^n_k$ und da die Entsprechung offener, beziehungsweise abgeschlossener Teilmengen unter $t$ nach Verklebung weiterhing gilt, ist $t(V)$ offen in der abgeschlossenen Menge $\overline{t(V)} \subseteq \P^n_k$. also ist $t(V)$ als Schema quasi-projektiv (beziehungsweise projektiv). Da der Funktor $t$ auf affinen Varietäten volltreu ist, ist $t$ volltreu (nutze affine offene Übereckungen).
+
+		Sei umgekehrt $X$ ein projektives reduziertes Schema über $k$. Dann ist $X$ ein abgeschlossenes Unterschema von $\P^n_k$. Betrachte die Menge $V$ der abgeschlossenen Punkte in $X$. Nach \cite[Exercise~II.3.14]{hartshorne1977algebraic} ist $V$ dicht in $X$ und nach \cite[Corrolary~II.5.16]{hartshorne1977algebraic} ist $X$ die Nullstellenmenge eines homogenen Ideals $\mfa \subseteq k[X_0,\ldots,X_n]$. Damit folgt, dass $V$ die Nullstellenmenge von $\mfa$ in $\P^n_k$ (im Sinne der Varietäten) und damit eine projektive Varietät ist. Dasselbe Argument angewandt auf abgeschlossene Teilmengen von $X$ zeigt, dass $t(V)$ und $X$ als topologische Räume gleich sind. Da weiter $t(V)$ und $X$ beide reduzierte abgeschlossene Unterschemata von $\P^n_k$ sind, folgt nach Aufgabe~8.3 $t(V) = X$.
+
+		Der quasi-projektive Fall folgt durch Übergang zu offenen Teilmengen.
+	\end{proof}
+\end{thm}
+
+\begin{defn}
+\label{defn:11.23}
+	Eine Varietät über einem beliebigen Körper $K$ ist ein separiertes reduziertes Schema von endlichem Typ über $K$.
+\end{defn}
+
+\begin{bem}
+\label{bem:11.24}
+	Theorem~\ref{thm:11.22} zeigt, dass die alten quasi-projektiven Varietäten auch Varietäten im Sinn von Definition~\ref{defn:11.23} sind. Es gibt aber auch Varietäten, die nicht quasi-projektiv sind.
+\end{bem}
 
 %%% Local Variables: 
 %%% mode: latex
